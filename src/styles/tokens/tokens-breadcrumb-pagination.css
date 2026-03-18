@@ -1,0 +1,201 @@
+/* =============================================================================
+   COMPONENT TOKENS — BREADCRUMB / PAGINATION
+   =============================================================================
+
+   Components:
+     Breadcrumb  — navigational path indicator showing hierarchy
+     Pagination  — page navigation control for paginated content
+
+   Tabs and Sidebar are intentionally deferred for separate design review.
+   =============================================================================*/
+
+
+/* =============================================================================
+   BREADCRUMB
+   =============================================================================
+   Anatomy:
+     [Home] / [Accounts] / [Current Page]
+      item     separator    item-current
+
+   States per item:
+     default | hover | current (last item — non-interactive)
+
+   Truncation:
+     When path is too long, middle items collapse to an ellipsis button.
+     Ellipsis button shares item hover/focus styles.
+   =============================================================================*/
+
+:root {
+
+  /* --- Typography --- */
+  --breadcrumb-font-family:          var(--text-font-sans);
+  --breadcrumb-font-size:            var(--text-body-md-size);          /* 14px */
+  --breadcrumb-font-weight:          var(--text-body-md-weight);        /* 400  */
+  --breadcrumb-line-height:          var(--text-body-md-line-height);
+
+  /* Current (last) item is slightly heavier to signal position */
+  --breadcrumb-font-weight-current:  var(--primitive-font-weight-medium); /* 500 */
+
+  /* --- Gap between items (including separator) --- */
+  --breadcrumb-gap:                  var(--space-component-gap-sm);     /* 6px */
+
+  /* --- Item — default (ancestor links) --- */
+  --breadcrumb-item-color:           var(--color-text-muted);           /* slate-500 */
+  --breadcrumb-item-bg:              transparent;
+  --breadcrumb-item-border-radius:   var(--radius-sm);                  /* 2px — for focus ring */
+  --breadcrumb-item-padding-x:       var(--primitive-space-1);          /* 4px — small padding for focus ring */
+  --breadcrumb-item-padding-y:       var(--primitive-space-0-5);        /* 2px */
+
+  /* --- Item — hover --- */
+  --breadcrumb-item-color-hover:     var(--color-text-default);         /* slate-900 */
+  --breadcrumb-item-underline-hover: underline;
+
+  /* --- Item — current (last, non-interactive) --- */
+  --breadcrumb-item-color-current:   var(--color-text-default);         /* slate-900 */
+  --breadcrumb-item-cursor-current:  default;
+
+  /* --- Item — focus --- */
+  --breadcrumb-focus-ring-width:     2px;
+  --breadcrumb-focus-ring-offset:    1px;
+  --breadcrumb-focus-ring-color:     var(--color-focus-ring);
+
+  /* --- Separator --- */
+  /* Separator is typically a "/" character or a chevron icon */
+  --breadcrumb-separator-color:      var(--color-text-subtle);          /* slate-400 */
+  --breadcrumb-separator-size:       var(--size-icon-sm);               /* 12px — for icon separators */
+  --breadcrumb-separator-gap:        var(--space-component-gap-xs);     /* 4px — gap between item and separator */
+
+  /* --- Icon (optional leading icon per item, e.g. home icon) --- */
+  --breadcrumb-icon-size:            var(--size-icon-md);               /* 16px */
+  --breadcrumb-icon-color:           var(--color-icon-muted);
+  --breadcrumb-icon-color-hover:     var(--color-icon-default);
+  --breadcrumb-icon-gap:             var(--space-component-gap-xs);     /* 4px — icon to label */
+
+  /* --- Ellipsis (truncation button) --- */
+  --breadcrumb-ellipsis-color:       var(--color-text-muted);
+  --breadcrumb-ellipsis-color-hover: var(--color-text-default);
+  --breadcrumb-ellipsis-bg-hover:    var(--color-state-hover);
+  --breadcrumb-ellipsis-border-radius: var(--radius-sm);
+  --breadcrumb-ellipsis-padding-x:   var(--primitive-space-1-5);        /* 6px */
+  --breadcrumb-ellipsis-padding-y:   var(--primitive-space-0-5);        /* 2px */
+
+  /* Max width per item before text truncates with ellipsis */
+  --breadcrumb-item-max-width:       12rem;                             /* 192px */
+
+}
+
+[data-theme="dark"] {
+
+  /* All handled by semantic color tokens — no additional overrides needed */
+  /* slate text tokens, border tokens are all dark-aware upstream */
+
+}
+
+
+/* =============================================================================
+   PAGINATION
+   =============================================================================
+   Anatomy:
+     [← Prev]  [1]  [2]  [...]  [8]  [9]  [10]  [Next →]
+      control   item  item  gap  item  item  item   control
+
+   States:
+     item        : default | hover | active (current page) | disabled
+     control     : default | hover | disabled (first/last page)
+     ellipsis    : static, no interaction
+
+   Structurally similar to a row of Toggle items — one item is "selected".
+   =============================================================================*/
+
+:root {
+
+  /* --- Sizing --- */
+  /* Page items are square buttons */
+  --pagination-item-size:            var(--size-control-md);            /* 32px — square */
+  --pagination-item-min-width:       var(--size-control-md);            /* 32px */
+  --pagination-item-border-radius:   var(--radius-md);                  /*  6px */
+  --pagination-item-border-width:    var(--border-width-default);
+
+  /* Prev/Next controls are slightly wider (icon + optional label) */
+  --pagination-control-height:       var(--size-control-md);            /* 32px */
+  --pagination-control-padding-x:    var(--space-component-padding-md); /* 12px */
+  --pagination-control-border-radius:var(--radius-md);
+
+  /* Gap between items */
+  --pagination-gap:                  var(--space-component-gap-xs);     /* 4px */
+
+  /* --- Typography --- */
+  --pagination-font-family:          var(--text-font-sans);
+  --pagination-font-size:            var(--text-body-md-size);          /* 14px */
+  --pagination-font-weight:          var(--primitive-font-weight-medium);/* 500  */
+  --pagination-line-height:          var(--primitive-line-height-normal);
+
+  /* --- Item — default --- */
+  --pagination-item-bg:              transparent;
+  --pagination-item-border-color:    transparent;
+  --pagination-item-text:            var(--color-text-muted);           /* slate-500 */
+
+  /* --- Item — hover --- */
+  --pagination-item-bg-hover:        var(--color-state-hover);          /* slate-50  */
+  --pagination-item-border-color-hover: var(--color-border-default);    /* slate-200 */
+  --pagination-item-text-hover:      var(--color-text-default);         /* slate-900 */
+
+  /* --- Item — active (current page) --- */
+  --pagination-item-bg-active:       var(--color-primary-emphasis);     /* amber-500 */
+  --pagination-item-border-color-active: var(--color-primary-emphasis);
+  --pagination-item-text-active:     var(--color-primary-on-emphasis);  /* white     */
+
+  /* --- Item — focus --- */
+  --pagination-focus-ring-width:     2px;
+  --pagination-focus-ring-offset:    2px;
+  --pagination-focus-ring-color:     var(--color-focus-ring);
+
+  /* --- Control (Prev / Next) — default --- */
+  --pagination-control-bg:           transparent;
+  --pagination-control-border-color: var(--color-border-default);       /* slate-200 */
+  --pagination-control-text:         var(--color-text-default);
+  --pagination-control-icon-color:   var(--color-icon-default);
+
+  /* --- Control — hover --- */
+  --pagination-control-bg-hover:     var(--color-state-hover);
+  --pagination-control-border-color-hover: var(--color-border-strong);
+  --pagination-control-text-hover:   var(--color-text-default);
+
+  /* --- Control — disabled (on first/last page) --- */
+  --pagination-control-bg-disabled:  transparent;
+  --pagination-control-border-color-disabled: var(--color-state-disabled-border);
+  --pagination-control-text-disabled:var(--color-state-disabled-text);
+  --pagination-control-icon-color-disabled: var(--color-icon-disabled);
+  --pagination-control-cursor-disabled: not-allowed;
+
+  /* --- Ellipsis --- */
+  /* Static placeholder — not interactive */
+  --pagination-ellipsis-color:       var(--color-text-subtle);          /* slate-400 */
+  --pagination-ellipsis-size:        var(--size-control-md);            /* 32px — same as item for alignment */
+
+  /* --- Icon sizes within controls --- */
+  --pagination-icon-size:            var(--size-icon-md);               /* 16px */
+  --pagination-icon-gap:             var(--space-component-gap-xs);     /* 4px — icon to label */
+
+  /* --- Compact variant ---
+     Some contexts (tables, mobile) need a minimal pagination with no labels.
+     Compact uses icon-only prev/next controls.
+  --------------------------------------------------------------------------- */
+  --pagination-compact-item-size:    var(--size-control-sm);            /* 28px — smaller items */
+  --pagination-compact-font-size:    var(--primitive-font-size-xs);     /* 12px */
+  --pagination-compact-gap:          var(--primitive-space-0-5);        /*  2px — tighter gap   */
+
+}
+
+[data-theme="dark"] {
+
+  /* Item active — amber stays but slightly lighter for dark bg contrast */
+  --pagination-item-bg-active:       var(--color-primary-emphasis);     /* dark-aware via semantic */
+  --pagination-item-text-active:     var(--color-primary-on-emphasis);
+
+  /* Control border is slightly more visible in dark */
+  --pagination-control-border-color: var(--color-border-default);       /* slate-700 — dark-aware */
+
+  /* All other states handled by semantic tokens */
+
+}

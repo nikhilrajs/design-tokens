@@ -1,0 +1,191 @@
+/* =============================================================================
+   COMPONENT TOKENS — BADGE
+   =============================================================================
+
+   Modelled after Atlassian Lozenge.
+   A badge is a visual status indicator for quick recognition.
+   Used in tables, lists, item headers, sidebar counts.
+
+   Appearances (color roles):
+     neutral | primary | success | error | warning | info
+
+   Weight variants (per appearance):
+     default    — subtle fill, role-colored text and border
+     emphasis   — solid fill (role color), white/dark text
+
+   No interactive states — badges are non-interactive display elements.
+   If a badge needs to be dismissible, the dismiss button inherits
+   ghost button tokens.
+
+   Sizing:
+     One size only. Badges are fixed-size inline elements.
+     Font is always label-sm (12px medium).
+
+   Naming:
+     --badge-[appearance]-[property]            ← default weight
+     --badge-[appearance]-emphasis-[property]   ← emphasis weight
+     --badge-[shared-property]                  ← shared across all appearances
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     BADGE — SHARED / BASE TOKENS
+  =========================================================================== */
+
+  --badge-font-family:               var(--text-font-sans);
+  --badge-font-size:                 var(--text-label-sm-size);          /* 12px */
+  --badge-font-weight:               var(--text-label-sm-weight);        /* 500  */
+  --badge-line-height:               var(--primitive-line-height-normal);
+
+  /* Badge is all-caps — matching Atlassian lozenge style */
+  --badge-text-transform:            uppercase;
+  --badge-letter-spacing:            0.025em;
+
+  /* Fixed height and padding */
+  --badge-height:                    var(--primitive-space-5);           /* 20px */
+  --badge-padding-x:                 var(--space-component-padding-sm);  /*  8px */
+  --badge-padding-y:                 var(--primitive-space-0-5);         /*  2px */
+
+  /* Border */
+  --badge-border-width:              var(--border-width-default);        /*  1px */
+  --badge-border-style:              solid;
+  --badge-border-radius:             var(--radius-full);                 /* pill shape — matches Atlassian */
+
+  /* Max width — truncate with ellipsis beyond this */
+  --badge-max-width:                 12.5rem;                            /* 200px — matches Atlassian */
+
+
+  /* ===========================================================================
+     APPEARANCE — NEUTRAL
+     Default: slate tint surface, slate text.
+     Emphasis: slate-700 fill, white text.
+  =========================================================================== */
+
+  /* Default weight */
+  --badge-neutral-bg:                var(--color-surface-muted);         /* slate-100 */
+  --badge-neutral-border:            var(--color-border-default);        /* slate-200 */
+  --badge-neutral-text:              var(--color-text-muted);            /* slate-500 */
+
+  /* Emphasis weight */
+  --badge-neutral-emphasis-bg:       var(--primitive-color-neutral-600);
+  --badge-neutral-emphasis-border:   var(--primitive-color-neutral-600);
+  --badge-neutral-emphasis-text:     var(--primitive-color-white);
+
+
+  /* ===========================================================================
+     APPEARANCE — PRIMARY
+     Default: brand subtle surface, brand text.
+     Emphasis: brand fill, on-emphasis text.
+     Used for active states, selected filters, current tab indicators.
+  =========================================================================== */
+
+  /* Default weight */
+  --badge-primary-bg:                var(--color-primary-subtle);        /* amber-50  */
+  --badge-primary-border:            var(--color-primary-border);        /* amber-300 */
+  --badge-primary-text:              var(--color-primary-text);          /* amber-700 */
+
+  /* Emphasis weight */
+  --badge-primary-emphasis-bg:       var(--color-primary-emphasis);      /* amber-500 */
+  --badge-primary-emphasis-border:   var(--color-primary-emphasis);
+  --badge-primary-emphasis-text:     var(--color-primary-on-emphasis);   /* white     */
+
+
+  /* ===========================================================================
+     APPEARANCE — SUCCESS
+     Default: emerald subtle surface, emerald text.
+     Emphasis: emerald fill, white text.
+     Use for: "Active", "Completed", "Resolved", "Approved".
+  =========================================================================== */
+
+  /* Default weight */
+  --badge-success-bg:                var(--color-success-background);    /* emerald-50  */
+  --badge-success-border:            var(--color-success-border);        /* emerald-300 */
+  --badge-success-text:              var(--color-success-text);          /* emerald-800 */
+
+  /* Emphasis weight */
+  --badge-success-emphasis-bg:       var(--color-success-emphasis);      /* emerald-600 */
+  --badge-success-emphasis-border:   var(--color-success-emphasis);
+  --badge-success-emphasis-text:     var(--color-success-on-emphasis);   /* white       */
+
+
+  /* ===========================================================================
+     APPEARANCE — ERROR
+     Default: red subtle surface, red text.
+     Emphasis: red fill, white text.
+     Use for: "Failed", "Declined", "Deleted", "Error", "Removed".
+  =========================================================================== */
+
+  /* Default weight */
+  --badge-error-bg:                  var(--color-error-background);      /* red-50  */
+  --badge-error-border:              var(--color-error-border);          /* red-300 */
+  --badge-error-text:                var(--color-error-text);            /* red-800 */
+
+  /* Emphasis weight */
+  --badge-error-emphasis-bg:         var(--color-error-emphasis);        /* red-600 */
+  --badge-error-emphasis-border:     var(--color-error-emphasis);
+  --badge-error-emphasis-text:       var(--color-error-on-emphasis);     /* white   */
+
+
+  /* ===========================================================================
+     APPEARANCE — WARNING
+     Default: yellow subtle surface, yellow text.
+     Emphasis: yellow fill, dark text (yellow on white is poor contrast).
+     Use for: "In Progress", "Pending", "Moved", "Needs Review".
+  =========================================================================== */
+
+  /* Default weight */
+  --badge-warning-bg:                var(--color-warning-background);    /* yellow-50  */
+  --badge-warning-border:            var(--color-warning-border);        /* yellow-300 */
+  --badge-warning-text:              var(--color-warning-text);          /* yellow-800 */
+
+  /* Emphasis weight — dark text on yellow fill for contrast */
+  --badge-warning-emphasis-bg:       var(--color-warning-emphasis);      /* yellow-500 */
+  --badge-warning-emphasis-border:   var(--color-warning-emphasis);
+  --badge-warning-emphasis-text:     var(--primitive-color-yellow-950);  /* near-black  */
+
+
+  /* ===========================================================================
+     APPEARANCE — INFO
+     Default: sky subtle surface, sky text.
+     Emphasis: sky fill, white text.
+     Use for: "In Progress", "New", "Open", "Draft".
+  =========================================================================== */
+
+  /* Default weight */
+  --badge-info-bg:                   var(--color-info-background);       /* sky-50  */
+  --badge-info-border:               var(--color-info-border);           /* sky-300 */
+  --badge-info-text:                 var(--color-info-text);             /* sky-800 */
+
+  /* Emphasis weight */
+  --badge-info-emphasis-bg:          var(--color-info-emphasis);         /* sky-600 */
+  --badge-info-emphasis-border:      var(--color-info-emphasis);
+  --badge-info-emphasis-text:        var(--color-info-on-emphasis);      /* white   */
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — BADGE
+   Default weights are handled by semantic role tokens (already dark-aware).
+   Emphasis weights need explicit overrides where fills change in dark mode.
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Neutral emphasis — lighter fill in dark mode for visibility */
+  --badge-neutral-emphasis-bg:       var(--primitive-color-neutral-500);
+  --badge-neutral-emphasis-border:   var(--primitive-color-neutral-500);
+
+  /* Primary emphasis — semantic token handles this via --color-primary-emphasis */
+
+  /* Warning emphasis — dark text stays dark on yellow, no change needed */
+  /* But yellow-500 in dark mode may look harsh — soften slightly */
+  --badge-warning-emphasis-bg:       var(--primitive-color-yellow-400);
+  --badge-warning-emphasis-border:   var(--primitive-color-yellow-400);
+  --badge-warning-emphasis-text:     var(--primitive-color-yellow-950);
+
+  /* All default weights handled by semantic color tokens */
+
+}

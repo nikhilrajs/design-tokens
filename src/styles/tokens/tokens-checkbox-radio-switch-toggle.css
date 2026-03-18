@@ -1,0 +1,284 @@
+/* =============================================================================
+   COMPONENT TOKENS — CHECKBOX / RADIO / SWITCH / TOGGLE / TOGGLE GROUP
+   =============================================================================
+
+   Components:
+     Checkbox      — binary checked/unchecked/indeterminate selection
+     Radio Group   — single selection from a group
+     Switch        — binary on/off with sliding thumb track
+     Toggle        — pressable button, neutral fill when active
+     Toggle Group  — set of toggles, single or multiple selection mode
+
+   Mobile:
+     All controls carry a --*-touch-target token.
+     Touch targets meet minimum 44×44px (Apple HIG) / 48×48dp (Material).
+     Implemented via ::before pseudo-element on the control element,
+     keeping visual size unchanged while expanding the tap area.
+
+   States:
+     Checkbox / Radio : unchecked | checked | indeterminate (checkbox only)
+                        + hover | focus | disabled per state
+     Switch           : off | on + hover | focus | disabled
+     Toggle           : default | hover | active (pressed) | disabled | focus
+     Toggle Group     : inherits Toggle tokens + selected state tokens
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     CHECKBOX
+  =========================================================================== */
+
+  --checkbox-size:                   var(--primitive-space-4);
+  --checkbox-touch-target:           2.75rem;
+  --checkbox-border-radius:          var(--radius-sm);
+  --checkbox-border-width:           var(--border-width-default);
+  --checkbox-indicator-size:         var(--primitive-space-2-5);
+
+  --checkbox-label-font-size:        var(--text-body-md-size);
+  --checkbox-label-font-weight:      var(--text-body-md-weight);
+  --checkbox-label-line-height:      var(--text-body-md-line-height);
+  --checkbox-label-color:            var(--color-text-default);
+  --checkbox-label-color-disabled:   var(--color-state-disabled-text);
+  --checkbox-gap:                    var(--space-component-gap-md);
+
+  --checkbox-bg:                     var(--color-background);
+  --checkbox-border-color:           var(--color-border-strong);
+  --checkbox-indicator-color:        transparent;
+
+  --checkbox-bg-hover:               var(--color-state-hover);
+  --checkbox-border-color-hover:     var(--color-primary-emphasis);
+
+  --checkbox-bg-checked:             var(--color-primary-emphasis);
+  --checkbox-border-color-checked:   var(--color-primary-emphasis);
+  --checkbox-indicator-color-checked:var(--color-primary-on-emphasis);
+
+  --checkbox-bg-checked-hover:       var(--color-primary-emphasis-hover);
+  --checkbox-border-color-checked-hover: var(--color-primary-emphasis-hover);
+
+  --checkbox-bg-indeterminate:       var(--color-primary-emphasis);
+  --checkbox-border-color-indeterminate: var(--color-primary-emphasis);
+  --checkbox-indicator-color-indeterminate: var(--color-primary-on-emphasis);
+
+  --checkbox-focus-ring-width:       2px;
+  --checkbox-focus-ring-offset:      2px;
+  --checkbox-focus-ring-color:       var(--color-focus-ring);
+
+  --checkbox-bg-disabled:            var(--color-state-disabled-bg);
+  --checkbox-border-color-disabled:  var(--color-state-disabled-border);
+  --checkbox-indicator-color-disabled: transparent;
+
+  --checkbox-bg-disabled-checked:    var(--color-state-disabled-bg);
+  --checkbox-border-color-disabled-checked: var(--color-state-disabled-border);
+  --checkbox-indicator-color-disabled-checked: var(--color-state-disabled-text);
+
+
+  /* ===========================================================================
+     RADIO GROUP
+  =========================================================================== */
+
+  --radio-size:                      var(--primitive-space-4);
+  --radio-touch-target:              2.75rem;
+  --radio-border-radius:             var(--radius-full);
+  --radio-border-width:              var(--border-width-default);
+  --radio-dot-size:                  var(--primitive-space-2);
+
+  --radio-label-font-size:           var(--text-body-md-size);
+  --radio-label-font-weight:         var(--text-body-md-weight);
+  --radio-label-line-height:         var(--text-body-md-line-height);
+  --radio-label-color:               var(--color-text-default);
+  --radio-label-color-disabled:      var(--color-state-disabled-text);
+  --radio-gap:                       var(--space-component-gap-md);
+  --radio-group-gap:                 var(--space-component-gap-lg);
+
+  --radio-bg:                        var(--color-background);
+  --radio-border-color:              var(--color-border-strong);
+  --radio-dot-color:                 transparent;
+
+  --radio-bg-hover:                  var(--color-state-hover);
+  --radio-border-color-hover:        var(--color-primary-emphasis);
+
+  --radio-bg-selected:               var(--color-primary-emphasis);
+  --radio-border-color-selected:     var(--color-primary-emphasis);
+  --radio-dot-color-selected:        var(--color-primary-on-emphasis);
+
+  --radio-bg-selected-hover:         var(--color-primary-emphasis-hover);
+  --radio-border-color-selected-hover: var(--color-primary-emphasis-hover);
+
+  --radio-focus-ring-width:          2px;
+  --radio-focus-ring-offset:         2px;
+  --radio-focus-ring-color:          var(--color-focus-ring);
+
+  --radio-bg-disabled:               var(--color-state-disabled-bg);
+  --radio-border-color-disabled:     var(--color-state-disabled-border);
+
+  --radio-bg-disabled-selected:      var(--color-state-disabled-bg);
+  --radio-border-color-disabled-selected: var(--color-state-disabled-border);
+  --radio-dot-color-disabled-selected: var(--color-state-disabled-text);
+
+
+  /* ===========================================================================
+     SWITCH
+  =========================================================================== */
+
+  --switch-track-width:              2.25rem;
+  --switch-track-height:             var(--primitive-space-5);
+  --switch-track-border-radius:      var(--radius-full);
+  --switch-track-border-width:       var(--border-width-default);
+
+  --switch-thumb-size:               var(--primitive-space-4);
+  --switch-thumb-border-radius:      var(--radius-full);
+  --switch-thumb-shadow:             var(--shadow-sm);
+  --switch-thumb-offset:             var(--primitive-space-0-5);
+
+  --switch-touch-target:             2.75rem;
+
+  --switch-label-font-size:          var(--text-body-md-size);
+  --switch-label-font-weight:        var(--text-body-md-weight);
+  --switch-label-color:              var(--color-text-default);
+  --switch-label-color-disabled:     var(--color-state-disabled-text);
+  --switch-gap:                      var(--space-component-gap-md);
+
+  /* Off state */
+  --switch-track-bg:                 var(--color-border-strong);
+  --switch-track-border-color:       transparent;
+  --switch-thumb-bg:                 var(--primitive-color-white);
+
+  --switch-track-bg-hover:           var(--primitive-color-neutral-400);
+
+  /* On state */
+  --switch-track-bg-on:              var(--color-primary-emphasis);
+  --switch-track-border-color-on:    transparent;
+  --switch-thumb-bg-on:              var(--primitive-color-white);
+
+  --switch-track-bg-on-hover:        var(--color-primary-emphasis-hover);
+
+  --switch-focus-ring-width:         2px;
+  --switch-focus-ring-offset:        2px;
+  --switch-focus-ring-color:         var(--color-focus-ring);
+
+  --switch-track-bg-disabled:        var(--color-state-disabled-bg);
+  --switch-track-border-color-disabled: var(--color-state-disabled-border);
+  --switch-thumb-bg-disabled:        var(--color-state-disabled-text);
+
+  --switch-track-bg-disabled-on:     var(--color-state-disabled-bg);
+  --switch-thumb-bg-disabled-on:     var(--color-state-disabled-text);
+
+
+  /* ===========================================================================
+     TOGGLE
+  =========================================================================== */
+
+  --toggle-size-sm-height:           var(--size-control-sm);
+  --toggle-size-sm-padding-x:        var(--space-component-padding-sm);
+  --toggle-size-sm-font-size:        var(--primitive-font-size-xs);
+  --toggle-size-sm-gap:              var(--space-component-gap-xs);
+
+  --toggle-size-md-height:           var(--size-control-md);
+  --toggle-size-md-padding-x:        var(--space-component-padding-md);
+  --toggle-size-md-font-size:        var(--primitive-font-size-sm);
+  --toggle-size-md-gap:              var(--space-component-gap-sm);
+
+  --toggle-size-lg-height:           var(--size-control-lg);
+  --toggle-size-lg-padding-x:        var(--space-component-padding-lg);
+  --toggle-size-lg-font-size:        var(--primitive-font-size-base);
+  --toggle-size-lg-gap:              var(--space-component-gap-md);
+
+  --toggle-icon-size-sm:             var(--size-control-sm);
+  --toggle-icon-size-md:             var(--size-control-md);
+  --toggle-icon-size-lg:             var(--size-control-lg);
+
+  --toggle-touch-target:             2.75rem;
+
+  --toggle-border-width:             var(--border-width-default);
+  --toggle-border-radius:            var(--radius-md);
+  --toggle-font-family:              var(--text-font-sans);
+  --toggle-font-weight:              var(--primitive-font-weight-medium);
+
+  /* Default (unpressed) */
+  --toggle-bg:                       transparent;
+  --toggle-border-color:             transparent;
+  --toggle-text:                     var(--color-text-default);
+  --toggle-icon-color:               var(--color-icon-default);
+
+  /* Hover */
+  --toggle-bg-hover:                 var(--color-state-hover);
+  --toggle-border-color-hover:       transparent;
+  --toggle-text-hover:               var(--color-text-default);
+
+  /* Active / Pressed — neutral fill, not primary */
+  --toggle-bg-active:                var(--color-surface-muted);
+  --toggle-border-color-active:      var(--color-border-default);
+  --toggle-text-active:              var(--primitive-color-neutral-700);
+  --toggle-icon-color-active:        var(--primitive-color-neutral-700);
+
+  /* Active + Hover */
+  --toggle-bg-active-hover:          var(--color-state-active);
+  --toggle-border-color-active-hover:var(--color-border-strong);
+
+  /* Focus */
+  --toggle-focus-ring-width:         2px;
+  --toggle-focus-ring-offset:        2px;
+  --toggle-focus-ring-color:         var(--color-focus-ring);
+
+  /* Disabled */
+  --toggle-bg-disabled:              transparent;
+  --toggle-border-color-disabled:    transparent;
+  --toggle-text-disabled:            var(--color-state-disabled-text);
+  --toggle-icon-color-disabled:      var(--color-icon-disabled);
+
+
+  /* ===========================================================================
+     TOGGLE GROUP
+  =========================================================================== */
+
+  --toggle-group-bg:                 var(--color-surface-muted);
+  --toggle-group-border-color:       var(--color-border-default);
+  --toggle-group-border-width:       var(--border-width-default);
+  --toggle-group-border-radius:      var(--radius-md);
+  --toggle-group-padding:            var(--primitive-space-0-5);
+  --toggle-group-gap:                var(--primitive-space-0-5);
+
+  --toggle-group-item-border-radius: var(--radius-sm);
+
+  /* Selected item */
+  --toggle-group-selected-bg:        var(--color-background);
+  --toggle-group-selected-border:    var(--color-border-default);
+  --toggle-group-selected-text:      var(--color-text-default);
+  --toggle-group-selected-shadow:    var(--shadow-sm);
+
+  --toggle-group-separator-color:    var(--color-border-default);
+  --toggle-group-separator-width:    var(--border-width-default);
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Checkbox */
+  --checkbox-border-color:           var(--color-border-strong);
+
+  /* Radio */
+  --radio-border-color:              var(--color-border-strong);
+
+  /* Switch — off track lightens slightly in dark mode */
+  --switch-track-bg:                 var(--primitive-color-neutral-600);
+  --switch-track-bg-hover:           var(--primitive-color-neutral-500);
+
+  /* Toggle active — dark fill */
+  --toggle-bg-active:                var(--primitive-color-neutral-700);
+  --toggle-border-color-active:      var(--primitive-color-neutral-600);
+  --toggle-text-active:              var(--primitive-color-neutral-200);
+  --toggle-icon-color-active:        var(--primitive-color-neutral-200);
+  --toggle-bg-active-hover:          var(--primitive-color-neutral-600);
+
+  /* Toggle Group */
+  --toggle-group-selected-bg:        var(--color-surface-card);
+  --toggle-group-selected-shadow:    var(--shadow-sm);
+
+}

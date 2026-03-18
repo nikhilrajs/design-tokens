@@ -1,0 +1,241 @@
+/* =============================================================================
+   COMPONENT TOKENS — TYPOGRAPHY
+   =============================================================================
+
+   Scope: UI typography only. No long-form prose, no article rhythm.
+   These tokens define the rendering decisions for typographic roles
+   when used as standalone components or applied to HTML elements.
+
+   What this file adds on top of tokens.css semantic typography:
+     - Color defaults per role
+     - Margin / spacing between elements (vertical rhythm in UI context)
+     - Link styles (color, underline, states)
+     - List styles (spacing, marker, indent)
+     - Inline code rendering
+     - Blockquote (minimal — for pull quotes inside UI, not prose)
+     - Text utility tokens (truncation, selection color)
+
+   What this file does NOT define (already in tokens.css):
+     - font-size, font-weight, line-height per role
+     - font-family tokens
+     - font-size scale primitives
+     - shorthand tokens (--text-[role]-shorthand)
+
+   Shorthand usage (Primer pattern):
+     Prefer the single-line shorthand when applying a full type style:
+       font: var(--text-body-md-shorthand);
+     Use individual tokens only when overriding a single property:
+       font-size: var(--text-body-md-size);
+
+   Naming: --typography-[element]-[property]-[state]
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     DISPLAY
+     Largest text. Page-level hero headings. Rare in ProjectAA/CC.
+  =========================================================================== */
+
+  --typography-display-color:              var(--color-text-default);
+  --typography-display-margin-bottom:      var(--space-component-gap-lg);    /* 12px */
+
+
+  /* ===========================================================================
+     TITLE — LG / MD / SM
+     Section headings, panel titles, card titles, dialog titles.
+  =========================================================================== */
+
+  --typography-title-lg-color:             var(--color-text-default);
+  --typography-title-lg-margin-bottom:     var(--space-component-gap-md);    /*  8px */
+
+  --typography-title-md-color:             var(--color-text-default);
+  --typography-title-md-margin-bottom:     var(--space-component-gap-md);    /*  8px */
+
+  --typography-title-sm-color:             var(--color-text-default);
+  --typography-title-sm-margin-bottom:     var(--space-component-gap-sm);    /*  6px */
+
+
+  /* ===========================================================================
+     SUBTITLE
+     Supporting text directly below a title. One level lower in hierarchy.
+  =========================================================================== */
+
+  --typography-subtitle-color:             var(--color-text-muted);          /* slate-500 — intentionally subdued */
+  --typography-subtitle-margin-top:        calc(-1 * var(--space-component-gap-xs)); /* pulls up toward title */
+  --typography-subtitle-margin-bottom:     var(--space-component-gap-md);    /*  8px */
+
+
+  /* ===========================================================================
+     BODY — LG / MD / SM
+     Default reading text. MD is the base (14px).
+  =========================================================================== */
+
+  --typography-body-lg-color:              var(--color-text-default);
+  --typography-body-lg-margin-bottom:      var(--space-component-gap-sm);    /*  6px */
+
+  --typography-body-md-color:              var(--color-text-default);
+  --typography-body-md-margin-bottom:      var(--space-component-gap-sm);    /*  6px */
+
+  --typography-body-sm-color:              var(--color-text-muted);
+  --typography-body-sm-margin-bottom:      var(--space-component-gap-xs);    /*  4px */
+
+
+  /* ===========================================================================
+     LABEL — LG / SM
+     Form labels, field labels, metadata labels. Not interactive by default.
+  =========================================================================== */
+
+  --typography-label-lg-color:             var(--color-text-default);
+  --typography-label-lg-margin-bottom:     var(--space-component-gap-xs);    /*  4px — tight to its field */
+
+  --typography-label-sm-color:             var(--color-text-muted);
+  --typography-label-sm-margin-bottom:     var(--space-component-gap-xs);    /*  4px */
+
+  /* Required field indicator (*) */
+  --typography-label-required-color:       var(--color-error-text);          /* red-700 */
+  --typography-label-required-content:     ' *';
+  --typography-label-required-margin-left: var(--primitive-space-0-5);       /* 2px */
+
+  /* Optional field indicator */
+  --typography-label-optional-color:       var(--color-text-subtle);         /* slate-400 */
+  --typography-label-optional-font-size:   var(--text-caption-size);         /* 12px */
+  --typography-label-optional-font-weight: var(--text-caption-weight);       /* 400 */
+  --typography-label-optional-content:     '(optional)';
+  --typography-label-optional-margin-left: var(--primitive-space-1);         /* 4px */
+
+
+  /* ===========================================================================
+     CAPTION
+     Timestamps, metadata, helper text below fields, table captions.
+     Smallest text in the system.
+  =========================================================================== */
+
+  --typography-caption-color:              var(--color-text-subtle);         /* slate-400 */
+  --typography-caption-margin-top:         var(--space-component-gap-xs);    /*  4px — below its parent element */
+  --typography-caption-margin-bottom:      0;
+
+
+  /* ===========================================================================
+     LINK
+     Inline text links. Used within body copy and standalone.
+     Two styles: inline (underline default) and standalone (no underline default).
+  =========================================================================== */
+
+  /* --- Inline link (inside a sentence) --- */
+  --typography-link-color:                 var(--color-primary-text);        /* amber-700 — accessible on white */
+  --typography-link-color-hover:           var(--color-primary-emphasis);    /* amber-800 */
+  --typography-link-color-visited:         var(--color-text-muted);          /* slate-500 — visited fades */
+  --typography-link-color-disabled:        var(--color-text-disabled);
+
+  --typography-link-text-decoration:       underline;
+  --typography-link-text-decoration-color: var(--color-primary-border);      /* amber-300 — softer than text */
+  --typography-link-text-decoration-hover: underline;
+  --typography-link-text-underline-offset: 2px;
+
+  --typography-link-cursor:               pointer;
+  --typography-link-cursor-disabled:      not-allowed;
+
+  /* Focus ring */
+  --typography-link-focus-ring-color:      var(--color-primary-focus-ring);
+  --typography-link-focus-ring-width:      var(--focus-ring-width);          /* 2px */
+  --typography-link-focus-ring-offset:     var(--focus-ring-offset);         /* 2px */
+  --typography-link-focus-ring-radius:     var(--radius-sm);                 /* 2px */
+
+  /* --- Standalone link (navigation, "View all", "Learn more") --- */
+  --typography-link-standalone-color:      var(--color-primary-text);
+  --typography-link-standalone-color-hover:var(--color-primary-emphasis);
+  --typography-link-standalone-text-decoration:       none;
+  --typography-link-standalone-text-decoration-hover: underline;
+  --typography-link-standalone-font-weight:var(--text-label-lg-weight);      /* 500 — slightly bolder */
+
+
+  /* ===========================================================================
+     INLINE CODE
+     Short code snippets within UI text. Not for code blocks.
+     Shadcn renders this as <code> with a pill background.
+  =========================================================================== */
+
+  --typography-code-inline-bg:             var(--color-surface-muted);       /* slate-100 */
+  --typography-code-inline-color:          var(--color-error-text);          /* red-700 — standard convention */
+  --typography-code-inline-border-color:   var(--color-border-default);      /* slate-200 */
+  --typography-code-inline-border-width:   var(--border-width-default);
+  --typography-code-inline-border-radius:  var(--radius-sm);                 /* 2px — tight, not pill */
+  --typography-code-inline-padding-x:      var(--primitive-space-1);         /* 4px */
+  --typography-code-inline-padding-y:      var(--primitive-space-0-5);       /* 2px */
+  --typography-code-inline-font-size:      0.875em;                          /* relative to parent — scales with context */
+  --typography-code-inline-font-family:    var(--font-mono);
+
+
+  /* ===========================================================================
+     LIST — UL / OL
+     Unordered and ordered lists in UI context.
+     Not for navigation lists — those use their own component tokens.
+  =========================================================================== */
+
+  --typography-list-padding-left:          var(--primitive-space-5);         /* 20px indent */
+  --typography-list-gap:                   var(--space-component-gap-xs);    /*  4px between items */
+  --typography-list-font-size:             var(--text-body-md-size);         /* 14px */
+  --typography-list-color:                 var(--color-text-default);
+  --typography-list-line-height:           var(--text-body-md-line-height);
+
+  /* Unordered list marker */
+  --typography-list-ul-marker-color:       var(--color-icon-muted);          /* slate-400 */
+  --typography-list-ul-marker-size:        0.375em;                          /* relative disc size */
+
+  /* Ordered list marker */
+  --typography-list-ol-marker-color:       var(--color-text-muted);          /* slate-500 */
+  --typography-list-ol-marker-font-weight: 500;
+
+  /* Nested list — additional indent */
+  --typography-list-nested-padding-left:   var(--primitive-space-4);         /* 16px additional */
+  --typography-list-nested-margin-top:     var(--space-component-gap-xs);    /*  4px */
+
+
+  /* ===========================================================================
+     TEXT UTILITY TOKENS
+     Shared values for text truncation and selection.
+  =========================================================================== */
+
+  /* Truncation (single line) */
+  --typography-truncate-overflow:          hidden;
+  --typography-truncate-whitespace:        nowrap;
+  --typography-truncate-text-overflow:     ellipsis;
+
+  /* Text selection highlight */
+  --typography-selection-bg:              var(--color-primary-surface);      /* amber-50  */
+  --typography-selection-color:           var(--color-text-default);
+
+
+  /* ===========================================================================
+     DIVIDER (hr)
+     Semantic separator between content sections.
+     Distinct from the Separator component (which is decorative).
+  =========================================================================== */
+
+  --typography-divider-color:              var(--color-border-muted);        /* slate-100 */
+  --typography-divider-thickness:          var(--border-width-default);      /* 1px  */
+  --typography-divider-margin-y:           var(--space-component-gap-lg);    /* 12px above and below */
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — TYPOGRAPHY
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Inline code — slightly brighter bg in dark */
+  --typography-code-inline-bg:             var(--color-surface-muted);       /* slate-800 in dark */
+  --typography-code-inline-color:          var(--color-error-icon);          /* red-400 — softer on dark bg */
+  --typography-code-inline-border-color:   var(--color-border-muted);
+
+  /* Link underline decoration — softer in dark */
+  --typography-link-text-decoration-color: var(--color-primary-border);      /* amber-700 in dark */
+
+  /* Text selection */
+  --typography-selection-bg:               var(--color-primary-surface);     /* amber-950 in dark */
+
+}

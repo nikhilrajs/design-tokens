@@ -1,0 +1,250 @@
+/* =============================================================================
+   COMPONENT TOKENS — DROPDOWN MENU / CONTEXT MENU / MENUBAR / SELECT / NATIVE SELECT
+   =============================================================================
+
+   Architecture:
+     menu-*           — shared panel and item tokens
+                        consumed by: Dropdown Menu, Context Menu, Menubar panel, Select panel
+     menubar-*        — horizontal trigger bar tokens only
+     select-trigger-* — Select trigger (input-like box)
+     native-select-*  — minimal styling for <select> element
+
+   Dropdown Menu vs Context Menu:
+     Identical visual tokens. Dropdown is triggered by a button click.
+     Context Menu is triggered by right-click at cursor position.
+     Both consume menu-* tokens entirely.
+
+   Select vs Dropdown Menu:
+     Select trigger looks like an Input (uses select-trigger-* tokens).
+     Select panel and items consume menu-* tokens.
+     Key difference: Select items have a "selected" checkmark state.
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     MENU — SHARED PANEL AND ITEM TOKENS
+     Consumed by: Dropdown Menu, Context Menu, Menubar panels, Select panel
+  =========================================================================== */
+
+  /* --- Panel (floating surface) --- */
+  --menu-bg:                         var(--color-surface-overlay);      /* white / slate-900 dark */
+  --menu-border-color:               var(--color-border-default);
+  --menu-border-width:               var(--border-width-default);
+  --menu-border-radius:              var(--radius-lg);                  /* 8px */
+  --menu-shadow:                     var(--shadow-lg);
+  --menu-z:                          var(--z-dropdown);                 /* 100 */
+  --menu-padding:                    var(--primitive-space-1);          /* 4px — inner padding around item list */
+
+  /* --- Sizing --- */
+  --menu-min-width:                  10rem;                             /* 160px */
+  --menu-max-width:                  22rem;                             /* 352px */
+  --menu-max-height:                 22rem;                             /* 352px — scroll beyond this */
+
+  /* --- Item --- */
+  --menu-item-height:                var(--size-control-md);            /* 32px */
+  --menu-item-padding-x:             var(--space-component-padding-sm); /*  8px */
+  --menu-item-padding-y:             var(--primitive-space-1-5);        /*  6px */
+  --menu-item-border-radius:         var(--radius-md);                  /*  6px — items round inside panel */
+  --menu-item-gap:                   var(--space-component-gap-sm);     /*  6px — icon/check to label */
+
+  /* --- Item typography --- */
+  --menu-item-font-family:           var(--text-font-sans);
+  --menu-item-font-size:             var(--text-body-md-size);          /* 14px */
+  --menu-item-font-weight:           var(--text-body-md-weight);        /* 400  */
+  --menu-item-line-height:           var(--text-body-md-line-height);
+
+  /* --- Item — default --- */
+  --menu-item-bg:                    transparent;
+  --menu-item-text:                  var(--color-text-default);
+  --menu-item-icon-color:            var(--color-icon-default);
+  --menu-item-shortcut-color:        var(--color-text-subtle);          /* right-aligned kbd hint */
+
+  /* --- Item — hover / focus --- */
+  --menu-item-bg-hover:              var(--color-state-hover);          /* slate-50  */
+  --menu-item-text-hover:            var(--color-text-default);
+  --menu-item-icon-color-hover:      var(--color-icon-default);
+
+  /* --- Item — disabled --- */
+  --menu-item-bg-disabled:           transparent;
+  --menu-item-text-disabled:         var(--color-state-disabled-text);
+  --menu-item-icon-color-disabled:   var(--color-icon-disabled);
+  --menu-item-cursor-disabled:       not-allowed;
+
+  /* --- Item — destructive ---
+     Destructive items (Delete, Remove) have red text in default state.
+     On hover the background also picks up a red tint.
+  --------------------------------------------------------------------------- */
+  --menu-item-text-destructive:      var(--color-error-text);           /* red-800   */
+  --menu-item-icon-color-destructive:var(--color-error-icon);           /* red-700   */
+  --menu-item-bg-destructive-hover:  var(--color-error-background);     /* red-50    */
+  --menu-item-text-destructive-hover:var(--primitive-color-red-700);
+
+  /* --- Item — selected (checkmark — used in Select, checked menu items) --- */
+  --menu-item-check-color:           var(--color-primary-emphasis);     /* amber-500 */
+  --menu-item-check-size:            var(--size-icon-sm);               /* 12px      */
+
+  /* --- Item — sub-menu indicator (chevron right) --- */
+  --menu-item-submenu-icon-color:    var(--color-icon-muted);
+  --menu-item-submenu-icon-size:     var(--size-icon-sm);               /* 12px */
+
+  /* --- Section label (group header inside menu) --- */
+  --menu-section-label-font-size:    var(--text-label-sm-size);         /* 12px */
+  --menu-section-label-font-weight:  var(--text-label-sm-weight);       /* 500  */
+  --menu-section-label-color:        var(--color-text-subtle);          /* slate-400 */
+  --menu-section-label-padding-x:    var(--space-component-padding-sm); /*  8px */
+  --menu-section-label-padding-y:    var(--primitive-space-1-5);        /*  6px */
+
+  /* --- Separator --- */
+  --menu-separator-color:            var(--color-border-muted);
+  --menu-separator-width:            var(--border-width-default);
+  --menu-separator-margin-y:         var(--primitive-space-1);          /* 4px — top and bottom */
+
+
+  /* ===========================================================================
+     MENUBAR
+     Horizontal row of menu triggers at the top of a content area.
+     Each trigger opens a dropdown panel (shares menu-* tokens).
+     Menubar has its own trigger item tokens for the bar itself.
+  =========================================================================== */
+
+  /* --- Bar container --- */
+  --menubar-bg:                      var(--color-background);
+  --menubar-border-color:            var(--color-border-muted);
+  --menubar-border-width:            var(--border-width-default);
+  --menubar-height:                  var(--size-control-md);            /* 32px */
+  --menubar-padding-x:               var(--primitive-space-1);          /*  4px — outer padding */
+  --menubar-gap:                     var(--primitive-space-0-5);        /*  2px — between triggers */
+
+  /* --- Trigger item (button inside the menubar) --- */
+  --menubar-trigger-padding-x:       var(--space-component-padding-sm); /*  8px */
+  --menubar-trigger-padding-y:       var(--primitive-space-1);          /*  4px */
+  --menubar-trigger-border-radius:   var(--radius-sm);                  /*  2px — tighter than standard */
+  --menubar-trigger-font-size:       var(--text-body-md-size);          /* 14px */
+  --menubar-trigger-font-weight:     var(--primitive-font-weight-medium);/* 500  */
+
+  /* Trigger — default */
+  --menubar-trigger-bg:              transparent;
+  --menubar-trigger-text:            var(--color-text-default);
+
+  /* Trigger — hover */
+  --menubar-trigger-bg-hover:        var(--color-state-hover);
+  --menubar-trigger-text-hover:      var(--color-text-default);
+
+  /* Trigger — open/active (menu is open) */
+  --menubar-trigger-bg-open:         var(--color-state-active);         /* slate-100 */
+  --menubar-trigger-text-open:       var(--color-text-default);
+
+  /* Trigger — focus */
+  --menubar-trigger-focus-ring-width:  2px;
+  --menubar-trigger-focus-ring-offset: 1px;
+  --menubar-trigger-focus-ring-color:  var(--color-focus-ring);
+
+
+  /* ===========================================================================
+     SELECT TRIGGER
+     The visible input-like box that opens the Select panel.
+     Panel and items consume menu-* tokens.
+
+     States match Input states (default/hover/focus/disabled/error)
+     since Select trigger is functionally an input.
+  =========================================================================== */
+
+  /* --- Sizing (mirrors Input sizes) --- */
+  --select-trigger-sm-height:        var(--size-control-sm);            /* 28px */
+  --select-trigger-sm-padding-x:     var(--space-component-padding-sm); /*  8px */
+  --select-trigger-sm-font-size:     var(--primitive-font-size-xs);     /* 12px */
+
+  --select-trigger-md-height:        var(--size-control-md);            /* 32px — default */
+  --select-trigger-md-padding-x:     var(--space-component-padding-md); /* 12px */
+  --select-trigger-md-font-size:     var(--primitive-font-size-sm);     /* 14px */
+
+  --select-trigger-lg-height:        var(--size-control-lg);            /* 40px */
+  --select-trigger-lg-padding-x:     var(--space-component-padding-lg); /* 16px */
+  --select-trigger-lg-font-size:     var(--primitive-font-size-base);   /* 16px */
+
+  /* --- Shared trigger properties --- */
+  --select-trigger-border-width:     var(--border-width-default);
+  --select-trigger-border-radius:    var(--radius-md);                  /* 6px */
+  --select-trigger-font-family:      var(--text-font-sans);
+  --select-trigger-font-weight:      var(--text-body-md-weight);
+
+  /* Chevron icon inside trigger */
+  --select-trigger-icon-size:        var(--size-icon-md);               /* 16px */
+  --select-trigger-icon-color:       var(--color-icon-muted);
+  --select-trigger-icon-gap:         var(--space-component-gap-sm);     /*  6px */
+
+  /* --- STATE: Default --- */
+  --select-trigger-bg:               var(--color-background);
+  --select-trigger-border-color:     var(--color-border-default);
+  --select-trigger-text:             var(--color-text-default);
+  --select-trigger-placeholder:      var(--color-text-subtle);
+  --select-trigger-shadow:           var(--shadow-sm);
+
+  /* --- STATE: Hover --- */
+  --select-trigger-bg-hover:         var(--color-background);
+  --select-trigger-border-color-hover: var(--color-border-strong);
+
+  /* --- STATE: Open / Focus --- */
+  --select-trigger-bg-open:          var(--color-background);
+  --select-trigger-border-color-open:var(--color-primary-emphasis);
+  --select-trigger-shadow-open:
+    0 0 0 2px var(--color-focus-ring);
+
+  /* --- STATE: Disabled --- */
+  --select-trigger-bg-disabled:      var(--color-state-disabled-bg);
+  --select-trigger-border-color-disabled: var(--color-state-disabled-border);
+  --select-trigger-text-disabled:    var(--color-state-disabled-text);
+  --select-trigger-cursor-disabled:  not-allowed;
+  --select-trigger-shadow-disabled:  none;
+
+  /* --- STATE: Error --- */
+  --select-trigger-border-color-error: var(--color-error-border);
+  --select-trigger-shadow-error-focus:
+    0 0 0 2px var(--color-error-border);
+
+
+  /* ===========================================================================
+     NATIVE SELECT
+     The browser's <select> element. Only the trigger box is styleable —
+     the dropdown panel is rendered by the OS and cannot be themed.
+     Shares select-trigger tokens for the box appearance.
+     Only additions: the native chevron override.
+  =========================================================================== */
+
+  /* Native select appearance reset */
+  --native-select-appearance:        none;
+
+  /* Custom chevron via background-image (SVG data URI at component level) */
+  --native-select-icon-size:         var(--size-icon-md);               /* 16px */
+  --native-select-icon-color:        var(--color-icon-muted);
+  --native-select-icon-padding-right:var(--space-component-padding-lg); /* 16px — room for icon */
+
+  /* All other visual tokens use select-trigger-* directly */
+  /* States: default/hover/focus/disabled/error match select-trigger states */
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — MENUS
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Menu panel — handled by --color-surface-overlay dark override */
+
+  /* Item hover is slightly more prominent in dark mode */
+  --menu-item-bg-hover:              var(--color-state-hover);          /* slate-800 — dark-aware */
+
+  /* Destructive item hover bg in dark mode */
+  --menu-item-bg-destructive-hover:  var(--color-error-background);     /* red-950 — dark-aware  */
+  --menu-item-text-destructive:      var(--color-error-text);           /* red-200 — dark-aware  */
+
+  /* Select trigger — shadow removed in dark mode (border does the work) */
+  --select-trigger-shadow:           none;
+  --select-trigger-shadow-open:
+    0 0 0 2px var(--color-focus-ring);
+
+}

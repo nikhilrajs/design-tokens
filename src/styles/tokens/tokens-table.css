@@ -1,0 +1,245 @@
+/* =============================================================================
+   COMPONENT TOKENS — TABLE
+   =============================================================================
+
+   Architecture:
+     table-*   — all table tokens
+
+   Shadcn structure:
+     Table
+       TableCaption
+       TableHeader
+         TableRow
+           TableHead        (th — column header cell)
+       TableBody
+         TableRow
+           TableCell        (td — data cell)
+       TableFooter
+         TableRow
+           TableCell
+
+   Variants:
+     density   — compact | default
+     row state — default | hover | selected
+
+   Column types (no separate token namespace — handled via modifier):
+     standard  — default left-aligned text
+     numeric   — right-aligned numbers
+     action    — hosts row-level icon buttons, right-aligned, fixed width
+
+   Sticky header:
+     Header row becomes position: sticky when table scrolls vertically.
+     A shadow token appears underneath it to signal scroll depth.
+
+   Row selection:
+     Checkbox-driven. Selected row gets a distinct background tint.
+     Uses primary surface token — consistent with other selected states
+     (Toggle Group, Select, etc.)
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     TABLE — BASE
+  =========================================================================== */
+
+  /* --- Container --- */
+  --table-bg:                          var(--color-surface-card);
+  --table-border-color:                var(--color-border-default);       /* slate-200 */
+  --table-border-width:                var(--border-width-default);       /* 1px  */
+  --table-border-radius:               var(--radius-lg);                  /* 8px  */
+
+  /* Full width by default — standard for data tables */
+  --table-width:                       100%;
+
+  /* Wrapping scroll container — table itself doesn't scroll, wrapper does */
+  --table-wrapper-overflow:            auto;
+
+  /* --- Caption --- */
+  --table-caption-font-size:           var(--text-body-sm-size);           /* 12px */
+  --table-caption-font-weight:         var(--text-body-sm-weight);
+  --table-caption-color:               var(--color-text-subtle);           /* slate-400 */
+  --table-caption-padding:             var(--space-component-gap-md);      /* 8px  */
+  --table-caption-side:                bottom;                             /* caption below table */
+
+
+  /* ===========================================================================
+     TABLE HEAD (th)
+     Column header cells. Sticky when table scrolls.
+  =========================================================================== */
+
+  --table-head-bg:                     var(--color-surface-muted);         /* slate-50  */
+  --table-head-bg-sticky:              var(--color-surface-muted);         /* same — must be opaque for sticky */
+  --table-head-border-bottom-color:    var(--color-border-default);        /* slate-200 */
+  --table-head-border-bottom-width:    var(--border-width-default);
+
+  /* Shadow under sticky header when content scrolls beneath it */
+  --table-head-sticky-shadow:          0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  --table-head-font-size:              var(--text-label-sm-size);          /* 12px */
+  --table-head-font-weight:            600;                                /* heavier than body — signals header */
+  --table-head-line-height:            var(--text-label-sm-line-height);
+  --table-head-color:                  var(--color-text-muted);            /* slate-500 — subdued, not default */
+  --table-head-text-transform:         uppercase;
+  --table-head-letter-spacing:         0.04em;
+
+  /* Sort indicator icon */
+  --table-head-sort-icon-size:         var(--size-icon-sm);                /* 12px */
+  --table-head-sort-icon-color:        var(--color-icon-muted);
+  --table-head-sort-icon-color-active: var(--color-primary-default);       /* amber-500 when sorted */
+  --table-head-sort-gap:               var(--space-component-gap-xs);      /* 4px — between label and icon */
+
+  /* Sortable header hover */
+  --table-head-bg-hover:               var(--color-state-hover);           /* slate-100 */
+  --table-head-color-hover:            var(--color-text-default);
+  --table-head-cursor-sortable:        pointer;
+
+  /* --- Density: padding for th --- */
+  --table-head-padding-x-default:      var(--space-inset-md);              /* 16px */
+  --table-head-padding-y-default:      var(--primitive-space-3);           /* 12px */
+
+  --table-head-padding-x-compact:      var(--space-inset-sm);              /* 12px */
+  --table-head-padding-y-compact:      var(--primitive-space-2);           /*  8px */
+
+
+  /* ===========================================================================
+     TABLE ROW (tr)
+  =========================================================================== */
+
+  /* --- Default --- */
+  --table-row-bg:                      transparent;
+  --table-row-border-bottom-color:     var(--color-border-muted);          /* slate-100 */
+  --table-row-border-bottom-width:     var(--border-width-default);
+
+  /* Last row in body — no bottom border */
+  --table-row-last-border-bottom:      none;
+
+  /* --- Hover --- */
+  --table-row-bg-hover:                var(--color-state-hover);           /* slate-50  */
+
+  /* --- Selected (checkbox row selection) --- */
+  --table-row-bg-selected:             var(--color-primary-surface);       /* amber-50  */
+  --table-row-border-selected-color:   var(--color-primary-border);        /* amber-200 */
+
+  /* --- Disabled row (read-only, locked) --- */
+  --table-row-bg-disabled:             transparent;
+  --table-row-color-disabled:          var(--color-text-disabled);
+  --table-row-cursor-disabled:         not-allowed;
+
+
+  /* ===========================================================================
+     TABLE CELL (td)
+  =========================================================================== */
+
+  --table-cell-font-size:              var(--text-body-md-size);           /* 14px */
+  --table-cell-font-weight:            var(--text-body-md-weight);         /* 400  */
+  --table-cell-line-height:            var(--text-body-md-line-height);
+  --table-cell-color:                  var(--color-text-default);
+
+  /* --- Density: padding for td --- */
+  --table-cell-padding-x-default:      var(--space-inset-md);              /* 16px */
+  --table-cell-padding-y-default:      var(--primitive-space-3-5);         /* 14px — slightly more than compact */
+
+  --table-cell-padding-x-compact:      var(--space-inset-sm);              /* 12px */
+  --table-cell-padding-y-compact:      var(--primitive-space-2-5);         /* 10px */
+
+  /* --- Row height reference (informational — set via padding) --- */
+  --table-row-height-default:          48px;                               /* padding-y × 2 + line-height */
+  --table-row-height-compact:          36px;
+
+  /* --- Column type: Numeric --- */
+  /* Right-aligned. Apply via column modifier class. */
+  --table-cell-numeric-text-align:     right;
+  --table-cell-numeric-font-variant:   tabular-nums;                       /* fixed-width digits — columns align */
+
+  /* --- Column type: Action --- */
+  /* Fixed width column hosting icon buttons. Right-aligned. */
+  --table-cell-action-width:           var(--primitive-space-20);          /* 80px — fits 2–3 icon buttons */
+  --table-cell-action-text-align:      right;
+  --table-cell-action-gap:             var(--space-component-gap-xs);      /* 4px between action buttons */
+
+  /* Action buttons inside cell use ghost variant — no border/bg by default */
+  --table-cell-action-btn-opacity:     0;                                  /* hidden until row hover */
+  --table-cell-action-btn-opacity-hover: 1;                                /* revealed on row hover */
+  --table-cell-action-transition:      opacity 150ms ease;
+
+  /* --- Truncation --- */
+  /* Long text cells truncate with ellipsis. Max-width set at usage. */
+  --table-cell-truncate-overflow:      hidden;
+  --table-cell-truncate-whitespace:    nowrap;
+  --table-cell-truncate-text-overflow: ellipsis;
+
+
+  /* ===========================================================================
+     TABLE FOOTER (tfoot)
+     Used for summary rows or pagination controls.
+  =========================================================================== */
+
+  --table-footer-bg:                   var(--color-surface-muted);         /* slate-50 — mirrors header */
+  --table-footer-border-top-color:     var(--color-border-default);
+  --table-footer-border-top-width:     var(--border-width-default);
+  --table-footer-font-size:            var(--text-body-sm-size);           /* 12px */
+  --table-footer-color:                var(--color-text-muted);
+
+
+  /* ===========================================================================
+     TABLE — CHECKBOX COLUMN
+     First column. Fixed narrow width. Centers the checkbox.
+  =========================================================================== */
+
+  --table-checkbox-col-width:          var(--primitive-space-12);          /* 48px */
+  --table-checkbox-col-padding-x:      var(--space-inset-md);              /* 16px */
+
+  /* Select-all checkbox in header */
+  --table-head-checkbox-color:         var(--color-icon-muted);
+  --table-head-checkbox-color-checked: var(--color-primary-default);
+
+
+  /* ===========================================================================
+     TABLE — EMPTY STATE (inline)
+     When table has no rows. Rendered as a single full-width cell.
+  =========================================================================== */
+
+  --table-empty-padding:               var(--space-inset-xl);              /* 32px */
+  --table-empty-color:                 var(--color-text-subtle);
+  --table-empty-font-size:             var(--text-body-md-size);
+  --table-empty-text-align:            center;
+
+
+  /* ===========================================================================
+     TABLE — LOADING STATE
+     Skeleton rows while data loads.
+  =========================================================================== */
+
+  --table-skeleton-row-count:          5;                                  /* informational — used in component */
+  --table-skeleton-cell-height:        var(--primitive-space-4);           /* 16px — skeleton bar height */
+  --table-skeleton-cell-border-radius: var(--radius-sm);                   /* 2px  */
+  --table-skeleton-bg:                 var(--skeleton-base-color);         /* resolves from skeleton tokens */
+  --table-skeleton-shimmer:            var(--skeleton-shimmer-color);
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — TABLE
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Header and footer backgrounds */
+  --table-head-bg:                     var(--color-surface-muted);         /* slate-900 in dark */
+  --table-head-bg-sticky:              var(--color-surface-muted);
+  --table-footer-bg:                   var(--color-surface-muted);
+
+  /* Sticky shadow more visible on dark */
+  --table-head-sticky-shadow:          0 2px 6px 0 rgba(0, 0, 0, 0.25);
+
+  /* Row borders slightly more subtle in dark */
+  --table-row-border-bottom-color:     var(--color-border-muted);          /* slate-800 */
+
+  /* Selected row — primary surface in dark */
+  --table-row-bg-selected:             var(--color-primary-surface);       /* amber-950 in dark */
+  --table-row-border-selected-color:   var(--color-primary-border);        /* amber-800 in dark */
+
+}

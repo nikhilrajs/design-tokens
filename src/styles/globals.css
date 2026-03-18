@@ -1,0 +1,183 @@
+/* =============================================================================
+   globals.css
+   =============================================================================
+
+   PHASE 1 (current) — tokens loaded locally from project files
+   PHASE 2 (when shared-ui is ready) — swap Section 2 only
+
+   Import order matters:
+     1. Tailwind
+     2. Our tokens (local OR package — swap in Phase 2)
+     3. shadcn bridge (always project-local)
+     4. Base styles
+   =============================================================================*/
+
+/* -----------------------------------------------------------------------------
+   1. TAILWIND
+----------------------------------------------------------------------------- */
+
+@import 'tailwindcss';
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+/* -----------------------------------------------------------------------------
+   2A. TOKEN IMPORTS — PHASE 1 (local files)
+   Remove this block when switching to Phase 2.
+----------------------------------------------------------------------------- */
+
+@import './tokens/tokens.css';
+@import './tokens/tokens-button.css';
+@import './tokens/tokens-input-field.css';
+@import './tokens/tokens-badge.css';
+@import './tokens/tokens-avatar-skeleton-spinner-separator-kbd.css';
+@import './tokens/tokens-checkbox-radio-switch-toggle.css';
+@import './tokens/tokens-breadcrumb-pagination.css';
+@import './tokens/tokens-overlays.css';
+@import './tokens/tokens-menus.css';
+@import './tokens/tokens-feedback.css';
+@import './tokens/tokens-card-accordion-collapsible-scrollarea-slider.css';
+@import './tokens/tokens-table.css';
+@import './tokens/tokens-typography.css';
+
+/* -----------------------------------------------------------------------------
+   2B. TOKEN IMPORTS — PHASE 2 (from @proteus2/shared-ui)
+   Uncomment this block and remove 2A when the package is ready.
+   The package handles primitives + semantic tokens only.
+   Component tokens remain local (imported above in 2A — keep those).
+----------------------------------------------------------------------------- */
+
+/*
+@import "@proteus2/shared-ui/dist/tenant-name/css/tokens.css";
+@import "@proteus2/shared-ui/dist/tenant-name/css/tailwind-theme.css";
+*/
+
+/* -----------------------------------------------------------------------------
+   3. TAILWIND THEME BRIDGE — PHASE 1 (local @theme inline)
+   Maps our semantic tokens to Tailwind utility classes.
+   In Phase 2 this moves into the package output (tailwind-theme.css).
+   Remove this block when switching to Phase 2.
+----------------------------------------------------------------------------- */
+
+@theme inline {
+  /* --- Colors --- */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-text-default);
+
+  /* Surfaces */
+  --color-surface-card: var(--color-surface-card);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-surface-overlay: var(--color-surface-overlay);
+  --color-surface-sidebar: var(--color-surface-sidebar);
+
+  /* Text */
+  --color-text-default: var(--color-text-default);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-subtle: var(--color-text-subtle);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-text-inverse: var(--color-text-inverse);
+
+  /* Border */
+  --color-border-default: var(--color-border-default);
+  --color-border-muted: var(--color-border-muted);
+  --color-border-strong: var(--color-border-strong);
+
+  /* Icon */
+  --color-icon-default: var(--color-icon-default);
+  --color-icon-muted: var(--color-icon-muted);
+  --color-icon-disabled: var(--color-icon-disabled);
+
+  /* Primary */
+  --color-primary: var(--color-primary-emphasis);
+  --color-primary-hover: var(--color-primary-emphasis-hover);
+  --color-primary-active: var(--color-primary-emphasis-active);
+  --color-primary-subtle: var(--color-primary-subtle);
+  --color-primary-subtle-hover: var(--color-primary-subtle-hover);
+  --color-primary-text: var(--color-primary-text);
+  --color-primary-border: var(--color-primary-border);
+  --color-primary-foreground: var(--color-primary-on-emphasis);
+
+  /* Success */
+  --color-success: var(--color-success-emphasis);
+  --color-success-bg: var(--color-success-background);
+  --color-success-border: var(--color-success-border);
+  --color-success-text: var(--color-success-text);
+  --color-success-icon: var(--color-success-icon);
+
+  /* Error */
+  --color-error: var(--color-error-emphasis);
+  --color-error-bg: var(--color-error-background);
+  --color-error-border: var(--color-error-border);
+  --color-error-text: var(--color-error-text);
+  --color-error-icon: var(--color-error-icon);
+
+  /* Warning */
+  --color-warning: var(--color-warning-emphasis);
+  --color-warning-bg: var(--color-warning-background);
+  --color-warning-border: var(--color-warning-border);
+  --color-warning-text: var(--color-warning-text);
+  --color-warning-icon: var(--color-warning-icon);
+
+  /* Info */
+  --color-info: var(--color-info-emphasis);
+  --color-info-bg: var(--color-info-background);
+  --color-info-border: var(--color-info-border);
+  --color-info-text: var(--color-info-text);
+  --color-info-icon: var(--color-info-icon);
+
+  /* State */
+  --color-state-hover: var(--color-state-hover);
+  --color-state-active: var(--color-state-active);
+  --color-state-selected: var(--color-state-selected);
+  --color-state-disabled-bg: var(--color-state-disabled-bg);
+  --color-state-disabled-text: var(--color-state-disabled-text);
+  --color-state-disabled-border: var(--color-state-disabled-border);
+
+  /* Focus */
+  --color-ring: var(--color-focus-ring);
+
+  /* --- Radius --- */
+  --radius-none: var(--radius-none);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+
+  /* --- Shadows --- */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+}
+
+/* -----------------------------------------------------------------------------
+   4. SHADCN BRIDGE — always project-local
+   Maps shadcn's 28 CSS variables to our semantic tokens.
+----------------------------------------------------------------------------- */
+
+@import './shadcn-bridge.css';
+
+/* -----------------------------------------------------------------------------
+   5. BASE STYLES
+----------------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    border-color: var(--color-border-default);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-default);
+    font: var(--text-body-md-shorthand);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Dark mode — toggle [data-theme="dark"] AND .dark together */
+  [data-theme='dark'] {
+    color-scheme: dark;
+  }
+}

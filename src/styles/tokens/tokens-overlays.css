@@ -1,0 +1,319 @@
+/* =============================================================================
+   COMPONENT TOKENS — DIALOG / ALERT DIALOG / SHEET / POPOVER / TOOLTIP / HOVER CARD
+   =============================================================================
+
+   Architecture:
+     overlay-*     — shared scrim and backdrop tokens (Dialog, Alert, Sheet)
+     dialog-*      — Dialog and Alert Dialog (share all visual tokens)
+     sheet-*       — right-side drawer (extends dialog surface tokens)
+     floating-*    — shared base for Popover, Tooltip, Hover Card
+     popover-*     — rich content floating panel
+     tooltip-*     — small text-only hover label
+     hover-card-*  — larger rich content on hover, interactive
+
+   Alert Dialog vs Dialog:
+     Identical visual tokens. Behavioral difference only:
+     Alert Dialog ignores scrim click and Escape key dismissal.
+     No separate token namespace needed.
+
+   Sheet:
+     Right-side only. Left corners rounded, right edge flush to viewport.
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     OVERLAY — SHARED SCRIM / BACKDROP
+     Used by: Dialog, Alert Dialog, Sheet
+     Not used by: Popover, Tooltip, Hover Card (these have no scrim)
+  =========================================================================== */
+
+  --overlay-scrim-bg:                var(--color-overlay-scrim);        /* rgb(0 0 0 / 0.5) */
+  --overlay-scrim-z:                 var(--z-modal);                    /* 400 */
+
+  /* Backdrop blur — optional, apply if design calls for it */
+  --overlay-backdrop-blur:           0px;                               /* set to e.g. 4px to enable */
+
+
+  /* ===========================================================================
+     DIALOG / ALERT DIALOG
+     ==========================================================================
+     Anatomy:
+       [Scrim]
+         [Dialog surface]
+           [Header — title + optional description]
+           [Body — scrollable content]
+           [Footer — action buttons]
+           [Close button — top right corner]
+
+     Sizes:
+       sm  — confirmation dialogs, simple alerts (max-width: 400px)
+       md  — standard dialogs (max-width: 512px) — default
+       lg  — complex dialogs, forms (max-width: 640px)
+       xl  — wide dialogs, data tables (max-width: 768px)
+       full— full viewport minus safe margin (mobile-first)
+  =========================================================================== */
+
+  /* --- Surface --- */
+  --dialog-bg:                       var(--color-surface-card);         /* white / slate-900 dark */
+  --dialog-border-color:             var(--color-border-default);
+  --dialog-border-width:             var(--border-width-default);
+  --dialog-border-radius:            var(--radius-xl);                  /* 12px — prominent surface */
+  --dialog-shadow:                   var(--shadow-xl);
+  --dialog-z:                        var(--z-modal);                    /* 400 */
+
+  /* --- Sizing --- */
+  --dialog-width-sm:                 25rem;                             /* 400px */
+  --dialog-width-md:                 32rem;                             /* 512px — default */
+  --dialog-width-lg:                 40rem;                             /* 640px */
+  --dialog-width-xl:                 48rem;                             /* 768px */
+  --dialog-width-full:               calc(100vw - var(--primitive-space-8)); /* viewport - 32px margin */
+
+  --dialog-max-height:               calc(100vh - var(--primitive-space-16)); /* viewport - 64px */
+
+  /* --- Internal spacing --- */
+  --dialog-padding-header:           var(--space-inset-lg);             /* 24px */
+  --dialog-padding-body:             var(--space-inset-lg);             /* 24px */
+  --dialog-padding-footer:           var(--space-inset-md);             /* 16px */
+
+  /* Gap between header elements (title + description) */
+  --dialog-header-gap:               var(--space-component-gap-xs);     /* 4px */
+
+  /* Gap between footer buttons */
+  --dialog-footer-gap:               var(--space-component-gap-md);     /* 8px */
+
+  /* Separator between header/body/footer */
+  --dialog-separator-color:          var(--color-border-muted);
+  --dialog-separator-width:          var(--border-width-default);
+
+  /* --- Typography --- */
+  --dialog-title-font-size:          var(--text-title-sm-size);         /* 20px */
+  --dialog-title-font-weight:        var(--text-title-sm-weight);       /* 600  */
+  --dialog-title-line-height:        var(--text-title-sm-line-height);
+  --dialog-title-color:              var(--color-text-default);
+
+  --dialog-description-font-size:    var(--text-body-md-size);          /* 14px */
+  --dialog-description-font-weight:  var(--text-body-md-weight);
+  --dialog-description-line-height:  var(--text-body-md-line-height);
+  --dialog-description-color:        var(--color-text-muted);
+
+  /* --- Close button --- */
+  /* Reuses ghost button tokens visually — these are positional/size tokens only */
+  --dialog-close-size:               var(--size-control-sm);            /* 28px */
+  --dialog-close-offset:             var(--primitive-space-3);          /* 12px from corner */
+  --dialog-close-icon-size:          var(--size-icon-md);               /* 16px */
+  --dialog-close-color:              var(--color-icon-muted);
+  --dialog-close-color-hover:        var(--color-icon-default);
+  --dialog-close-bg-hover:           var(--color-state-hover);
+  --dialog-close-border-radius:      var(--radius-md);
+
+
+  /* ===========================================================================
+     SHEET
+     Right-side drawer. Slides in from the right edge.
+     Left corners are rounded, right edge is flush to viewport.
+     Extends dialog surface tokens — only overrides what differs.
+  =========================================================================== */
+
+  /* --- Surface overrides --- */
+  --sheet-bg:                        var(--dialog-bg);                  /* same as dialog */
+  --sheet-border-color:              var(--dialog-border-color);
+  --sheet-border-width:              var(--dialog-border-width);
+  --sheet-shadow:                    var(--shadow-xl);
+  --sheet-z:                         var(--z-overlay);                  /* 300 — below modal */
+
+  /* Right-side: only left corners are rounded, right edge flush */
+  --sheet-border-radius-top-left:    var(--radius-xl);                  /* 12px */
+  --sheet-border-radius-bottom-left: var(--radius-xl);                  /* 12px */
+  --sheet-border-radius-top-right:   var(--radius-none);                /*  0px */
+  --sheet-border-radius-bottom-right:var(--radius-none);                /*  0px */
+
+  /* --- Sizing --- */
+  --sheet-width-sm:                  20rem;                             /* 320px — narrow info panel */
+  --sheet-width-md:                  24rem;                             /* 384px — default          */
+  --sheet-width-lg:                  32rem;                             /* 512px — wide form panel  */
+  --sheet-width-full:                100vw;                             /* full width on mobile     */
+  --sheet-max-width:                 80vw;                              /* never wider than 80% viewport */
+  --sheet-height:                    100vh;                             /* full height always       */
+
+  /* --- Internal spacing --- */
+  --sheet-padding-header:            var(--space-inset-lg);             /* 24px */
+  --sheet-padding-body:              var(--space-inset-lg);             /* 24px */
+  --sheet-padding-footer:            var(--space-inset-md);             /* 16px */
+  --sheet-header-gap:                var(--space-component-gap-xs);     /*  4px */
+  --sheet-footer-gap:                var(--space-component-gap-md);     /*  8px */
+  --sheet-separator-color:           var(--dialog-separator-color);
+  --sheet-separator-width:           var(--dialog-separator-width);
+
+  /* --- Typography (inherits dialog typography tokens) --- */
+  --sheet-title-font-size:           var(--dialog-title-font-size);
+  --sheet-title-font-weight:         var(--dialog-title-font-weight);
+  --sheet-title-color:               var(--dialog-title-color);
+
+  --sheet-description-font-size:     var(--dialog-description-font-size);
+  --sheet-description-color:         var(--dialog-description-color);
+
+  /* --- Close button (same as dialog) --- */
+  --sheet-close-size:                var(--dialog-close-size);
+  --sheet-close-offset:              var(--dialog-close-offset);
+  --sheet-close-icon-size:           var(--dialog-close-icon-size);
+  --sheet-close-color:               var(--dialog-close-color);
+  --sheet-close-color-hover:         var(--dialog-close-color-hover);
+  --sheet-close-bg-hover:            var(--dialog-close-bg-hover);
+  --sheet-close-border-radius:       var(--dialog-close-border-radius);
+
+
+  /* ===========================================================================
+     FLOATING BASE
+     Shared foundation for Popover, Tooltip, Hover Card.
+     These float above content, have no scrim, and are z-positioned carefully.
+     Arrow/caret is optional — each component opts in.
+  =========================================================================== */
+
+  --floating-border-radius:          var(--radius-lg);                  /* 8px */
+  --floating-border-width:           var(--border-width-default);
+  --floating-border-color:           var(--color-border-default);
+  --floating-shadow:                 var(--shadow-md);
+  --floating-bg:                     var(--color-surface-overlay);      /* white / slate-900 dark */
+
+  /* Arrow / caret */
+  --floating-arrow-size:             var(--primitive-space-2);          /* 8px */
+  --floating-arrow-color:            var(--floating-bg);
+  --floating-arrow-border-color:     var(--floating-border-color);
+
+
+  /* ===========================================================================
+     POPOVER
+     Rich content floating panel. Triggered by click (not hover).
+     Can contain forms, lists, complex content.
+     User can interact with content inside.
+  =========================================================================== */
+
+  /* --- Surface (extends floating base) --- */
+  --popover-bg:                      var(--floating-bg);
+  --popover-border-color:            var(--floating-border-color);
+  --popover-border-width:            var(--floating-border-width);
+  --popover-border-radius:           var(--floating-border-radius);
+  --popover-shadow:                  var(--floating-shadow);
+  --popover-z:                       var(--z-dropdown);                 /* 100 */
+
+  /* --- Sizing --- */
+  --popover-min-width:               12rem;                             /* 192px */
+  --popover-max-width:               22rem;                             /* 352px */
+
+  /* --- Spacing --- */
+  --popover-padding:                 var(--space-inset-md);             /* 16px */
+  --popover-header-gap:              var(--space-component-gap-sm);     /*  6px */
+
+  /* --- Typography --- */
+  --popover-title-font-size:         var(--text-label-lg-size);         /* 14px */
+  --popover-title-font-weight:       var(--text-label-lg-weight);       /* 500  */
+  --popover-title-color:             var(--color-text-default);
+
+  --popover-body-font-size:          var(--text-body-md-size);          /* 14px */
+  --popover-body-font-weight:        var(--text-body-md-weight);
+  --popover-body-color:              var(--color-text-muted);
+
+  /* --- Arrow --- */
+  --popover-arrow-size:              var(--floating-arrow-size);
+  --popover-arrow-color:             var(--floating-arrow-color);
+  --popover-arrow-border-color:      var(--floating-arrow-border-color);
+
+
+  /* ===========================================================================
+     TOOLTIP
+     Small text-only label. Appears on hover/focus. Not interactive.
+     Inverted color scheme (dark bg, light text) for visual distinction
+     from the page surface — makes it immediately readable as ephemeral info.
+  =========================================================================== */
+
+  /* --- Surface ---
+     Tooltips use an inverted (dark) surface in both light and dark mode.
+     In light mode: near-black bg, white text.
+     In dark mode: slightly lighter dark bg, white text.
+     This inversion ensures tooltips always pop above the page surface.
+  --------------------------------------------------------------------------- */
+  --tooltip-bg:                      var(--primitive-color-neutral-900);
+  --tooltip-border-color:            transparent;
+  --tooltip-border-width:            0px;
+  --tooltip-border-radius:           var(--radius-md);                  /* 6px — slightly tighter than popover */
+  --tooltip-shadow:                  var(--shadow-md);
+  --tooltip-z:                       var(--z-tooltip);                  /* 600 — above everything */
+
+  /* --- Sizing --- */
+  --tooltip-max-width:               16rem;                             /* 256px */
+  --tooltip-padding-x:               var(--space-component-padding-sm); /*  8px  */
+  --tooltip-padding-y:               var(--primitive-space-1-5);        /*  6px  */
+
+  /* --- Typography --- */
+  --tooltip-font-family:             var(--text-font-sans);
+  --tooltip-font-size:               var(--text-body-sm-size);          /* 12px — smaller than body */
+  --tooltip-font-weight:             var(--text-body-sm-weight);        /* 400  */
+  --tooltip-line-height:             var(--primitive-line-height-normal);
+  --tooltip-color:                   var(--primitive-color-white);
+
+  /* --- Arrow --- */
+  --tooltip-arrow-size:              var(--floating-arrow-size);        /* 8px  */
+  --tooltip-arrow-color:             var(--tooltip-bg);
+
+
+  /* ===========================================================================
+     HOVER CARD
+     Larger rich content panel that appears on hover.
+     Unlike Tooltip, user can move their mouse into it (it stays open).
+     Unlike Popover, it's triggered by hover not click.
+     Contains richer content: avatar, name, meta, actions.
+  =========================================================================== */
+
+  /* --- Surface (extends floating base — same color as page, not inverted) --- */
+  --hover-card-bg:                   var(--floating-bg);
+  --hover-card-border-color:         var(--floating-border-color);
+  --hover-card-border-width:         var(--floating-border-width);
+  --hover-card-border-radius:        var(--floating-border-radius);     /* 8px */
+  --hover-card-shadow:               var(--shadow-lg);                  /* larger shadow than popover */
+  --hover-card-z:                    var(--z-dropdown);                 /* 100 */
+
+  /* --- Sizing --- */
+  --hover-card-min-width:            16rem;                             /* 256px — wider than popover */
+  --hover-card-max-width:            24rem;                             /* 384px */
+
+  /* --- Spacing --- */
+  --hover-card-padding:              var(--space-inset-md);             /* 16px */
+  --hover-card-gap:                  var(--space-component-gap-md);     /*  8px — between content sections */
+
+  /* --- Typography --- */
+  --hover-card-title-font-size:      var(--text-label-lg-size);         /* 14px */
+  --hover-card-title-font-weight:    var(--text-label-lg-weight);       /* 500  */
+  --hover-card-title-color:          var(--color-text-default);
+
+  --hover-card-meta-font-size:       var(--text-body-sm-size);          /* 12px */
+  --hover-card-meta-font-weight:     var(--text-body-sm-weight);
+  --hover-card-meta-color:           var(--color-text-muted);
+
+  /* --- Arrow --- */
+  --hover-card-arrow-size:           var(--floating-arrow-size);
+  --hover-card-arrow-color:          var(--floating-arrow-color);
+  --hover-card-arrow-border-color:   var(--floating-arrow-border-color);
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — OVERLAYS
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Dialog / Sheet surface — handled by --color-surface-card dark override */
+
+  /* Floating base — handled by --color-surface-overlay dark override */
+
+  /* Tooltip stays inverted but adjusts slightly for dark bg context */
+  --tooltip-bg:                      var(--primitive-color-neutral-700);  /* lighter dark — still inverted vs slate-950 page */
+  --tooltip-color:                   var(--primitive-color-white);
+
+  /* Overlay scrim is slightly more opaque in dark mode */
+  --overlay-scrim-bg:                var(--color-overlay-scrim);        /* rgb(0 0 0 / 0.7) — dark-aware via semantic */
+
+}

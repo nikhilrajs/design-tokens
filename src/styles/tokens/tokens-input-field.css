@@ -1,0 +1,259 @@
+/* =============================================================================
+   COMPONENT TOKENS — INPUT / TEXTAREA / FIELD
+   =============================================================================
+
+   Structure:
+     input-*    — the control box itself (border, bg, text, placeholder, icons)
+     field-*    — the full composition wrapper (label, hint, validation message,
+                  spacing between parts)
+
+   Textarea shares all input tokens. Only sizing is overridden at usage.
+
+   Input adornments:
+     Leading icon slot (left)
+     Trailing icon slot (right)
+
+   States:
+     default → hover → focus → error → disabled → read-only
+
+   Success and warning feedback lives in field-* message tokens only.
+   No success/warning border on the input control itself.
+
+   Read-only treatment:
+     Option B — transparent background, dashed border, default text.
+     Signals "this is data, not editable" without looking broken/disabled.
+
+   Naming:
+     --input-[property]-[state]
+     --field-[element]-[property]-[variant]
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     INPUT — BASE / SHARED
+  =========================================================================== */
+
+  --input-font-family:               var(--text-font-sans);
+  --input-font-size:                 var(--text-body-md-size);          /* 14px — app default */
+  --input-font-weight:               var(--text-body-md-weight);
+  --input-line-height:               var(--text-body-md-line-height);
+
+  --input-border-width:              var(--border-width-default);       /* 1px */
+  --input-border-style:              solid;
+  --input-border-radius:             var(--radius-md);                  /* 6px */
+
+  /* Focus ring */
+  --input-focus-ring-width:          2px;
+  --input-focus-ring-offset:         0px;
+  /* Note: focus ring is expressed as box-shadow on inputs, not outline,
+     so it sits flush with the border rather than outside it. */
+
+  /* ===========================================================================
+     INPUT — SIZE TOKENS
+     Heights and padding only. Font size is shared (14px body-md).
+     Textarea uses min-height instead of height.
+  =========================================================================== */
+
+  /* --- sm --- */
+  --input-size-sm-height:            var(--size-control-sm);            /* 28px */
+  --input-size-sm-padding-x:         var(--space-component-padding-sm); /*  8px */
+  --input-size-sm-padding-y:         var(--primitive-space-1);          /*  4px */
+  --input-size-sm-icon-size:         var(--size-icon-sm);               /* 12px */
+  --input-size-sm-icon-gap:          var(--space-component-gap-xs);     /*  4px */
+
+  /* --- md (default) --- */
+  --input-size-md-height:            var(--size-control-md);            /* 32px */
+  --input-size-md-padding-x:         var(--space-component-padding-md); /* 12px */
+  --input-size-md-padding-y:         var(--primitive-space-1-5);        /*  6px */
+  --input-size-md-icon-size:         var(--size-icon-md);               /* 16px */
+  --input-size-md-icon-gap:          var(--space-component-gap-sm);     /*  6px */
+
+  /* --- lg --- */
+  --input-size-lg-height:            var(--size-control-lg);            /* 40px */
+  --input-size-lg-padding-x:         var(--space-component-padding-lg); /* 16px */
+  --input-size-lg-padding-y:         var(--primitive-space-2);          /*  8px */
+  --input-size-lg-icon-size:         var(--size-icon-lg);               /* 20px */
+  --input-size-lg-icon-gap:          var(--space-component-gap-md);     /*  8px */
+
+  /* Textarea min-height — enough for ~3 lines at body-md */
+  --input-textarea-min-height:       5rem;                              /* 80px */
+  --input-textarea-padding-x:        var(--space-component-padding-md); /* 12px */
+  --input-textarea-padding-y:        var(--space-component-padding-sm); /*  8px */
+  --input-textarea-resize:           vertical;
+
+  /* ===========================================================================
+     INPUT — STATE: DEFAULT
+  =========================================================================== */
+
+  --input-bg:                        var(--color-background);
+  --input-border-color:              var(--color-border-default);
+  --input-text:                      var(--color-text-default);
+  --input-placeholder:               var(--color-text-subtle);
+  --input-shadow:                    var(--shadow-sm);
+
+  /* ===========================================================================
+     INPUT — STATE: HOVER
+  =========================================================================== */
+
+  --input-bg-hover:                  var(--color-background);
+  --input-border-color-hover:        var(--color-border-strong);
+  --input-shadow-hover:              var(--shadow-sm);
+
+  /* ===========================================================================
+     INPUT — STATE: FOCUS
+     Focus ring expressed as box-shadow so it sits inside/flush with the border.
+     Combines with border color change for a two-signal focus indicator.
+  =========================================================================== */
+
+  --input-bg-focus:                  var(--color-background);
+  --input-border-color-focus:        var(--color-primary-emphasis);
+  --input-focus-ring-color:          var(--color-focus-ring);
+  --input-shadow-focus:
+    0 0 0 var(--input-focus-ring-width) var(--input-focus-ring-color);
+
+  /* ===========================================================================
+     INPUT — STATE: ERROR
+     Border turns red. Focus ring also turns red when focused in error state.
+  =========================================================================== */
+
+  --input-bg-error:                  var(--color-background);
+  --input-border-color-error:        var(--color-error-border);
+  --input-shadow-error:              none;
+  --input-shadow-error-focus:
+    0 0 0 var(--input-focus-ring-width) var(--color-error-border);
+
+  /* ===========================================================================
+     INPUT — STATE: DISABLED
+     Muted background, muted border, muted text.
+     Cursor signals non-interactivity.
+  =========================================================================== */
+
+  --input-bg-disabled:               var(--color-state-disabled-bg);
+  --input-border-color-disabled:     var(--color-state-disabled-border);
+  --input-text-disabled:             var(--color-state-disabled-text);
+  --input-placeholder-disabled:      var(--color-state-disabled-text);
+  --input-cursor-disabled:           not-allowed;
+  --input-shadow-disabled:           none;
+
+  /* ===========================================================================
+     INPUT — STATE: READ-ONLY
+     Option B — transparent background, dashed border, default text.
+     User can see and copy the value, but cannot edit it.
+     Visually distinct from both editable and disabled states.
+  =========================================================================== */
+
+  --input-bg-readonly:               transparent;
+  --input-border-color-readonly:     var(--color-border-default);
+  --input-border-style-readonly:     dashed;
+  --input-text-readonly:             var(--color-text-default);
+  --input-placeholder-readonly:      var(--color-text-subtle);
+  --input-cursor-readonly:           default;
+  --input-shadow-readonly:           none;
+
+  /* ===========================================================================
+     INPUT — ADORNMENT TOKENS
+     Leading icon (left) and trailing icon (right) slots.
+     Icons sit inside the input padding area.
+     Input padding-x adjusts when an adornment is present
+     (handled at component level using these offset tokens).
+  =========================================================================== */
+
+  /* Icon colors */
+  --input-icon-color:                var(--color-icon-muted);
+  --input-icon-color-focus:          var(--color-icon-default);
+  --input-icon-color-error:          var(--color-error-icon);
+  --input-icon-color-disabled:       var(--color-icon-disabled);
+
+  /* Padding compensation when icon slot is filled.
+     Component adds this to padding-x to prevent text sitting under the icon. */
+  --input-adornment-sm-offset:       var(--primitive-space-6);     /* 24px: icon(12) + gap(4) + padding(8) */
+  --input-adornment-md-offset:       var(--primitive-space-8);     /* 32px: icon(16) + gap(6) + padding(12) - 2 */
+  --input-adornment-lg-offset:       var(--primitive-space-10);    /* 40px: icon(20) + gap(8) + padding(16) - 4 */
+
+
+  /* ===========================================================================
+     FIELD — COMPOSITION TOKENS
+     Field wraps: Label + Input/Textarea + Hint + Validation message.
+     These tokens govern the spacing and typography of each part.
+  =========================================================================== */
+
+  /* --- Spacing between field parts --- */
+  --field-gap-label-input:           var(--space-component-gap-xs);     /*  4px — label to input */
+  --field-gap-input-message:         var(--space-component-gap-xs);     /*  4px — input to hint/error */
+
+  /* --- Label --- */
+  --field-label-font-size:           var(--text-label-lg-size);         /* 14px */
+  --field-label-font-weight:         var(--text-label-lg-weight);       /* 500  */
+  --field-label-line-height:         var(--text-label-lg-line-height);
+  --field-label-color:               var(--color-text-default);
+  --field-label-color-disabled:      var(--color-state-disabled-text);
+
+  /* Required indicator (*) */
+  --field-label-required-color:      var(--color-error-text);
+
+  /* Optional indicator text */
+  --field-label-optional-color:      var(--color-text-muted);
+  --field-label-optional-font-size:  var(--text-label-sm-size);         /* 12px */
+  --field-label-optional-font-weight:var(--primitive-font-weight-normal);
+
+  /* --- Hint text --- */
+  /* Appears below input in default/neutral state */
+  --field-hint-font-size:            var(--text-body-sm-size);          /* 12px */
+  --field-hint-font-weight:          var(--text-body-sm-weight);
+  --field-hint-line-height:          var(--text-body-sm-line-height);
+  --field-hint-color:                var(--color-text-muted);
+
+  /* --- Validation message — Error --- */
+  /* Replaces hint text when field is in error state */
+  --field-message-error-font-size:   var(--text-body-sm-size);          /* 12px */
+  --field-message-error-font-weight: var(--primitive-font-weight-medium);
+  --field-message-error-line-height: var(--text-body-sm-line-height);
+  --field-message-error-color:       var(--color-error-text);
+  --field-message-error-icon-color:  var(--color-error-icon);
+
+  /* --- Validation message — Success --- */
+  /* Success feedback lives here only, not on the input border */
+  --field-message-success-font-size:   var(--text-body-sm-size);
+  --field-message-success-font-weight: var(--primitive-font-weight-medium);
+  --field-message-success-line-height: var(--text-body-sm-line-height);
+  --field-message-success-color:       var(--color-success-text);
+  --field-message-success-icon-color:  var(--color-success-icon);
+
+  /* --- Validation message — Warning --- */
+  /* Warning feedback lives here only, not on the input border */
+  --field-message-warning-font-size:   var(--text-body-sm-size);
+  --field-message-warning-font-weight: var(--primitive-font-weight-medium);
+  --field-message-warning-line-height: var(--text-body-sm-line-height);
+  --field-message-warning-color:       var(--color-warning-text);
+  --field-message-warning-icon-color:  var(--color-warning-icon);
+
+  /* --- Character count --- */
+  /* Shown for Textarea and length-limited inputs (right-aligned below input) */
+  --field-char-count-font-size:      var(--text-caption-size);          /* 12px */
+  --field-char-count-color:          var(--color-text-subtle);
+  --field-char-count-color-warning:  var(--color-warning-text);         /* approaching limit */
+  --field-char-count-color-error:    var(--color-error-text);           /* at/over limit */
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — INPUT / FIELD
+   Most states are handled by semantic token overrides in tokens.css.
+   Only values that directly reference primitives need explicit overrides here.
+   =============================================================================*/
+
+[data-theme="dark"] {
+
+  /* Input default shadow is less useful in dark mode — remove it */
+  --input-shadow:                    none;
+  --input-shadow-hover:              none;
+
+  /* Focus ring stays visible — semantic focus ring color handles this */
+
+  /* Read-only border needs to be visible against dark background */
+  --input-border-color-readonly:     var(--color-border-default);
+
+}
