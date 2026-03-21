@@ -82,12 +82,12 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-primary-bg:                var(--color-primary-subtle);        /* amber-50  */
-  --badge-primary-border:            var(--color-primary-border);        /* amber-300 */
-  --badge-primary-text:              var(--color-primary-text);          /* amber-700 */
+  --badge-primary-bg:                var(--color-primary-subtle);        /* brand-50  */
+  --badge-primary-border:            var(--color-primary-border);        /* brand-300 */
+  --badge-primary-text:              var(--color-primary-text);          /* brand-700 */
 
   /* Emphasis weight */
-  --badge-primary-emphasis-bg:       var(--color-primary-emphasis);      /* amber-500 */
+  --badge-primary-emphasis-bg:       var(--color-primary-emphasis);      /* brand-500 */
   --badge-primary-emphasis-border:   var(--color-primary-emphasis);
   --badge-primary-emphasis-text:     var(--color-primary-on-emphasis);   /* white     */
 

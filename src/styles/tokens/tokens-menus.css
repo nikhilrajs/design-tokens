@@ -82,7 +82,7 @@
   --menu-item-text-destructive-hover:var(--primitive-color-red-700);
 
   /* --- Item — selected (checkmark — used in Select, checked menu items) --- */
-  --menu-item-check-color:           var(--color-primary-emphasis);     /* amber-500 */
+  --menu-item-check-color:           var(--color-primary-emphasis);     /* brand-500 */
   --menu-item-check-size:            var(--size-icon-sm);               /* 12px      */
 
   /* --- Item — sub-menu indicator (chevron right) --- */

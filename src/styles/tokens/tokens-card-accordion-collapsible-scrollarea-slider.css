@@ -198,13 +198,13 @@
   --slider-track-height-lg:          var(--primitive-space-2);          /* 8px  */
 
   /* --- Range fill (filled portion of track) --- */
-  --slider-range-bg:                 var(--color-primary-default);      /* amber-500 */
-  --slider-range-bg-hover:           var(--color-primary-hover);        /* amber-600 */
+  --slider-range-bg:                 var(--color-primary-default);      /* brand-500 */
+  --slider-range-bg-hover:           var(--color-primary-hover);        /* brand-600 */
   --slider-range-bg-disabled:        var(--color-state-disabled-border);
 
   /* --- Thumb --- */
   --slider-thumb-bg:                 var(--color-surface-card);         /* white     */
-  --slider-thumb-border-color:       var(--color-primary-default);      /* amber-500 */
+  --slider-thumb-border-color:       var(--color-primary-default);      /* brand-500 */
   --slider-thumb-border-width:       var(--border-width-thick);         /* 2px       */
   --slider-thumb-border-radius:      var(--radius-full);
   --slider-thumb-shadow:             var(--shadow-sm);

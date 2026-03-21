@@ -87,7 +87,7 @@
   /* Sort indicator icon */
   --table-head-sort-icon-size:         var(--size-icon-sm);                /* 12px */
   --table-head-sort-icon-color:        var(--color-icon-muted);
-  --table-head-sort-icon-color-active: var(--color-primary-default);       /* amber-500 when sorted */
+  --table-head-sort-icon-color-active: var(--color-primary-default);       /* brand-500 when sorted */
   --table-head-sort-gap:               var(--space-component-gap-xs);      /* 4px — between label and icon */
 
   /* Sortable header hover */
@@ -119,8 +119,8 @@
   --table-row-bg-hover:                var(--color-state-hover);           /* slate-50  */
 
   /* --- Selected (checkbox row selection) --- */
-  --table-row-bg-selected:             var(--color-primary-surface);       /* amber-50  */
-  --table-row-border-selected-color:   var(--color-primary-border);        /* amber-200 */
+  --table-row-bg-selected:             var(--color-primary-surface);       /* brand-50  */
+  --table-row-border-selected-color:   var(--color-primary-border);        /* brand-200 */
 
   /* --- Disabled row (read-only, locked) --- */
   --table-row-bg-disabled:             transparent;
@@ -239,7 +239,7 @@
   --table-row-border-bottom-color:     var(--color-border-muted);          /* slate-800 */
 
   /* Selected row — primary surface in dark */
-  --table-row-bg-selected:             var(--color-primary-surface);       /* amber-950 in dark */
-  --table-row-border-selected-color:   var(--color-primary-border);        /* amber-800 in dark */
+  --table-row-bg-selected:             var(--color-primary-surface);       /* brand-950 in dark */
+  --table-row-border-selected-color:   var(--color-primary-border);        /* brand-800 in dark */
 
 }

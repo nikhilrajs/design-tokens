@@ -141,7 +141,7 @@
   --pagination-item-text-hover:      var(--color-text-default);         /* slate-900 */
 
   /* --- Item — active (current page) --- */
-  --pagination-item-bg-active:       var(--color-primary-emphasis);     /* amber-500 */
+  --pagination-item-bg-active:       var(--color-primary-emphasis);     /* brand-500 */
   --pagination-item-border-color-active: var(--color-primary-emphasis);
   --pagination-item-text-active:     var(--color-primary-on-emphasis);  /* white     */
 
@@ -189,7 +189,7 @@
 
 [data-app-color-scheme="dark"] {
 
-  /* Item active — amber stays but slightly lighter for dark bg contrast */
+  /* Item active — brand color stays but slightly lighter for dark bg contrast */
   --pagination-item-bg-active:       var(--color-primary-emphasis);     /* dark-aware via semantic */
   --pagination-item-text-active:     var(--color-primary-on-emphasis);
 

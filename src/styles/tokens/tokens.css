@@ -42,21 +42,24 @@
   --primitive-color-neutral-950: oklch(14.1% 0.005 285.823);
 
   /* ---------------------------------------------------------------------------
-     1.2 COLOR PRIMITIVES — Amber (Primary / Brand fallback)
-     Source: Tailwind CSS amber scale
+     1.2 COLOR PRIMITIVES — Brand (Primary)
+     Custom brand scale in OKLCH at hue 43.7.
+     This is the ONLY block that changes per tenant. Style Dictionary outputs
+     these same variable names for every tenant — only the values differ.
+     Do NOT reference these directly in components; use --color-primary-* instead.
   --------------------------------------------------------------------------- */
 
-  --primitive-color-amber-50: #fffbeb;
-  --primitive-color-amber-100: #fef3c7;
-  --primitive-color-amber-200: #fde68a;
-  --primitive-color-amber-300: #fcd34d;
-  --primitive-color-amber-400: #fbbf24;
-  --primitive-color-amber-500: #f59e0b;
-  --primitive-color-amber-600: #d97706;
-  --primitive-color-amber-700: #b45309;
-  --primitive-color-amber-800: #92400e;
-  --primitive-color-amber-900: #78350f;
-  --primitive-color-amber-950: #451a03;
+  --primitive-color-brand-50:  oklch(97.93% 0.006  43.7);
+  --primitive-color-brand-100: oklch(95.05% 0.017  43.7);
+  --primitive-color-brand-200: oklch(90.24% 0.042  43.7);
+  --primitive-color-brand-300: oklch(83.66% 0.081  43.7);
+  --primitive-color-brand-400: oklch(73.91% 0.1497 43.7);
+  --primitive-color-brand-500: oklch(64.7%  0.169  43.7);
+  --primitive-color-brand-600: oklch(59.17% 0.155  43.7);
+  --primitive-color-brand-700: oklch(50.81% 0.133  43.7);
+  --primitive-color-brand-800: oklch(44.37% 0.116  43.7);
+  --primitive-color-brand-900: oklch(39.25% 0.102  43.7);
+  --primitive-color-brand-950: oklch(27.91% 0.073  43.7);
 
   /* ---------------------------------------------------------------------------
      1.3 COLOR PRIMITIVES — Red (Error)
@@ -292,35 +295,35 @@
 
   /* ---------------------------------------------------------------------------
      2.5 PRIMARY / BRAND TOKENS
-     Tenant override: replace these via a scoped [data-app-tenant="x"] block.
+     Tenant override: replace --primitive-color-brand-* values via a
+     [data-app-tenant="x"] block. Only primary color tokens change per tenant.
   --------------------------------------------------------------------------- */
 
   /* Solid fills — buttons, active indicators */
-  --color-primary-emphasis: var(--primitive-color-amber-600);
-  --color-primary-emphasis-hover: var(--primitive-color-amber-700);
-  --color-primary-emphasis-active: var(--primitive-color-amber-800);
+  --color-primary-emphasis: var(--primitive-color-brand-700);
+  --color-primary-emphasis-hover: var(--primitive-color-brand-800);
+  --color-primary-emphasis-active: var(--primitive-color-brand-900);
 
   /* Subtle fills — selected rows, hover states, badges */
-  --color-primary-subtle: var(--primitive-color-amber-50);
-  --color-primary-subtle-hover: var(--primitive-color-amber-100);
+  --color-primary-subtle: var(--primitive-color-brand-50);
+  --color-primary-subtle-hover: var(--primitive-color-brand-100);
 
-  /* Text on top of subtle fills */
-  --color-primary-text: var(--primitive-color-amber-700);
+  /* Text on top of subtle fills
+     Uses -800 (not -700) to ensure WCAG AA on both white and brand-50 backgrounds */
+  --color-primary-text: var(--primitive-color-brand-800);
 
   /* Borders on primary-tinted surfaces */
-  --color-primary-border: var(--primitive-color-amber-300);
+  --color-primary-border: var(--primitive-color-brand-300);
 
   /* Icon in primary contexts */
-  --color-primary-icon: var(--primitive-color-amber-600);
+  --color-primary-icon: var(--primitive-color-brand-600);
 
-  /* Text on top of emphasis fills (e.g. dark text on filled amber button)
-     NOTE: amber-600 (#d97706) achieves only 3.0:1 with white — fails WCAG AA.
-     neutral-950 achieves 6.3:1 on amber-600. All major design systems (Atlassian,
-     GitHub Primer, Polaris) use dark text on amber/yellow. */
-  --color-primary-on-emphasis: var(--primitive-color-neutral-950);
+  /* Text on top of emphasis fills
+     brand-700 (L=50.81%) achieves ~4.5:1 with white — WCAG AA compliant. */
+  --color-primary-on-emphasis: var(--primitive-color-white);
 
   /* Focus ring */
-  --color-focus-ring: var(--primitive-color-amber-400);
+  --color-focus-ring: var(--primitive-color-brand-400);
 
   /* ---------------------------------------------------------------------------
      2.6 ROLE-BASED SURFACE TOKENS — Success
@@ -380,8 +383,8 @@
 
   --color-state-hover: var(--primitive-color-neutral-100);   /* neutral-50 (98.5%) is invisible on white — neutral-100 (96.7%) is the minimum perceptible hover */
   --color-state-active: var(--primitive-color-neutral-200);  /* shifted one step to maintain contrast above hover */
-  --color-state-selected: var(--primitive-color-amber-50);
-  --color-state-selected-border: var(--primitive-color-amber-400);
+  --color-state-selected: var(--primitive-color-brand-50);
+  --color-state-selected-border: var(--primitive-color-brand-400);
 
   /* Disabled state — applies to backgrounds of disabled controls */
   --color-state-disabled-bg: var(--primitive-color-neutral-100);
@@ -684,16 +687,16 @@
      Symmetry: light 500/600/700 → dark 400/300/200
   --------------------------------------------------------------------------- */
 
-  --color-primary-emphasis: var(--primitive-color-amber-400);
-  --color-primary-emphasis-hover: var(--primitive-color-amber-300);
-  --color-primary-emphasis-active: var(--primitive-color-amber-200);
-  --color-primary-subtle: var(--primitive-color-amber-950);
-  --color-primary-subtle-hover: var(--primitive-color-amber-900);
-  --color-primary-text: var(--primitive-color-amber-300);
-  --color-primary-border: var(--primitive-color-amber-700);
-  --color-primary-icon: var(--primitive-color-amber-400);
-  --color-primary-on-emphasis: var(--primitive-color-neutral-950);
-  --color-focus-ring: var(--primitive-color-amber-500);
+  --color-primary-emphasis: var(--primitive-color-brand-400);
+  --color-primary-emphasis-hover: var(--primitive-color-brand-300);
+  --color-primary-emphasis-active: var(--primitive-color-brand-200);
+  --color-primary-subtle: var(--primitive-color-brand-950);
+  --color-primary-subtle-hover: var(--primitive-color-brand-900);
+  --color-primary-text: var(--primitive-color-brand-300);
+  --color-primary-border: var(--primitive-color-brand-700);
+  --color-primary-icon: var(--primitive-color-brand-400);
+  --color-primary-on-emphasis: var(--primitive-color-neutral-950); /* dark text on brand-400 — brand-400 is light (L=73.91%) in dark mode */
+  --color-focus-ring: var(--primitive-color-brand-500);
 
   /* ---------------------------------------------------------------------------
      3.6 SUCCESS — Dark
@@ -750,8 +753,8 @@
 
   --color-state-hover: var(--primitive-color-neutral-800);
   --color-state-active: var(--primitive-color-neutral-700);
-  --color-state-selected: var(--primitive-color-amber-950);
-  --color-state-selected-border: var(--primitive-color-amber-600);
+  --color-state-selected: var(--primitive-color-brand-950);
+  --color-state-selected-border: var(--primitive-color-brand-600);
   --color-state-disabled-bg: var(--primitive-color-neutral-800);
   --color-state-disabled-text: var(--primitive-color-neutral-600);
   --color-state-disabled-border: var(--primitive-color-neutral-700);

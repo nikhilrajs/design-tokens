@@ -124,13 +124,13 @@
   =========================================================================== */
 
   /* --- Inline link (inside a sentence) --- */
-  --typography-link-color:                 var(--color-primary-text);        /* amber-700 — accessible on white */
-  --typography-link-color-hover:           var(--color-primary-emphasis);    /* amber-800 */
+  --typography-link-color:                 var(--color-primary-text);        /* brand-700 — accessible on white */
+  --typography-link-color-hover:           var(--color-primary-emphasis);    /* brand-800 */
   --typography-link-color-visited:         var(--color-text-muted);          /* slate-500 — visited fades */
   --typography-link-color-disabled:        var(--color-text-disabled);
 
   --typography-link-text-decoration:       underline;
-  --typography-link-text-decoration-color: var(--color-primary-border);      /* amber-300 — softer than text */
+  --typography-link-text-decoration-color: var(--color-primary-border);      /* brand-300 — softer than text */
   --typography-link-text-decoration-hover: underline;
   --typography-link-text-underline-offset: 2px;
 
@@ -204,7 +204,7 @@
   --typography-truncate-text-overflow:     ellipsis;
 
   /* Text selection highlight */
-  --typography-selection-bg:              var(--color-primary-surface);      /* amber-50  */
+  --typography-selection-bg:              var(--color-primary-surface);      /* brand-50  */
   --typography-selection-color:           var(--color-text-default);
 
 
@@ -233,9 +233,9 @@
   --typography-code-inline-border-color:   var(--color-border-muted);
 
   /* Link underline decoration — softer in dark */
-  --typography-link-text-decoration-color: var(--color-primary-border);      /* amber-700 in dark */
+  --typography-link-text-decoration-color: var(--color-primary-border);      /* brand-700 in dark */
 
   /* Text selection */
-  --typography-selection-bg:               var(--color-primary-surface);     /* amber-950 in dark */
+  --typography-selection-bg:               var(--color-primary-surface);     /* brand-950 in dark */
 
 }
