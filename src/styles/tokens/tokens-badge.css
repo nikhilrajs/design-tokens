@@ -22,9 +22,9 @@
      Font is always label-sm (12px medium).
 
    Naming:
-     --badge-[appearance]-[property]            ← default weight
-     --badge-[appearance]-emphasis-[property]   ← emphasis weight
-     --badge-[shared-property]                  ← shared across all appearances
+     --pcs-badge-[appearance]-[property]            ← default weight
+     --pcs-badge-[appearance]-emphasis-[property]   ← emphasis weight
+     --pcs-badge-[shared-property]                  ← shared across all appearances
    =============================================================================*/
 
 
@@ -34,27 +34,27 @@
      BADGE — SHARED / BASE TOKENS
   =========================================================================== */
 
-  --badge-font-family:               var(--text-font-sans);
-  --badge-font-size:                 var(--text-label-sm-size);          /* 12px */
-  --badge-font-weight:               var(--text-label-sm-weight);        /* 500  */
-  --badge-line-height:               var(--primitive-line-height-normal);
+  --pcs-badge-font-family:               var(--pcs-text-font-sans);
+  --pcs-badge-font-size:                 var(--pcs-text-label-sm-size);          /* 12px */
+  --pcs-badge-font-weight:               var(--pcs-text-label-sm-weight);        /* 500  */
+  --pcs-badge-line-height:               var(--pcs-primitive-line-height-normal);
 
   /* Badge is all-caps — matching Atlassian lozenge style */
-  --badge-text-transform:            uppercase;
-  --badge-letter-spacing:            0.025em;
+  --pcs-badge-text-transform:            uppercase;
+  --pcs-badge-letter-spacing:            0.025em;
 
   /* Fixed height and padding */
-  --badge-height:                    var(--primitive-space-5);           /* 20px */
-  --badge-padding-x:                 var(--space-component-padding-sm);  /*  8px */
-  --badge-padding-y:                 var(--primitive-space-0-5);         /*  2px */
+  --pcs-badge-height:                    var(--pcs-primitive-space-5);           /* 20px */
+  --pcs-badge-padding-x:                 var(--pcs-space-component-padding-sm);  /*  8px */
+  --pcs-badge-padding-y:                 var(--pcs-primitive-space-0-5);         /*  2px */
 
   /* Border */
-  --badge-border-width:              var(--border-width-default);        /*  1px */
-  --badge-border-style:              solid;
-  --badge-border-radius:             var(--radius-full);                 /* pill shape — matches Atlassian */
+  --pcs-badge-border-width:              var(--pcs-border-width-default);        /*  1px */
+  --pcs-badge-border-style:              solid;
+  --pcs-badge-border-radius:             var(--pcs-radius-full);                 /* pill shape — matches Atlassian */
 
   /* Max width — truncate with ellipsis beyond this */
-  --badge-max-width:                 12.5rem;                            /* 200px — matches Atlassian */
+  --pcs-badge-max-width:                 12.5rem;                            /* 200px — matches Atlassian */
 
 
   /* ===========================================================================
@@ -64,14 +64,14 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-neutral-bg:                var(--color-surface-muted);         /* slate-100 */
-  --badge-neutral-border:            var(--color-border-default);        /* slate-200 */
-  --badge-neutral-text:              var(--color-text-muted);            /* slate-500 */
+  --pcs-badge-neutral-bg:                var(--pcs-color-surface-muted);         /* slate-100 */
+  --pcs-badge-neutral-border:            var(--pcs-color-border-default);        /* slate-200 */
+  --pcs-badge-neutral-text:              var(--pcs-color-text-muted);            /* slate-500 */
 
   /* Emphasis weight */
-  --badge-neutral-emphasis-bg:       var(--primitive-color-neutral-600);
-  --badge-neutral-emphasis-border:   var(--primitive-color-neutral-600);
-  --badge-neutral-emphasis-text:     var(--primitive-color-white);
+  --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-600);
+  --pcs-badge-neutral-emphasis-border:   var(--pcs-primitive-color-neutral-600);
+  --pcs-badge-neutral-emphasis-text:     var(--pcs-primitive-color-white);
 
 
   /* ===========================================================================
@@ -82,14 +82,14 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-primary-bg:                var(--color-primary-subtle);        /* brand-50  */
-  --badge-primary-border:            var(--color-primary-border);        /* brand-300 */
-  --badge-primary-text:              var(--color-primary-text);          /* brand-700 */
+  --pcs-badge-primary-bg:                var(--pcs-color-primary-subtle);        /* brand-50  */
+  --pcs-badge-primary-border:            var(--pcs-color-primary-border);        /* brand-300 */
+  --pcs-badge-primary-text:              var(--pcs-color-primary-text);          /* brand-700 */
 
   /* Emphasis weight */
-  --badge-primary-emphasis-bg:       var(--color-primary-emphasis);      /* brand-500 */
-  --badge-primary-emphasis-border:   var(--color-primary-emphasis);
-  --badge-primary-emphasis-text:     var(--color-primary-on-emphasis);   /* white     */
+  --pcs-badge-primary-emphasis-bg:       var(--pcs-color-primary-emphasis);      /* brand-500 */
+  --pcs-badge-primary-emphasis-border:   var(--pcs-color-primary-emphasis);
+  --pcs-badge-primary-emphasis-text:     var(--pcs-color-primary-on-emphasis);   /* white     */
 
 
   /* ===========================================================================
@@ -100,14 +100,14 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-success-bg:                var(--color-success-background);    /* emerald-50  */
-  --badge-success-border:            var(--color-success-border);        /* emerald-300 */
-  --badge-success-text:              var(--color-success-text);          /* emerald-800 */
+  --pcs-badge-success-bg:                var(--pcs-color-success-background);    /* emerald-50  */
+  --pcs-badge-success-border:            var(--pcs-color-success-border);        /* emerald-300 */
+  --pcs-badge-success-text:              var(--pcs-color-success-text);          /* emerald-800 */
 
   /* Emphasis weight */
-  --badge-success-emphasis-bg:       var(--color-success-emphasis);      /* emerald-600 */
-  --badge-success-emphasis-border:   var(--color-success-emphasis);
-  --badge-success-emphasis-text:     var(--color-success-on-emphasis);   /* white       */
+  --pcs-badge-success-emphasis-bg:       var(--pcs-color-success-emphasis);      /* emerald-600 */
+  --pcs-badge-success-emphasis-border:   var(--pcs-color-success-emphasis);
+  --pcs-badge-success-emphasis-text:     var(--pcs-color-success-on-emphasis);   /* white       */
 
 
   /* ===========================================================================
@@ -118,14 +118,14 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-error-bg:                  var(--color-error-background);      /* red-50  */
-  --badge-error-border:              var(--color-error-border);          /* red-300 */
-  --badge-error-text:                var(--color-error-text);            /* red-800 */
+  --pcs-badge-error-bg:                  var(--pcs-color-error-background);      /* red-50  */
+  --pcs-badge-error-border:              var(--pcs-color-error-border);          /* red-300 */
+  --pcs-badge-error-text:                var(--pcs-color-error-text);            /* red-800 */
 
   /* Emphasis weight */
-  --badge-error-emphasis-bg:         var(--color-error-emphasis);        /* red-600 */
-  --badge-error-emphasis-border:     var(--color-error-emphasis);
-  --badge-error-emphasis-text:       var(--color-error-on-emphasis);     /* white   */
+  --pcs-badge-error-emphasis-bg:         var(--pcs-color-error-emphasis);        /* red-600 */
+  --pcs-badge-error-emphasis-border:     var(--pcs-color-error-emphasis);
+  --pcs-badge-error-emphasis-text:       var(--pcs-color-error-on-emphasis);     /* white   */
 
 
   /* ===========================================================================
@@ -136,14 +136,14 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-warning-bg:                var(--color-warning-background);    /* yellow-50  */
-  --badge-warning-border:            var(--color-warning-border);        /* yellow-300 */
-  --badge-warning-text:              var(--color-warning-text);          /* yellow-800 */
+  --pcs-badge-warning-bg:                var(--pcs-color-warning-background);    /* yellow-50  */
+  --pcs-badge-warning-border:            var(--pcs-color-warning-border);        /* yellow-300 */
+  --pcs-badge-warning-text:              var(--pcs-color-warning-text);          /* yellow-800 */
 
   /* Emphasis weight — dark text on yellow fill for contrast */
-  --badge-warning-emphasis-bg:       var(--color-warning-emphasis);      /* yellow-500 */
-  --badge-warning-emphasis-border:   var(--color-warning-emphasis);
-  --badge-warning-emphasis-text:     var(--primitive-color-yellow-950);  /* near-black  */
+  --pcs-badge-warning-emphasis-bg:       var(--pcs-color-warning-emphasis);      /* yellow-500 */
+  --pcs-badge-warning-emphasis-border:   var(--pcs-color-warning-emphasis);
+  --pcs-badge-warning-emphasis-text:     var(--pcs-primitive-color-yellow-950);  /* near-black  */
 
 
   /* ===========================================================================
@@ -154,14 +154,14 @@
   =========================================================================== */
 
   /* Default weight */
-  --badge-info-bg:                   var(--color-info-background);       /* sky-50  */
-  --badge-info-border:               var(--color-info-border);           /* sky-300 */
-  --badge-info-text:                 var(--color-info-text);             /* sky-800 */
+  --pcs-badge-info-bg:                   var(--pcs-color-info-background);       /* sky-50  */
+  --pcs-badge-info-border:               var(--pcs-color-info-border);           /* sky-300 */
+  --pcs-badge-info-text:                 var(--pcs-color-info-text);             /* sky-800 */
 
   /* Emphasis weight */
-  --badge-info-emphasis-bg:          var(--color-info-emphasis);         /* sky-600 */
-  --badge-info-emphasis-border:      var(--color-info-emphasis);
-  --badge-info-emphasis-text:        var(--color-info-on-emphasis);      /* white   */
+  --pcs-badge-info-emphasis-bg:          var(--pcs-color-info-emphasis);         /* sky-600 */
+  --pcs-badge-info-emphasis-border:      var(--pcs-color-info-emphasis);
+  --pcs-badge-info-emphasis-text:        var(--pcs-color-info-on-emphasis);      /* white   */
 
 }
 
@@ -175,16 +175,16 @@
 [data-app-color-scheme="dark"] {
 
   /* Neutral emphasis — lighter fill in dark mode for visibility */
-  --badge-neutral-emphasis-bg:       var(--primitive-color-neutral-500);
-  --badge-neutral-emphasis-border:   var(--primitive-color-neutral-500);
+  --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-500);
+  --pcs-badge-neutral-emphasis-border:   var(--pcs-primitive-color-neutral-500);
 
-  /* Primary emphasis — semantic token handles this via --color-primary-emphasis */
+  /* Primary emphasis — semantic token handles this via --pcs-color-primary-emphasis */
 
   /* Warning emphasis — dark text stays dark on yellow, no change needed */
   /* But yellow-500 in dark mode may look harsh — soften slightly */
-  --badge-warning-emphasis-bg:       var(--primitive-color-yellow-400);
-  --badge-warning-emphasis-border:   var(--primitive-color-yellow-400);
-  --badge-warning-emphasis-text:     var(--primitive-color-yellow-950);
+  --pcs-badge-warning-emphasis-bg:       var(--pcs-primitive-color-yellow-400);
+  --pcs-badge-warning-emphasis-border:   var(--pcs-primitive-color-yellow-400);
+  --pcs-badge-warning-emphasis-text:     var(--pcs-primitive-color-yellow-950);
 
   /* All default weights handled by semantic color tokens */
 

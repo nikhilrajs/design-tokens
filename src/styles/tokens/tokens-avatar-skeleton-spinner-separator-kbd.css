@@ -14,75 +14,75 @@
 /* =============================================================================
    AVATAR
    =============================================================================
-   Sizes defined in semantic sizing tokens (--size-avatar-*).
+   Sizes defined in semantic sizing tokens (--pcs-size-avatar-*).
    Additional tokens here: colors, border, status ring, stacked overlap.
-   Shape: circle by default, square variant via --avatar-border-radius-square.
+   Shape: circle by default, square variant via --pcs-avatar-border-radius-square.
    =============================================================================*/
 
 :root {
 
   /* --- Shape --- */
-  --avatar-border-radius-circle:     var(--radius-full);
-  --avatar-border-radius-square:     var(--radius-lg);                  /* 8px — for org/team avatars */
+  --pcs-avatar-border-radius-circle:     var(--pcs-radius-full);
+  --pcs-avatar-border-radius-square:     var(--pcs-radius-lg);                  /* 8px — for org/team avatars */
 
   /* --- Background fallback (when no image, no initials color set) --- */
-  --avatar-bg-fallback:              var(--color-surface-muted);        /* slate-100 */
+  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* slate-100 */
 
   /* --- Initials (text rendered inside avatar when no image) --- */
-  --avatar-initials-font-family:     var(--text-font-sans);
-  --avatar-initials-font-weight:     var(--primitive-font-weight-medium);
-  --avatar-initials-color:           var(--color-text-muted);           /* slate-500 */
+  --pcs-avatar-initials-font-family:     var(--pcs-text-font-sans);
+  --pcs-avatar-initials-font-weight:     var(--pcs-primitive-font-weight-medium);
+  --pcs-avatar-initials-color:           var(--pcs-color-text-muted);           /* slate-500 */
 
   /* Initials font sizes — relative to avatar size, one per size token */
-  --avatar-initials-size-xs:         var(--primitive-font-size-xs);     /* 12px — for 20px avatar */
-  --avatar-initials-size-sm:         var(--primitive-font-size-xs);     /* 12px — for 24px avatar */
-  --avatar-initials-size-md:         var(--primitive-font-size-sm);     /* 14px — for 32px avatar */
-  --avatar-initials-size-lg:         var(--primitive-font-size-base);   /* 16px — for 40px avatar */
-  --avatar-initials-size-xl:         var(--primitive-font-size-lg);     /* 18px — for 48px avatar */
+  --pcs-avatar-initials-size-xs:         var(--pcs-primitive-font-size-xs);     /* 12px — for 20px avatar */
+  --pcs-avatar-initials-size-sm:         var(--pcs-primitive-font-size-xs);     /* 12px — for 24px avatar */
+  --pcs-avatar-initials-size-md:         var(--pcs-primitive-font-size-sm);     /* 14px — for 32px avatar */
+  --pcs-avatar-initials-size-lg:         var(--pcs-primitive-font-size-base);   /* 16px — for 40px avatar */
+  --pcs-avatar-initials-size-xl:         var(--pcs-primitive-font-size-lg);     /* 18px — for 48px avatar */
 
   /* --- Border (separates avatar from background — used in stacked groups) --- */
-  --avatar-border-width:             var(--border-width-medium);        /* 2px  */
-  --avatar-border-color:             var(--color-background);           /* matches page bg — creates gap effect */
+  --pcs-avatar-border-width:             var(--pcs-border-width-medium);        /* 2px  */
+  --pcs-avatar-border-color:             var(--pcs-color-background);           /* matches page bg — creates gap effect */
 
   /* --- Status ring (online / offline / busy / away indicator dot) --- */
-  --avatar-status-size-sm:           var(--primitive-space-1-5);        /*  6px — for xs/sm avatars */
-  --avatar-status-size-md:           var(--primitive-space-2);          /*  8px — for md avatar    */
-  --avatar-status-size-lg:           var(--primitive-space-2-5);        /* 10px — for lg/xl avatars */
+  --pcs-avatar-status-size-sm:           var(--pcs-primitive-space-1-5);        /*  6px — for xs/sm avatars */
+  --pcs-avatar-status-size-md:           var(--pcs-primitive-space-2);          /*  8px — for md avatar    */
+  --pcs-avatar-status-size-lg:           var(--pcs-primitive-space-2-5);        /* 10px — for lg/xl avatars */
 
-  --avatar-status-border-width:      var(--border-width-medium);        /* 2px — ring around dot   */
-  --avatar-status-border-color:      var(--color-background);           /* matches page bg          */
-  --avatar-status-border-radius:     var(--radius-full);
+  --pcs-avatar-status-border-width:      var(--pcs-border-width-medium);        /* 2px — ring around dot   */
+  --pcs-avatar-status-border-color:      var(--pcs-color-background);           /* matches page bg          */
+  --pcs-avatar-status-border-radius:     var(--pcs-radius-full);
 
   /* Status dot colors */
-  --avatar-status-online:            var(--color-success-emphasis);     /* emerald-600 */
-  --avatar-status-offline:           var(--color-text-subtle);          /* slate-400   */
-  --avatar-status-busy:              var(--color-error-emphasis);       /* red-600     */
-  --avatar-status-away:              var(--color-warning-emphasis);     /* yellow-500  */
+  --pcs-avatar-status-online:            var(--pcs-color-success-emphasis);     /* emerald-600 */
+  --pcs-avatar-status-offline:           var(--pcs-color-text-subtle);          /* slate-400   */
+  --pcs-avatar-status-busy:              var(--pcs-color-error-emphasis);       /* red-600     */
+  --pcs-avatar-status-away:              var(--pcs-color-warning-emphasis);     /* yellow-500  */
 
   /* --- Stacked group overlap --- */
   /* Negative margin applied to each avatar after the first in a stack */
-  --avatar-stack-overlap-sm:         calc(var(--size-avatar-sm) * -0.25);  /* 25% overlap */
-  --avatar-stack-overlap-md:         calc(var(--size-avatar-md) * -0.25);
-  --avatar-stack-overlap-lg:         calc(var(--size-avatar-lg) * -0.25);
+  --pcs-avatar-stack-overlap-sm:         calc(var(--pcs-size-avatar-sm) * -0.25);  /* 25% overlap */
+  --pcs-avatar-stack-overlap-md:         calc(var(--pcs-size-avatar-md) * -0.25);
+  --pcs-avatar-stack-overlap-lg:         calc(var(--pcs-size-avatar-lg) * -0.25);
 
   /* Overflow count badge (+3, +5) in stacked groups */
-  --avatar-stack-count-bg:           var(--color-surface-muted);
-  --avatar-stack-count-border:       var(--color-background);
-  --avatar-stack-count-text:         var(--color-text-muted);
-  --avatar-stack-count-font-size:    var(--text-label-sm-size);         /* 12px */
-  --avatar-stack-count-font-weight:  var(--text-label-sm-weight);       /* 500  */
+  --pcs-avatar-stack-count-bg:           var(--pcs-color-surface-muted);
+  --pcs-avatar-stack-count-border:       var(--pcs-color-background);
+  --pcs-avatar-stack-count-text:         var(--pcs-color-text-muted);
+  --pcs-avatar-stack-count-font-size:    var(--pcs-text-label-sm-size);         /* 12px */
+  --pcs-avatar-stack-count-font-weight:  var(--pcs-text-label-sm-weight);       /* 500  */
 
 }
 
 [data-app-color-scheme="dark"] {
 
   /* Border color matches dark page background */
-  --avatar-border-color:             var(--color-background);
-  --avatar-status-border-color:      var(--color-background);
-  --avatar-stack-count-border:       var(--color-background);
+  --pcs-avatar-border-color:             var(--pcs-color-background);
+  --pcs-avatar-status-border-color:      var(--pcs-color-background);
+  --pcs-avatar-stack-count-border:       var(--pcs-color-background);
 
   /* Fallback bg slightly lighter on dark surfaces */
-  --avatar-bg-fallback:              var(--color-surface-muted);        /* slate-800 — already dark-aware */
+  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* slate-800 — already dark-aware */
 
 }
 
@@ -98,27 +98,27 @@
 :root {
 
   /* Base color of the skeleton block */
-  --skeleton-bg:                     var(--primitive-color-neutral-200);
+  --pcs-skeleton-bg:                     var(--pcs-primitive-color-neutral-200);
 
   /* Shimmer highlight color — lighter band that sweeps across */
-  --skeleton-shimmer-color:          var(--primitive-color-neutral-100);
+  --pcs-skeleton-shimmer-color:          var(--pcs-primitive-color-neutral-100);
 
   /* Border radius — matches the element being replaced */
-  --skeleton-border-radius-line:     var(--radius-sm);                  /* text line  */
-  --skeleton-border-radius-circle:   var(--radius-full);                /* avatar     */
-  --skeleton-border-radius-rect:     var(--radius-md);                  /* card/block */
+  --pcs-skeleton-border-radius-line:     var(--pcs-radius-sm);                  /* text line  */
+  --pcs-skeleton-border-radius-circle:   var(--pcs-radius-full);                /* avatar     */
+  --pcs-skeleton-border-radius-rect:     var(--pcs-radius-md);                  /* card/block */
 
   /* Animation duration — references OpenProps when available */
-  /* --skeleton-animation-duration: var(--animation-duration-slow, 1.5s); */
-  --skeleton-animation-duration:     1.5s;
-  --skeleton-animation-easing:       ease-in-out;
+  /* --pcs-skeleton-animation-duration: var(--pcs-animation-duration-slow, 1.5s); */
+  --pcs-skeleton-animation-duration:     1.5s;
+  --pcs-skeleton-animation-easing:       ease-in-out;
 
 }
 
 [data-app-color-scheme="dark"] {
 
-  --skeleton-bg:                     var(--primitive-color-neutral-700);
-  --skeleton-shimmer-color:          var(--primitive-color-neutral-600);
+  --pcs-skeleton-bg:                     var(--pcs-primitive-color-neutral-700);
+  --pcs-skeleton-shimmer-color:          var(--pcs-primitive-color-neutral-600);
 
 }
 
@@ -134,47 +134,47 @@
 :root {
 
   /* --- Sizes --- */
-  --spinner-size-sm:                 var(--size-icon-sm);               /* 12px */
-  --spinner-size-md:                 var(--size-icon-md);               /* 16px */
-  --spinner-size-lg:                 var(--size-icon-lg);               /* 20px */
-  --spinner-size-xl:                 var(--primitive-space-8);          /* 32px — page-level loading */
+  --pcs-spinner-size-sm:                 var(--pcs-size-icon-sm);               /* 12px */
+  --pcs-spinner-size-md:                 var(--pcs-size-icon-md);               /* 16px */
+  --pcs-spinner-size-lg:                 var(--pcs-size-icon-lg);               /* 20px */
+  --pcs-spinner-size-xl:                 var(--pcs-primitive-space-8);          /* 32px — page-level loading */
 
   /* Track width (the stroke of the spinning arc) */
-  --spinner-track-width-sm:          1.5px;
-  --spinner-track-width-md:          2px;
-  --spinner-track-width-lg:          2px;
-  --spinner-track-width-xl:          3px;
+  --pcs-spinner-track-width-sm:          1.5px;
+  --pcs-spinner-track-width-md:          2px;
+  --pcs-spinner-track-width-lg:          2px;
+  --pcs-spinner-track-width-xl:          3px;
 
   /* --- Color variants --- */
 
   /* inherit — takes color from parent text color, works in any context */
-  --spinner-color-inherit:           currentColor;
+  --pcs-spinner-color-inherit:           currentColor;
 
   /* primary — brand color, used in loading buttons and primary contexts */
-  --spinner-color-primary:           var(--color-primary-emphasis);
+  --pcs-spinner-color-primary:           var(--pcs-color-primary-emphasis);
 
   /* muted — for subtle loading states on cards, empty states */
-  --spinner-color-muted:             var(--color-icon-muted);
+  --pcs-spinner-color-muted:             var(--pcs-color-icon-muted);
 
   /* on-emphasis — white, for spinners inside filled (primary/destructive) buttons */
-  --spinner-color-on-emphasis:       var(--primitive-color-white);
+  --pcs-spinner-color-on-emphasis:       var(--pcs-primitive-color-white);
 
   /* Track background color (the faint full-circle behind the spinning arc) */
-  --spinner-track-bg-inherit:        transparent;
-  --spinner-track-bg-primary:        var(--color-primary-subtle);
-  --spinner-track-bg-muted:          var(--primitive-color-neutral-200);
-  --spinner-track-bg-on-emphasis:    rgb(255 255 255 / 0.25);
+  --pcs-spinner-track-bg-inherit:        transparent;
+  --pcs-spinner-track-bg-primary:        var(--pcs-color-primary-subtle);
+  --pcs-spinner-track-bg-muted:          var(--pcs-primitive-color-neutral-200);
+  --pcs-spinner-track-bg-on-emphasis:    rgb(255 255 255 / 0.25);
 
   /* --- Animation --- */
-  --spinner-animation-duration:      0.75s;
-  --spinner-animation-easing:        linear;
+  --pcs-spinner-animation-duration:      0.75s;
+  --pcs-spinner-animation-easing:        linear;
 
 }
 
 [data-app-color-scheme="dark"] {
 
-  --spinner-track-bg-muted:          var(--primitive-color-neutral-700);
-  --spinner-track-bg-primary:        var(--color-primary-subtle);       /* dark-aware via semantic */
+  --pcs-spinner-track-bg-muted:          var(--pcs-primitive-color-neutral-700);
+  --pcs-spinner-track-bg-primary:        var(--pcs-color-primary-subtle);       /* dark-aware via semantic */
 
 }
 
@@ -189,19 +189,19 @@
 :root {
 
   /* Color */
-  --separator-color:                 var(--color-border-muted);         /* slate-100 — very subtle */
-  --separator-color-strong:          var(--color-border-default);       /* slate-200 — standard   */
+  --pcs-separator-color:                 var(--pcs-color-border-muted);         /* slate-100 — very subtle */
+  --pcs-separator-color-strong:          var(--pcs-color-border-default);       /* slate-200 — standard   */
 
   /* Thickness */
-  --separator-thickness:             var(--border-width-default);       /* 1px */
+  --pcs-separator-thickness:             var(--pcs-border-width-default);       /* 1px */
 
   /* Margin — spacing around a separator when used between sections */
-  --separator-margin-sm:             var(--space-layout-gap-sm);        /* 16px */
-  --separator-margin-md:             var(--space-layout-gap-md);        /* 24px */
+  --pcs-separator-margin-sm:             var(--pcs-space-layout-gap-sm);        /* 16px */
+  --pcs-separator-margin-md:             var(--pcs-space-layout-gap-md);        /* 24px */
 
   /* Decorative separator — slightly more prominent, used in cards/panels */
-  --separator-decorative-color:      var(--color-border-default);
-  --separator-decorative-thickness:  var(--border-width-default);
+  --pcs-separator-decorative-color:      var(--pcs-color-border-default);
+  --pcs-separator-decorative-thickness:  var(--pcs-border-width-default);
 
 }
 
@@ -219,45 +219,45 @@
 :root {
 
   /* --- Typography --- */
-  --kbd-font-family:                 var(--text-font-mono);
-  --kbd-font-size:                   var(--primitive-font-size-xs);     /* 12px */
-  --kbd-font-weight:                 var(--primitive-font-weight-normal);
-  --kbd-line-height:                 var(--primitive-line-height-normal);
+  --pcs-kbd-font-family:                 var(--pcs-text-font-mono);
+  --pcs-kbd-font-size:                   var(--pcs-primitive-font-size-xs);     /* 12px */
+  --pcs-kbd-font-weight:                 var(--pcs-primitive-font-weight-normal);
+  --pcs-kbd-line-height:                 var(--pcs-primitive-line-height-normal);
 
   /* --- Sizing --- */
-  --kbd-min-width:                   var(--primitive-space-5);          /* 20px — single char keys */
-  --kbd-height:                      var(--primitive-space-5);          /* 20px */
-  --kbd-padding-x:                   var(--space-component-padding-sm); /*  8px */
-  --kbd-padding-y:                   var(--primitive-space-0-5);        /*  2px */
-  --kbd-border-radius:               var(--radius-md);                  /*  6px */
+  --pcs-kbd-min-width:                   var(--pcs-primitive-space-5);          /* 20px — single char keys */
+  --pcs-kbd-height:                      var(--pcs-primitive-space-5);          /* 20px */
+  --pcs-kbd-padding-x:                   var(--pcs-space-component-padding-sm); /*  8px */
+  --pcs-kbd-padding-y:                   var(--pcs-primitive-space-0-5);        /*  2px */
+  --pcs-kbd-border-radius:               var(--pcs-radius-md);                  /*  6px */
 
   /* --- Colors --- */
-  --kbd-bg:                          var(--color-surface-muted);        /* slate-100 */
-  --kbd-text:                        var(--color-text-muted);           /* slate-500 */
+  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* slate-100 */
+  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* slate-500 */
 
   /* --- Border ---
      Kbd uses a two-part border to simulate physical key depth:
      Standard border on all sides + slightly darker/thicker bottom border
      creates a 3D key press appearance.
   --------------------------------------------------------------------------- */
-  --kbd-border-width:                var(--border-width-default);       /* 1px — all sides  */
-  --kbd-border-color:                var(--color-border-default);       /* slate-200        */
-  --kbd-border-bottom-width:         var(--border-width-medium);        /* 2px — bottom only */
-  --kbd-border-bottom-color:         var(--color-border-strong);        /* slate-300 — darker bottom */
+  --pcs-kbd-border-width:                var(--pcs-border-width-default);       /* 1px — all sides  */
+  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* slate-200        */
+  --pcs-kbd-border-bottom-width:         var(--pcs-border-width-medium);        /* 2px — bottom only */
+  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* slate-300 — darker bottom */
 
   /* Alternative: use box-shadow for depth instead of border hack */
-  --kbd-shadow:
-    0 1px 0 0 var(--color-border-strong);                               /* single-pixel bottom shadow */
+  --pcs-kbd-shadow:
+    0 1px 0 0 var(--pcs-color-border-strong);                               /* single-pixel bottom shadow */
 
 }
 
 [data-app-color-scheme="dark"] {
 
-  --kbd-bg:                          var(--color-surface-muted);        /* slate-800 — dark-aware */
-  --kbd-text:                        var(--color-text-muted);           /* slate-400 — dark-aware */
-  --kbd-border-color:                var(--color-border-default);       /* slate-700 — dark-aware */
-  --kbd-border-bottom-color:         var(--color-border-strong);        /* slate-600 — dark-aware */
-  --kbd-shadow:
-    0 1px 0 0 var(--color-border-strong);
+  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* slate-800 — dark-aware */
+  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* slate-400 — dark-aware */
+  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* slate-700 — dark-aware */
+  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* slate-600 — dark-aware */
+  --pcs-kbd-shadow:
+    0 1px 0 0 var(--pcs-color-border-strong);
 
 }

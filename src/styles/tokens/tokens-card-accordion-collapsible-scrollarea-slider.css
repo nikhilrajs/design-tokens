@@ -26,51 +26,51 @@
   =========================================================================== */
 
   /* --- Base --- */
-  --card-bg:                         var(--color-surface-card);         /* white / slate-950 dark */
-  --card-border-color:               var(--color-border-default);       /* slate-200 */
-  --card-border-width:               var(--border-width-default);       /* 1px  */
-  --card-border-style:               solid;
-  --card-border-radius:              var(--radius-xl);                  /* 12px — slightly larger than controls */
+  --pcs-card-bg:                         var(--pcs-color-surface-card);         /* white / slate-950 dark */
+  --pcs-card-border-color:               var(--pcs-color-border-default);       /* slate-200 */
+  --pcs-card-border-width:               var(--pcs-border-width-default);       /* 1px  */
+  --pcs-card-border-style:               solid;
+  --pcs-card-border-radius:              var(--pcs-radius-xl);                  /* 12px — slightly larger than controls */
 
   /* --- Variant: Default (bordered) --- */
-  --card-default-bg:                 var(--card-bg);
-  --card-default-border-color:       var(--card-border-color);
-  --card-default-shadow:             none;
+  --pcs-card-default-bg:                 var(--pcs-card-bg);
+  --pcs-card-default-border-color:       var(--pcs-card-border-color);
+  --pcs-card-default-shadow:             none;
 
   /* --- Variant: Elevated (shadow, no visible border) --- */
-  --card-elevated-bg:                var(--card-bg);
-  --card-elevated-border-color:      transparent;
-  --card-elevated-shadow:            var(--shadow-md);
+  --pcs-card-elevated-bg:                var(--pcs-card-bg);
+  --pcs-card-elevated-border-color:      transparent;
+  --pcs-card-elevated-shadow:            var(--pcs-shadow-md);
 
   /* --- Header --- */
-  --card-header-padding:             var(--space-inset-lg);             /* 24px */
-  --card-header-gap:                 var(--space-component-gap-xs);     /*  4px — title to description */
+  --pcs-card-header-padding:             var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-card-header-gap:                 var(--pcs-space-component-gap-xs);     /*  4px — title to description */
 
   /* --- Title --- */
-  --card-title-font-size:            var(--text-title-sm-size);         /* 20px */
-  --card-title-font-weight:          var(--text-title-sm-weight);       /* 600  */
-  --card-title-line-height:          var(--text-title-sm-line-height);
-  --card-title-color:                var(--color-text-default);
+  --pcs-card-title-font-size:            var(--pcs-text-title-sm-size);         /* 20px */
+  --pcs-card-title-font-weight:          var(--pcs-text-title-sm-weight);       /* 600  */
+  --pcs-card-title-line-height:          var(--pcs-text-title-sm-line-height);
+  --pcs-card-title-color:                var(--pcs-color-text-default);
 
   /* --- Description --- */
-  --card-description-font-size:      var(--text-body-md-size);          /* 14px */
-  --card-description-font-weight:    var(--text-body-md-weight);        /* 400  */
-  --card-description-line-height:    var(--text-body-md-line-height);
-  --card-description-color:          var(--color-text-muted);
+  --pcs-card-description-font-size:      var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-card-description-font-weight:    var(--pcs-text-body-md-weight);        /* 400  */
+  --pcs-card-description-line-height:    var(--pcs-text-body-md-line-height);
+  --pcs-card-description-color:          var(--pcs-color-text-muted);
 
   /* --- Content --- */
-  --card-content-padding:            var(--space-inset-lg);             /* 24px */
-  --card-content-padding-top:        0;                                 /* header already provides top space */
+  --pcs-card-content-padding:            var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-card-content-padding-top:        0;                                 /* header already provides top space */
 
   /* --- Footer --- */
-  --card-footer-padding:             var(--space-inset-lg);             /* 24px */
-  --card-footer-padding-top:         0;
-  --card-footer-gap:                 var(--space-component-gap-sm);     /*  8px — between footer actions */
-  --card-footer-border-top:          none;                              /* no separator by default */
+  --pcs-card-footer-padding:             var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-card-footer-padding-top:         0;
+  --pcs-card-footer-gap:                 var(--pcs-space-component-gap-sm);     /*  8px — between footer actions */
+  --pcs-card-footer-border-top:          none;                              /* no separator by default */
 
   /* --- Separator (optional divider between header/content/footer) --- */
-  --card-separator-color:            var(--color-border-muted);         /* slate-100 */
-  --card-separator-thickness:        var(--border-width-default);
+  --pcs-card-separator-color:            var(--pcs-color-border-muted);         /* slate-100 */
+  --pcs-card-separator-thickness:        var(--pcs-border-width-default);
 
 
   /* ===========================================================================
@@ -84,56 +84,56 @@
   =========================================================================== */
 
   /* --- Trigger row --- */
-  --accordion-trigger-padding-x:     var(--space-inset-md);             /* 16px */
-  --accordion-trigger-padding-y:     var(--primitive-space-4);          /* 16px — equal to padding-x for square feel */
-  --accordion-trigger-min-height:    var(--size-control-lg);            /* 40px minimum; typically taller */
-  --accordion-trigger-bg:            transparent;
-  --accordion-trigger-bg-hover:      var(--color-state-hover);          /* slate-50  */
-  --accordion-trigger-bg-open:       transparent;                       /* no bg change when open */
+  --pcs-accordion-trigger-padding-x:     var(--pcs-space-inset-md);             /* 16px */
+  --pcs-accordion-trigger-padding-y:     var(--pcs-primitive-space-4);          /* 16px — equal to padding-x for square feel */
+  --pcs-accordion-trigger-min-height:    var(--pcs-size-control-lg);            /* 40px minimum; typically taller */
+  --pcs-accordion-trigger-bg:            transparent;
+  --pcs-accordion-trigger-bg-hover:      var(--pcs-color-state-hover);          /* slate-50  */
+  --pcs-accordion-trigger-bg-open:       transparent;                       /* no bg change when open */
 
-  --accordion-trigger-font-size:     var(--text-label-lg-size);         /* 14px */
-  --accordion-trigger-font-weight:   var(--text-label-lg-weight);       /* 500  */
-  --accordion-trigger-color:         var(--color-text-default);
-  --accordion-trigger-color-hover:   var(--color-text-default);
+  --pcs-accordion-trigger-font-size:     var(--pcs-text-label-lg-size);         /* 14px */
+  --pcs-accordion-trigger-font-weight:   var(--pcs-text-label-lg-weight);       /* 500  */
+  --pcs-accordion-trigger-color:         var(--pcs-color-text-default);
+  --pcs-accordion-trigger-color-hover:   var(--pcs-color-text-default);
 
   /* Chevron icon */
-  --accordion-chevron-size:          var(--size-icon-md);               /* 16px */
-  --accordion-chevron-color:         var(--color-icon-muted);
-  --accordion-chevron-color-hover:   var(--color-icon-default);
-  --accordion-chevron-rotate-open:   180deg;                            /* flips on open */
-  --accordion-chevron-transition:    transform 200ms ease;
+  --pcs-accordion-chevron-size:          var(--pcs-size-icon-md);               /* 16px */
+  --pcs-accordion-chevron-color:         var(--pcs-color-icon-muted);
+  --pcs-accordion-chevron-color-hover:   var(--pcs-color-icon-default);
+  --pcs-accordion-chevron-rotate-open:   180deg;                            /* flips on open */
+  --pcs-accordion-chevron-transition:    transform 200ms ease;
 
   /* Focus ring on trigger */
-  --accordion-trigger-focus-ring:    var(--color-primary-focus-ring);
-  --accordion-trigger-focus-ring-width: var(--focus-ring-width);        /* 2px */
-  --accordion-trigger-border-radius: var(--radius-md);                  /* for focus ring shape */
+  --pcs-accordion-trigger-focus-ring:    var(--pcs-color-primary-focus-ring);
+  --pcs-accordion-trigger-focus-ring-width: var(--pcs-focus-ring-width);        /* 2px */
+  --pcs-accordion-trigger-border-radius: var(--pcs-radius-md);                  /* for focus ring shape */
 
   /* --- Content panel --- */
-  --accordion-content-padding-x:    var(--space-inset-md);             /* 16px — aligns with trigger text */
-  --accordion-content-padding-bottom:var(--primitive-space-4);          /* 16px */
-  --accordion-content-font-size:    var(--text-body-md-size);           /* 14px */
-  --accordion-content-color:        var(--color-text-muted);
-  --accordion-content-line-height:  var(--text-body-md-line-height);
+  --pcs-accordion-content-padding-x:    var(--pcs-space-inset-md);             /* 16px — aligns with trigger text */
+  --pcs-accordion-content-padding-bottom:var(--pcs-primitive-space-4);          /* 16px */
+  --pcs-accordion-content-font-size:    var(--pcs-text-body-md-size);           /* 14px */
+  --pcs-accordion-content-color:        var(--pcs-color-text-muted);
+  --pcs-accordion-content-line-height:  var(--pcs-text-body-md-line-height);
 
   /* Animation — height 0 → auto on open */
-  --accordion-content-animation-duration: 200ms;
-  --accordion-content-animation-easing:   ease-out;
+  --pcs-accordion-content-animation-duration: 200ms;
+  --pcs-accordion-content-animation-easing:   ease-out;
 
   /* --- VARIANT: Default (each item is a card) --- */
-  --accordion-default-item-bg:          var(--color-surface-card);
-  --accordion-default-item-border-color: var(--color-border-default);
-  --accordion-default-item-border-width: var(--border-width-default);
-  --accordion-default-item-border-radius:var(--radius-lg);              /* 8px  */
-  --accordion-default-item-gap:          var(--space-component-gap-sm); /*  6px between items */
+  --pcs-accordion-default-item-bg:          var(--pcs-color-surface-card);
+  --pcs-accordion-default-item-border-color: var(--pcs-color-border-default);
+  --pcs-accordion-default-item-border-width: var(--pcs-border-width-default);
+  --pcs-accordion-default-item-border-radius:var(--pcs-radius-lg);              /* 8px  */
+  --pcs-accordion-default-item-gap:          var(--pcs-space-component-gap-sm); /*  6px between items */
 
   /* --- VARIANT: Flush (single container, dividers between items) --- */
-  --accordion-flush-item-bg:             transparent;
-  --accordion-flush-item-border-color:   transparent;
-  --accordion-flush-container-border-color: var(--color-border-default);
-  --accordion-flush-container-border-width: var(--border-width-default);
-  --accordion-flush-container-border-radius:var(--radius-lg);
-  --accordion-flush-divider-color:       var(--color-border-muted);     /* slate-100 */
-  --accordion-flush-divider-thickness:   var(--border-width-default);
+  --pcs-accordion-flush-item-bg:             transparent;
+  --pcs-accordion-flush-item-border-color:   transparent;
+  --pcs-accordion-flush-container-border-color: var(--pcs-color-border-default);
+  --pcs-accordion-flush-container-border-width: var(--pcs-border-width-default);
+  --pcs-accordion-flush-container-border-radius:var(--pcs-radius-lg);
+  --pcs-accordion-flush-divider-color:       var(--pcs-color-border-muted);     /* slate-100 */
+  --pcs-accordion-flush-divider-thickness:   var(--pcs-border-width-default);
 
 
   /* ===========================================================================
@@ -144,13 +144,13 @@
   =========================================================================== */
 
   /* --- Content panel --- */
-  --collapsible-content-font-size:   var(--text-body-md-size);
-  --collapsible-content-color:       var(--color-text-muted);
-  --collapsible-content-line-height: var(--text-body-md-line-height);
+  --pcs-collapsible-content-font-size:   var(--pcs-text-body-md-size);
+  --pcs-collapsible-content-color:       var(--pcs-color-text-muted);
+  --pcs-collapsible-content-line-height: var(--pcs-text-body-md-line-height);
 
   /* Animation — same rhythm as accordion */
-  --collapsible-animation-duration:  200ms;
-  --collapsible-animation-easing:    ease-out;
+  --pcs-collapsible-animation-duration:  200ms;
+  --pcs-collapsible-animation-easing:    ease-out;
 
 
   /* ===========================================================================
@@ -161,23 +161,23 @@
   =========================================================================== */
 
   /* --- Scrollbar dimensions --- */
-  --scroll-area-scrollbar-size:      6px;                               /* width (vertical) / height (horizontal) */
-  --scroll-area-scrollbar-size-hover:8px;                               /* expands slightly on hover */
-  --scroll-area-corner-size:         var(--scroll-area-scrollbar-size); /* corner where v + h meet */
+  --pcs-scroll-area-scrollbar-size:      6px;                               /* width (vertical) / height (horizontal) */
+  --pcs-scroll-area-scrollbar-size-hover:8px;                               /* expands slightly on hover */
+  --pcs-scroll-area-corner-size:         var(--pcs-scroll-area-scrollbar-size); /* corner where v + h meet */
 
   /* --- Track --- */
-  --scroll-area-track-bg:            transparent;                       /* invisible track */
-  --scroll-area-track-bg-hover:      var(--color-surface-muted);        /* slate-100 — subtle on hover */
-  --scroll-area-track-border-radius: var(--radius-full);
+  --pcs-scroll-area-track-bg:            transparent;                       /* invisible track */
+  --pcs-scroll-area-track-bg-hover:      var(--pcs-color-surface-muted);        /* slate-100 — subtle on hover */
+  --pcs-scroll-area-track-border-radius: var(--pcs-radius-full);
 
   /* --- Thumb --- */
-  --scroll-area-thumb-bg:            var(--color-border-strong);        /* slate-300 */
-  --scroll-area-thumb-bg-hover:      var(--color-border-default);       /* slate-400 on hover — slightly darker */
-  --scroll-area-thumb-bg-active:     var(--color-icon-muted);           /* slate-400 while dragging */
-  --scroll-area-thumb-border-radius: var(--radius-full);
+  --pcs-scroll-area-thumb-bg:            var(--pcs-color-border-strong);        /* slate-300 */
+  --pcs-scroll-area-thumb-bg-hover:      var(--pcs-color-border-default);       /* slate-400 on hover — slightly darker */
+  --pcs-scroll-area-thumb-bg-active:     var(--pcs-color-icon-muted);           /* slate-400 while dragging */
+  --pcs-scroll-area-thumb-border-radius: var(--pcs-radius-full);
 
   /* --- Transition --- */
-  --scroll-area-transition:          width 150ms ease, height 150ms ease,
+  --pcs-scroll-area-transition:          width 150ms ease, height 150ms ease,
                                      background-color 150ms ease;
 
 
@@ -189,42 +189,42 @@
   =========================================================================== */
 
   /* --- Track --- */
-  --slider-track-bg:                 var(--color-surface-muted);        /* slate-100  */
-  --slider-track-bg-disabled:        var(--color-state-disabled-bg);
-  --slider-track-border-radius:      var(--radius-full);
+  --pcs-slider-track-bg:                 var(--pcs-color-surface-muted);        /* slate-100  */
+  --pcs-slider-track-bg-disabled:        var(--pcs-color-state-disabled-bg);
+  --pcs-slider-track-border-radius:      var(--pcs-radius-full);
 
-  --slider-track-height-sm:          var(--primitive-space-1);          /* 4px  */
-  --slider-track-height-md:          var(--primitive-space-1-5);        /* 6px  */
-  --slider-track-height-lg:          var(--primitive-space-2);          /* 8px  */
+  --pcs-slider-track-height-sm:          var(--pcs-primitive-space-1);          /* 4px  */
+  --pcs-slider-track-height-md:          var(--pcs-primitive-space-1-5);        /* 6px  */
+  --pcs-slider-track-height-lg:          var(--pcs-primitive-space-2);          /* 8px  */
 
   /* --- Range fill (filled portion of track) --- */
-  --slider-range-bg:                 var(--color-primary-default);      /* brand-500 */
-  --slider-range-bg-hover:           var(--color-primary-hover);        /* brand-600 */
-  --slider-range-bg-disabled:        var(--color-state-disabled-border);
+  --pcs-slider-range-bg:                 var(--pcs-color-primary-default);      /* brand-500 */
+  --pcs-slider-range-bg-hover:           var(--pcs-color-primary-hover);        /* brand-600 */
+  --pcs-slider-range-bg-disabled:        var(--pcs-color-state-disabled-border);
 
   /* --- Thumb --- */
-  --slider-thumb-bg:                 var(--color-surface-card);         /* white     */
-  --slider-thumb-border-color:       var(--color-primary-default);      /* brand-500 */
-  --slider-thumb-border-width:       var(--border-width-thick);         /* 2px       */
-  --slider-thumb-border-radius:      var(--radius-full);
-  --slider-thumb-shadow:             var(--shadow-sm);
+  --pcs-slider-thumb-bg:                 var(--pcs-color-surface-card);         /* white     */
+  --pcs-slider-thumb-border-color:       var(--pcs-color-primary-default);      /* brand-500 */
+  --pcs-slider-thumb-border-width:       var(--pcs-border-width-thick);         /* 2px       */
+  --pcs-slider-thumb-border-radius:      var(--pcs-radius-full);
+  --pcs-slider-thumb-shadow:             var(--pcs-shadow-sm);
 
-  --slider-thumb-size-sm:            var(--primitive-space-3-5);        /* 14px */
-  --slider-thumb-size-md:            var(--primitive-space-5);          /* 20px */
-  --slider-thumb-size-lg:            var(--primitive-space-6);          /* 24px */
+  --pcs-slider-thumb-size-sm:            var(--pcs-primitive-space-3-5);        /* 14px */
+  --pcs-slider-thumb-size-md:            var(--pcs-primitive-space-5);          /* 20px */
+  --pcs-slider-thumb-size-lg:            var(--pcs-primitive-space-6);          /* 24px */
 
   /* Hover state — thumb grows slightly */
-  --slider-thumb-scale-hover:        1.1;
+  --pcs-slider-thumb-scale-hover:        1.1;
 
   /* Focus ring on thumb */
-  --slider-thumb-focus-ring-color:   var(--color-primary-focus-ring);
-  --slider-thumb-focus-ring-width:   var(--focus-ring-width);           /* 2px */
-  --slider-thumb-focus-ring-offset:  var(--focus-ring-offset);          /* 2px */
+  --pcs-slider-thumb-focus-ring-color:   var(--pcs-color-primary-focus-ring);
+  --pcs-slider-thumb-focus-ring-width:   var(--pcs-focus-ring-width);           /* 2px */
+  --pcs-slider-thumb-focus-ring-offset:  var(--pcs-focus-ring-offset);          /* 2px */
 
   /* Disabled */
-  --slider-thumb-bg-disabled:        var(--color-surface-muted);
-  --slider-thumb-border-color-disabled: var(--color-state-disabled-border);
-  --slider-cursor-disabled:          not-allowed;
+  --pcs-slider-thumb-bg-disabled:        var(--pcs-color-surface-muted);
+  --pcs-slider-thumb-border-color-disabled: var(--pcs-color-state-disabled-border);
+  --pcs-slider-cursor-disabled:          not-allowed;
 
 }
 
@@ -236,20 +236,20 @@
 [data-app-color-scheme="dark"] {
 
   /* Card */
-  /* --card-bg resolves to --color-surface-card which is already dark-aware */
+  /* --pcs-card-bg resolves to --pcs-color-surface-card which is already dark-aware */
   /* Elevated card: shadow needs to be stronger in dark */
-  --card-elevated-shadow:            var(--shadow-lg);
+  --pcs-card-elevated-shadow:            var(--pcs-shadow-lg);
 
   /* Accordion */
   /* All resolved via semantic tokens — no overrides needed */
 
   /* Scroll Area — thumb needs to be more visible on dark backgrounds */
-  --scroll-area-thumb-bg:            var(--color-border-default);       /* slate-700 */
-  --scroll-area-thumb-bg-hover:      var(--color-border-strong);        /* slate-500 */
-  --scroll-area-track-bg-hover:      var(--color-surface-muted);        /* slate-900 */
+  --pcs-scroll-area-thumb-bg:            var(--pcs-color-border-default);       /* slate-700 */
+  --pcs-scroll-area-thumb-bg-hover:      var(--pcs-color-border-strong);        /* slate-500 */
+  --pcs-scroll-area-track-bg-hover:      var(--pcs-color-surface-muted);        /* slate-900 */
 
   /* Slider */
-  /* --slider-track-bg resolves to --color-surface-muted — dark-aware */
+  /* --pcs-slider-track-bg resolves to --pcs-color-surface-muted — dark-aware */
   /* Thumb white bg in dark mode: stays white — acts as contrast element */
 
 }

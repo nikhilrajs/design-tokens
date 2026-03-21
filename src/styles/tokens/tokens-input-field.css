@@ -24,8 +24,8 @@
      Signals "this is data, not editable" without looking broken/disabled.
 
    Naming:
-     --input-[property]-[state]
-     --field-[element]-[property]-[variant]
+     --pcs-input-[property]-[state]
+     --pcs-field-[element]-[property]-[variant]
    =============================================================================*/
 
 
@@ -35,18 +35,18 @@
      INPUT — BASE / SHARED
   =========================================================================== */
 
-  --input-font-family:               var(--text-font-sans);
-  --input-font-size:                 var(--text-body-md-size);          /* 14px — app default */
-  --input-font-weight:               var(--text-body-md-weight);
-  --input-line-height:               var(--text-body-md-line-height);
+  --pcs-input-font-family:               var(--pcs-text-font-sans);
+  --pcs-input-font-size:                 var(--pcs-text-body-md-size);          /* 14px — app default */
+  --pcs-input-font-weight:               var(--pcs-text-body-md-weight);
+  --pcs-input-line-height:               var(--pcs-text-body-md-line-height);
 
-  --input-border-width:              var(--border-width-default);       /* 1px */
-  --input-border-style:              solid;
-  --input-border-radius:             var(--radius-md);                  /* 6px */
+  --pcs-input-border-width:              var(--pcs-border-width-default);       /* 1px */
+  --pcs-input-border-style:              solid;
+  --pcs-input-border-radius:             var(--pcs-radius-md);                  /* 6px */
 
   /* Focus ring */
-  --input-focus-ring-width:          2px;
-  --input-focus-ring-offset:         0px;
+  --pcs-input-focus-ring-width:          2px;
+  --pcs-input-focus-ring-offset:         0px;
   /* Note: focus ring is expressed as box-shadow on inputs, not outline,
      so it sits flush with the border rather than outside it. */
 
@@ -57,49 +57,49 @@
   =========================================================================== */
 
   /* --- sm --- */
-  --input-size-sm-height:            var(--size-control-sm);            /* 28px */
-  --input-size-sm-padding-x:         var(--space-component-padding-sm); /*  8px */
-  --input-size-sm-padding-y:         var(--primitive-space-1);          /*  4px */
-  --input-size-sm-icon-size:         var(--size-icon-sm);               /* 12px */
-  --input-size-sm-icon-gap:          var(--space-component-gap-xs);     /*  4px */
+  --pcs-input-size-sm-height:            var(--pcs-size-control-sm);            /* 28px */
+  --pcs-input-size-sm-padding-x:         var(--pcs-space-component-padding-sm); /*  8px */
+  --pcs-input-size-sm-padding-y:         var(--pcs-primitive-space-1);          /*  4px */
+  --pcs-input-size-sm-icon-size:         var(--pcs-size-icon-sm);               /* 12px */
+  --pcs-input-size-sm-icon-gap:          var(--pcs-space-component-gap-xs);     /*  4px */
 
   /* --- md (default) --- */
-  --input-size-md-height:            var(--size-control-md);            /* 32px */
-  --input-size-md-padding-x:         var(--space-component-padding-md); /* 12px */
-  --input-size-md-padding-y:         var(--primitive-space-1-5);        /*  6px */
-  --input-size-md-icon-size:         var(--size-icon-md);               /* 16px */
-  --input-size-md-icon-gap:          var(--space-component-gap-sm);     /*  6px */
+  --pcs-input-size-md-height:            var(--pcs-size-control-md);            /* 32px */
+  --pcs-input-size-md-padding-x:         var(--pcs-space-component-padding-md); /* 12px */
+  --pcs-input-size-md-padding-y:         var(--pcs-primitive-space-1-5);        /*  6px */
+  --pcs-input-size-md-icon-size:         var(--pcs-size-icon-md);               /* 16px */
+  --pcs-input-size-md-icon-gap:          var(--pcs-space-component-gap-sm);     /*  6px */
 
   /* --- lg --- */
-  --input-size-lg-height:            var(--size-control-lg);            /* 40px */
-  --input-size-lg-padding-x:         var(--space-component-padding-lg); /* 16px */
-  --input-size-lg-padding-y:         var(--primitive-space-2);          /*  8px */
-  --input-size-lg-icon-size:         var(--size-icon-lg);               /* 20px */
-  --input-size-lg-icon-gap:          var(--space-component-gap-md);     /*  8px */
+  --pcs-input-size-lg-height:            var(--pcs-size-control-lg);            /* 40px */
+  --pcs-input-size-lg-padding-x:         var(--pcs-space-component-padding-lg); /* 16px */
+  --pcs-input-size-lg-padding-y:         var(--pcs-primitive-space-2);          /*  8px */
+  --pcs-input-size-lg-icon-size:         var(--pcs-size-icon-lg);               /* 20px */
+  --pcs-input-size-lg-icon-gap:          var(--pcs-space-component-gap-md);     /*  8px */
 
   /* Textarea min-height — enough for ~3 lines at body-md */
-  --input-textarea-min-height:       5rem;                              /* 80px */
-  --input-textarea-padding-x:        var(--space-component-padding-md); /* 12px */
-  --input-textarea-padding-y:        var(--space-component-padding-sm); /*  8px */
-  --input-textarea-resize:           vertical;
+  --pcs-input-textarea-min-height:       5rem;                              /* 80px */
+  --pcs-input-textarea-padding-x:        var(--pcs-space-component-padding-md); /* 12px */
+  --pcs-input-textarea-padding-y:        var(--pcs-space-component-padding-sm); /*  8px */
+  --pcs-input-textarea-resize:           vertical;
 
   /* ===========================================================================
      INPUT — STATE: DEFAULT
   =========================================================================== */
 
-  --input-bg:                        var(--color-background);
-  --input-border-color:              var(--color-border-default);
-  --input-text:                      var(--color-text-default);
-  --input-placeholder:               var(--color-text-subtle);
-  --input-shadow:                    var(--shadow-sm);
+  --pcs-input-bg:                        var(--pcs-color-background);
+  --pcs-input-border-color:              var(--pcs-color-border-default);
+  --pcs-input-text:                      var(--pcs-color-text-default);
+  --pcs-input-placeholder:               var(--pcs-color-text-subtle);
+  --pcs-input-shadow:                    var(--pcs-shadow-sm);
 
   /* ===========================================================================
      INPUT — STATE: HOVER
   =========================================================================== */
 
-  --input-bg-hover:                  var(--color-background);
-  --input-border-color-hover:        var(--color-border-strong);
-  --input-shadow-hover:              var(--shadow-sm);
+  --pcs-input-bg-hover:                  var(--pcs-color-background);
+  --pcs-input-border-color-hover:        var(--pcs-color-border-strong);
+  --pcs-input-shadow-hover:              var(--pcs-shadow-sm);
 
   /* ===========================================================================
      INPUT — STATE: FOCUS
@@ -107,22 +107,22 @@
      Combines with border color change for a two-signal focus indicator.
   =========================================================================== */
 
-  --input-bg-focus:                  var(--color-background);
-  --input-border-color-focus:        var(--color-primary-emphasis);
-  --input-focus-ring-color:          var(--color-focus-ring);
-  --input-shadow-focus:
-    0 0 0 var(--input-focus-ring-width) var(--input-focus-ring-color);
+  --pcs-input-bg-focus:                  var(--pcs-color-background);
+  --pcs-input-border-color-focus:        var(--pcs-color-primary-emphasis);
+  --pcs-input-focus-ring-color:          var(--pcs-color-focus-ring);
+  --pcs-input-shadow-focus:
+    0 0 0 var(--pcs-input-focus-ring-width) var(--pcs-input-focus-ring-color);
 
   /* ===========================================================================
      INPUT — STATE: ERROR
      Border turns red. Focus ring also turns red when focused in error state.
   =========================================================================== */
 
-  --input-bg-error:                  var(--color-background);
-  --input-border-color-error:        var(--color-error-border);
-  --input-shadow-error:              none;
-  --input-shadow-error-focus:
-    0 0 0 var(--input-focus-ring-width) var(--color-error-border);
+  --pcs-input-bg-error:                  var(--pcs-color-background);
+  --pcs-input-border-color-error:        var(--pcs-color-error-border);
+  --pcs-input-shadow-error:              none;
+  --pcs-input-shadow-error-focus:
+    0 0 0 var(--pcs-input-focus-ring-width) var(--pcs-color-error-border);
 
   /* ===========================================================================
      INPUT — STATE: DISABLED
@@ -130,12 +130,12 @@
      Cursor signals non-interactivity.
   =========================================================================== */
 
-  --input-bg-disabled:               var(--color-state-disabled-bg);
-  --input-border-color-disabled:     var(--color-state-disabled-border);
-  --input-text-disabled:             var(--color-state-disabled-text);
-  --input-placeholder-disabled:      var(--color-state-disabled-text);
-  --input-cursor-disabled:           not-allowed;
-  --input-shadow-disabled:           none;
+  --pcs-input-bg-disabled:               var(--pcs-color-state-disabled-bg);
+  --pcs-input-border-color-disabled:     var(--pcs-color-state-disabled-border);
+  --pcs-input-text-disabled:             var(--pcs-color-state-disabled-text);
+  --pcs-input-placeholder-disabled:      var(--pcs-color-state-disabled-text);
+  --pcs-input-cursor-disabled:           not-allowed;
+  --pcs-input-shadow-disabled:           none;
 
   /* ===========================================================================
      INPUT — STATE: READ-ONLY
@@ -144,13 +144,13 @@
      Visually distinct from both editable and disabled states.
   =========================================================================== */
 
-  --input-bg-readonly:               transparent;
-  --input-border-color-readonly:     var(--color-border-default);
-  --input-border-style-readonly:     dashed;
-  --input-text-readonly:             var(--color-text-default);
-  --input-placeholder-readonly:      var(--color-text-subtle);
-  --input-cursor-readonly:           default;
-  --input-shadow-readonly:           none;
+  --pcs-input-bg-readonly:               transparent;
+  --pcs-input-border-color-readonly:     var(--pcs-color-border-default);
+  --pcs-input-border-style-readonly:     dashed;
+  --pcs-input-text-readonly:             var(--pcs-color-text-default);
+  --pcs-input-placeholder-readonly:      var(--pcs-color-text-subtle);
+  --pcs-input-cursor-readonly:           default;
+  --pcs-input-shadow-readonly:           none;
 
   /* ===========================================================================
      INPUT — ADORNMENT TOKENS
@@ -161,16 +161,16 @@
   =========================================================================== */
 
   /* Icon colors */
-  --input-icon-color:                var(--color-icon-muted);
-  --input-icon-color-focus:          var(--color-icon-default);
-  --input-icon-color-error:          var(--color-error-icon);
-  --input-icon-color-disabled:       var(--color-icon-disabled);
+  --pcs-input-icon-color:                var(--pcs-color-icon-muted);
+  --pcs-input-icon-color-focus:          var(--pcs-color-icon-default);
+  --pcs-input-icon-color-error:          var(--pcs-color-error-icon);
+  --pcs-input-icon-color-disabled:       var(--pcs-color-icon-disabled);
 
   /* Padding compensation when icon slot is filled.
      Component adds this to padding-x to prevent text sitting under the icon. */
-  --input-adornment-sm-offset:       var(--primitive-space-6);     /* 24px: icon(12) + gap(4) + padding(8) */
-  --input-adornment-md-offset:       var(--primitive-space-8);     /* 32px: icon(16) + gap(6) + padding(12) - 2 */
-  --input-adornment-lg-offset:       var(--primitive-space-10);    /* 40px: icon(20) + gap(8) + padding(16) - 4 */
+  --pcs-input-adornment-sm-offset:       var(--pcs-primitive-space-6);     /* 24px: icon(12) + gap(4) + padding(8) */
+  --pcs-input-adornment-md-offset:       var(--pcs-primitive-space-8);     /* 32px: icon(16) + gap(6) + padding(12) - 2 */
+  --pcs-input-adornment-lg-offset:       var(--pcs-primitive-space-10);    /* 40px: icon(20) + gap(8) + padding(16) - 4 */
 
 
   /* ===========================================================================
@@ -180,61 +180,61 @@
   =========================================================================== */
 
   /* --- Spacing between field parts --- */
-  --field-gap-label-input:           var(--space-component-gap-xs);     /*  4px — label to input */
-  --field-gap-input-message:         var(--space-component-gap-xs);     /*  4px — input to hint/error */
+  --pcs-field-gap-label-input:           var(--pcs-space-component-gap-xs);     /*  4px — label to input */
+  --pcs-field-gap-input-message:         var(--pcs-space-component-gap-xs);     /*  4px — input to hint/error */
 
   /* --- Label --- */
-  --field-label-font-size:           var(--text-label-lg-size);         /* 14px */
-  --field-label-font-weight:         var(--text-label-lg-weight);       /* 500  */
-  --field-label-line-height:         var(--text-label-lg-line-height);
-  --field-label-color:               var(--color-text-default);
-  --field-label-color-disabled:      var(--color-state-disabled-text);
+  --pcs-field-label-font-size:           var(--pcs-text-label-lg-size);         /* 14px */
+  --pcs-field-label-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
+  --pcs-field-label-line-height:         var(--pcs-text-label-lg-line-height);
+  --pcs-field-label-color:               var(--pcs-color-text-default);
+  --pcs-field-label-color-disabled:      var(--pcs-color-state-disabled-text);
 
   /* Required indicator (*) */
-  --field-label-required-color:      var(--color-error-text);
+  --pcs-field-label-required-color:      var(--pcs-color-error-text);
 
   /* Optional indicator text */
-  --field-label-optional-color:      var(--color-text-muted);
-  --field-label-optional-font-size:  var(--text-label-sm-size);         /* 12px */
-  --field-label-optional-font-weight:var(--primitive-font-weight-normal);
+  --pcs-field-label-optional-color:      var(--pcs-color-text-muted);
+  --pcs-field-label-optional-font-size:  var(--pcs-text-label-sm-size);         /* 12px */
+  --pcs-field-label-optional-font-weight:var(--pcs-primitive-font-weight-normal);
 
   /* --- Hint text --- */
   /* Appears below input in default/neutral state */
-  --field-hint-font-size:            var(--text-body-sm-size);          /* 12px */
-  --field-hint-font-weight:          var(--text-body-sm-weight);
-  --field-hint-line-height:          var(--text-body-sm-line-height);
-  --field-hint-color:                var(--color-text-muted);
+  --pcs-field-hint-font-size:            var(--pcs-text-body-sm-size);          /* 12px */
+  --pcs-field-hint-font-weight:          var(--pcs-text-body-sm-weight);
+  --pcs-field-hint-line-height:          var(--pcs-text-body-sm-line-height);
+  --pcs-field-hint-color:                var(--pcs-color-text-muted);
 
   /* --- Validation message — Error --- */
   /* Replaces hint text when field is in error state */
-  --field-message-error-font-size:   var(--text-body-sm-size);          /* 12px */
-  --field-message-error-font-weight: var(--primitive-font-weight-medium);
-  --field-message-error-line-height: var(--text-body-sm-line-height);
-  --field-message-error-color:       var(--color-error-text);
-  --field-message-error-icon-color:  var(--color-error-icon);
+  --pcs-field-message-error-font-size:   var(--pcs-text-body-sm-size);          /* 12px */
+  --pcs-field-message-error-font-weight: var(--pcs-primitive-font-weight-medium);
+  --pcs-field-message-error-line-height: var(--pcs-text-body-sm-line-height);
+  --pcs-field-message-error-color:       var(--pcs-color-error-text);
+  --pcs-field-message-error-icon-color:  var(--pcs-color-error-icon);
 
   /* --- Validation message — Success --- */
   /* Success feedback lives here only, not on the input border */
-  --field-message-success-font-size:   var(--text-body-sm-size);
-  --field-message-success-font-weight: var(--primitive-font-weight-medium);
-  --field-message-success-line-height: var(--text-body-sm-line-height);
-  --field-message-success-color:       var(--color-success-text);
-  --field-message-success-icon-color:  var(--color-success-icon);
+  --pcs-field-message-success-font-size:   var(--pcs-text-body-sm-size);
+  --pcs-field-message-success-font-weight: var(--pcs-primitive-font-weight-medium);
+  --pcs-field-message-success-line-height: var(--pcs-text-body-sm-line-height);
+  --pcs-field-message-success-color:       var(--pcs-color-success-text);
+  --pcs-field-message-success-icon-color:  var(--pcs-color-success-icon);
 
   /* --- Validation message — Warning --- */
   /* Warning feedback lives here only, not on the input border */
-  --field-message-warning-font-size:   var(--text-body-sm-size);
-  --field-message-warning-font-weight: var(--primitive-font-weight-medium);
-  --field-message-warning-line-height: var(--text-body-sm-line-height);
-  --field-message-warning-color:       var(--color-warning-text);
-  --field-message-warning-icon-color:  var(--color-warning-icon);
+  --pcs-field-message-warning-font-size:   var(--pcs-text-body-sm-size);
+  --pcs-field-message-warning-font-weight: var(--pcs-primitive-font-weight-medium);
+  --pcs-field-message-warning-line-height: var(--pcs-text-body-sm-line-height);
+  --pcs-field-message-warning-color:       var(--pcs-color-warning-text);
+  --pcs-field-message-warning-icon-color:  var(--pcs-color-warning-icon);
 
   /* --- Character count --- */
   /* Shown for Textarea and length-limited inputs (right-aligned below input) */
-  --field-char-count-font-size:      var(--text-caption-size);          /* 12px */
-  --field-char-count-color:          var(--color-text-subtle);
-  --field-char-count-color-warning:  var(--color-warning-text);         /* approaching limit */
-  --field-char-count-color-error:    var(--color-error-text);           /* at/over limit */
+  --pcs-field-char-count-font-size:      var(--pcs-text-caption-size);          /* 12px */
+  --pcs-field-char-count-color:          var(--pcs-color-text-subtle);
+  --pcs-field-char-count-color-warning:  var(--pcs-color-warning-text);         /* approaching limit */
+  --pcs-field-char-count-color-error:    var(--pcs-color-error-text);           /* at/over limit */
 
 }
 
@@ -248,12 +248,12 @@
 [data-app-color-scheme="dark"] {
 
   /* Input default shadow is less useful in dark mode — remove it */
-  --input-shadow:                    none;
-  --input-shadow-hover:              none;
+  --pcs-input-shadow:                    none;
+  --pcs-input-shadow-hover:              none;
 
   /* Focus ring stays visible — semantic focus ring color handles this */
 
   /* Read-only border needs to be visible against dark background */
-  --input-border-color-readonly:     var(--color-border-default);
+  --pcs-input-border-color-readonly:     var(--pcs-color-border-default);
 
 }

@@ -15,9 +15,9 @@
      (loading reuses disabled visually; spinner replaces content)
 
    Naming:
-     --button-[variant]-[property]-[state]
-     --button-size-[size]-[property]
-     --button-icon-size-[size]        ← icon-only square sizing
+     --pcs-button-[variant]-[property]-[state]
+     --pcs-button-size-[size]-[property]
+     --pcs-button-icon-size-[size]        ← icon-only square sizing
 
    All tokens reference semantic tokens from tokens.css.
    Never reference primitives directly here.
@@ -32,25 +32,25 @@
   =========================================================================== */
 
   /* Typography */
-  --button-font-family:              var(--text-font-sans);
-  --button-font-weight:              var(--primitive-font-weight-medium);
-  --button-line-height:              var(--primitive-line-height-normal);
+  --pcs-button-font-family:              var(--pcs-text-font-sans);
+  --pcs-button-font-weight:              var(--pcs-primitive-font-weight-medium);
+  --pcs-button-line-height:              var(--pcs-primitive-line-height-normal);
 
   /* Border */
-  --button-border-width:             var(--border-width-default);       /* 1px */
-  --button-border-style:             solid;
+  --pcs-button-border-width:             var(--pcs-border-width-default);       /* 1px */
+  --pcs-button-border-style:             solid;
 
   /* Focus ring — shared across all variants */
-  --button-focus-ring-width:         2px;
-  --button-focus-ring-offset:        2px;
-  --button-focus-ring-color:         var(--color-focus-ring);
+  --pcs-button-focus-ring-width:         2px;
+  --pcs-button-focus-ring-offset:        2px;
+  --pcs-button-focus-ring-color:         var(--pcs-color-focus-ring);
 
   /* Transition — placeholder for when motion tokens are added */
-  /* --button-transition: background 150ms ease, border-color 150ms ease; */
+  /* --pcs-button-transition: background 150ms ease, border-color 150ms ease; */
 
   /* Cursor */
-  --button-cursor-default:           pointer;
-  --button-cursor-disabled:          not-allowed;
+  --pcs-button-cursor-default:           pointer;
+  --pcs-button-cursor-disabled:          not-allowed;
 
 
   /* ===========================================================================
@@ -60,37 +60,37 @@
   =========================================================================== */
 
   /* --- sm --- */
-  --button-size-sm-height:           var(--size-control-sm);            /* 28px */
-  --button-size-sm-padding-x:        var(--space-component-padding-sm); /* 8px  */
-  --button-size-sm-font-size:        var(--primitive-font-size-xs);     /* 12px */
-  --button-size-sm-gap:              var(--space-component-gap-xs);     /* 4px  */
-  --button-size-sm-radius:           var(--radius-md);                  /* 6px  */
-  --button-size-sm-icon-size:        var(--size-icon-sm);               /* 12px */
+  --pcs-button-size-sm-height:           var(--pcs-size-control-sm);            /* 28px */
+  --pcs-button-size-sm-padding-x:        var(--pcs-space-component-padding-sm); /* 8px  */
+  --pcs-button-size-sm-font-size:        var(--pcs-primitive-font-size-xs);     /* 12px */
+  --pcs-button-size-sm-gap:              var(--pcs-space-component-gap-xs);     /* 4px  */
+  --pcs-button-size-sm-radius:           var(--pcs-radius-md);                  /* 6px  */
+  --pcs-button-size-sm-icon-size:        var(--pcs-size-icon-sm);               /* 12px */
 
   /* Icon-only sm — square */
-  --button-icon-size-sm:             var(--size-control-sm);            /* 28px */
+  --pcs-button-icon-size-sm:             var(--pcs-size-control-sm);            /* 28px */
 
   /* --- md (default) --- */
-  --button-size-md-height:           var(--size-control-md);            /* 32px */
-  --button-size-md-padding-x:        var(--space-component-padding-md); /* 12px */
-  --button-size-md-font-size:        var(--primitive-font-size-sm);     /* 14px */
-  --button-size-md-gap:              var(--space-component-gap-sm);     /* 6px  */
-  --button-size-md-radius:           var(--radius-md);                  /* 6px  */
-  --button-size-md-icon-size:        var(--size-icon-md);               /* 16px */
+  --pcs-button-size-md-height:           var(--pcs-size-control-md);            /* 32px */
+  --pcs-button-size-md-padding-x:        var(--pcs-space-component-padding-md); /* 12px */
+  --pcs-button-size-md-font-size:        var(--pcs-primitive-font-size-sm);     /* 14px */
+  --pcs-button-size-md-gap:              var(--pcs-space-component-gap-sm);     /* 6px  */
+  --pcs-button-size-md-radius:           var(--pcs-radius-md);                  /* 6px  */
+  --pcs-button-size-md-icon-size:        var(--pcs-size-icon-md);               /* 16px */
 
   /* Icon-only md — square */
-  --button-icon-size-md:             var(--size-control-md);            /* 32px */
+  --pcs-button-icon-size-md:             var(--pcs-size-control-md);            /* 32px */
 
   /* --- lg --- */
-  --button-size-lg-height:           var(--size-control-lg);            /* 40px */
-  --button-size-lg-padding-x:        var(--space-component-padding-lg); /* 16px */
-  --button-size-lg-font-size:        var(--primitive-font-size-base);   /* 16px */
-  --button-size-lg-gap:              var(--space-component-gap-md);     /* 8px  */
-  --button-size-lg-radius:           var(--radius-md);                  /* 6px  */
-  --button-size-lg-icon-size:        var(--size-icon-lg);               /* 20px */
+  --pcs-button-size-lg-height:           var(--pcs-size-control-lg);            /* 40px */
+  --pcs-button-size-lg-padding-x:        var(--pcs-space-component-padding-lg); /* 16px */
+  --pcs-button-size-lg-font-size:        var(--pcs-primitive-font-size-base);   /* 16px */
+  --pcs-button-size-lg-gap:              var(--pcs-space-component-gap-md);     /* 8px  */
+  --pcs-button-size-lg-radius:           var(--pcs-radius-md);                  /* 6px  */
+  --pcs-button-size-lg-icon-size:        var(--pcs-size-icon-lg);               /* 20px */
 
   /* Icon-only lg — square */
-  --button-icon-size-lg:             var(--size-control-lg);            /* 40px */
+  --pcs-button-icon-size-lg:             var(--pcs-size-control-lg);            /* 40px */
 
 
   /* ===========================================================================
@@ -98,27 +98,27 @@
      Filled brand. Main call-to-action.
   =========================================================================== */
 
-  --button-primary-bg:               var(--color-primary-emphasis);
-  --button-primary-bg-hover:         var(--color-primary-emphasis-hover);
-  --button-primary-bg-active:        var(--color-primary-emphasis-active);
-  --button-primary-bg-disabled:      var(--color-state-disabled-bg);
+  --pcs-button-primary-bg:               var(--pcs-color-primary-emphasis);
+  --pcs-button-primary-bg-hover:         var(--pcs-color-primary-emphasis-hover);
+  --pcs-button-primary-bg-active:        var(--pcs-color-primary-emphasis-active);
+  --pcs-button-primary-bg-disabled:      var(--pcs-color-state-disabled-bg);
 
-  --button-primary-text:             var(--color-primary-on-emphasis);
-  --button-primary-text-hover:       var(--color-primary-on-emphasis);
-  --button-primary-text-active:      var(--color-primary-on-emphasis);
-  --button-primary-text-disabled:    var(--color-state-disabled-text);
+  --pcs-button-primary-text:             var(--pcs-color-primary-on-emphasis);
+  --pcs-button-primary-text-hover:       var(--pcs-color-primary-on-emphasis);
+  --pcs-button-primary-text-active:      var(--pcs-color-primary-on-emphasis);
+  --pcs-button-primary-text-disabled:    var(--pcs-color-state-disabled-text);
 
-  --button-primary-border:           var(--color-primary-emphasis);
-  --button-primary-border-hover:     var(--color-primary-emphasis-hover);
-  --button-primary-border-active:    var(--color-primary-emphasis-active);
-  --button-primary-border-disabled:  var(--color-state-disabled-border);
+  --pcs-button-primary-border:           var(--pcs-color-primary-emphasis);
+  --pcs-button-primary-border-hover:     var(--pcs-color-primary-emphasis-hover);
+  --pcs-button-primary-border-active:    var(--pcs-color-primary-emphasis-active);
+  --pcs-button-primary-border-disabled:  var(--pcs-color-state-disabled-border);
 
-  --button-primary-icon:             var(--color-primary-on-emphasis);
-  --button-primary-icon-disabled:    var(--color-state-disabled-text);
+  --pcs-button-primary-icon:             var(--pcs-color-primary-on-emphasis);
+  --pcs-button-primary-icon-disabled:    var(--pcs-color-state-disabled-text);
 
-  --button-primary-shadow:           var(--shadow-sm);
-  --button-primary-shadow-hover:     var(--shadow-sm);
-  --button-primary-shadow-disabled:  none;
+  --pcs-button-primary-shadow:           var(--pcs-shadow-sm);
+  --pcs-button-primary-shadow-hover:     var(--pcs-shadow-sm);
+  --pcs-button-primary-shadow-disabled:  none;
 
 
   /* ===========================================================================
@@ -126,27 +126,27 @@
      Outlined, neutral. Option A: visible border, neutral background.
   =========================================================================== */
 
-  --button-secondary-bg:             var(--color-background);
-  --button-secondary-bg-hover:       var(--color-state-hover);
-  --button-secondary-bg-active:      var(--color-state-active);
-  --button-secondary-bg-disabled:    var(--color-state-disabled-bg);
+  --pcs-button-secondary-bg:             var(--pcs-color-background);
+  --pcs-button-secondary-bg-hover:       var(--pcs-color-state-hover);
+  --pcs-button-secondary-bg-active:      var(--pcs-color-state-active);
+  --pcs-button-secondary-bg-disabled:    var(--pcs-color-state-disabled-bg);
 
-  --button-secondary-text:           var(--color-text-default);
-  --button-secondary-text-hover:     var(--color-text-default);
-  --button-secondary-text-active:    var(--color-text-default);
-  --button-secondary-text-disabled:  var(--color-state-disabled-text);
+  --pcs-button-secondary-text:           var(--pcs-color-text-default);
+  --pcs-button-secondary-text-hover:     var(--pcs-color-text-default);
+  --pcs-button-secondary-text-active:    var(--pcs-color-text-default);
+  --pcs-button-secondary-text-disabled:  var(--pcs-color-state-disabled-text);
 
-  --button-secondary-border:         var(--color-border-default);
-  --button-secondary-border-hover:   var(--color-border-strong);
-  --button-secondary-border-active:  var(--color-border-strong);
-  --button-secondary-border-disabled:var(--color-state-disabled-border);
+  --pcs-button-secondary-border:         var(--pcs-color-border-default);
+  --pcs-button-secondary-border-hover:   var(--pcs-color-border-strong);
+  --pcs-button-secondary-border-active:  var(--pcs-color-border-strong);
+  --pcs-button-secondary-border-disabled:var(--pcs-color-state-disabled-border);
 
-  --button-secondary-icon:           var(--color-icon-default);
-  --button-secondary-icon-disabled:  var(--color-icon-disabled);
+  --pcs-button-secondary-icon:           var(--pcs-color-icon-default);
+  --pcs-button-secondary-icon-disabled:  var(--pcs-color-icon-disabled);
 
-  --button-secondary-shadow:         var(--shadow-sm);
-  --button-secondary-shadow-hover:   var(--shadow-sm);
-  --button-secondary-shadow-disabled:none;
+  --pcs-button-secondary-shadow:         var(--pcs-shadow-sm);
+  --pcs-button-secondary-shadow-hover:   var(--pcs-shadow-sm);
+  --pcs-button-secondary-shadow-disabled:none;
 
 
   /* ===========================================================================
@@ -154,28 +154,28 @@
      No border, no fill. Tertiary / low-emphasis actions.
   =========================================================================== */
 
-  --button-ghost-bg:                 var(--color-transparent, transparent);
-  --button-ghost-bg-hover:           var(--color-state-hover);
-  --button-ghost-bg-active:          var(--color-state-active);
-  --button-ghost-bg-disabled:        var(--color-transparent, transparent);
+  --pcs-button-ghost-bg:                 var(--pcs-color-transparent, transparent);
+  --pcs-button-ghost-bg-hover:           var(--pcs-color-state-hover);
+  --pcs-button-ghost-bg-active:          var(--pcs-color-state-active);
+  --pcs-button-ghost-bg-disabled:        var(--pcs-color-transparent, transparent);
 
-  --button-ghost-text:               var(--color-text-default);
-  --button-ghost-text-hover:         var(--color-text-default);
-  --button-ghost-text-active:        var(--color-text-default);
-  --button-ghost-text-disabled:      var(--color-state-disabled-text);
+  --pcs-button-ghost-text:               var(--pcs-color-text-default);
+  --pcs-button-ghost-text-hover:         var(--pcs-color-text-default);
+  --pcs-button-ghost-text-active:        var(--pcs-color-text-default);
+  --pcs-button-ghost-text-disabled:      var(--pcs-color-state-disabled-text);
 
   /* Ghost has no border — transparent keeps layout stable (no reflow on hover) */
-  --button-ghost-border:             transparent;
-  --button-ghost-border-hover:       transparent;
-  --button-ghost-border-active:      transparent;
-  --button-ghost-border-disabled:    transparent;
+  --pcs-button-ghost-border:             transparent;
+  --pcs-button-ghost-border-hover:       transparent;
+  --pcs-button-ghost-border-active:      transparent;
+  --pcs-button-ghost-border-disabled:    transparent;
 
-  --button-ghost-icon:               var(--color-icon-default);
-  --button-ghost-icon-disabled:      var(--color-icon-disabled);
+  --pcs-button-ghost-icon:               var(--pcs-color-icon-default);
+  --pcs-button-ghost-icon-disabled:      var(--pcs-color-icon-disabled);
 
-  --button-ghost-shadow:             none;
-  --button-ghost-shadow-hover:       none;
-  --button-ghost-shadow-disabled:    none;
+  --pcs-button-ghost-shadow:             none;
+  --pcs-button-ghost-shadow-hover:       none;
+  --pcs-button-ghost-shadow-disabled:    none;
 
 
   /* ===========================================================================
@@ -183,27 +183,27 @@
      Filled red-600. For dangerous but not catastrophic actions (single delete).
   =========================================================================== */
 
-  --button-destructive-bg:               var(--color-error-emphasis);
-  --button-destructive-bg-hover:         var(--primitive-color-red-700);
-  --button-destructive-bg-active:        var(--primitive-color-red-800);
-  --button-destructive-bg-disabled:      var(--color-state-disabled-bg);
+  --pcs-button-destructive-bg:               var(--pcs-color-error-emphasis);
+  --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-bg-disabled:      var(--pcs-color-state-disabled-bg);
 
-  --button-destructive-text:             var(--color-error-on-emphasis);
-  --button-destructive-text-hover:       var(--color-error-on-emphasis);
-  --button-destructive-text-active:      var(--color-error-on-emphasis);
-  --button-destructive-text-disabled:    var(--color-state-disabled-text);
+  --pcs-button-destructive-text:             var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-text-hover:       var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-text-active:      var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-text-disabled:    var(--pcs-color-state-disabled-text);
 
-  --button-destructive-border:           var(--color-error-emphasis);
-  --button-destructive-border-hover:     var(--primitive-color-red-700);
-  --button-destructive-border-active:    var(--primitive-color-red-800);
-  --button-destructive-border-disabled:  var(--color-state-disabled-border);
+  --pcs-button-destructive-border:           var(--pcs-color-error-emphasis);
+  --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-border-disabled:  var(--pcs-color-state-disabled-border);
 
-  --button-destructive-icon:             var(--color-error-on-emphasis);
-  --button-destructive-icon-disabled:    var(--color-state-disabled-text);
+  --pcs-button-destructive-icon:             var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-icon-disabled:    var(--pcs-color-state-disabled-text);
 
-  --button-destructive-shadow:           var(--shadow-sm);
-  --button-destructive-shadow-hover:     var(--shadow-sm);
-  --button-destructive-shadow-disabled:  none;
+  --pcs-button-destructive-shadow:           var(--pcs-shadow-sm);
+  --pcs-button-destructive-shadow-hover:     var(--pcs-shadow-sm);
+  --pcs-button-destructive-shadow-disabled:  none;
 
 
   /* ===========================================================================
@@ -212,27 +212,27 @@
      purge, disable account). Darker and more alarming than destructive.
   =========================================================================== */
 
-  --button-destructive-emphasis-bg:               var(--primitive-color-red-700);
-  --button-destructive-emphasis-bg-hover:          var(--primitive-color-red-800);
-  --button-destructive-emphasis-bg-active:         var(--primitive-color-red-900);
-  --button-destructive-emphasis-bg-disabled:       var(--color-state-disabled-bg);
+  --pcs-button-destructive-emphasis-bg:               var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-emphasis-bg-hover:          var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-emphasis-bg-active:         var(--pcs-primitive-color-red-900);
+  --pcs-button-destructive-emphasis-bg-disabled:       var(--pcs-color-state-disabled-bg);
 
-  --button-destructive-emphasis-text:              var(--color-error-on-emphasis);
-  --button-destructive-emphasis-text-hover:        var(--color-error-on-emphasis);
-  --button-destructive-emphasis-text-active:       var(--color-error-on-emphasis);
-  --button-destructive-emphasis-text-disabled:     var(--color-state-disabled-text);
+  --pcs-button-destructive-emphasis-text:              var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-emphasis-text-hover:        var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-emphasis-text-active:       var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-emphasis-text-disabled:     var(--pcs-color-state-disabled-text);
 
-  --button-destructive-emphasis-border:            var(--primitive-color-red-700);
-  --button-destructive-emphasis-border-hover:      var(--primitive-color-red-800);
-  --button-destructive-emphasis-border-active:     var(--primitive-color-red-900);
-  --button-destructive-emphasis-border-disabled:   var(--color-state-disabled-border);
+  --pcs-button-destructive-emphasis-border:            var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-emphasis-border-hover:      var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-emphasis-border-active:     var(--pcs-primitive-color-red-900);
+  --pcs-button-destructive-emphasis-border-disabled:   var(--pcs-color-state-disabled-border);
 
-  --button-destructive-emphasis-icon:              var(--color-error-on-emphasis);
-  --button-destructive-emphasis-icon-disabled:     var(--color-state-disabled-text);
+  --pcs-button-destructive-emphasis-icon:              var(--pcs-color-error-on-emphasis);
+  --pcs-button-destructive-emphasis-icon-disabled:     var(--pcs-color-state-disabled-text);
 
-  --button-destructive-emphasis-shadow:            var(--shadow-md);
-  --button-destructive-emphasis-shadow-hover:      var(--shadow-md);
-  --button-destructive-emphasis-shadow-disabled:   none;
+  --pcs-button-destructive-emphasis-shadow:            var(--pcs-shadow-md);
+  --pcs-button-destructive-emphasis-shadow-hover:      var(--pcs-shadow-md);
+  --pcs-button-destructive-emphasis-shadow-disabled:   none;
 
 
   /* ===========================================================================
@@ -240,27 +240,27 @@
      No fill, red text. Softer destructive for low-density contexts.
   =========================================================================== */
 
-  --button-destructive-ghost-bg:               transparent;
-  --button-destructive-ghost-bg-hover:         var(--color-error-background);
-  --button-destructive-ghost-bg-active:        var(--color-error-background-hover);
-  --button-destructive-ghost-bg-disabled:      transparent;
+  --pcs-button-destructive-ghost-bg:               transparent;
+  --pcs-button-destructive-ghost-bg-hover:         var(--pcs-color-error-background);
+  --pcs-button-destructive-ghost-bg-active:        var(--pcs-color-error-background-hover);
+  --pcs-button-destructive-ghost-bg-disabled:      transparent;
 
-  --button-destructive-ghost-text:             var(--color-error-text);
-  --button-destructive-ghost-text-hover:       var(--primitive-color-red-700);
-  --button-destructive-ghost-text-active:      var(--primitive-color-red-800);
-  --button-destructive-ghost-text-disabled:    var(--color-state-disabled-text);
+  --pcs-button-destructive-ghost-text:             var(--pcs-color-error-text);
+  --pcs-button-destructive-ghost-text-hover:       var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-ghost-text-active:      var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-ghost-text-disabled:    var(--pcs-color-state-disabled-text);
 
-  --button-destructive-ghost-border:           transparent;
-  --button-destructive-ghost-border-hover:     transparent;
-  --button-destructive-ghost-border-active:    transparent;
-  --button-destructive-ghost-border-disabled:  transparent;
+  --pcs-button-destructive-ghost-border:           transparent;
+  --pcs-button-destructive-ghost-border-hover:     transparent;
+  --pcs-button-destructive-ghost-border-active:    transparent;
+  --pcs-button-destructive-ghost-border-disabled:  transparent;
 
-  --button-destructive-ghost-icon:             var(--color-error-icon);
-  --button-destructive-ghost-icon-disabled:    var(--color-state-disabled-text);
+  --pcs-button-destructive-ghost-icon:             var(--pcs-color-error-icon);
+  --pcs-button-destructive-ghost-icon-disabled:    var(--pcs-color-state-disabled-text);
 
-  --button-destructive-ghost-shadow:           none;
-  --button-destructive-ghost-shadow-hover:     none;
-  --button-destructive-ghost-shadow-disabled:  none;
+  --pcs-button-destructive-ghost-shadow:           none;
+  --pcs-button-destructive-ghost-shadow-hover:     none;
+  --pcs-button-destructive-ghost-shadow-disabled:  none;
 
 
   /* ===========================================================================
@@ -270,30 +270,30 @@
      Underline appears on hover only (matches anchor behaviour).
   =========================================================================== */
 
-  --button-link-bg:                  transparent;
-  --button-link-bg-hover:            transparent;
-  --button-link-bg-active:           transparent;
-  --button-link-bg-disabled:         transparent;
+  --pcs-button-link-bg:                  transparent;
+  --pcs-button-link-bg-hover:            transparent;
+  --pcs-button-link-bg-active:           transparent;
+  --pcs-button-link-bg-disabled:         transparent;
 
-  --button-link-text:                var(--color-primary-text);
-  --button-link-text-hover:          var(--color-primary-emphasis-hover);
-  --button-link-text-active:         var(--color-primary-emphasis-active);
-  --button-link-text-disabled:       var(--color-state-disabled-text);
+  --pcs-button-link-text:                var(--pcs-color-primary-text);
+  --pcs-button-link-text-hover:          var(--pcs-color-primary-emphasis-hover);
+  --pcs-button-link-text-active:         var(--pcs-color-primary-emphasis-active);
+  --pcs-button-link-text-disabled:       var(--pcs-color-state-disabled-text);
 
-  --button-link-border:              transparent;
-  --button-link-border-hover:        transparent;
-  --button-link-border-active:       transparent;
-  --button-link-border-disabled:     transparent;
+  --pcs-button-link-border:              transparent;
+  --pcs-button-link-border-hover:        transparent;
+  --pcs-button-link-border-active:       transparent;
+  --pcs-button-link-border-disabled:     transparent;
 
-  --button-link-icon:                var(--color-primary-icon);
-  --button-link-icon-disabled:       var(--color-state-disabled-text);
+  --pcs-button-link-icon:                var(--pcs-color-primary-icon);
+  --pcs-button-link-icon-disabled:       var(--pcs-color-state-disabled-text);
 
-  --button-link-underline:           none;
-  --button-link-underline-hover:     underline;
+  --pcs-button-link-underline:           none;
+  --pcs-button-link-underline-hover:     underline;
 
-  --button-link-shadow:              none;
-  --button-link-shadow-hover:        none;
-  --button-link-shadow-disabled:     none;
+  --pcs-button-link-shadow:              none;
+  --pcs-button-link-shadow-hover:        none;
+  --pcs-button-link-shadow-disabled:     none;
 
 }
 
@@ -308,17 +308,17 @@
 [data-app-color-scheme="dark"] {
 
   /* --- Primary --- */
-  --button-primary-bg:               var(--color-primary-emphasis);
-  --button-primary-bg-hover:         var(--color-primary-emphasis-hover);
-  --button-primary-bg-active:        var(--color-primary-emphasis-active);
-  --button-primary-text:             var(--color-primary-on-emphasis);
-  --button-primary-border:           var(--color-primary-emphasis);
-  --button-primary-border-hover:     var(--color-primary-emphasis-hover);
-  --button-primary-border-active:    var(--color-primary-emphasis-active);
+  --pcs-button-primary-bg:               var(--pcs-color-primary-emphasis);
+  --pcs-button-primary-bg-hover:         var(--pcs-color-primary-emphasis-hover);
+  --pcs-button-primary-bg-active:        var(--pcs-color-primary-emphasis-active);
+  --pcs-button-primary-text:             var(--pcs-color-primary-on-emphasis);
+  --pcs-button-primary-border:           var(--pcs-color-primary-emphasis);
+  --pcs-button-primary-border-hover:     var(--pcs-color-primary-emphasis-hover);
+  --pcs-button-primary-border-active:    var(--pcs-color-primary-emphasis-active);
 
   /* --- Secondary --- */
-  /* Background references --color-background which is already dark-overridden */
-  /* Border references --color-border-default which is already dark-overridden */
+  /* Background references --pcs-color-background which is already dark-overridden */
+  /* Border references --pcs-color-border-default which is already dark-overridden */
   /* No additional overrides needed — semantic tokens handle it */
 
   /* --- Ghost --- */
@@ -329,26 +329,26 @@
      red-500 base (slightly lighter than light-mode red-600) for better contrast
      on dark backgrounds.
   --------------------------------------------------------------------------- */
-  --button-destructive-bg:               var(--primitive-color-red-600);
-  --button-destructive-bg-hover:         var(--primitive-color-red-500);
-  --button-destructive-bg-active:        var(--primitive-color-red-400);
-  --button-destructive-border:           var(--primitive-color-red-600);
-  --button-destructive-border-hover:     var(--primitive-color-red-500);
-  --button-destructive-border-active:    var(--primitive-color-red-400);
+  --pcs-button-destructive-bg:               var(--pcs-primitive-color-red-600);
+  --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-500);
+  --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-400);
+  --pcs-button-destructive-border:           var(--pcs-primitive-color-red-600);
+  --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-500);
+  --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-400);
 
   /* --- Destructive Emphasis --- */
-  --button-destructive-emphasis-bg:          var(--primitive-color-red-700);
-  --button-destructive-emphasis-bg-hover:    var(--primitive-color-red-600);
-  --button-destructive-emphasis-bg-active:   var(--primitive-color-red-500);
-  --button-destructive-emphasis-border:      var(--primitive-color-red-700);
-  --button-destructive-emphasis-border-hover:var(--primitive-color-red-600);
+  --pcs-button-destructive-emphasis-bg:          var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-emphasis-bg-hover:    var(--pcs-primitive-color-red-600);
+  --pcs-button-destructive-emphasis-bg-active:   var(--pcs-primitive-color-red-500);
+  --pcs-button-destructive-emphasis-border:      var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-emphasis-border-hover:var(--pcs-primitive-color-red-600);
 
   /* --- Destructive Ghost ---
      Red text needs to be lighter in dark mode for contrast.
   --------------------------------------------------------------------------- */
-  --button-destructive-ghost-text:         var(--color-error-text);
-  --button-destructive-ghost-text-hover:   var(--primitive-color-red-300);
-  --button-destructive-ghost-text-active:  var(--primitive-color-red-200);
+  --pcs-button-destructive-ghost-text:         var(--pcs-color-error-text);
+  --pcs-button-destructive-ghost-text-hover:   var(--pcs-primitive-color-red-300);
+  --pcs-button-destructive-ghost-text-active:  var(--pcs-primitive-color-red-200);
 
   /* --- Link --- */
   /* Handled by semantic primary tokens which are already dark-overridden */

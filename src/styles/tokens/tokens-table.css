@@ -45,23 +45,23 @@
   =========================================================================== */
 
   /* --- Container --- */
-  --table-bg:                          var(--color-surface-card);
-  --table-border-color:                var(--color-border-default);       /* slate-200 */
-  --table-border-width:                var(--border-width-default);       /* 1px  */
-  --table-border-radius:               var(--radius-lg);                  /* 8px  */
+  --pcs-table-bg:                          var(--pcs-color-surface-card);
+  --pcs-table-border-color:                var(--pcs-color-border-default);       /* slate-200 */
+  --pcs-table-border-width:                var(--pcs-border-width-default);       /* 1px  */
+  --pcs-table-border-radius:               var(--pcs-radius-lg);                  /* 8px  */
 
   /* Full width by default — standard for data tables */
-  --table-width:                       100%;
+  --pcs-table-width:                       100%;
 
   /* Wrapping scroll container — table itself doesn't scroll, wrapper does */
-  --table-wrapper-overflow:            auto;
+  --pcs-table-wrapper-overflow:            auto;
 
   /* --- Caption --- */
-  --table-caption-font-size:           var(--text-body-sm-size);           /* 12px */
-  --table-caption-font-weight:         var(--text-body-sm-weight);
-  --table-caption-color:               var(--color-text-subtle);           /* slate-400 */
-  --table-caption-padding:             var(--space-component-gap-md);      /* 8px  */
-  --table-caption-side:                bottom;                             /* caption below table */
+  --pcs-table-caption-font-size:           var(--pcs-text-body-sm-size);           /* 12px */
+  --pcs-table-caption-font-weight:         var(--pcs-text-body-sm-weight);
+  --pcs-table-caption-color:               var(--pcs-color-text-subtle);           /* slate-400 */
+  --pcs-table-caption-padding:             var(--pcs-space-component-gap-md);      /* 8px  */
+  --pcs-table-caption-side:                bottom;                             /* caption below table */
 
 
   /* ===========================================================================
@@ -69,38 +69,38 @@
      Column header cells. Sticky when table scrolls.
   =========================================================================== */
 
-  --table-head-bg:                     var(--color-surface-muted);         /* slate-50  */
-  --table-head-bg-sticky:              var(--color-surface-muted);         /* same — must be opaque for sticky */
-  --table-head-border-bottom-color:    var(--color-border-default);        /* slate-200 */
-  --table-head-border-bottom-width:    var(--border-width-default);
+  --pcs-table-head-bg:                     var(--pcs-color-surface-muted);         /* slate-50  */
+  --pcs-table-head-bg-sticky:              var(--pcs-color-surface-muted);         /* same — must be opaque for sticky */
+  --pcs-table-head-border-bottom-color:    var(--pcs-color-border-default);        /* slate-200 */
+  --pcs-table-head-border-bottom-width:    var(--pcs-border-width-default);
 
   /* Shadow under sticky header when content scrolls beneath it */
-  --table-head-sticky-shadow:          0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --pcs-table-head-sticky-shadow:          0 2px 4px 0 rgba(0, 0, 0, 0.06);
 
-  --table-head-font-size:              var(--text-label-sm-size);          /* 12px */
-  --table-head-font-weight:            600;                                /* heavier than body — signals header */
-  --table-head-line-height:            var(--text-label-sm-line-height);
-  --table-head-color:                  var(--color-text-muted);            /* slate-500 — subdued, not default */
-  --table-head-text-transform:         uppercase;
-  --table-head-letter-spacing:         0.04em;
+  --pcs-table-head-font-size:              var(--pcs-text-label-sm-size);          /* 12px */
+  --pcs-table-head-font-weight:            600;                                /* heavier than body — signals header */
+  --pcs-table-head-line-height:            var(--pcs-text-label-sm-line-height);
+  --pcs-table-head-color:                  var(--pcs-color-text-muted);            /* slate-500 — subdued, not default */
+  --pcs-table-head-text-transform:         uppercase;
+  --pcs-table-head-letter-spacing:         0.04em;
 
   /* Sort indicator icon */
-  --table-head-sort-icon-size:         var(--size-icon-sm);                /* 12px */
-  --table-head-sort-icon-color:        var(--color-icon-muted);
-  --table-head-sort-icon-color-active: var(--color-primary-default);       /* brand-500 when sorted */
-  --table-head-sort-gap:               var(--space-component-gap-xs);      /* 4px — between label and icon */
+  --pcs-table-head-sort-icon-size:         var(--pcs-size-icon-sm);                /* 12px */
+  --pcs-table-head-sort-icon-color:        var(--pcs-color-icon-muted);
+  --pcs-table-head-sort-icon-color-active: var(--pcs-color-primary-default);       /* brand-500 when sorted */
+  --pcs-table-head-sort-gap:               var(--pcs-space-component-gap-xs);      /* 4px — between label and icon */
 
   /* Sortable header hover */
-  --table-head-bg-hover:               var(--color-state-hover);           /* slate-100 */
-  --table-head-color-hover:            var(--color-text-default);
-  --table-head-cursor-sortable:        pointer;
+  --pcs-table-head-bg-hover:               var(--pcs-color-state-hover);           /* slate-100 */
+  --pcs-table-head-color-hover:            var(--pcs-color-text-default);
+  --pcs-table-head-cursor-sortable:        pointer;
 
   /* --- Density: padding for th --- */
-  --table-head-padding-x-default:      var(--space-inset-md);              /* 16px */
-  --table-head-padding-y-default:      var(--primitive-space-3);           /* 12px */
+  --pcs-table-head-padding-x-default:      var(--pcs-space-inset-md);              /* 16px */
+  --pcs-table-head-padding-y-default:      var(--pcs-primitive-space-3);           /* 12px */
 
-  --table-head-padding-x-compact:      var(--space-inset-sm);              /* 12px */
-  --table-head-padding-y-compact:      var(--primitive-space-2);           /*  8px */
+  --pcs-table-head-padding-x-compact:      var(--pcs-space-inset-sm);              /* 12px */
+  --pcs-table-head-padding-y-compact:      var(--pcs-primitive-space-2);           /*  8px */
 
 
   /* ===========================================================================
@@ -108,67 +108,67 @@
   =========================================================================== */
 
   /* --- Default --- */
-  --table-row-bg:                      transparent;
-  --table-row-border-bottom-color:     var(--color-border-muted);          /* slate-100 */
-  --table-row-border-bottom-width:     var(--border-width-default);
+  --pcs-table-row-bg:                      transparent;
+  --pcs-table-row-border-bottom-color:     var(--pcs-color-border-muted);          /* slate-100 */
+  --pcs-table-row-border-bottom-width:     var(--pcs-border-width-default);
 
   /* Last row in body — no bottom border */
-  --table-row-last-border-bottom:      none;
+  --pcs-table-row-last-border-bottom:      none;
 
   /* --- Hover --- */
-  --table-row-bg-hover:                var(--color-state-hover);           /* slate-50  */
+  --pcs-table-row-bg-hover:                var(--pcs-color-state-hover);           /* slate-50  */
 
   /* --- Selected (checkbox row selection) --- */
-  --table-row-bg-selected:             var(--color-primary-surface);       /* brand-50  */
-  --table-row-border-selected-color:   var(--color-primary-border);        /* brand-200 */
+  --pcs-table-row-bg-selected:             var(--pcs-color-primary-surface);       /* brand-50  */
+  --pcs-table-row-border-selected-color:   var(--pcs-color-primary-border);        /* brand-200 */
 
   /* --- Disabled row (read-only, locked) --- */
-  --table-row-bg-disabled:             transparent;
-  --table-row-color-disabled:          var(--color-text-disabled);
-  --table-row-cursor-disabled:         not-allowed;
+  --pcs-table-row-bg-disabled:             transparent;
+  --pcs-table-row-color-disabled:          var(--pcs-color-text-disabled);
+  --pcs-table-row-cursor-disabled:         not-allowed;
 
 
   /* ===========================================================================
      TABLE CELL (td)
   =========================================================================== */
 
-  --table-cell-font-size:              var(--text-body-md-size);           /* 14px */
-  --table-cell-font-weight:            var(--text-body-md-weight);         /* 400  */
-  --table-cell-line-height:            var(--text-body-md-line-height);
-  --table-cell-color:                  var(--color-text-default);
+  --pcs-table-cell-font-size:              var(--pcs-text-body-md-size);           /* 14px */
+  --pcs-table-cell-font-weight:            var(--pcs-text-body-md-weight);         /* 400  */
+  --pcs-table-cell-line-height:            var(--pcs-text-body-md-line-height);
+  --pcs-table-cell-color:                  var(--pcs-color-text-default);
 
   /* --- Density: padding for td --- */
-  --table-cell-padding-x-default:      var(--space-inset-md);              /* 16px */
-  --table-cell-padding-y-default:      var(--primitive-space-3-5);         /* 14px — slightly more than compact */
+  --pcs-table-cell-padding-x-default:      var(--pcs-space-inset-md);              /* 16px */
+  --pcs-table-cell-padding-y-default:      var(--pcs-primitive-space-3-5);         /* 14px — slightly more than compact */
 
-  --table-cell-padding-x-compact:      var(--space-inset-sm);              /* 12px */
-  --table-cell-padding-y-compact:      var(--primitive-space-2-5);         /* 10px */
+  --pcs-table-cell-padding-x-compact:      var(--pcs-space-inset-sm);              /* 12px */
+  --pcs-table-cell-padding-y-compact:      var(--pcs-primitive-space-2-5);         /* 10px */
 
   /* --- Row height reference (informational — set via padding) --- */
-  --table-row-height-default:          48px;                               /* padding-y × 2 + line-height */
-  --table-row-height-compact:          36px;
+  --pcs-table-row-height-default:          48px;                               /* padding-y × 2 + line-height */
+  --pcs-table-row-height-compact:          36px;
 
   /* --- Column type: Numeric --- */
   /* Right-aligned. Apply via column modifier class. */
-  --table-cell-numeric-text-align:     right;
-  --table-cell-numeric-font-variant:   tabular-nums;                       /* fixed-width digits — columns align */
+  --pcs-table-cell-numeric-text-align:     right;
+  --pcs-table-cell-numeric-font-variant:   tabular-nums;                       /* fixed-width digits — columns align */
 
   /* --- Column type: Action --- */
   /* Fixed width column hosting icon buttons. Right-aligned. */
-  --table-cell-action-width:           var(--primitive-space-20);          /* 80px — fits 2–3 icon buttons */
-  --table-cell-action-text-align:      right;
-  --table-cell-action-gap:             var(--space-component-gap-xs);      /* 4px between action buttons */
+  --pcs-table-cell-action-width:           var(--pcs-primitive-space-20);          /* 80px — fits 2–3 icon buttons */
+  --pcs-table-cell-action-text-align:      right;
+  --pcs-table-cell-action-gap:             var(--pcs-space-component-gap-xs);      /* 4px between action buttons */
 
   /* Action buttons inside cell use ghost variant — no border/bg by default */
-  --table-cell-action-btn-opacity:     0;                                  /* hidden until row hover */
-  --table-cell-action-btn-opacity-hover: 1;                                /* revealed on row hover */
-  --table-cell-action-transition:      opacity 150ms ease;
+  --pcs-table-cell-action-btn-opacity:     0;                                  /* hidden until row hover */
+  --pcs-table-cell-action-btn-opacity-hover: 1;                                /* revealed on row hover */
+  --pcs-table-cell-action-transition:      opacity 150ms ease;
 
   /* --- Truncation --- */
   /* Long text cells truncate with ellipsis. Max-width set at usage. */
-  --table-cell-truncate-overflow:      hidden;
-  --table-cell-truncate-whitespace:    nowrap;
-  --table-cell-truncate-text-overflow: ellipsis;
+  --pcs-table-cell-truncate-overflow:      hidden;
+  --pcs-table-cell-truncate-whitespace:    nowrap;
+  --pcs-table-cell-truncate-text-overflow: ellipsis;
 
 
   /* ===========================================================================
@@ -176,11 +176,11 @@
      Used for summary rows or pagination controls.
   =========================================================================== */
 
-  --table-footer-bg:                   var(--color-surface-muted);         /* slate-50 — mirrors header */
-  --table-footer-border-top-color:     var(--color-border-default);
-  --table-footer-border-top-width:     var(--border-width-default);
-  --table-footer-font-size:            var(--text-body-sm-size);           /* 12px */
-  --table-footer-color:                var(--color-text-muted);
+  --pcs-table-footer-bg:                   var(--pcs-color-surface-muted);         /* slate-50 — mirrors header */
+  --pcs-table-footer-border-top-color:     var(--pcs-color-border-default);
+  --pcs-table-footer-border-top-width:     var(--pcs-border-width-default);
+  --pcs-table-footer-font-size:            var(--pcs-text-body-sm-size);           /* 12px */
+  --pcs-table-footer-color:                var(--pcs-color-text-muted);
 
 
   /* ===========================================================================
@@ -188,12 +188,12 @@
      First column. Fixed narrow width. Centers the checkbox.
   =========================================================================== */
 
-  --table-checkbox-col-width:          var(--primitive-space-12);          /* 48px */
-  --table-checkbox-col-padding-x:      var(--space-inset-md);              /* 16px */
+  --pcs-table-checkbox-col-width:          var(--pcs-primitive-space-12);          /* 48px */
+  --pcs-table-checkbox-col-padding-x:      var(--pcs-space-inset-md);              /* 16px */
 
   /* Select-all checkbox in header */
-  --table-head-checkbox-color:         var(--color-icon-muted);
-  --table-head-checkbox-color-checked: var(--color-primary-default);
+  --pcs-table-head-checkbox-color:         var(--pcs-color-icon-muted);
+  --pcs-table-head-checkbox-color-checked: var(--pcs-color-primary-default);
 
 
   /* ===========================================================================
@@ -201,10 +201,10 @@
      When table has no rows. Rendered as a single full-width cell.
   =========================================================================== */
 
-  --table-empty-padding:               var(--space-inset-xl);              /* 32px */
-  --table-empty-color:                 var(--color-text-subtle);
-  --table-empty-font-size:             var(--text-body-md-size);
-  --table-empty-text-align:            center;
+  --pcs-table-empty-padding:               var(--pcs-space-inset-xl);              /* 32px */
+  --pcs-table-empty-color:                 var(--pcs-color-text-subtle);
+  --pcs-table-empty-font-size:             var(--pcs-text-body-md-size);
+  --pcs-table-empty-text-align:            center;
 
 
   /* ===========================================================================
@@ -212,11 +212,11 @@
      Skeleton rows while data loads.
   =========================================================================== */
 
-  --table-skeleton-row-count:          5;                                  /* informational — used in component */
-  --table-skeleton-cell-height:        var(--primitive-space-4);           /* 16px — skeleton bar height */
-  --table-skeleton-cell-border-radius: var(--radius-sm);                   /* 2px  */
-  --table-skeleton-bg:                 var(--skeleton-base-color);         /* resolves from skeleton tokens */
-  --table-skeleton-shimmer:            var(--skeleton-shimmer-color);
+  --pcs-table-skeleton-row-count:          5;                                  /* informational — used in component */
+  --pcs-table-skeleton-cell-height:        var(--pcs-primitive-space-4);           /* 16px — skeleton bar height */
+  --pcs-table-skeleton-cell-border-radius: var(--pcs-radius-sm);                   /* 2px  */
+  --pcs-table-skeleton-bg:                 var(--pcs-skeleton-base-color);         /* resolves from skeleton tokens */
+  --pcs-table-skeleton-shimmer:            var(--pcs-skeleton-shimmer-color);
 
 }
 
@@ -228,18 +228,18 @@
 [data-app-color-scheme="dark"] {
 
   /* Header and footer backgrounds */
-  --table-head-bg:                     var(--color-surface-muted);         /* slate-900 in dark */
-  --table-head-bg-sticky:              var(--color-surface-muted);
-  --table-footer-bg:                   var(--color-surface-muted);
+  --pcs-table-head-bg:                     var(--pcs-color-surface-muted);         /* slate-900 in dark */
+  --pcs-table-head-bg-sticky:              var(--pcs-color-surface-muted);
+  --pcs-table-footer-bg:                   var(--pcs-color-surface-muted);
 
   /* Sticky shadow more visible on dark */
-  --table-head-sticky-shadow:          0 2px 6px 0 rgba(0, 0, 0, 0.25);
+  --pcs-table-head-sticky-shadow:          0 2px 6px 0 rgba(0, 0, 0, 0.25);
 
   /* Row borders slightly more subtle in dark */
-  --table-row-border-bottom-color:     var(--color-border-muted);          /* slate-800 */
+  --pcs-table-row-border-bottom-color:     var(--pcs-color-border-muted);          /* slate-800 */
 
   /* Selected row — primary surface in dark */
-  --table-row-bg-selected:             var(--color-primary-surface);       /* brand-950 in dark */
-  --table-row-border-selected-color:   var(--color-primary-border);        /* brand-800 in dark */
+  --pcs-table-row-bg-selected:             var(--pcs-color-primary-surface);       /* brand-950 in dark */
+  --pcs-table-row-border-selected-color:   var(--pcs-color-primary-border);        /* brand-800 in dark */
 
 }

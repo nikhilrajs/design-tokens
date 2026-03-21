@@ -28,59 +28,59 @@
 :root {
 
   /* --- Typography --- */
-  --breadcrumb-font-family:          var(--text-font-sans);
-  --breadcrumb-font-size:            var(--text-body-md-size);          /* 14px */
-  --breadcrumb-font-weight:          var(--text-body-md-weight);        /* 400  */
-  --breadcrumb-line-height:          var(--text-body-md-line-height);
+  --pcs-breadcrumb-font-family:          var(--pcs-text-font-sans);
+  --pcs-breadcrumb-font-size:            var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-breadcrumb-font-weight:          var(--pcs-text-body-md-weight);        /* 400  */
+  --pcs-breadcrumb-line-height:          var(--pcs-text-body-md-line-height);
 
   /* Current (last) item is slightly heavier to signal position */
-  --breadcrumb-font-weight-current:  var(--primitive-font-weight-medium); /* 500 */
+  --pcs-breadcrumb-font-weight-current:  var(--pcs-primitive-font-weight-medium); /* 500 */
 
   /* --- Gap between items (including separator) --- */
-  --breadcrumb-gap:                  var(--space-component-gap-sm);     /* 6px */
+  --pcs-breadcrumb-gap:                  var(--pcs-space-component-gap-sm);     /* 6px */
 
   /* --- Item — default (ancestor links) --- */
-  --breadcrumb-item-color:           var(--color-text-muted);           /* slate-500 */
-  --breadcrumb-item-bg:              transparent;
-  --breadcrumb-item-border-radius:   var(--radius-sm);                  /* 2px — for focus ring */
-  --breadcrumb-item-padding-x:       var(--primitive-space-1);          /* 4px — small padding for focus ring */
-  --breadcrumb-item-padding-y:       var(--primitive-space-0-5);        /* 2px */
+  --pcs-breadcrumb-item-color:           var(--pcs-color-text-muted);           /* slate-500 */
+  --pcs-breadcrumb-item-bg:              transparent;
+  --pcs-breadcrumb-item-border-radius:   var(--pcs-radius-sm);                  /* 2px — for focus ring */
+  --pcs-breadcrumb-item-padding-x:       var(--pcs-primitive-space-1);          /* 4px — small padding for focus ring */
+  --pcs-breadcrumb-item-padding-y:       var(--pcs-primitive-space-0-5);        /* 2px */
 
   /* --- Item — hover --- */
-  --breadcrumb-item-color-hover:     var(--color-text-default);         /* slate-900 */
-  --breadcrumb-item-underline-hover: underline;
+  --pcs-breadcrumb-item-color-hover:     var(--pcs-color-text-default);         /* slate-900 */
+  --pcs-breadcrumb-item-underline-hover: underline;
 
   /* --- Item — current (last, non-interactive) --- */
-  --breadcrumb-item-color-current:   var(--color-text-default);         /* slate-900 */
-  --breadcrumb-item-cursor-current:  default;
+  --pcs-breadcrumb-item-color-current:   var(--pcs-color-text-default);         /* slate-900 */
+  --pcs-breadcrumb-item-cursor-current:  default;
 
   /* --- Item — focus --- */
-  --breadcrumb-focus-ring-width:     2px;
-  --breadcrumb-focus-ring-offset:    1px;
-  --breadcrumb-focus-ring-color:     var(--color-focus-ring);
+  --pcs-breadcrumb-focus-ring-width:     2px;
+  --pcs-breadcrumb-focus-ring-offset:    1px;
+  --pcs-breadcrumb-focus-ring-color:     var(--pcs-color-focus-ring);
 
   /* --- Separator --- */
   /* Separator is typically a "/" character or a chevron icon */
-  --breadcrumb-separator-color:      var(--color-text-subtle);          /* slate-400 */
-  --breadcrumb-separator-size:       var(--size-icon-sm);               /* 12px — for icon separators */
-  --breadcrumb-separator-gap:        var(--space-component-gap-xs);     /* 4px — gap between item and separator */
+  --pcs-breadcrumb-separator-color:      var(--pcs-color-text-subtle);          /* slate-400 */
+  --pcs-breadcrumb-separator-size:       var(--pcs-size-icon-sm);               /* 12px — for icon separators */
+  --pcs-breadcrumb-separator-gap:        var(--pcs-space-component-gap-xs);     /* 4px — gap between item and separator */
 
   /* --- Icon (optional leading icon per item, e.g. home icon) --- */
-  --breadcrumb-icon-size:            var(--size-icon-md);               /* 16px */
-  --breadcrumb-icon-color:           var(--color-icon-muted);
-  --breadcrumb-icon-color-hover:     var(--color-icon-default);
-  --breadcrumb-icon-gap:             var(--space-component-gap-xs);     /* 4px — icon to label */
+  --pcs-breadcrumb-icon-size:            var(--pcs-size-icon-md);               /* 16px */
+  --pcs-breadcrumb-icon-color:           var(--pcs-color-icon-muted);
+  --pcs-breadcrumb-icon-color-hover:     var(--pcs-color-icon-default);
+  --pcs-breadcrumb-icon-gap:             var(--pcs-space-component-gap-xs);     /* 4px — icon to label */
 
   /* --- Ellipsis (truncation button) --- */
-  --breadcrumb-ellipsis-color:       var(--color-text-muted);
-  --breadcrumb-ellipsis-color-hover: var(--color-text-default);
-  --breadcrumb-ellipsis-bg-hover:    var(--color-state-hover);
-  --breadcrumb-ellipsis-border-radius: var(--radius-sm);
-  --breadcrumb-ellipsis-padding-x:   var(--primitive-space-1-5);        /* 6px */
-  --breadcrumb-ellipsis-padding-y:   var(--primitive-space-0-5);        /* 2px */
+  --pcs-breadcrumb-ellipsis-color:       var(--pcs-color-text-muted);
+  --pcs-breadcrumb-ellipsis-color-hover: var(--pcs-color-text-default);
+  --pcs-breadcrumb-ellipsis-bg-hover:    var(--pcs-color-state-hover);
+  --pcs-breadcrumb-ellipsis-border-radius: var(--pcs-radius-sm);
+  --pcs-breadcrumb-ellipsis-padding-x:   var(--pcs-primitive-space-1-5);        /* 6px */
+  --pcs-breadcrumb-ellipsis-padding-y:   var(--pcs-primitive-space-0-5);        /* 2px */
 
   /* Max width per item before text truncates with ellipsis */
-  --breadcrumb-item-max-width:       12rem;                             /* 192px */
+  --pcs-breadcrumb-item-max-width:       12rem;                             /* 192px */
 
 }
 
@@ -111,90 +111,90 @@
 
   /* --- Sizing --- */
   /* Page items are square buttons */
-  --pagination-item-size:            var(--size-control-md);            /* 32px — square */
-  --pagination-item-min-width:       var(--size-control-md);            /* 32px */
-  --pagination-item-border-radius:   var(--radius-md);                  /*  6px */
-  --pagination-item-border-width:    var(--border-width-default);
+  --pcs-pagination-item-size:            var(--pcs-size-control-md);            /* 32px — square */
+  --pcs-pagination-item-min-width:       var(--pcs-size-control-md);            /* 32px */
+  --pcs-pagination-item-border-radius:   var(--pcs-radius-md);                  /*  6px */
+  --pcs-pagination-item-border-width:    var(--pcs-border-width-default);
 
   /* Prev/Next controls are slightly wider (icon + optional label) */
-  --pagination-control-height:       var(--size-control-md);            /* 32px */
-  --pagination-control-padding-x:    var(--space-component-padding-md); /* 12px */
-  --pagination-control-border-radius:var(--radius-md);
+  --pcs-pagination-control-height:       var(--pcs-size-control-md);            /* 32px */
+  --pcs-pagination-control-padding-x:    var(--pcs-space-component-padding-md); /* 12px */
+  --pcs-pagination-control-border-radius:var(--pcs-radius-md);
 
   /* Gap between items */
-  --pagination-gap:                  var(--space-component-gap-xs);     /* 4px */
+  --pcs-pagination-gap:                  var(--pcs-space-component-gap-xs);     /* 4px */
 
   /* --- Typography --- */
-  --pagination-font-family:          var(--text-font-sans);
-  --pagination-font-size:            var(--text-body-md-size);          /* 14px */
-  --pagination-font-weight:          var(--primitive-font-weight-medium);/* 500  */
-  --pagination-line-height:          var(--primitive-line-height-normal);
+  --pcs-pagination-font-family:          var(--pcs-text-font-sans);
+  --pcs-pagination-font-size:            var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-pagination-font-weight:          var(--pcs-primitive-font-weight-medium);/* 500  */
+  --pcs-pagination-line-height:          var(--pcs-primitive-line-height-normal);
 
   /* --- Item — default --- */
-  --pagination-item-bg:              transparent;
-  --pagination-item-border-color:    transparent;
-  --pagination-item-text:            var(--color-text-muted);           /* slate-500 */
+  --pcs-pagination-item-bg:              transparent;
+  --pcs-pagination-item-border-color:    transparent;
+  --pcs-pagination-item-text:            var(--pcs-color-text-muted);           /* slate-500 */
 
   /* --- Item — hover --- */
-  --pagination-item-bg-hover:        var(--color-state-hover);          /* slate-50  */
-  --pagination-item-border-color-hover: var(--color-border-default);    /* slate-200 */
-  --pagination-item-text-hover:      var(--color-text-default);         /* slate-900 */
+  --pcs-pagination-item-bg-hover:        var(--pcs-color-state-hover);          /* slate-50  */
+  --pcs-pagination-item-border-color-hover: var(--pcs-color-border-default);    /* slate-200 */
+  --pcs-pagination-item-text-hover:      var(--pcs-color-text-default);         /* slate-900 */
 
   /* --- Item — active (current page) --- */
-  --pagination-item-bg-active:       var(--color-primary-emphasis);     /* brand-500 */
-  --pagination-item-border-color-active: var(--color-primary-emphasis);
-  --pagination-item-text-active:     var(--color-primary-on-emphasis);  /* white     */
+  --pcs-pagination-item-bg-active:       var(--pcs-color-primary-emphasis);     /* brand-500 */
+  --pcs-pagination-item-border-color-active: var(--pcs-color-primary-emphasis);
+  --pcs-pagination-item-text-active:     var(--pcs-color-primary-on-emphasis);  /* white     */
 
   /* --- Item — focus --- */
-  --pagination-focus-ring-width:     2px;
-  --pagination-focus-ring-offset:    2px;
-  --pagination-focus-ring-color:     var(--color-focus-ring);
+  --pcs-pagination-focus-ring-width:     2px;
+  --pcs-pagination-focus-ring-offset:    2px;
+  --pcs-pagination-focus-ring-color:     var(--pcs-color-focus-ring);
 
   /* --- Control (Prev / Next) — default --- */
-  --pagination-control-bg:           transparent;
-  --pagination-control-border-color: var(--color-border-default);       /* slate-200 */
-  --pagination-control-text:         var(--color-text-default);
-  --pagination-control-icon-color:   var(--color-icon-default);
+  --pcs-pagination-control-bg:           transparent;
+  --pcs-pagination-control-border-color: var(--pcs-color-border-default);       /* slate-200 */
+  --pcs-pagination-control-text:         var(--pcs-color-text-default);
+  --pcs-pagination-control-icon-color:   var(--pcs-color-icon-default);
 
   /* --- Control — hover --- */
-  --pagination-control-bg-hover:     var(--color-state-hover);
-  --pagination-control-border-color-hover: var(--color-border-strong);
-  --pagination-control-text-hover:   var(--color-text-default);
+  --pcs-pagination-control-bg-hover:     var(--pcs-color-state-hover);
+  --pcs-pagination-control-border-color-hover: var(--pcs-color-border-strong);
+  --pcs-pagination-control-text-hover:   var(--pcs-color-text-default);
 
   /* --- Control — disabled (on first/last page) --- */
-  --pagination-control-bg-disabled:  transparent;
-  --pagination-control-border-color-disabled: var(--color-state-disabled-border);
-  --pagination-control-text-disabled:var(--color-state-disabled-text);
-  --pagination-control-icon-color-disabled: var(--color-icon-disabled);
-  --pagination-control-cursor-disabled: not-allowed;
+  --pcs-pagination-control-bg-disabled:  transparent;
+  --pcs-pagination-control-border-color-disabled: var(--pcs-color-state-disabled-border);
+  --pcs-pagination-control-text-disabled:var(--pcs-color-state-disabled-text);
+  --pcs-pagination-control-icon-color-disabled: var(--pcs-color-icon-disabled);
+  --pcs-pagination-control-cursor-disabled: not-allowed;
 
   /* --- Ellipsis --- */
   /* Static placeholder — not interactive */
-  --pagination-ellipsis-color:       var(--color-text-subtle);          /* slate-400 */
-  --pagination-ellipsis-size:        var(--size-control-md);            /* 32px — same as item for alignment */
+  --pcs-pagination-ellipsis-color:       var(--pcs-color-text-subtle);          /* slate-400 */
+  --pcs-pagination-ellipsis-size:        var(--pcs-size-control-md);            /* 32px — same as item for alignment */
 
   /* --- Icon sizes within controls --- */
-  --pagination-icon-size:            var(--size-icon-md);               /* 16px */
-  --pagination-icon-gap:             var(--space-component-gap-xs);     /* 4px — icon to label */
+  --pcs-pagination-icon-size:            var(--pcs-size-icon-md);               /* 16px */
+  --pcs-pagination-icon-gap:             var(--pcs-space-component-gap-xs);     /* 4px — icon to label */
 
   /* --- Compact variant ---
      Some contexts (tables, mobile) need a minimal pagination with no labels.
      Compact uses icon-only prev/next controls.
   --------------------------------------------------------------------------- */
-  --pagination-compact-item-size:    var(--size-control-sm);            /* 28px — smaller items */
-  --pagination-compact-font-size:    var(--primitive-font-size-xs);     /* 12px */
-  --pagination-compact-gap:          var(--primitive-space-0-5);        /*  2px — tighter gap   */
+  --pcs-pagination-compact-item-size:    var(--pcs-size-control-sm);            /* 28px — smaller items */
+  --pcs-pagination-compact-font-size:    var(--pcs-primitive-font-size-xs);     /* 12px */
+  --pcs-pagination-compact-gap:          var(--pcs-primitive-space-0-5);        /*  2px — tighter gap   */
 
 }
 
 [data-app-color-scheme="dark"] {
 
   /* Item active — brand color stays but slightly lighter for dark bg contrast */
-  --pagination-item-bg-active:       var(--color-primary-emphasis);     /* dark-aware via semantic */
-  --pagination-item-text-active:     var(--color-primary-on-emphasis);
+  --pcs-pagination-item-bg-active:       var(--pcs-color-primary-emphasis);     /* dark-aware via semantic */
+  --pcs-pagination-item-text-active:     var(--pcs-color-primary-on-emphasis);
 
   /* Control border is slightly more visible in dark */
-  --pagination-control-border-color: var(--color-border-default);       /* slate-700 — dark-aware */
+  --pcs-pagination-control-border-color: var(--pcs-color-border-default);       /* slate-700 — dark-aware */
 
   /* All other states handled by semantic tokens */
 

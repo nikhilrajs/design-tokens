@@ -41,67 +41,67 @@
 :root {
 
   /* --- Page background + default text --- */
-  --background:                    var(--color-background);
-  --foreground:                    var(--color-text-default);
+  --background:                    var(--pcs-color-background);
+  --foreground:                    var(--pcs-color-text-default);
 
   /* --- Card surface --- */
-  --card:                          var(--color-surface-card);
-  --card-foreground:               var(--color-text-default);
+  --card:                          var(--pcs-color-surface-card);
+  --card-foreground:               var(--pcs-color-text-default);
 
   /* --- Popover / dropdown surface --- */
-  --popover:                       var(--color-surface-overlay);
-  --popover-foreground:            var(--color-text-default);
+  --popover:                       var(--pcs-color-surface-overlay);
+  --popover-foreground:            var(--pcs-color-text-default);
 
   /* --- Primary brand --- */
-  --primary:                       var(--color-primary-emphasis);
-  --primary-foreground:            var(--color-primary-on-emphasis);
+  --primary:                       var(--pcs-color-primary-emphasis);
+  --primary-foreground:            var(--pcs-color-primary-on-emphasis);
 
   /* --- Secondary (muted fill — secondary buttons, subtle surfaces) --- */
-  --secondary:                     var(--color-surface-muted);
-  --secondary-foreground:          var(--color-text-default);
+  --secondary:                     var(--pcs-color-surface-muted);
+  --secondary-foreground:          var(--pcs-color-text-default);
 
   /* --- Muted (subdued backgrounds — disabled, placeholder areas) --- */
-  --muted:                         var(--color-surface-muted);
-  --muted-foreground:              var(--color-text-muted);
+  --muted:                         var(--pcs-color-surface-muted);
+  --muted-foreground:              var(--pcs-color-text-muted);
 
   /* --- Accent (hover/focus highlight backgrounds) --- */
   /* shadcn uses --accent for dropdown/menu item hover (bg-accent). Maps to
      --color-surface-muted (neutral-100) so hover states are perceptible on white. */
-  --accent:                        var(--color-surface-muted);
-  --accent-foreground:             var(--color-text-default);
+  --accent:                        var(--pcs-color-surface-muted);
+  --accent-foreground:             var(--pcs-color-text-default);
 
   /* --- Destructive (delete, remove, irreversible actions) --- */
-  --destructive:                   var(--color-error-emphasis);
-  --destructive-foreground:        var(--color-error-on-emphasis);
+  --destructive:                   var(--pcs-color-error-emphasis);
+  --destructive-foreground:        var(--pcs-color-error-on-emphasis);
 
   /* --- Border (default border color) --- */
-  --border:                        var(--color-border-default);
+  --border:                        var(--pcs-color-border-default);
 
   /* --- Input (input border color — shadcn uses this for borders only) --- */
-  --input:                         var(--color-border-default);
+  --input:                         var(--pcs-color-border-default);
 
   /* --- Ring (focus ring color) --- */
-  --ring:                          var(--color-focus-ring);
+  --ring:                          var(--pcs-color-focus-ring);
 
   /* --- Border radius (shadcn's single radius token — maps to our base) --- */
-  --radius:                        var(--radius-md);
+  --radius:                        var(--pcs-radius-md);
 
   /* --- Chart colors (no equivalent in our system — sensible fallbacks) --- */
-  --chart-1:                       var(--color-primary-emphasis);
-  --chart-2:                       var(--color-info-emphasis);
-  --chart-3:                       var(--color-success-emphasis);
-  --chart-4:                       var(--color-warning-emphasis);
-  --chart-5:                       var(--color-error-emphasis);
+  --chart-1:                       var(--pcs-color-primary-emphasis);
+  --chart-2:                       var(--pcs-color-info-emphasis);
+  --chart-3:                       var(--pcs-color-success-emphasis);
+  --chart-4:                       var(--pcs-color-warning-emphasis);
+  --chart-5:                       var(--pcs-color-error-emphasis);
 
   /* --- Sidebar --- */
-  --sidebar:                       var(--color-surface-sidebar);
-  --sidebar-foreground:            var(--color-text-default);
-  --sidebar-primary:               var(--color-primary-emphasis);
-  --sidebar-primary-foreground:    var(--color-primary-on-emphasis);
-  --sidebar-accent:                var(--color-state-hover);
-  --sidebar-accent-foreground:     var(--color-text-default);
-  --sidebar-border:                var(--color-border-default);
-  --sidebar-ring:                  var(--color-focus-ring);
+  --sidebar:                       var(--pcs-color-surface-sidebar);
+  --sidebar-foreground:            var(--pcs-color-text-default);
+  --sidebar-primary:               var(--pcs-color-primary-emphasis);
+  --sidebar-primary-foreground:    var(--pcs-color-primary-on-emphasis);
+  --sidebar-accent:                var(--pcs-color-state-hover);
+  --sidebar-accent-foreground:     var(--pcs-color-text-default);
+  --sidebar-border:                var(--pcs-color-border-default);
+  --sidebar-ring:                  var(--pcs-color-focus-ring);
 
 }
 
@@ -125,33 +125,33 @@
      in tokens.css — this block just ensures shadcn's .dark selector
      resolves correctly if it's applied independently. */
 
-  --background:                    var(--color-background);
-  --foreground:                    var(--color-text-default);
-  --card:                          var(--color-surface-card);
-  --card-foreground:               var(--color-text-default);
-  --popover:                       var(--color-surface-overlay);
-  --popover-foreground:            var(--color-text-default);
-  --primary:                       var(--color-primary-emphasis);
-  --primary-foreground:            var(--color-primary-on-emphasis);
-  --secondary:                     var(--color-surface-muted);
-  --secondary-foreground:          var(--color-text-default);
-  --muted:                         var(--color-surface-muted);
-  --muted-foreground:              var(--color-text-muted);
-  --accent:                        var(--color-state-hover);
-  --accent-foreground:             var(--color-text-default);
-  --destructive:                   var(--color-error-emphasis);
-  --destructive-foreground:        var(--color-error-on-emphasis);
-  --border:                        var(--color-border-default);
-  --input:                         var(--color-border-default);
-  --ring:                          var(--color-focus-ring);
-  --sidebar:                       var(--color-surface-sidebar);
-  --sidebar-foreground:            var(--color-text-default);
-  --sidebar-primary:               var(--color-primary-emphasis);
-  --sidebar-primary-foreground:    var(--color-primary-on-emphasis);
-  --sidebar-accent:                var(--color-state-hover);
-  --sidebar-accent-foreground:     var(--color-text-default);
-  --sidebar-border:                var(--color-border-default);
-  --sidebar-ring:                  var(--color-focus-ring);
+  --background:                    var(--pcs-color-background);
+  --foreground:                    var(--pcs-color-text-default);
+  --card:                          var(--pcs-color-surface-card);
+  --card-foreground:               var(--pcs-color-text-default);
+  --popover:                       var(--pcs-color-surface-overlay);
+  --popover-foreground:            var(--pcs-color-text-default);
+  --primary:                       var(--pcs-color-primary-emphasis);
+  --primary-foreground:            var(--pcs-color-primary-on-emphasis);
+  --secondary:                     var(--pcs-color-surface-muted);
+  --secondary-foreground:          var(--pcs-color-text-default);
+  --muted:                         var(--pcs-color-surface-muted);
+  --muted-foreground:              var(--pcs-color-text-muted);
+  --accent:                        var(--pcs-color-state-hover);
+  --accent-foreground:             var(--pcs-color-text-default);
+  --destructive:                   var(--pcs-color-error-emphasis);
+  --destructive-foreground:        var(--pcs-color-error-on-emphasis);
+  --border:                        var(--pcs-color-border-default);
+  --input:                         var(--pcs-color-border-default);
+  --ring:                          var(--pcs-color-focus-ring);
+  --sidebar:                       var(--pcs-color-surface-sidebar);
+  --sidebar-foreground:            var(--pcs-color-text-default);
+  --sidebar-primary:               var(--pcs-color-primary-emphasis);
+  --sidebar-primary-foreground:    var(--pcs-color-primary-on-emphasis);
+  --sidebar-accent:                var(--pcs-color-state-hover);
+  --sidebar-accent-foreground:     var(--pcs-color-text-default);
+  --sidebar-border:                var(--pcs-color-border-default);
+  --sidebar-ring:                  var(--pcs-color-focus-ring);
 
 }
 

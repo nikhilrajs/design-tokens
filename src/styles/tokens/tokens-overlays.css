@@ -29,11 +29,11 @@
      Not used by: Popover, Tooltip, Hover Card (these have no scrim)
   =========================================================================== */
 
-  --overlay-scrim-bg:                var(--color-overlay-scrim);        /* rgb(0 0 0 / 0.5) */
-  --overlay-scrim-z:                 var(--z-modal);                    /* 400 */
+  --pcs-overlay-scrim-bg:                var(--pcs-color-overlay-scrim);        /* rgb(0 0 0 / 0.5) */
+  --pcs-overlay-scrim-z:                 var(--pcs-z-modal);                    /* 400 */
 
   /* Backdrop blur — optional, apply if design calls for it */
-  --overlay-backdrop-blur:           0px;                               /* set to e.g. 4px to enable */
+  --pcs-overlay-backdrop-blur:           0px;                               /* set to e.g. 4px to enable */
 
 
   /* ===========================================================================
@@ -56,57 +56,57 @@
   =========================================================================== */
 
   /* --- Surface --- */
-  --dialog-bg:                       var(--color-surface-card);         /* white / slate-900 dark */
-  --dialog-border-color:             var(--color-border-default);
-  --dialog-border-width:             var(--border-width-default);
-  --dialog-border-radius:            var(--radius-xl);                  /* 12px — prominent surface */
-  --dialog-shadow:                   var(--shadow-xl);
-  --dialog-z:                        var(--z-modal);                    /* 400 */
+  --pcs-dialog-bg:                       var(--pcs-color-surface-card);         /* white / slate-900 dark */
+  --pcs-dialog-border-color:             var(--pcs-color-border-default);
+  --pcs-dialog-border-width:             var(--pcs-border-width-default);
+  --pcs-dialog-border-radius:            var(--pcs-radius-xl);                  /* 12px — prominent surface */
+  --pcs-dialog-shadow:                   var(--pcs-shadow-xl);
+  --pcs-dialog-z:                        var(--pcs-z-modal);                    /* 400 */
 
   /* --- Sizing --- */
-  --dialog-width-sm:                 25rem;                             /* 400px */
-  --dialog-width-md:                 32rem;                             /* 512px — default */
-  --dialog-width-lg:                 40rem;                             /* 640px */
-  --dialog-width-xl:                 48rem;                             /* 768px */
-  --dialog-width-full:               calc(100vw - var(--primitive-space-8)); /* viewport - 32px margin */
+  --pcs-dialog-width-sm:                 25rem;                             /* 400px */
+  --pcs-dialog-width-md:                 32rem;                             /* 512px — default */
+  --pcs-dialog-width-lg:                 40rem;                             /* 640px */
+  --pcs-dialog-width-xl:                 48rem;                             /* 768px */
+  --pcs-dialog-width-full:               calc(100vw - var(--pcs-primitive-space-8)); /* viewport - 32px margin */
 
-  --dialog-max-height:               calc(100vh - var(--primitive-space-16)); /* viewport - 64px */
+  --pcs-dialog-max-height:               calc(100vh - var(--pcs-primitive-space-16)); /* viewport - 64px */
 
   /* --- Internal spacing --- */
-  --dialog-padding-header:           var(--space-inset-lg);             /* 24px */
-  --dialog-padding-body:             var(--space-inset-lg);             /* 24px */
-  --dialog-padding-footer:           var(--space-inset-md);             /* 16px */
+  --pcs-dialog-padding-header:           var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-dialog-padding-body:             var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-dialog-padding-footer:           var(--pcs-space-inset-md);             /* 16px */
 
   /* Gap between header elements (title + description) */
-  --dialog-header-gap:               var(--space-component-gap-xs);     /* 4px */
+  --pcs-dialog-header-gap:               var(--pcs-space-component-gap-xs);     /* 4px */
 
   /* Gap between footer buttons */
-  --dialog-footer-gap:               var(--space-component-gap-md);     /* 8px */
+  --pcs-dialog-footer-gap:               var(--pcs-space-component-gap-md);     /* 8px */
 
   /* Separator between header/body/footer */
-  --dialog-separator-color:          var(--color-border-muted);
-  --dialog-separator-width:          var(--border-width-default);
+  --pcs-dialog-separator-color:          var(--pcs-color-border-muted);
+  --pcs-dialog-separator-width:          var(--pcs-border-width-default);
 
   /* --- Typography --- */
-  --dialog-title-font-size:          var(--text-title-sm-size);         /* 20px */
-  --dialog-title-font-weight:        var(--text-title-sm-weight);       /* 600  */
-  --dialog-title-line-height:        var(--text-title-sm-line-height);
-  --dialog-title-color:              var(--color-text-default);
+  --pcs-dialog-title-font-size:          var(--pcs-text-title-sm-size);         /* 20px */
+  --pcs-dialog-title-font-weight:        var(--pcs-text-title-sm-weight);       /* 600  */
+  --pcs-dialog-title-line-height:        var(--pcs-text-title-sm-line-height);
+  --pcs-dialog-title-color:              var(--pcs-color-text-default);
 
-  --dialog-description-font-size:    var(--text-body-md-size);          /* 14px */
-  --dialog-description-font-weight:  var(--text-body-md-weight);
-  --dialog-description-line-height:  var(--text-body-md-line-height);
-  --dialog-description-color:        var(--color-text-muted);
+  --pcs-dialog-description-font-size:    var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-dialog-description-font-weight:  var(--pcs-text-body-md-weight);
+  --pcs-dialog-description-line-height:  var(--pcs-text-body-md-line-height);
+  --pcs-dialog-description-color:        var(--pcs-color-text-muted);
 
   /* --- Close button --- */
   /* Reuses ghost button tokens visually — these are positional/size tokens only */
-  --dialog-close-size:               var(--size-control-sm);            /* 28px */
-  --dialog-close-offset:             var(--primitive-space-3);          /* 12px from corner */
-  --dialog-close-icon-size:          var(--size-icon-md);               /* 16px */
-  --dialog-close-color:              var(--color-icon-muted);
-  --dialog-close-color-hover:        var(--color-icon-default);
-  --dialog-close-bg-hover:           var(--color-state-hover);
-  --dialog-close-border-radius:      var(--radius-md);
+  --pcs-dialog-close-size:               var(--pcs-size-control-sm);            /* 28px */
+  --pcs-dialog-close-offset:             var(--pcs-primitive-space-3);          /* 12px from corner */
+  --pcs-dialog-close-icon-size:          var(--pcs-size-icon-md);               /* 16px */
+  --pcs-dialog-close-color:              var(--pcs-color-icon-muted);
+  --pcs-dialog-close-color-hover:        var(--pcs-color-icon-default);
+  --pcs-dialog-close-bg-hover:           var(--pcs-color-state-hover);
+  --pcs-dialog-close-border-radius:      var(--pcs-radius-md);
 
 
   /* ===========================================================================
@@ -117,51 +117,51 @@
   =========================================================================== */
 
   /* --- Surface overrides --- */
-  --sheet-bg:                        var(--dialog-bg);                  /* same as dialog */
-  --sheet-border-color:              var(--dialog-border-color);
-  --sheet-border-width:              var(--dialog-border-width);
-  --sheet-shadow:                    var(--shadow-xl);
-  --sheet-z:                         var(--z-overlay);                  /* 300 — below modal */
+  --pcs-sheet-bg:                        var(--pcs-dialog-bg);                  /* same as dialog */
+  --pcs-sheet-border-color:              var(--pcs-dialog-border-color);
+  --pcs-sheet-border-width:              var(--pcs-dialog-border-width);
+  --pcs-sheet-shadow:                    var(--pcs-shadow-xl);
+  --pcs-sheet-z:                         var(--pcs-z-overlay);                  /* 300 — below modal */
 
   /* Right-side: only left corners are rounded, right edge flush */
-  --sheet-border-radius-top-left:    var(--radius-xl);                  /* 12px */
-  --sheet-border-radius-bottom-left: var(--radius-xl);                  /* 12px */
-  --sheet-border-radius-top-right:   var(--radius-none);                /*  0px */
-  --sheet-border-radius-bottom-right:var(--radius-none);                /*  0px */
+  --pcs-sheet-border-radius-top-left:    var(--pcs-radius-xl);                  /* 12px */
+  --pcs-sheet-border-radius-bottom-left: var(--pcs-radius-xl);                  /* 12px */
+  --pcs-sheet-border-radius-top-right:   var(--pcs-radius-none);                /*  0px */
+  --pcs-sheet-border-radius-bottom-right:var(--pcs-radius-none);                /*  0px */
 
   /* --- Sizing --- */
-  --sheet-width-sm:                  20rem;                             /* 320px — narrow info panel */
-  --sheet-width-md:                  24rem;                             /* 384px — default          */
-  --sheet-width-lg:                  32rem;                             /* 512px — wide form panel  */
-  --sheet-width-full:                100vw;                             /* full width on mobile     */
-  --sheet-max-width:                 80vw;                              /* never wider than 80% viewport */
-  --sheet-height:                    100vh;                             /* full height always       */
+  --pcs-sheet-width-sm:                  20rem;                             /* 320px — narrow info panel */
+  --pcs-sheet-width-md:                  24rem;                             /* 384px — default          */
+  --pcs-sheet-width-lg:                  32rem;                             /* 512px — wide form panel  */
+  --pcs-sheet-width-full:                100vw;                             /* full width on mobile     */
+  --pcs-sheet-max-width:                 80vw;                              /* never wider than 80% viewport */
+  --pcs-sheet-height:                    100vh;                             /* full height always       */
 
   /* --- Internal spacing --- */
-  --sheet-padding-header:            var(--space-inset-lg);             /* 24px */
-  --sheet-padding-body:              var(--space-inset-lg);             /* 24px */
-  --sheet-padding-footer:            var(--space-inset-md);             /* 16px */
-  --sheet-header-gap:                var(--space-component-gap-xs);     /*  4px */
-  --sheet-footer-gap:                var(--space-component-gap-md);     /*  8px */
-  --sheet-separator-color:           var(--dialog-separator-color);
-  --sheet-separator-width:           var(--dialog-separator-width);
+  --pcs-sheet-padding-header:            var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-sheet-padding-body:              var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-sheet-padding-footer:            var(--pcs-space-inset-md);             /* 16px */
+  --pcs-sheet-header-gap:                var(--pcs-space-component-gap-xs);     /*  4px */
+  --pcs-sheet-footer-gap:                var(--pcs-space-component-gap-md);     /*  8px */
+  --pcs-sheet-separator-color:           var(--pcs-dialog-separator-color);
+  --pcs-sheet-separator-width:           var(--pcs-dialog-separator-width);
 
   /* --- Typography (inherits dialog typography tokens) --- */
-  --sheet-title-font-size:           var(--dialog-title-font-size);
-  --sheet-title-font-weight:         var(--dialog-title-font-weight);
-  --sheet-title-color:               var(--dialog-title-color);
+  --pcs-sheet-title-font-size:           var(--pcs-dialog-title-font-size);
+  --pcs-sheet-title-font-weight:         var(--pcs-dialog-title-font-weight);
+  --pcs-sheet-title-color:               var(--pcs-dialog-title-color);
 
-  --sheet-description-font-size:     var(--dialog-description-font-size);
-  --sheet-description-color:         var(--dialog-description-color);
+  --pcs-sheet-description-font-size:     var(--pcs-dialog-description-font-size);
+  --pcs-sheet-description-color:         var(--pcs-dialog-description-color);
 
   /* --- Close button (same as dialog) --- */
-  --sheet-close-size:                var(--dialog-close-size);
-  --sheet-close-offset:              var(--dialog-close-offset);
-  --sheet-close-icon-size:           var(--dialog-close-icon-size);
-  --sheet-close-color:               var(--dialog-close-color);
-  --sheet-close-color-hover:         var(--dialog-close-color-hover);
-  --sheet-close-bg-hover:            var(--dialog-close-bg-hover);
-  --sheet-close-border-radius:       var(--dialog-close-border-radius);
+  --pcs-sheet-close-size:                var(--pcs-dialog-close-size);
+  --pcs-sheet-close-offset:              var(--pcs-dialog-close-offset);
+  --pcs-sheet-close-icon-size:           var(--pcs-dialog-close-icon-size);
+  --pcs-sheet-close-color:               var(--pcs-dialog-close-color);
+  --pcs-sheet-close-color-hover:         var(--pcs-dialog-close-color-hover);
+  --pcs-sheet-close-bg-hover:            var(--pcs-dialog-close-bg-hover);
+  --pcs-sheet-close-border-radius:       var(--pcs-dialog-close-border-radius);
 
 
   /* ===========================================================================
@@ -171,16 +171,16 @@
      Arrow/caret is optional — each component opts in.
   =========================================================================== */
 
-  --floating-border-radius:          var(--radius-lg);                  /* 8px */
-  --floating-border-width:           var(--border-width-default);
-  --floating-border-color:           var(--color-border-default);
-  --floating-shadow:                 var(--shadow-md);
-  --floating-bg:                     var(--color-surface-overlay);      /* white / slate-900 dark */
+  --pcs-floating-border-radius:          var(--pcs-radius-lg);                  /* 8px */
+  --pcs-floating-border-width:           var(--pcs-border-width-default);
+  --pcs-floating-border-color:           var(--pcs-color-border-default);
+  --pcs-floating-shadow:                 var(--pcs-shadow-md);
+  --pcs-floating-bg:                     var(--pcs-color-surface-overlay);      /* white / slate-900 dark */
 
   /* Arrow / caret */
-  --floating-arrow-size:             var(--primitive-space-2);          /* 8px */
-  --floating-arrow-color:            var(--floating-bg);
-  --floating-arrow-border-color:     var(--floating-border-color);
+  --pcs-floating-arrow-size:             var(--pcs-primitive-space-2);          /* 8px */
+  --pcs-floating-arrow-color:            var(--pcs-floating-bg);
+  --pcs-floating-arrow-border-color:     var(--pcs-floating-border-color);
 
 
   /* ===========================================================================
@@ -191,34 +191,34 @@
   =========================================================================== */
 
   /* --- Surface (extends floating base) --- */
-  --popover-bg:                      var(--floating-bg);
-  --popover-border-color:            var(--floating-border-color);
-  --popover-border-width:            var(--floating-border-width);
-  --popover-border-radius:           var(--floating-border-radius);
-  --popover-shadow:                  var(--floating-shadow);
-  --popover-z:                       var(--z-dropdown);                 /* 100 */
+  --pcs-popover-bg:                      var(--pcs-floating-bg);
+  --pcs-popover-border-color:            var(--pcs-floating-border-color);
+  --pcs-popover-border-width:            var(--pcs-floating-border-width);
+  --pcs-popover-border-radius:           var(--pcs-floating-border-radius);
+  --pcs-popover-shadow:                  var(--pcs-floating-shadow);
+  --pcs-popover-z:                       var(--pcs-z-dropdown);                 /* 100 */
 
   /* --- Sizing --- */
-  --popover-min-width:               12rem;                             /* 192px */
-  --popover-max-width:               22rem;                             /* 352px */
+  --pcs-popover-min-width:               12rem;                             /* 192px */
+  --pcs-popover-max-width:               22rem;                             /* 352px */
 
   /* --- Spacing --- */
-  --popover-padding:                 var(--space-inset-md);             /* 16px */
-  --popover-header-gap:              var(--space-component-gap-sm);     /*  6px */
+  --pcs-popover-padding:                 var(--pcs-space-inset-md);             /* 16px */
+  --pcs-popover-header-gap:              var(--pcs-space-component-gap-sm);     /*  6px */
 
   /* --- Typography --- */
-  --popover-title-font-size:         var(--text-label-lg-size);         /* 14px */
-  --popover-title-font-weight:       var(--text-label-lg-weight);       /* 500  */
-  --popover-title-color:             var(--color-text-default);
+  --pcs-popover-title-font-size:         var(--pcs-text-label-lg-size);         /* 14px */
+  --pcs-popover-title-font-weight:       var(--pcs-text-label-lg-weight);       /* 500  */
+  --pcs-popover-title-color:             var(--pcs-color-text-default);
 
-  --popover-body-font-size:          var(--text-body-md-size);          /* 14px */
-  --popover-body-font-weight:        var(--text-body-md-weight);
-  --popover-body-color:              var(--color-text-muted);
+  --pcs-popover-body-font-size:          var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-popover-body-font-weight:        var(--pcs-text-body-md-weight);
+  --pcs-popover-body-color:              var(--pcs-color-text-muted);
 
   /* --- Arrow --- */
-  --popover-arrow-size:              var(--floating-arrow-size);
-  --popover-arrow-color:             var(--floating-arrow-color);
-  --popover-arrow-border-color:      var(--floating-arrow-border-color);
+  --pcs-popover-arrow-size:              var(--pcs-floating-arrow-size);
+  --pcs-popover-arrow-color:             var(--pcs-floating-arrow-color);
+  --pcs-popover-arrow-border-color:      var(--pcs-floating-arrow-border-color);
 
 
   /* ===========================================================================
@@ -234,28 +234,28 @@
      In dark mode: slightly lighter dark bg, white text.
      This inversion ensures tooltips always pop above the page surface.
   --------------------------------------------------------------------------- */
-  --tooltip-bg:                      var(--primitive-color-neutral-900);
-  --tooltip-border-color:            transparent;
-  --tooltip-border-width:            0px;
-  --tooltip-border-radius:           var(--radius-md);                  /* 6px — slightly tighter than popover */
-  --tooltip-shadow:                  var(--shadow-md);
-  --tooltip-z:                       var(--z-tooltip);                  /* 600 — above everything */
+  --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-900);
+  --pcs-tooltip-border-color:            transparent;
+  --pcs-tooltip-border-width:            0px;
+  --pcs-tooltip-border-radius:           var(--pcs-radius-md);                  /* 6px — slightly tighter than popover */
+  --pcs-tooltip-shadow:                  var(--pcs-shadow-md);
+  --pcs-tooltip-z:                       var(--pcs-z-tooltip);                  /* 600 — above everything */
 
   /* --- Sizing --- */
-  --tooltip-max-width:               16rem;                             /* 256px */
-  --tooltip-padding-x:               var(--space-component-padding-sm); /*  8px  */
-  --tooltip-padding-y:               var(--primitive-space-1-5);        /*  6px  */
+  --pcs-tooltip-max-width:               16rem;                             /* 256px */
+  --pcs-tooltip-padding-x:               var(--pcs-space-component-padding-sm); /*  8px  */
+  --pcs-tooltip-padding-y:               var(--pcs-primitive-space-1-5);        /*  6px  */
 
   /* --- Typography --- */
-  --tooltip-font-family:             var(--text-font-sans);
-  --tooltip-font-size:               var(--text-body-sm-size);          /* 12px — smaller than body */
-  --tooltip-font-weight:             var(--text-body-sm-weight);        /* 400  */
-  --tooltip-line-height:             var(--primitive-line-height-normal);
-  --tooltip-color:                   var(--primitive-color-white);
+  --pcs-tooltip-font-family:             var(--pcs-text-font-sans);
+  --pcs-tooltip-font-size:               var(--pcs-text-body-sm-size);          /* 12px — smaller than body */
+  --pcs-tooltip-font-weight:             var(--pcs-text-body-sm-weight);        /* 400  */
+  --pcs-tooltip-line-height:             var(--pcs-primitive-line-height-normal);
+  --pcs-tooltip-color:                   var(--pcs-primitive-color-white);
 
   /* --- Arrow --- */
-  --tooltip-arrow-size:              var(--floating-arrow-size);        /* 8px  */
-  --tooltip-arrow-color:             var(--tooltip-bg);
+  --pcs-tooltip-arrow-size:              var(--pcs-floating-arrow-size);        /* 8px  */
+  --pcs-tooltip-arrow-color:             var(--pcs-tooltip-bg);
 
 
   /* ===========================================================================
@@ -267,34 +267,34 @@
   =========================================================================== */
 
   /* --- Surface (extends floating base — same color as page, not inverted) --- */
-  --hover-card-bg:                   var(--floating-bg);
-  --hover-card-border-color:         var(--floating-border-color);
-  --hover-card-border-width:         var(--floating-border-width);
-  --hover-card-border-radius:        var(--floating-border-radius);     /* 8px */
-  --hover-card-shadow:               var(--shadow-lg);                  /* larger shadow than popover */
-  --hover-card-z:                    var(--z-dropdown);                 /* 100 */
+  --pcs-hover-card-bg:                   var(--pcs-floating-bg);
+  --pcs-hover-card-border-color:         var(--pcs-floating-border-color);
+  --pcs-hover-card-border-width:         var(--pcs-floating-border-width);
+  --pcs-hover-card-border-radius:        var(--pcs-floating-border-radius);     /* 8px */
+  --pcs-hover-card-shadow:               var(--pcs-shadow-lg);                  /* larger shadow than popover */
+  --pcs-hover-card-z:                    var(--pcs-z-dropdown);                 /* 100 */
 
   /* --- Sizing --- */
-  --hover-card-min-width:            16rem;                             /* 256px — wider than popover */
-  --hover-card-max-width:            24rem;                             /* 384px */
+  --pcs-hover-card-min-width:            16rem;                             /* 256px — wider than popover */
+  --pcs-hover-card-max-width:            24rem;                             /* 384px */
 
   /* --- Spacing --- */
-  --hover-card-padding:              var(--space-inset-md);             /* 16px */
-  --hover-card-gap:                  var(--space-component-gap-md);     /*  8px — between content sections */
+  --pcs-hover-card-padding:              var(--pcs-space-inset-md);             /* 16px */
+  --pcs-hover-card-gap:                  var(--pcs-space-component-gap-md);     /*  8px — between content sections */
 
   /* --- Typography --- */
-  --hover-card-title-font-size:      var(--text-label-lg-size);         /* 14px */
-  --hover-card-title-font-weight:    var(--text-label-lg-weight);       /* 500  */
-  --hover-card-title-color:          var(--color-text-default);
+  --pcs-hover-card-title-font-size:      var(--pcs-text-label-lg-size);         /* 14px */
+  --pcs-hover-card-title-font-weight:    var(--pcs-text-label-lg-weight);       /* 500  */
+  --pcs-hover-card-title-color:          var(--pcs-color-text-default);
 
-  --hover-card-meta-font-size:       var(--text-body-sm-size);          /* 12px */
-  --hover-card-meta-font-weight:     var(--text-body-sm-weight);
-  --hover-card-meta-color:           var(--color-text-muted);
+  --pcs-hover-card-meta-font-size:       var(--pcs-text-body-sm-size);          /* 12px */
+  --pcs-hover-card-meta-font-weight:     var(--pcs-text-body-sm-weight);
+  --pcs-hover-card-meta-color:           var(--pcs-color-text-muted);
 
   /* --- Arrow --- */
-  --hover-card-arrow-size:           var(--floating-arrow-size);
-  --hover-card-arrow-color:          var(--floating-arrow-color);
-  --hover-card-arrow-border-color:   var(--floating-arrow-border-color);
+  --pcs-hover-card-arrow-size:           var(--pcs-floating-arrow-size);
+  --pcs-hover-card-arrow-color:          var(--pcs-floating-arrow-color);
+  --pcs-hover-card-arrow-border-color:   var(--pcs-floating-arrow-border-color);
 
 }
 
@@ -305,15 +305,15 @@
 
 [data-app-color-scheme="dark"] {
 
-  /* Dialog / Sheet surface — handled by --color-surface-card dark override */
+  /* Dialog / Sheet surface — handled by --pcs-color-surface-card dark override */
 
-  /* Floating base — handled by --color-surface-overlay dark override */
+  /* Floating base — handled by --pcs-color-surface-overlay dark override */
 
   /* Tooltip stays inverted but adjusts slightly for dark bg context */
-  --tooltip-bg:                      var(--primitive-color-neutral-700);  /* lighter dark — still inverted vs slate-950 page */
-  --tooltip-color:                   var(--primitive-color-white);
+  --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-700);  /* lighter dark — still inverted vs slate-950 page */
+  --pcs-tooltip-color:                   var(--pcs-primitive-color-white);
 
   /* Overlay scrim is slightly more opaque in dark mode */
-  --overlay-scrim-bg:                var(--color-overlay-scrim);        /* rgb(0 0 0 / 0.7) — dark-aware via semantic */
+  --pcs-overlay-scrim-bg:                var(--pcs-color-overlay-scrim);        /* rgb(0 0 0 / 0.7) — dark-aware via semantic */
 
 }
