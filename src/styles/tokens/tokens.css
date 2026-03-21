@@ -292,7 +292,7 @@
 
   /* ---------------------------------------------------------------------------
      2.5 PRIMARY / BRAND TOKENS
-     Tenant override: replace these via a scoped [data-brand="x"] block.
+     Tenant override: replace these via a scoped [data-app-tenant="x"] block.
   --------------------------------------------------------------------------- */
 
   /* Solid fills — buttons, active indicators */
@@ -313,8 +313,11 @@
   /* Icon in primary contexts */
   --color-primary-icon: var(--primitive-color-amber-600);
 
-  /* Text on top of emphasis fills (e.g. white text on filled button) */
-  --color-primary-on-emphasis: var(--primitive-color-white);
+  /* Text on top of emphasis fills (e.g. dark text on filled amber button)
+     NOTE: amber-600 (#d97706) achieves only 3.0:1 with white — fails WCAG AA.
+     neutral-950 achieves 6.3:1 on amber-600. All major design systems (Atlassian,
+     GitHub Primer, Polaris) use dark text on amber/yellow. */
+  --color-primary-on-emphasis: var(--primitive-color-neutral-950);
 
   /* Focus ring */
   --color-focus-ring: var(--primitive-color-amber-400);
@@ -355,7 +358,7 @@
   --color-warning-text: var(--primitive-color-yellow-800);
   --color-warning-icon: var(--primitive-color-yellow-700);
   --color-warning-emphasis: var(--primitive-color-yellow-500);
-  --color-warning-on-emphasis: var(--primitive-color-white);
+  --color-warning-on-emphasis: var(--primitive-color-neutral-950); /* yellow is too bright for white text — ~1.8:1 contrast */
 
   /* ---------------------------------------------------------------------------
      2.9 ROLE-BASED SURFACE TOKENS — Info
@@ -375,8 +378,8 @@
      These are intentionally subtle — applied on top of existing backgrounds.
   --------------------------------------------------------------------------- */
 
-  --color-state-hover: var(--primitive-color-neutral-50);
-  --color-state-active: var(--primitive-color-neutral-100);
+  --color-state-hover: var(--primitive-color-neutral-100);   /* neutral-50 (98.5%) is invisible on white — neutral-100 (96.7%) is the minimum perceptible hover */
+  --color-state-active: var(--primitive-color-neutral-200);  /* shifted one step to maintain contrast above hover */
   --color-state-selected: var(--primitive-color-amber-50);
   --color-state-selected-border: var(--primitive-color-amber-400);
 
@@ -646,7 +649,7 @@
   --color-background: var(--primitive-color-neutral-950);
   --color-surface-card: var(--primitive-color-neutral-900);
   --color-surface-muted: var(--primitive-color-neutral-800);
-  --color-surface-overlay: var(--primitive-color-neutral-900);
+  --color-surface-overlay: var(--primitive-color-neutral-800); /* one step lighter than card (neutral-900) so dropdowns/popovers have visible elevation */
   --color-surface-sidebar: var(--primitive-color-neutral-900);
 
   /* ---------------------------------------------------------------------------
@@ -773,12 +776,12 @@
 
 /* =============================================================================
    SECTION 4 — BRAND / TENANT OVERRIDE TEMPLATE
-   Copy this block and scope it to [data-brand="your-brand-id"].
+   Copy this block and scope it to [data-app-tenant="your-tenant-id"].
    Only primary color tokens need to change per tenant.
    Everything else (neutrals, feedback colors) stays constant.
 
    Example:
-   [data-brand="acme"] {
+   [data-app-tenant="acme"] {
      --color-primary-emphasis:        #your-brand-color;
      --color-primary-emphasis-hover:  #your-brand-color-dark;
      ... etc
