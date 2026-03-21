@@ -4,7 +4,6 @@ import { Button } from '../components/ui/button'
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "../components/ui/card"
@@ -146,7 +145,7 @@ const [label, setLabel] = useState("personal")
 				<CardContent className="space-y-4">
 					<div className="flex gap-4">
 						<Toggle variant="outline">Bold</Toggle>
-						<ToggleGroup variant="outline" type="single" defaultValue="bold">
+						<ToggleGroup variant="outline" defaultValue={["bold"]}>
 							<ToggleGroupItem value="bold">Bold</ToggleGroupItem>
 							<ToggleGroupItem value="italic">Italic</ToggleGroupItem>
 							<ToggleGroupItem value="underline">Underline</ToggleGroupItem>

@@ -1,6 +1,4 @@
-import { useState } from 'react'
 // import './App.css'
-import { Button } from './components/ui/button'
 import { AppSidebar } from "./components/app-sidebar"
 import {
   Breadcrumb,
@@ -32,6 +30,7 @@ import {
 
 import { Buttons } from './features/buttons'
 import { Inputs } from './features/inputs'
+import { Tokens } from './features/tokens'
 
 
 function App() {
@@ -65,13 +64,17 @@ function App() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
 
 					<div>
-						<Tabs defaultValue="buttons" >
+						<Tabs defaultValue="tokens" >
 							<TabsList variant="line">
+								<TabsTrigger value="tokens">Tokens</TabsTrigger>
 								<TabsTrigger value="buttons">Buttons</TabsTrigger>
 								<TabsTrigger value="inputs">Inputs</TabsTrigger>
 								<TabsTrigger value="reports">Reports</TabsTrigger>
 								<TabsTrigger value="settings">Settings</TabsTrigger>
 							</TabsList>
+							<TabsContent value="tokens" className="space-y-6">
+								<Tokens />
+							</TabsContent>
 							<TabsContent value="buttons" className="space-y-6">
 								<Buttons />
 							</TabsContent>
