@@ -15,19 +15,18 @@ No test runner is configured in this project.
 
 ## Architecture
 
-This is a **design token and component showcase app** — a living demo of a design system built with React 19, TypeScript, Vite, and Tailwind CSS 4.
+This is a **design token and component showcase app** — the reference implementation of the Proteus2 design system, built with React 19, TypeScript, Vite, and Tailwind CSS 4. Other projects copy components and token files from here; this project is the canonical source.
 
 ### Design Token System
 
-The core of the project lives in `src/styles/tokens/`. All design tokens are CSS custom properties in the **oklch() color space**, organized into per-component-category files:
+The core of the project lives in `src/styles/tokens/`. All design tokens are CSS custom properties, organized into per-component-category files:
 
-- `tokens.css` — core primitives (colors, spacing, radius, shadows)
-- `tokens-button.css`, `tokens-input-field.css`, etc. — component-scoped tokens
-- `src/styles/globals.css` — base reset/defaults
-- `src/styles/shadcn-bridge.css` — bridges shadcn's expected CSS variable names to the custom token system
-- `src/styles/index.css` — imports everything together; this is the stylesheet entry point
+- `tokens.css` — Tier 1 primitives (colors, spacing, radius, shadows) + Tier 2 semantic tokens
+- `tokens-button.css`, `tokens-input-field.css`, etc. — Tier 3 component-scoped tokens
+- `src/styles/globals.css` — stylesheet entry point: imports all tokens, owns the `@theme inline` block, base styles
+- `src/styles/shadcn-bridge.css` — maps shadcn's expected CSS variable names to our semantic tokens
 
-Light and dark themes are expressed as separate custom property values within the same token files.
+Color modes are expressed as attribute-selector overrides within each token file (see Color Modes section below).
 
 ### Component Layer
 
@@ -44,3 +43,167 @@ Light and dark themes are expressed as separate custom property values within th
 - `src/lib/utils.ts` exports `cn()` — a `clsx` + `tailwind-merge` class-name helper used throughout all components.
 - Path alias `@/*` → `src/*` is configured in `tsconfig.json` and respected by Vite.
 - shadcn/ui is configured in `components.json` (style: `base-nova`, base color: `zinc`, icons: `lucide`).
+
+
+## Design Token Architecture
+
+### Three-tier system
+```
+Tier 1 — Primitives     (raw values: colors, spacing scale, etc.)       → @proteus2/shared-ui
+    ↓
+Tier 2 — Semantic       (intent: color-background, color-text-error)    → @proteus2/shared-ui
+    ↓
+Tier 3 — Component      (scoped: button-primary-bg, input-border-focus) → local to each project
+```
+
+### Architecture boundary rules
+
+1. **`tokens.css` is the Style Dictionary candidate.** It contains only
+   Tier 1 primitives and Tier 2 semantic tokens. It will eventually be
+   published as `@proteus2/shared-ui` via npm.
+
+2. **Component token files (`tokens-*.css`) are permanently local** to each
+   web project. They are NEVER published to the shared npm package. Each
+   project owns and copies its component tokens manually (shadcn/ui
+   copy-paste philosophy extended to tokens).
+
+3. **`globals.css` owns the `@theme inline` block exclusively.** It is the
+   single authority for Tailwind utility token registrations. Import order:
+```css
+   @import 'tailwindcss';
+   @import './tokens/tokens.css';        /* Tier 1+2 */
+   @import './tokens/tokens-button.css'; /* Tier 3 */
+   /* ... other component token files */
+   @import './shadcn-bridge.css';        /* shadcn compat — always last */
+```
+
+4. **`shadcn-bridge.css` only contains `:root` and `.dark` CSS custom property
+   mappings.** It has NO `@theme inline` block. `globals.css` is the sole
+   `@theme inline` owner. The bridge maps shadcn's variable names (`--primary`,
+   `--muted`, etc.) to our semantic tokens so shadcn components render correctly
+   without modification.
+
+5. **Not all tokens flow through shadcn or Tailwind.** Extended tokens
+   (role surfaces, interactive states) are consumed directly via `var()`
+   in component CSS or inline styles. Do not force everything through
+   Tailwind utility classes.
+
+### @theme vs @theme inline — CRITICAL RULE
+
+Use **`@theme inline`** when a token value references another CSS variable
+(i.e., the token is an alias). Use plain **`@theme`** for static/literal values.
+
+**Why this matters:** Plain `@theme` with a CSS variable alias produces an
+invalid double-`var()` construct in Tailwind v4 output.
+```css
+/* CORRECT — token references another CSS var → use @theme inline */
+@theme inline {
+  --color-background: var(--color-bg-default);
+  --color-primary: var(--color-brand-primary);
+}
+
+/* CORRECT — token is a literal value → use plain @theme */
+@theme {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+}
+```
+
+Per Adam Wathan's guidance: split the blocks by token type. Never mix
+alias tokens and literal tokens in the same `@theme` block.
+
+### @theme inline block scope
+
+The `@theme inline` block in `globals.css` is a **curated subset** of
+semantic tokens — only tokens that developers use as Tailwind utility classes
+in JSX. It is NOT a full mirror of `tokens.css`. It also includes the
+shadcn-specific utility names (`--color-card`, `--color-muted`, etc.) so
+shadcn components can use Tailwind utilities like `bg-card`, `text-muted-foreground`.
+
+### shadcn-bridge.css
+
+Maps shadcn's 28 CSS variable names to our semantic tokens. Contains only
+`:root` and `.dark` blocks — no `@theme inline`.
+
+```css
+/* shadcn expects --background, --foreground, --primary, etc. */
+/* We map them to our semantic tokens instead of defining values directly */
+:root {
+  --background: var(--color-background);
+  --foreground: var(--color-text-default);
+  --primary:    var(--color-primary-emphasis);
+  /* ... all 28 shadcn vars */
+}
+```
+
+The `.dark` block in the bridge re-declares the same semantic token mappings.
+The actual dark values come from the `[data-app-color-scheme="dark"]` overrides
+in each token file — the bridge just ensures shadcn's `.dark` class resolves
+to our tokens regardless of which mechanism triggers it.
+
+When adding a new color mode, add a corresponding class block to `shadcn-bridge.css`:
+```css
+.high-contrast-dark {
+  --background: var(--color-background); /* value comes from token file override */
+  /* ... same 28 mappings, values unchanged */
+}
+```
+
+### Color system
+
+- Neutral primitives use **OKLCH** format (Tailwind-derived slate scale).
+- Other color ramps (amber, red, yellow, emerald, sky) currently use **hex**.
+  This inconsistency is intentional for Phase 1. In Phase 2 (Style Dictionary),
+  all primitives will be stored as hex in DTCG JSON and transformed to OKLCH
+  for CSS output, hex for React Native / email.
+- Six primitive color ramps: Neutral, Amber (Primary), Red, Yellow, Emerald, Sky
+- Each ramp spans 10–11 steps
+- Semantic tokens swap values between light and dark modes via
+  `[data-app-color-scheme="dark"]` attribute overrides in each token file.
+
+
+### Color modes and multi-tenant theming
+
+Color mode and tenant are set as `data-*` attributes on `<html>`:
+
+```js
+// Runtime toggle — set BOTH (attribute drives token values, class drives shadcn internals)
+document.documentElement.setAttribute('data-app-color-scheme', 'dark')
+document.documentElement.classList.add('dark')
+
+document.documentElement.setAttribute('data-app-tenant', 'tenant1')
+```
+
+The CSS cascade handles the rest — no local overrides needed per project.
+Specificity stacks naturally:
+
+```css
+:root { }                                                        /* 0,1,0 base light      */
+:root[data-app-color-scheme="dark"] { }                          /* 0,2,0 dark override   */
+:root[data-app-tenant="tenant1"] { }                             /* 0,2,0 tenant brand    */
+:root[data-app-tenant="tenant1"][data-app-color-scheme="dark"] { } /* 0,3,0 tenant + dark */
+```
+
+This architecture scales to additional color modes (high-contrast-light,
+high-contrast-dark, etc.) by adding more entries to the Style Dictionary
+`colorSchemes` array and corresponding JSON files. No structural changes needed.
+
+Use the **direct mapping approach** in tenant token files: set shadcn variable
+names directly. Do not add a two-layer indirection system.
+
+
+### Style Dictionary / npm package (future)
+
+- Package name: `@proteus2/shared-ui`
+- Source format: DTCG JSON (hex color values)
+- Phase 1: `tokens.css` ships as-is (hand-crafted CSS custom properties)
+- Phase 2: Style Dictionary transforms DTCG JSON → platform outputs:
+  - CSS: hex → OKLCH transform for web/Tailwind
+  - SCSS: for styled-components / vanilla-extract projects
+  - JS/TS: typed token constants for React Native
+  - React Native will need custom transforms for OKLCH → hex and px → dp/sp
+- SD output variable names must match the existing `tokens.css` names exactly
+  (e.g. DTCG `color.primary.emphasis` → CSS `--color-primary-emphasis`)
+- Component token files (`tokens-*.css`) NEVER migrate to Style Dictionary
+- This showcase project is the **reference implementation** — other projects
+  copy `src/components/ui/` and `src/styles/tokens/tokens-*.css` from here

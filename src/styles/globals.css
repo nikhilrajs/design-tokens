@@ -60,96 +60,128 @@
 ----------------------------------------------------------------------------- */
 
 @theme inline {
-  /* --- Colors --- */
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-text-default);
+	/* --- Colors --- */
+	--color-background: var(--color-background);
+	--color-foreground: var(--color-text-default);
 
-  /* Surfaces */
-  --color-surface-card: var(--color-surface-card);
-  --color-surface-muted: var(--color-surface-muted);
-  --color-surface-overlay: var(--color-surface-overlay);
-  --color-surface-sidebar: var(--color-surface-sidebar);
+	/* Surfaces */
+	--color-surface-card: var(--color-surface-card);
+	--color-surface-muted: var(--color-surface-muted);
+	--color-surface-overlay: var(--color-surface-overlay);
+	--color-surface-sidebar: var(--color-surface-sidebar);
 
-  /* Text */
-  --color-text-default: var(--color-text-default);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-subtle: var(--color-text-subtle);
-  --color-text-disabled: var(--color-text-disabled);
-  --color-text-inverse: var(--color-text-inverse);
+	/* Text */
+	--color-text-default: var(--color-text-default);
+	--color-text-muted: var(--color-text-muted);
+	--color-text-subtle: var(--color-text-subtle);
+	--color-text-disabled: var(--color-text-disabled);
+	--color-text-inverse: var(--color-text-inverse);
 
-  /* Border */
-  --color-border-default: var(--color-border-default);
-  --color-border-muted: var(--color-border-muted);
-  --color-border-strong: var(--color-border-strong);
+	/* Border */
+	--color-border-default: var(--color-border-default);
+	--color-border-muted: var(--color-border-muted);
+	--color-border-strong: var(--color-border-strong);
 
-  /* Icon */
-  --color-icon-default: var(--color-icon-default);
-  --color-icon-muted: var(--color-icon-muted);
-  --color-icon-disabled: var(--color-icon-disabled);
+	/* Icon */
+	--color-icon-default: var(--color-icon-default);
+	--color-icon-muted: var(--color-icon-muted);
+	--color-icon-disabled: var(--color-icon-disabled);
 
-  /* Primary */
-  --color-primary: var(--color-primary-emphasis);
-  --color-primary-hover: var(--color-primary-emphasis-hover);
-  --color-primary-active: var(--color-primary-emphasis-active);
-  --color-primary-subtle: var(--color-primary-subtle);
-  --color-primary-subtle-hover: var(--color-primary-subtle-hover);
-  --color-primary-text: var(--color-primary-text);
-  --color-primary-border: var(--color-primary-border);
-  --color-primary-foreground: var(--color-primary-on-emphasis);
+	/* Primary */
+	--color-primary: var(--color-primary-emphasis);
+	--color-primary-hover: var(--color-primary-emphasis-hover);
+	--color-primary-active: var(--color-primary-emphasis-active);
+	--color-primary-subtle: var(--color-primary-subtle);
+	--color-primary-subtle-hover: var(--color-primary-subtle-hover);
+	--color-primary-text: var(--color-primary-text);
+	--color-primary-border: var(--color-primary-border);
+	--color-primary-foreground: var(--color-primary-on-emphasis);
 
-  /* Success */
-  --color-success: var(--color-success-emphasis);
-  --color-success-bg: var(--color-success-background);
-  --color-success-border: var(--color-success-border);
-  --color-success-text: var(--color-success-text);
-  --color-success-icon: var(--color-success-icon);
+	/* Success */
+	--color-success: var(--color-success-emphasis);
+	--color-success-bg: var(--color-success-background);
+	--color-success-border: var(--color-success-border);
+	--color-success-text: var(--color-success-text);
+	--color-success-icon: var(--color-success-icon);
 
-  /* Error */
-  --color-error: var(--color-error-emphasis);
-  --color-error-bg: var(--color-error-background);
-  --color-error-border: var(--color-error-border);
-  --color-error-text: var(--color-error-text);
-  --color-error-icon: var(--color-error-icon);
+	/* Error */
+	--color-error: var(--color-error-emphasis);
+	--color-error-bg: var(--color-error-background);
+	--color-error-border: var(--color-error-border);
+	--color-error-text: var(--color-error-text);
+	--color-error-icon: var(--color-error-icon);
 
-  /* Warning */
-  --color-warning: var(--color-warning-emphasis);
-  --color-warning-bg: var(--color-warning-background);
-  --color-warning-border: var(--color-warning-border);
-  --color-warning-text: var(--color-warning-text);
-  --color-warning-icon: var(--color-warning-icon);
+	/* Warning */
+	--color-warning: var(--color-warning-emphasis);
+	--color-warning-bg: var(--color-warning-background);
+	--color-warning-border: var(--color-warning-border);
+	--color-warning-text: var(--color-warning-text);
+	--color-warning-icon: var(--color-warning-icon);
 
-  /* Info */
-  --color-info: var(--color-info-emphasis);
-  --color-info-bg: var(--color-info-background);
-  --color-info-border: var(--color-info-border);
-  --color-info-text: var(--color-info-text);
-  --color-info-icon: var(--color-info-icon);
+	/* Info */
+	--color-info: var(--color-info-emphasis);
+	--color-info-bg: var(--color-info-background);
+	--color-info-border: var(--color-info-border);
+	--color-info-text: var(--color-info-text);
+	--color-info-icon: var(--color-info-icon);
 
-  /* State */
-  --color-state-hover: var(--color-state-hover);
-  --color-state-active: var(--color-state-active);
-  --color-state-selected: var(--color-state-selected);
-  --color-state-disabled-bg: var(--color-state-disabled-bg);
-  --color-state-disabled-text: var(--color-state-disabled-text);
-  --color-state-disabled-border: var(--color-state-disabled-border);
+	/* State */
+	--color-state-hover: var(--color-state-hover);
+	--color-state-active: var(--color-state-active);
+	--color-state-selected: var(--color-state-selected);
+	--color-state-disabled-bg: var(--color-state-disabled-bg);
+	--color-state-disabled-text: var(--color-state-disabled-text);
+	--color-state-disabled-border: var(--color-state-disabled-border);
 
-  /* Focus */
-  --color-ring: var(--color-focus-ring);
+	/* Focus */
+	--color-ring: var(--color-focus-ring);
 
-  /* --- Radius --- */
-  --radius-none: var(--radius-none);
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
-  --radius-2xl: var(--radius-2xl);
-  --radius-full: var(--radius-full);
+	/* shadcn surface utilities — consumed by shadcn components via bg-card, bg-muted, etc. */
+	--color-card: var(--color-surface-card);
+	--color-card-foreground: var(--color-text-default);
+	--color-popover: var(--color-surface-overlay);
+	--color-popover-foreground: var(--color-text-default);
+	--color-secondary: var(--color-surface-muted);
+	--color-secondary-foreground: var(--color-text-default);
+	--color-muted: var(--color-surface-muted);
+	--color-muted-foreground: var(--color-text-muted);
+	--color-accent: var(--color-state-hover);
+	--color-accent-foreground: var(--color-text-default);
+	--color-destructive: var(--color-error-emphasis);
+	--color-border: var(--color-border-default);
+	--color-input: var(--color-border-default);
 
-  /* --- Shadows --- */
-  --shadow-sm: var(--shadow-sm);
-  --shadow-md: var(--shadow-md);
-  --shadow-lg: var(--shadow-lg);
-  --shadow-xl: var(--shadow-xl);
+	/* Sidebar */
+	--color-sidebar: var(--color-surface-sidebar);
+	--color-sidebar-foreground: var(--color-text-default);
+	--color-sidebar-primary: var(--color-primary-emphasis);
+	--color-sidebar-primary-foreground: var(--color-primary-on-emphasis);
+	--color-sidebar-accent: var(--color-state-hover);
+	--color-sidebar-accent-foreground: var(--color-text-default);
+	--color-sidebar-border: var(--color-border-default);
+	--color-sidebar-ring: var(--color-focus-ring);
+
+	/* Charts */
+	--color-chart-1: var(--color-primary-emphasis);
+	--color-chart-2: var(--color-info-emphasis);
+	--color-chart-3: var(--color-success-emphasis);
+	--color-chart-4: var(--color-warning-emphasis);
+	--color-chart-5: var(--color-error-emphasis);
+
+	/* --- Radius --- */
+	--radius-none: var(--radius-none);
+	--radius-sm: var(--radius-sm);
+	--radius-md: var(--radius-md);
+	--radius-lg: var(--radius-lg);
+	--radius-xl: var(--radius-xl);
+	--radius-2xl: var(--radius-2xl);
+	--radius-full: var(--radius-full);
+
+	/* --- Shadows --- */
+	--shadow-sm: var(--shadow-sm);
+	--shadow-md: var(--shadow-md);
+	--shadow-lg: var(--shadow-lg);
+	--shadow-xl: var(--shadow-xl);
 }
 
 /* -----------------------------------------------------------------------------
@@ -164,20 +196,21 @@
 ----------------------------------------------------------------------------- */
 
 @layer base {
-  * {
-    border-color: var(--color-border-default);
-  }
+	* {
+		border-color: var(--color-border-default);
+	}
 
-  body {
-    background-color: var(--color-background);
-    color: var(--color-text-default);
-    font: var(--text-body-md-shorthand);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+	body {
+		background-color: var(--color-background);
+		color: var(--color-text-default);
+		font: var(--text-body-md-shorthand);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 
-  /* Dark mode — toggle [data-theme="dark"] AND .dark together */
-  [data-theme='dark'] {
-    color-scheme: dark;
-  }
+	/* Dark mode — toggle [data-app-color-scheme="dark"] AND .dark together */
+	[data-app-color-scheme='dark'],
+	.dark {
+		color-scheme: dark;
+	}
 }

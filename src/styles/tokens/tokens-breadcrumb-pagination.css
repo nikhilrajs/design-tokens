@@ -84,7 +84,7 @@
 
 }
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* All handled by semantic color tokens — no additional overrides needed */
   /* slate text tokens, border tokens are all dark-aware upstream */
@@ -187,7 +187,7 @@
 
 }
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Item active — amber stays but slightly lighter for dark bg contrast */
   --pagination-item-bg-active:       var(--color-primary-emphasis);     /* dark-aware via semantic */

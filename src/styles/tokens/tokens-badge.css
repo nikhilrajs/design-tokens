@@ -172,7 +172,7 @@
    Emphasis weights need explicit overrides where fills change in dark mode.
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Neutral emphasis — lighter fill in dark mode for visibility */
   --badge-neutral-emphasis-bg:       var(--primitive-color-neutral-500);

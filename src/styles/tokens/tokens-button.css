@@ -305,7 +305,7 @@
    Typography, size and radius tokens do not change in dark mode.
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* --- Primary --- */
   --button-primary-bg:               var(--color-primary-emphasis);

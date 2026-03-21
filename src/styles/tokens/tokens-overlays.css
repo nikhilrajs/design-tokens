@@ -303,7 +303,7 @@
    DARK MODE OVERRIDES — OVERLAYS
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Dialog / Sheet surface — handled by --color-surface-card dark override */
 

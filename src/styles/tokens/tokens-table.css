@@ -225,7 +225,7 @@
    DARK MODE OVERRIDES — TABLE
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Header and footer backgrounds */
   --table-head-bg:                     var(--color-surface-muted);         /* slate-900 in dark */

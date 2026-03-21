@@ -6,7 +6,7 @@
    1. PRIMITIVES      — Raw scale values. Never use directly in components.
                         Only semantic tokens should reference these.
    2. SEMANTIC        — Named by intent/purpose. These are what components use.
-   3. DARK MODE       — Semantic overrides under .dark, [data-theme="dark"]
+   3. DARK MODE       — Semantic overrides under .dark, [data-app-color-scheme="dark"]
 
    Primitive naming : --primitive-[category]-[name]-[scale]
    Semantic naming  : --color-[category]-[property]-[variant]
@@ -638,7 +638,7 @@
    ============================================================================= */
 
 .dark,
-[data-theme='dark'] {
+[data-app-color-scheme='dark'] {
   /* ---------------------------------------------------------------------------
      3.1 NEUTRAL SURFACES — Dark
   --------------------------------------------------------------------------- */

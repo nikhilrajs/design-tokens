@@ -258,7 +258,7 @@
    DARK MODE OVERRIDES
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Checkbox */
   --checkbox-border-color:           var(--color-border-strong);

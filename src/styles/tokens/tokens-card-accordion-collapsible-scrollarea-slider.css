@@ -233,7 +233,7 @@
    DARK MODE OVERRIDES
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Card */
   /* --card-bg resolves to --color-surface-card which is already dark-aware */

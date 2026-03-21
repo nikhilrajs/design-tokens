@@ -74,7 +74,7 @@
 
 }
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Border color matches dark page background */
   --avatar-border-color:             var(--color-background);
@@ -115,7 +115,7 @@
 
 }
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   --skeleton-bg:                     var(--primitive-color-neutral-700);
   --skeleton-shimmer-color:          var(--primitive-color-neutral-600);
@@ -171,7 +171,7 @@
 
 }
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   --spinner-track-bg-muted:          var(--primitive-color-neutral-700);
   --spinner-track-bg-primary:        var(--color-primary-subtle);       /* dark-aware via semantic */
@@ -251,7 +251,7 @@
 
 }
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   --kbd-bg:                          var(--color-surface-muted);        /* slate-800 — dark-aware */
   --kbd-text:                        var(--color-text-muted);           /* slate-400 — dark-aware */

@@ -245,7 +245,7 @@
    Only values that directly reference primitives need explicit overrides here.
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Input default shadow is less useful in dark mode — remove it */
   --input-shadow:                    none;

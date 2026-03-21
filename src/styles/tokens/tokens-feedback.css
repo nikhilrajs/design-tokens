@@ -237,7 +237,7 @@
    DARK MODE OVERRIDES — FEEDBACK
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Alert — role backgrounds/borders are dark-aware via semantic tokens */
   /* No additional overrides needed for Alert */

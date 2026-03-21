@@ -225,7 +225,7 @@
    DARK MODE OVERRIDES — TYPOGRAPHY
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Inline code — slightly brighter bg in dark */
   --typography-code-inline-bg:             var(--color-surface-muted);       /* slate-800 in dark */

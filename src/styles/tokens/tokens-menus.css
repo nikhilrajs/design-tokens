@@ -231,7 +231,7 @@
    DARK MODE OVERRIDES — MENUS
    =============================================================================*/
 
-[data-theme="dark"] {
+[data-app-color-scheme="dark"] {
 
   /* Menu panel — handled by --color-surface-overlay dark override */
 
