@@ -754,8 +754,8 @@
   --pcs-color-warning-background: var(--pcs-primitive-color-yellow-950);
   --pcs-color-warning-background-hover: var(--pcs-primitive-color-yellow-900);
   --pcs-color-warning-border: var(--pcs-primitive-color-yellow-700);
-  --pcs-color-warning-text: var(--pcs-primitive-color-yellow-200);
-  --pcs-color-warning-icon: var(--pcs-primitive-color-yellow-400);
+  --pcs-color-warning-text: var(--pcs-primitive-color-yellow-100);
+  --pcs-color-warning-icon: var(--pcs-primitive-color-yellow-100);
   --pcs-color-warning-emphasis: var(--pcs-primitive-color-yellow-500);
   --pcs-color-warning-on-emphasis: var(--pcs-primitive-color-neutral-950);
 

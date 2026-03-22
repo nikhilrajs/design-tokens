@@ -32,6 +32,7 @@ import {
 import { Button } from "./components/ui/button"
 
 import { Buttons } from './features/buttons'
+import { Feedback } from './features/feedback'
 import { Inputs } from './features/inputs'
 import { Tokens } from './features/tokens'
 
@@ -85,6 +86,7 @@ function App() {
 							<TabsList variant="line">
 								<TabsTrigger value="tokens">Tokens</TabsTrigger>
 								<TabsTrigger value="buttons">Buttons</TabsTrigger>
+								<TabsTrigger value="feedback">Feedback</TabsTrigger>
 								<TabsTrigger value="inputs">Inputs</TabsTrigger>
 								<TabsTrigger value="reports">Reports</TabsTrigger>
 								<TabsTrigger value="settings">Settings</TabsTrigger>
@@ -94,6 +96,9 @@ function App() {
 							</TabsContent>
 							<TabsContent value="buttons" className="space-y-6">
 								<Buttons />
+							</TabsContent>
+							<TabsContent value="feedback" className="space-y-6">
+								<Feedback />
 							</TabsContent>
 							<TabsContent value="inputs">
 								<Inputs />
