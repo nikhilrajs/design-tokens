@@ -60,7 +60,7 @@
   =========================================================================== */
 
   /* --- sm --- */
-  --pcs-button-size-sm-height:           var(--pcs-size-control-sm);            /* 28px */
+  --pcs-button-size-sm-height:           26px;                                  /* between control-xs(24px) and control-sm(28px) */
   --pcs-button-size-sm-padding-x:        var(--pcs-space-component-padding-sm); /* 8px  */
   --pcs-button-size-sm-font-size:        var(--pcs-primitive-font-size-xs);     /* 12px */
   --pcs-button-size-sm-gap:              var(--pcs-space-component-gap-xs);     /* 4px  */
@@ -236,6 +236,25 @@
 
 
   /* ===========================================================================
+     VARIANT — DESTRUCTIVE OUTLINE
+     Red border + text, transparent bg. Softer than filled destructive.
+  =========================================================================== */
+
+  --pcs-button-destructive-outline-bg:              transparent;
+  --pcs-button-destructive-outline-bg-hover:        var(--pcs-color-error-background);
+  --pcs-button-destructive-outline-bg-active:       var(--pcs-color-error-background-hover);
+
+  --pcs-button-destructive-outline-text:            var(--pcs-color-error-text);
+
+  --pcs-button-destructive-outline-border:          var(--pcs-color-error-border);
+  --pcs-button-destructive-outline-border-hover:    var(--pcs-color-error-emphasis);
+  --pcs-button-destructive-outline-border-active:   var(--pcs-color-error-emphasis);
+
+  --pcs-button-destructive-outline-shadow:          var(--pcs-shadow-sm);
+  --pcs-button-destructive-outline-shadow-hover:    var(--pcs-shadow-sm);
+
+
+  /* ===========================================================================
      VARIANT — DESTRUCTIVE GHOST
      No fill, red text. Softer destructive for low-density contexts.
   =========================================================================== */
@@ -305,7 +324,7 @@
    Typography, size and radius tokens do not change in dark mode.
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"], .dark {
 
   /* --- Primary --- */
   --pcs-button-primary-bg:               var(--pcs-color-primary-emphasis);
@@ -316,10 +335,12 @@
   --pcs-button-primary-border-hover:     var(--pcs-color-primary-emphasis-hover);
   --pcs-button-primary-border-active:    var(--pcs-color-primary-emphasis-active);
 
-  /* --- Secondary --- */
-  /* Background references --pcs-color-background which is already dark-overridden */
-  /* Border references --pcs-color-border-default which is already dark-overridden */
-  /* No additional overrides needed — semantic tokens handle it */
+  /* --- Secondary ---
+     Use transparent so the button inherits whatever surface sits behind it
+     (canvas = neutral-950, card = neutral-900). Avoids the sunken look when
+     neutral-950 bg is placed on a neutral-900 card.
+  --------------------------------------------------------------------------- */
+  --pcs-button-secondary-bg:             transparent;
 
   /* --- Ghost --- */
   /* Fully handled by semantic state tokens */
@@ -342,6 +363,15 @@
   --pcs-button-destructive-emphasis-bg-active:   var(--pcs-primitive-color-red-500);
   --pcs-button-destructive-emphasis-border:      var(--pcs-primitive-color-red-700);
   --pcs-button-destructive-emphasis-border-hover:var(--pcs-primitive-color-red-600);
+
+  /* --- Destructive Outline ---
+     red-700 (#b91c1c) is nearly invisible on dark bg — use red-500 (emphasis)
+     for the border so it reads clearly. Text stays at red-200 via error-text.
+  --------------------------------------------------------------------------- */
+  --pcs-button-destructive-outline-border:          var(--pcs-color-error-emphasis);
+  --pcs-button-destructive-outline-border-hover:    var(--pcs-color-error-icon);
+  --pcs-button-destructive-outline-border-active:   var(--pcs-color-error-emphasis);
+  --pcs-button-destructive-outline-text:            var(--pcs-color-error-text);
 
   /* --- Destructive Ghost ---
      Red text needs to be lighter in dark mode for contrast.

@@ -1,4 +1,6 @@
 // import './App.css'
+import { useState } from "react"
+import { MoonIcon, SunIcon } from "lucide-react"
 import { AppSidebar } from "./components/app-sidebar"
 import {
   Breadcrumb,
@@ -27,6 +29,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "./components/ui/tabs"
+import { Button } from "./components/ui/button"
 
 import { Buttons } from './features/buttons'
 import { Inputs } from './features/inputs'
@@ -34,13 +37,22 @@ import { Tokens } from './features/tokens'
 
 
 function App() {
+  const [isDark, setIsDark] = useState(false)
+
+  function toggleColorScheme() {
+    const next = !isDark
+    setIsDark(next)
+    document.documentElement.setAttribute('data-app-color-scheme', next ? 'dark' : 'light')
+    document.documentElement.classList.toggle('dark', next)
+  }
+
   return (
     <>
       <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
+          <div className="flex flex-1 items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator
               orientation="vertical"
@@ -59,6 +71,11 @@ function App() {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+            <div className="ml-auto">
+              <Button variant="ghost" size="icon" onClick={toggleColorScheme} aria-label="Toggle color scheme">
+                {isDark ? <SunIcon /> : <MoonIcon />}
+              </Button>
+            </div>
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

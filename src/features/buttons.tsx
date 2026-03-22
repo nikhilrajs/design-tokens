@@ -38,6 +38,9 @@ import {
 	ListFilterIcon,
 	MailCheckIcon,
 	MoreHorizontalIcon,
+	PlusIcon,
+	SearchIcon,
+	Settings2Icon,
 	TagIcon,
 	Trash2Icon,
 } from "lucide-react"
@@ -52,15 +55,45 @@ const [label, setLabel] = useState("personal")
 					<CardTitle>Buttons & Button Group</CardTitle>
 				</CardHeader>
 				<CardContent className="space-y-4">
+					{/* Variants */}
 					<div className="flex flex-wrap gap-2">
 						<Button>Default</Button>
-						<Button variant="destructive">Destructive</Button>
 						<Button variant="outline">Outline</Button>
 						<Button variant="ghost">Ghost</Button>
+						<Button variant="link">Link</Button>
+						<Button variant="destructive">Destructive</Button>
+						<Button variant="destructive-outline">Destructive Outline</Button>
+					</div>
+
+					{/* Sizes */}
+					<div className="flex flex-wrap items-center gap-2">
 						<Button size="sm">Small</Button>
+						<Button>Medium</Button>
 						<Button size="lg">Large</Button>
+					</div>
+
+					{/* Icon-only sizes */}
+					<div className="flex flex-wrap items-center gap-2">
+						<Button variant="outline" size="icon-sm" aria-label="Settings"><Settings2Icon /></Button>
+						<Button variant="outline" size="icon" aria-label="Settings"><Settings2Icon /></Button>
+						<Button variant="outline" size="icon-lg" aria-label="Settings"><Settings2Icon /></Button>
+					</div>
+
+					{/* Icon + label */}
+					<div className="flex flex-wrap items-center gap-2">
+						<Button><PlusIcon />New Issue</Button>
+						<Button variant="outline"><SearchIcon />Search</Button>
+					</div>
+
+					{/* States */}
+					<div className="flex flex-wrap items-center gap-2">
 						<Button disabled>Disabled</Button>
+						<Button variant="outline" disabled>Disabled Outline</Button>
 						<Button><Spinner className="mr-2 h-4 w-4" />Loading</Button>
+					</div>
+
+					{/* Button Group */}
+					<div className="flex flex-wrap gap-2">
 						<ButtonGroup>
 							<ButtonGroup className="hidden sm:flex">
 								<Button variant="outline" size="icon" aria-label="Go Back">

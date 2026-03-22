@@ -25,8 +25,8 @@
 
 :root {
   /* ---------------------------------------------------------------------------
-     1.1 COLOR PRIMITIVES — Slate (Neutral)
-     Source: Tailwind CSS slate scale
+     1.1 COLOR PRIMITIVES — Zinc (Neutral)
+     Source: Tailwind CSS zinc scale
   --------------------------------------------------------------------------- */
 
   --pcs-primitive-color-neutral-50: oklch(98.5% 0 0);
@@ -40,6 +40,30 @@
   --pcs-primitive-color-neutral-800: oklch(27.4% 0.006 286.033);
   --pcs-primitive-color-neutral-900: oklch(21% 0.006 285.885);
   --pcs-primitive-color-neutral-950: oklch(14.1% 0.005 285.823);
+
+  /* ---------------------------------------------------------------------------
+     1.1a COLOR PRIMITIVES — Neutral Alpha
+     Two series — both defined as static primitives; semantic tokens choose
+     which series to reference based on surface context (light vs dark).
+
+     on-light  — dark base (neutral-950) for overlays on light surfaces, 5 steps
+     on-dark   — light base (neutral-50)  for overlays on dark surfaces,  8 steps
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-neutral-alpha-on-light-100: oklch(14.1% 0.005 285.823 / 4%);
+  --pcs-primitive-color-neutral-alpha-on-light-200: oklch(14.1% 0.005 285.823 / 8%);
+  --pcs-primitive-color-neutral-alpha-on-light-300: oklch(14.1% 0.005 285.823 / 16%);
+  --pcs-primitive-color-neutral-alpha-on-light-400: oklch(14.1% 0.005 285.823 / 32%);
+  --pcs-primitive-color-neutral-alpha-on-light-500: oklch(14.1% 0.005 285.823 / 64%);
+
+  --pcs-primitive-color-neutral-alpha-on-dark-100: oklch(98.5% 0 0 / 4%);
+  --pcs-primitive-color-neutral-alpha-on-dark-200: oklch(98.5% 0 0 / 8%);
+  --pcs-primitive-color-neutral-alpha-on-dark-300: oklch(98.5% 0 0 / 12%);
+  --pcs-primitive-color-neutral-alpha-on-dark-400: oklch(98.5% 0 0 / 16%);
+  --pcs-primitive-color-neutral-alpha-on-dark-500: oklch(98.5% 0 0 / 24%);
+  --pcs-primitive-color-neutral-alpha-on-dark-600: oklch(98.5% 0 0 / 40%);
+  --pcs-primitive-color-neutral-alpha-on-dark-700: oklch(98.5% 0 0 / 56%);
+  --pcs-primitive-color-neutral-alpha-on-dark-800: oklch(98.5% 0 0 / 72%);
 
   /* ---------------------------------------------------------------------------
      1.2 COLOR PRIMITIVES — Brand (Primary)
@@ -300,9 +324,9 @@
   --------------------------------------------------------------------------- */
 
   /* Solid fills — buttons, active indicators */
-  --pcs-color-primary-emphasis: var(--pcs-primitive-color-brand-700);
-  --pcs-color-primary-emphasis-hover: var(--pcs-primitive-color-brand-800);
-  --pcs-color-primary-emphasis-active: var(--pcs-primitive-color-brand-900);
+  --pcs-color-primary-emphasis: var(--pcs-primitive-color-brand-600);
+  --pcs-color-primary-emphasis-hover: var(--pcs-primitive-color-brand-700);
+  --pcs-color-primary-emphasis-active: var(--pcs-primitive-color-brand-800);
 
   /* Subtle fills — selected rows, hover states, badges */
   --pcs-color-primary-subtle: var(--pcs-primitive-color-brand-50);
