@@ -60,7 +60,7 @@
   =========================================================================== */
 
   /* --- sm --- */
-  --pcs-button-size-sm-height:           26px;                                  /* between control-xs(24px) and control-sm(28px) */
+  --pcs-button-size-sm-height:           var(--pcs-size-control-sm);            /* 28px — aligned to control size token, matches input-sm */
   --pcs-button-size-sm-padding-x:        var(--pcs-space-component-padding-sm); /* 8px  */
   --pcs-button-size-sm-font-size:        var(--pcs-primitive-font-size-xs);     /* 12px */
   --pcs-button-size-sm-gap:              var(--pcs-space-component-gap-xs);     /* 4px  */
