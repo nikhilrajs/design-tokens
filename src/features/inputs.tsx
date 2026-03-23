@@ -11,7 +11,6 @@ import { Checkbox } from "../components/ui/checkbox"
 import {
   Field,
   FieldDescription,
-  FieldError,
   FieldGroup,
   FieldLabel,
   FieldLegend,
@@ -19,12 +18,6 @@ import {
   FieldSet,
 } from "../components/ui/field"
 import { Input } from "../components/ui/input"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupInput,
-} from "../components/ui/input-group"
 import {
   Select,
   SelectContent,
@@ -64,96 +57,6 @@ const years = [
 
 	return (
 		<div className="space-y-4">
-
-			{/* ── Size Variants ── */}
-			<Card>
-				<CardHeader>
-					<CardTitle>Size Variants</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className="flex flex-col gap-6">
-						{/* Standalone inputs */}
-						<div className="flex items-end gap-4">
-							<Field className="w-48">
-								<FieldLabel>Small (sm)</FieldLabel>
-								<Input size="sm" placeholder="sm input" />
-							</Field>
-							<Field className="w-48">
-								<FieldLabel>Medium (md)</FieldLabel>
-								<Input size="md" placeholder="md input" />
-							</Field>
-							<Field className="w-48">
-								<FieldLabel>Large (lg)</FieldLabel>
-								<Input size="lg" placeholder="lg input" />
-							</Field>
-						</div>
-						{/* Input + Button alignment */}
-						<div className="flex flex-col gap-3">
-							<div className="flex items-center gap-2">
-								<Input size="sm" placeholder="Search…" className="w-48" />
-								<Button size="sm">Search</Button>
-							</div>
-							<div className="flex items-center gap-2">
-								<Input size="md" placeholder="Search…" className="w-48" />
-								<Button size="default">Search</Button>
-							</div>
-							<div className="flex items-center gap-2">
-								<Input size="lg" placeholder="Search…" className="w-48" />
-								<Button size="lg">Search</Button>
-							</div>
-						</div>
-						{/* InputGroup sizes */}
-						<div className="flex flex-col gap-3">
-							<InputGroup size="sm" className="w-64">
-								<InputGroupAddon align="inline-start">
-									<InputGroupText>https://</InputGroupText>
-								</InputGroupAddon>
-								<InputGroupInput placeholder="domain.com" />
-							</InputGroup>
-							<InputGroup size="md" className="w-64">
-								<InputGroupAddon align="inline-start">
-									<InputGroupText>https://</InputGroupText>
-								</InputGroupAddon>
-								<InputGroupInput placeholder="domain.com" />
-							</InputGroup>
-							<InputGroup size="lg" className="w-64">
-								<InputGroupAddon align="inline-start">
-									<InputGroupText>https://</InputGroupText>
-								</InputGroupAddon>
-								<InputGroupInput placeholder="domain.com" />
-							</InputGroup>
-						</div>
-					</div>
-				</CardContent>
-			</Card>
-
-			{/* ── Input States ── */}
-			<Card>
-				<CardHeader>
-					<CardTitle>Input States</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className="flex flex-col gap-4 w-full max-w-sm">
-						<Field>
-							<FieldLabel>Default</FieldLabel>
-							<Input placeholder="Default state" />
-						</Field>
-						<Field>
-							<FieldLabel>Error</FieldLabel>
-							<Input placeholder="Error state" aria-invalid="true" />
-							<FieldError>This field is required.</FieldError>
-						</Field>
-						<Field>
-							<FieldLabel>Disabled</FieldLabel>
-							<Input placeholder="Disabled state" disabled />
-						</Field>
-						<Field>
-							<FieldLabel>Read-only</FieldLabel>
-							<Input value="read-only value" readOnly />
-						</Field>
-					</div>
-				</CardContent>
-			</Card>
 			<Card>
 				<CardHeader>
 					<CardTitle>Input & Textarea</CardTitle>
