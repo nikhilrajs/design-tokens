@@ -11,6 +11,7 @@ import { Checkbox } from "../components/ui/checkbox"
 import {
   Field,
   FieldDescription,
+  FieldError,
   FieldGroup,
   FieldLabel,
   FieldLegend,
@@ -57,6 +58,64 @@ const years = [
 
 	return (
 		<div className="space-y-4">
+			{/* Input States Showcase */}
+			<Card>
+				<CardHeader>
+					<CardTitle>Input States</CardTitle>
+				</CardHeader>
+				<CardContent className="space-y-6">
+					{/* States grid */}
+					<div className="grid grid-cols-2 gap-x-6 gap-y-5 max-w-lg">
+						<Field>
+							<FieldLabel htmlFor="state-default">Default</FieldLabel>
+							<Input id="state-default" placeholder="Enter text…" />
+						</Field>
+						<Field>
+							<FieldLabel htmlFor="state-error">Error</FieldLabel>
+							<Input
+								id="state-error"
+								placeholder="Enter text…"
+								aria-invalid="true"
+								defaultValue="invalid@"
+							/>
+							<FieldError>This field is required</FieldError>
+						</Field>
+						<Field>
+							<FieldLabel htmlFor="state-disabled">Disabled</FieldLabel>
+							<Input id="state-disabled" placeholder="Not editable" disabled />
+						</Field>
+						<Field>
+							<FieldLabel htmlFor="state-readonly">Read-only</FieldLabel>
+							<Input
+								id="state-readonly"
+								readOnly
+								defaultValue="Read-only content"
+							/>
+						</Field>
+					</div>
+
+					{/* Size comparison */}
+					<div>
+						<p className="text-sm font-medium text-[color:var(--pcs-color-text-muted)] mb-3">Sizes</p>
+						<div className="flex flex-col gap-2">
+							<div className="flex items-center gap-2">
+								<Input size="sm" placeholder="Small" className="max-w-48" />
+								<Button size="sm">Button</Button>
+							</div>
+							<div className="flex items-center gap-2">
+								<Input placeholder="Medium" className="max-w-48" />
+								<Button>Button</Button>
+							</div>
+							<div className="flex items-center gap-2">
+								<Input size="lg" placeholder="Large" className="max-w-48" />
+								<Button size="lg">Button</Button>
+							</div>
+						</div>
+					</div>
+				</CardContent>
+			</Card>
+
+			{/* Payment Method form */}
 			<Card>
 				<CardHeader>
 					<CardTitle>Input & Textarea</CardTitle>
