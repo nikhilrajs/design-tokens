@@ -108,7 +108,7 @@
   =========================================================================== */
 
   --pcs-input-bg-focus:                  var(--pcs-color-background);
-  --pcs-input-border-color-focus:        var(--pcs-color-primary-emphasis);
+  --pcs-input-border-color-focus:        var(--pcs-color-focus-ring);            /* brand-400 light, brand-500 dark — same as ring color */
   --pcs-input-focus-ring-color:          var(--pcs-color-focus-ring);
   --pcs-input-shadow-focus:
     0 0 0 var(--pcs-input-focus-ring-width) var(--pcs-input-focus-ring-color);
@@ -255,5 +255,10 @@
 
   /* Read-only border needs to be visible against dark background */
   --pcs-input-border-color-readonly:     var(--pcs-color-border-default);
+
+  /* Input bg — replicates shadcn's dark:bg-input/30 (neutral-700 at 30% opacity).
+     Transparent tint rather than a solid step — avoids clashing with card bg. */
+  --pcs-input-bg:                        oklch(from var(--pcs-primitive-color-neutral-700) l c h / 30%);
+  --pcs-input-bg-disabled:              oklch(from var(--pcs-primitive-color-neutral-700) l c h / 80%);
 
 }
