@@ -239,12 +239,7 @@
 
 [data-app-color-scheme="dark"] {
 
-  /* Alert — borders match background in dark mode for a subtler appearance */
-  --pcs-alert-neutral-border:            var(--pcs-alert-neutral-bg);
-  --pcs-alert-info-border:               var(--pcs-alert-info-bg);
-  --pcs-alert-success-border:            var(--pcs-alert-success-bg);
-  --pcs-alert-warning-border:            var(--pcs-alert-warning-bg);
-  --pcs-alert-error-border:              var(--pcs-alert-error-bg);
+  /* Alert — border tokens cascade to --pcs-color-*-border which resolves to 700-step in dark */
 
   /* Toast — white surface becomes slate-900 via --pcs-color-surface-overlay */
   /* Role accents stay the same — colored left borders read well on dark */
