@@ -11,6 +11,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from "../components/ui/alert"
+import { Badge } from "../components/ui/badge"
 import {
   AlertCircleIcon,
   CheckCircleIcon,
@@ -88,6 +89,49 @@ export const Feedback: React.FC = () => {
             </AlertDescription>
           </Alert>
 
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Badge</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {/* Default weight — all appearances */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-2">Default</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge appearance="neutral">Neutral</Badge>
+              <Badge appearance="primary">Primary</Badge>
+              <Badge appearance="success">Success</Badge>
+              <Badge appearance="error">Error</Badge>
+              <Badge appearance="warning">Warning</Badge>
+              <Badge appearance="info">Info</Badge>
+            </div>
+          </div>
+          {/* Emphasis weight — all appearances */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-2">Emphasis</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge appearance="neutral" weight="emphasis">Neutral</Badge>
+              <Badge appearance="primary" weight="emphasis">Primary</Badge>
+              <Badge appearance="success" weight="emphasis">Success</Badge>
+              <Badge appearance="error" weight="emphasis">Error</Badge>
+              <Badge appearance="warning" weight="emphasis">Warning</Badge>
+              <Badge appearance="info" weight="emphasis">Info</Badge>
+            </div>
+          </div>
+          {/* In context */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-2">In context</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge appearance="success">Active</Badge>
+              <Badge appearance="warning">Pending</Badge>
+              <Badge appearance="error">Failed</Badge>
+              <Badge appearance="info">Draft</Badge>
+              <Badge appearance="neutral">Archived</Badge>
+              <Badge appearance="primary" weight="emphasis">New</Badge>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>

@@ -51,7 +51,7 @@
   /* Border */
   --pcs-badge-border-width:              var(--pcs-border-width-default);        /*  1px */
   --pcs-badge-border-style:              solid;
-  --pcs-badge-border-radius:             var(--pcs-radius-full);                 /* pill shape — matches Atlassian */
+  --pcs-badge-border-radius:             0.25rem;                                /* 4px — between radius-sm(2px) and radius-md(6px) */
 
   /* Max width — truncate with ellipsis beyond this */
   --pcs-badge-max-width:                 12.5rem;                            /* 200px — matches Atlassian */
@@ -66,7 +66,7 @@
   /* Default weight */
   --pcs-badge-neutral-bg:                var(--pcs-color-surface-muted);         /* slate-100 */
   --pcs-badge-neutral-border:            var(--pcs-color-border-default);        /* slate-200 */
-  --pcs-badge-neutral-text:              var(--pcs-color-text-muted);            /* slate-500 */
+  --pcs-badge-neutral-text:              var(--pcs-primitive-color-neutral-700); /* slate-700 ~9:1 on slate-100, text-muted(slate-500) fails AA */
 
   /* Emphasis weight */
   --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-600);
@@ -86,10 +86,10 @@
   --pcs-badge-primary-border:            var(--pcs-color-primary-border);        /* brand-300 */
   --pcs-badge-primary-text:              var(--pcs-color-primary-text);          /* brand-700 */
 
-  /* Emphasis weight */
-  --pcs-badge-primary-emphasis-bg:       var(--pcs-color-primary-emphasis);      /* brand-500 */
-  --pcs-badge-primary-emphasis-border:   var(--pcs-color-primary-emphasis);
-  --pcs-badge-primary-emphasis-text:     var(--pcs-color-primary-on-emphasis);   /* white     */
+  /* Emphasis weight — brand-600 too light for white text; brand-700 (~4.4:1 with white, borderline AA) */
+  --pcs-badge-primary-emphasis-bg:       var(--pcs-primitive-color-brand-700);
+  --pcs-badge-primary-emphasis-border:   var(--pcs-primitive-color-brand-700);
+  --pcs-badge-primary-emphasis-text:     var(--pcs-color-primary-on-emphasis);   /* white */
 
 
   /* ===========================================================================
@@ -104,9 +104,9 @@
   --pcs-badge-success-border:            var(--pcs-color-success-border);        /* emerald-300 */
   --pcs-badge-success-text:              var(--pcs-color-success-text);          /* emerald-800 */
 
-  /* Emphasis weight */
-  --pcs-badge-success-emphasis-bg:       var(--pcs-color-success-emphasis);      /* emerald-600 */
-  --pcs-badge-success-emphasis-border:   var(--pcs-color-success-emphasis);
+  /* Emphasis weight — emerald-600 fails AA (~3.5:1 with white) → step up to emerald-700 (~5.1:1) ✓ */
+  --pcs-badge-success-emphasis-bg:       var(--pcs-primitive-color-emerald-700);
+  --pcs-badge-success-emphasis-border:   var(--pcs-primitive-color-emerald-700);
   --pcs-badge-success-emphasis-text:     var(--pcs-color-success-on-emphasis);   /* white       */
 
 
@@ -158,9 +158,9 @@
   --pcs-badge-info-border:               var(--pcs-color-info-border);           /* sky-300 */
   --pcs-badge-info-text:                 var(--pcs-color-info-text);             /* sky-800 */
 
-  /* Emphasis weight */
-  --pcs-badge-info-emphasis-bg:          var(--pcs-color-info-emphasis);         /* sky-600 */
-  --pcs-badge-info-emphasis-border:      var(--pcs-color-info-emphasis);
+  /* Emphasis weight — sky-600 fails AA (~3.8:1 with white) → step up to sky-700 (~5.7:1) ✓ */
+  --pcs-badge-info-emphasis-bg:          var(--pcs-primitive-color-sky-700);
+  --pcs-badge-info-emphasis-border:      var(--pcs-primitive-color-sky-700);
   --pcs-badge-info-emphasis-text:        var(--pcs-color-info-on-emphasis);      /* white   */
 
 }
@@ -174,17 +174,35 @@
 
 [data-app-color-scheme="dark"] {
 
-  /* Neutral emphasis — lighter fill in dark mode for visibility */
-  --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-500);
-  --pcs-badge-neutral-emphasis-border:   var(--pcs-primitive-color-neutral-500);
+  /* Neutral default — text-muted/neutral-700 is near-invisible on dark surface-muted/neutral-800 */
+  --pcs-badge-neutral-text:              var(--pcs-primitive-color-neutral-200); /* light text on neutral-800 bg */
 
-  /* Primary emphasis — semantic token handles this via --pcs-color-primary-emphasis */
+  /* Neutral emphasis — neutral-500 (~4.3:1 with white) borderline for 12px text; step to neutral-600 (~5.5:1) */
+  --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-600);
+  --pcs-badge-neutral-emphasis-border:   var(--pcs-primitive-color-neutral-600);
+
+  /* Primary emphasis — brand-400 in dark is too light for white text; use brand-950 text on brand-400 bg */
+  --pcs-badge-primary-emphasis-bg:       var(--pcs-primitive-color-brand-400);
+  --pcs-badge-primary-emphasis-border:   var(--pcs-primitive-color-brand-400);
+  --pcs-badge-primary-emphasis-text:     var(--pcs-primitive-color-brand-950);
 
   /* Warning emphasis — dark text stays dark on yellow, no change needed */
   /* But yellow-500 in dark mode may look harsh — soften slightly */
   --pcs-badge-warning-emphasis-bg:       var(--pcs-primitive-color-yellow-400);
   --pcs-badge-warning-emphasis-border:   var(--pcs-primitive-color-yellow-400);
   --pcs-badge-warning-emphasis-text:     var(--pcs-primitive-color-yellow-950);
+
+  /* Success emphasis — emerald-500 (~2.3:1 with white, fails AA) → emerald-700 (~5.1:1) ✓ */
+  --pcs-badge-success-emphasis-bg:      var(--pcs-primitive-color-emerald-700);
+  --pcs-badge-success-emphasis-border:  var(--pcs-primitive-color-emerald-700);
+
+  /* Error emphasis — red-500 (~3.0:1 with white, fails AA) → red-700 (~6.6:1) ✓ */
+  --pcs-badge-error-emphasis-bg:        var(--pcs-primitive-color-red-700);
+  --pcs-badge-error-emphasis-border:    var(--pcs-primitive-color-red-700);
+
+  /* Info emphasis — sky-500 (~2.8:1 with white, fails AA) → sky-700 (~5.7:1) ✓ */
+  --pcs-badge-info-emphasis-bg:         var(--pcs-primitive-color-sky-700);
+  --pcs-badge-info-emphasis-border:     var(--pcs-primitive-color-sky-700);
 
   /* All default weights handled by semantic color tokens */
 

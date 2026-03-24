@@ -16,7 +16,7 @@ function Textarea({ className, autoResize = true, ...props }: TextareaProps) {
         // Auto-resize — opt out with autoResize={false}, then control height via className
         autoResize
           ? "field-sizing-content [resize:var(--pcs-input-textarea-resize)]"
-          : "resize-none",
+          : "",
         // Sizing — textarea-specific tokens
         "min-h-[var(--pcs-input-textarea-min-height)]",
         "px-[var(--pcs-input-textarea-padding-x)] py-[var(--pcs-input-textarea-padding-y)]",
