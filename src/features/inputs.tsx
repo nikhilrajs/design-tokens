@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   Card,
@@ -28,8 +28,19 @@ import {
   SelectValue,
 } from "../components/ui/select"
 import { Textarea } from "../components/ui/textarea"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "../components/ui/input-group"
+import { SearchIcon, EyeIcon, EyeOffIcon, DollarSignIcon, AtSignIcon } from "lucide-react"
 
 export const Inputs: React.FC = () => {
+
+	const [showPassword, setShowPassword] = useState(false)
 
 	const months = [
   { label: "MM", value: null },
@@ -148,6 +159,96 @@ const years = [
 								<Button size="lg">Button</Button>
 							</div>
 						</div>
+					</div>
+				</CardContent>
+			</Card>
+
+			{/* Input Group Showcase */}
+			<Card>
+				<CardHeader>
+					<CardTitle>Input Group</CardTitle>
+				</CardHeader>
+				<CardContent>
+					<div className="flex flex-col gap-4 max-w-sm">
+						{/* Search — leading icon */}
+						<Field>
+							<FieldLabel htmlFor="ig-search">Search</FieldLabel>
+							<InputGroup>
+								<InputGroupAddon>
+									<InputGroupText><SearchIcon /></InputGroupText>
+								</InputGroupAddon>
+								<InputGroupInput id="ig-search" placeholder="Search…" />
+							</InputGroup>
+						</Field>
+
+						{/* Email — leading text addon */}
+						<Field>
+							<FieldLabel htmlFor="ig-email">Email</FieldLabel>
+							<InputGroup>
+								<InputGroupAddon>
+									<InputGroupText><AtSignIcon /></InputGroupText>
+								</InputGroupAddon>
+								<InputGroupInput id="ig-email" type="email" placeholder="you@example.com" />
+							</InputGroup>
+						</Field>
+
+						{/* Price — leading symbol, trailing unit */}
+						<Field>
+							<FieldLabel htmlFor="ig-price">Price</FieldLabel>
+							<InputGroup>
+								<InputGroupAddon>
+									<InputGroupText><DollarSignIcon /></InputGroupText>
+								</InputGroupAddon>
+								<InputGroupInput id="ig-price" type="number" placeholder="0.00" />
+								<InputGroupAddon align="inline-end">
+									<InputGroupText>USD</InputGroupText>
+								</InputGroupAddon>
+							</InputGroup>
+						</Field>
+
+						{/* Password — trailing toggle button */}
+						<Field>
+							<FieldLabel htmlFor="ig-password">Password</FieldLabel>
+							<InputGroup>
+								<InputGroupInput
+									id="ig-password"
+									type={showPassword ? "text" : "password"}
+									placeholder="Enter password"
+								/>
+								<InputGroupAddon align="inline-end">
+									<InputGroupButton
+										aria-label={showPassword ? "Hide password" : "Show password"}
+										onClick={() => setShowPassword(v => !v)}
+									>
+										{showPassword ? <EyeOffIcon /> : <EyeIcon />}
+									</InputGroupButton>
+								</InputGroupAddon>
+							</InputGroup>
+						</Field>
+
+						{/* Textarea in a group */}
+						<Field>
+							<FieldLabel htmlFor="ig-notes">Notes</FieldLabel>
+							<InputGroup>
+								<InputGroupTextarea id="ig-notes" placeholder="Add a note…" />
+							</InputGroup>
+						</Field>
+
+						{/* Error state */}
+						<Field>
+							<FieldLabel htmlFor="ig-error">Error state</FieldLabel>
+							<InputGroup>
+								<InputGroupAddon>
+									<InputGroupText><AtSignIcon /></InputGroupText>
+								</InputGroupAddon>
+								<InputGroupInput
+									id="ig-error"
+									aria-invalid="true"
+									defaultValue="not-an-email"
+								/>
+							</InputGroup>
+							<FieldError>Enter a valid email address</FieldError>
+						</Field>
 					</div>
 				</CardContent>
 			</Card>
