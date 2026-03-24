@@ -2,12 +2,43 @@ import * as React from "react"
 
 import { cn } from "../../lib/utils"
 
-function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
+interface TextareaProps extends React.ComponentProps<"textarea"> {
+  autoResize?: boolean
+}
+
+function Textarea({ className, autoResize = true, ...props }: TextareaProps) {
   return (
     <textarea
       data-slot="textarea"
       className={cn(
-        "flex field-sizing-content min-h-16 w-full rounded-lg border border-input bg-transparent px-2.5 py-2 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+        // Layout
+        "flex w-full",
+        // Auto-resize — opt out with autoResize={false}, then control height via className
+        autoResize
+          ? "field-sizing-content [resize:var(--pcs-input-textarea-resize)]"
+          : "resize-none",
+        // Sizing — textarea-specific tokens
+        "min-h-[var(--pcs-input-textarea-min-height)]",
+        "px-[var(--pcs-input-textarea-padding-x)] py-[var(--pcs-input-textarea-padding-y)]",
+        // Shape + border
+        "rounded-[var(--pcs-input-border-radius)]",
+        "border-[length:var(--pcs-input-border-width)] border-solid border-[color:var(--pcs-input-border-color)]",
+        // Background + text — shared input tokens
+        "bg-[var(--pcs-input-bg)]",
+        "text-[length:var(--pcs-input-font-size)] text-[color:var(--pcs-input-text)]",
+        "placeholder:text-[color:var(--pcs-input-placeholder)]",
+        "transition-colors outline-none",
+        // Read-only
+        "[&[readonly]]:bg-transparent [&[readonly]]:border-dashed [&[readonly]]:shadow-none [&[readonly]]:cursor-default",
+        // Focus
+        "focus-visible:border-[color:var(--pcs-input-border-color-focus)]",
+        "focus-visible:ring-3 focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
+        // Disabled
+        "disabled:pointer-events-none disabled:cursor-[var(--pcs-input-cursor-disabled)]",
+        "disabled:bg-[var(--pcs-input-bg-disabled)] disabled:text-[color:var(--pcs-input-text-disabled)]",
+        // Error
+        "aria-invalid:border-[color:var(--pcs-input-border-color-error)]",
+        "aria-invalid:ring-3 aria-invalid:ring-[var(--pcs-input-border-color-error)]/50",
         className
       )}
       {...props}

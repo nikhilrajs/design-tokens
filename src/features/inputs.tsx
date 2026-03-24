@@ -64,7 +64,44 @@ const years = [
 					<CardTitle>Input States</CardTitle>
 				</CardHeader>
 				<CardContent className="space-y-6">
-					{/* States grid */}
+					{/* Textarea states */}
+					<div>
+						<p className="text-sm font-medium text-[color:var(--pcs-color-text-muted)] mb-3">Textarea</p>
+						<div className="grid grid-cols-2 gap-x-6 gap-y-5 max-w-lg">
+							<Field>
+								<FieldLabel htmlFor="textarea-default">Default</FieldLabel>
+								<Textarea id="textarea-default" placeholder="Enter your message…" />
+							</Field>
+							<Field>
+								<FieldLabel htmlFor="textarea-error">Error</FieldLabel>
+								<Textarea
+									id="textarea-error"
+									aria-invalid="true"
+									defaultValue="Too short"
+								/>
+								<FieldError>Message must be at least 20 characters</FieldError>
+							</Field>
+							<Field>
+								<FieldLabel htmlFor="textarea-disabled">Disabled</FieldLabel>
+								<Textarea id="textarea-disabled" placeholder="Not editable" disabled />
+							</Field>
+							<Field>
+								<FieldLabel htmlFor="textarea-readonly">Read-only</FieldLabel>
+								<Textarea id="textarea-readonly" readOnly defaultValue="Read-only content" />
+							</Field>
+							<Field>
+								<FieldLabel htmlFor="textarea-fixed">Fixed height (autoResize=false)</FieldLabel>
+								<Textarea
+									id="textarea-fixed"
+									autoResize={false}
+									className="h-24"
+									placeholder="Fixed at 96px, scrolls when full…"
+								/>
+							</Field>
+						</div>
+					</div>
+
+					{/* Input states */}
 					<div className="grid grid-cols-2 gap-x-6 gap-y-5 max-w-lg">
 						<Field>
 							<FieldLabel htmlFor="state-default">Default</FieldLabel>
