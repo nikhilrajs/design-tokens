@@ -59,6 +59,16 @@
      Icon-only: square dimension derived from height.
   =========================================================================== */
 
+  /* --- xs (compact toggle/filter) --- */
+  --pcs-button-size-xs-height:           var(--pcs-size-control-xs);            /* 24px */
+  --pcs-button-size-xs-padding-x:        var(--pcs-primitive-space-1-5);        /*  6px */
+  --pcs-button-size-xs-font-size:        var(--pcs-text-label-sm-size);         /* 12px */
+  --pcs-button-size-xs-gap:              var(--pcs-space-component-gap-xs);     /*  4px */
+  --pcs-button-size-xs-radius:           var(--pcs-radius-md);                  /*  6px */
+
+  /* Icon-only xs — square */
+  --pcs-button-icon-size-xs:             var(--pcs-size-control-xs);            /* 24px */
+
   /* --- sm --- */
   --pcs-button-size-sm-height:           var(--pcs-size-control-sm);            /* 28px — aligned to control size token, matches input-sm */
   --pcs-button-size-sm-padding-x:        var(--pcs-space-component-padding-sm); /* 8px  */

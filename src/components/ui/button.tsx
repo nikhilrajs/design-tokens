@@ -16,8 +16,8 @@ const buttonVariants = cva(
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     // Interaction
     "cursor-pointer active:translate-y-px disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
-    // Focus ring — driven by component tokens
-    "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--pcs-button-focus-ring-color)] focus-visible:border-[color:var(--pcs-button-focus-ring-color)]",
+    // Focus ring — no offset; ring-3 at 50% opacity matches input focus pattern
+    "focus-visible:ring-3 focus-visible:ring-[var(--pcs-button-focus-ring-color)]/50 focus-visible:border-[color:var(--pcs-button-focus-ring-color)]",
     // aria-invalid (form validation error state)
     "aria-invalid:border-[color:var(--pcs-color-error-border)] aria-invalid:ring-2 aria-invalid:ring-[var(--pcs-color-error-border)]",
   ],
@@ -71,11 +71,12 @@ const buttonVariants = cva(
 
       // ─── Size variants ────────────────────────────────────────────────────
       size: {
-        // md — default
-        default: [
-          "h-[var(--pcs-button-size-md-height)] gap-[var(--pcs-button-size-md-gap)] px-[var(--pcs-button-size-md-padding-x)]",
-          "text-[length:var(--pcs-button-size-md-font-size)] rounded-[var(--pcs-button-size-md-radius)]",
-          "has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        // xs — compact toggle/filter
+        xs: [
+          "h-[var(--pcs-button-size-xs-height)] gap-[var(--pcs-button-size-xs-gap)] px-[var(--pcs-button-size-xs-padding-x)]",
+          "text-[length:var(--pcs-button-size-xs-font-size)] rounded-[min(var(--pcs-button-size-xs-radius),12px)]",
+          "in-data-[slot=button-group]:rounded-lg",
+          "[&_svg:not([class*='size-'])]:size-3",
         ],
 
         // sm
@@ -87,16 +88,26 @@ const buttonVariants = cva(
           "[&_svg:not([class*='size-'])]:size-3.5",
         ],
 
+        // md — default
+        default: [
+          "h-[var(--pcs-button-size-md-height)] gap-[var(--pcs-button-size-md-gap)] px-[var(--pcs-button-size-md-padding-x)]",
+          "text-[length:var(--pcs-button-size-md-font-size)] rounded-[var(--pcs-button-size-md-radius)]",
+          "in-data-[slot=button-group]:rounded-lg",
+          "has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        ],
+
         // lg
         lg: [
           "h-[var(--pcs-button-size-lg-height)] gap-[var(--pcs-button-size-lg-gap)] px-[var(--pcs-button-size-lg-padding-x)]",
           "text-[length:var(--pcs-button-size-lg-font-size)] rounded-[var(--pcs-button-size-lg-radius)]",
+          "in-data-[slot=button-group]:rounded-lg",
           "has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
         ],
 
-        // Icon-only — md square
-        icon: [
-          "size-[var(--pcs-button-icon-size-md)] rounded-[var(--pcs-button-size-md-radius)]",
+        // Icon-only — xs square
+        "icon-xs": [
+          "size-[var(--pcs-button-icon-size-xs)] rounded-[min(var(--pcs-button-size-xs-radius),12px)]",
+          "in-data-[slot=button-group]:rounded-lg",
         ],
 
         // Icon-only — sm square
@@ -105,10 +116,22 @@ const buttonVariants = cva(
           "in-data-[slot=button-group]:rounded-lg",
         ],
 
+        // Icon-only — md square
+        icon: [
+          "size-[var(--pcs-button-icon-size-md)] rounded-[var(--pcs-button-size-md-radius)]",
+          "in-data-[slot=button-group]:rounded-lg",
+        ],
+
         // Icon-only — lg square
         "icon-lg": [
           "size-[var(--pcs-button-icon-size-lg)] rounded-[var(--pcs-button-size-lg-radius)]",
+          "in-data-[slot=button-group]:rounded-lg",
         ],
+      },
+
+      // ─── Shape modifier ───────────────────────────────────────────────────
+      rounded: {
+        true: "rounded-full",
       },
     },
     defaultVariants: {
@@ -122,12 +145,13 @@ function Button({
   className,
   variant = "default",
   size = "default",
+  rounded,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
     <ButtonPrimitive
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, rounded, className }))}
       {...props}
     />
   )

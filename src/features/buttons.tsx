@@ -65,8 +65,19 @@ const [label, setLabel] = useState("personal")
 						<Button variant="destructive-outline">Destructive Outline</Button>
 					</div>
 
+					{/* Rounded */}
+					<div className="flex flex-wrap items-center gap-2">
+						<Button size="xs" rounded>XSmall</Button>
+						<Button size="sm" rounded>Small</Button>
+						<Button rounded>Medium</Button>
+						<Button size="lg" rounded>Large</Button>
+						<Button variant="outline" rounded>Outline</Button>
+						<Button variant="ghost" rounded>Ghost</Button>
+					</div>
+
 					{/* Sizes */}
 					<div className="flex flex-wrap items-center gap-2">
+						<Button size="xs">XSmall</Button>
 						<Button size="sm">Small</Button>
 						<Button>Medium</Button>
 						<Button size="lg">Large</Button>
@@ -74,9 +85,20 @@ const [label, setLabel] = useState("personal")
 
 					{/* Icon-only sizes */}
 					<div className="flex flex-wrap items-center gap-2">
+						<Button variant="outline" size="icon-xs" aria-label="Settings"><Settings2Icon /></Button>
 						<Button variant="outline" size="icon-sm" aria-label="Settings"><Settings2Icon /></Button>
 						<Button variant="outline" size="icon" aria-label="Settings"><Settings2Icon /></Button>
 						<Button variant="outline" size="icon-lg" aria-label="Settings"><Settings2Icon /></Button>
+					</div>
+
+					{/* xs filter group — intended use case */}
+					<div className="flex flex-wrap items-center gap-2">
+						<ButtonGroup>
+							<Button variant="outline" size="xs"><ListFilterIcon />All</Button>
+							<Button variant="outline" size="xs">Open</Button>
+							<Button variant="outline" size="xs">In Progress</Button>
+							<Button variant="outline" size="xs">Closed</Button>
+						</ButtonGroup>
 					</div>
 
 					{/* Icon + label */}
