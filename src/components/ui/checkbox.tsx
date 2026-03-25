@@ -1,5 +1,5 @@
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox"
-import { CheckIcon } from "lucide-react"
+import { CheckIcon, MinusIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
@@ -34,13 +34,13 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
         // Focus ring
         "focus-visible:border-[color:var(--pcs-checkbox-focus-ring-color)]",
         "focus-visible:ring-3 focus-visible:ring-[var(--pcs-checkbox-focus-ring-color)]/50",
-        // Disabled
-        "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+        // Disabled — Base UI sets data-disabled, not native :disabled
+        "data-disabled:pointer-events-none data-disabled:cursor-not-allowed data-disabled:opacity-50",
         // Error (aria-invalid)
         "aria-invalid:border-[color:var(--pcs-color-error-border)]",
         "aria-invalid:ring-3 aria-invalid:ring-[var(--pcs-color-error-border)]/50",
         // Field-level disabled — when checkbox sits inside a disabled <FieldGroup>
-        "group-has-disabled/field:opacity-50",
+        "group-has-[[data-disabled]]/field:opacity-50",
         className
       )}
       {...props}
@@ -49,7 +49,9 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
         data-slot="checkbox-indicator"
         className="grid place-content-center text-current transition-none [&>svg]:size-[var(--pcs-checkbox-indicator-size)]"
       >
-        <CheckIcon />
+        {/* Check for checked; minus swapped in for indeterminate */}
+        <CheckIcon className="[[data-indeterminate]_&]:hidden" />
+        <MinusIcon className="hidden [[data-indeterminate]_&]:block" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   )

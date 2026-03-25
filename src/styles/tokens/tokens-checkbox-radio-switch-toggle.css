@@ -34,7 +34,7 @@
   --pcs-checkbox-touch-target:           2.75rem;
   --pcs-checkbox-border-radius:          var(--pcs-radius-sm);
   --pcs-checkbox-border-width:           var(--pcs-border-width-default);
-  --pcs-checkbox-indicator-size:         var(--pcs-primitive-space-2-5);
+  --pcs-checkbox-indicator-size:         var(--pcs-primitive-space-3-5);        /* 14px — matches original shadcn size-3.5 */
 
   --pcs-checkbox-label-font-size:        var(--pcs-text-body-md-size);
   --pcs-checkbox-label-font-weight:      var(--pcs-text-body-md-weight);
@@ -45,7 +45,6 @@
 
   --pcs-checkbox-bg:                     var(--pcs-color-background);
   --pcs-checkbox-border-color:           var(--pcs-color-border-strong);
-  --pcs-checkbox-indicator-color:        transparent;
 
   --pcs-checkbox-bg-hover:               var(--pcs-color-state-hover);
   --pcs-checkbox-border-color-hover:     var(--pcs-color-primary-emphasis);
@@ -262,6 +261,8 @@
 
   /* Checkbox */
   --pcs-checkbox-border-color:           var(--pcs-color-border-strong);
+  /* Checkbox bg — matches input dark bg (neutral-700 tint at 30% opacity) */
+  --pcs-checkbox-bg:                     oklch(from var(--pcs-primitive-color-neutral-700) l c h / 30%);
 
   /* Radio */
   --pcs-radio-border-color:              var(--pcs-color-border-strong);
