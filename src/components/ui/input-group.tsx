@@ -54,6 +54,8 @@ const inputGroupAddonVariants = cva(
   "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-[color:var(--pcs-color-text-muted)] select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
   {
     variants: {
+      // inline-* = horizontal placement (left / right of the input, same row)
+      // block-*  = vertical placement (stacked above / below the input, full width)
       align: {
         "inline-start":
           "order-first pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]",

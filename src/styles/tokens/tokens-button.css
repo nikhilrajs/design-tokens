@@ -191,6 +191,10 @@
   /* ===========================================================================
      VARIANT — DESTRUCTIVE
      Filled red-600. For dangerous but not catastrophic actions (single delete).
+
+     Note: hover/active intentionally reference primitives (red-700, red-800).
+     No semantic "deeper red" tokens exist — the ramp steps down the primitive
+     scale to express interaction depth without creating one-off semantic tokens.
   =========================================================================== */
 
   --pcs-button-destructive-bg:               var(--pcs-color-error-emphasis);
@@ -329,7 +333,8 @@
   /* --- Destructive ---
      In dark mode, filled red needs to stay readable.
      red-500 base (slightly lighter than light-mode red-600) for better contrast
-     on dark backgrounds.
+     on dark backgrounds. Hover/active step UP the ramp (lighter = brighter on
+     dark) — same primitive-ramp approach as light mode, inverted direction.
   --------------------------------------------------------------------------- */
   --pcs-button-destructive-bg:               var(--pcs-primitive-color-red-600);
   --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-500);

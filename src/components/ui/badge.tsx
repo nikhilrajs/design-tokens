@@ -26,6 +26,9 @@ const badgeVariants = cva(
   ],
   {
     variants: {
+      // Styling is applied entirely via compoundVariants below.
+      // These variant objects are structural anchors only — they register the
+      // valid values so CVA can accept and type them as props.
       appearance: {
         neutral: "",
         primary: "",
