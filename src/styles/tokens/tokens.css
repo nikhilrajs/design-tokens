@@ -369,8 +369,8 @@
 
   --pcs-color-error-background: var(--pcs-primitive-color-red-50);
   --pcs-color-error-background-hover: var(--pcs-primitive-color-red-100);
-  --pcs-color-error-border: var(--pcs-primitive-color-red-300);
-  --pcs-color-error-text: var(--pcs-primitive-color-red-800);
+  --pcs-color-error-border: var(--pcs-primitive-color-red-400);
+  --pcs-color-error-text: var(--pcs-primitive-color-red-700);
   --pcs-color-error-icon: var(--pcs-primitive-color-red-700);
   --pcs-color-error-emphasis: var(--pcs-primitive-color-red-600);
   --pcs-color-error-on-emphasis: var(--pcs-primitive-color-white);

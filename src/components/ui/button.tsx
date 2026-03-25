@@ -61,6 +61,13 @@ const buttonVariants = cva(
           "active:bg-[var(--pcs-button-destructive-outline-bg-active)] active:border-[color:var(--pcs-button-destructive-outline-border-active)]",
         ],
 
+        // Destructive Ghost — no fill, red text. Soft destructive for icon buttons and low-density contexts.
+        "destructive-ghost": [
+          "bg-[var(--pcs-button-destructive-ghost-bg)] text-[color:var(--pcs-button-destructive-ghost-text)] border-[color:var(--pcs-button-destructive-ghost-border)]",
+          "hover:bg-[var(--pcs-button-destructive-ghost-bg-hover)] hover:text-[color:var(--pcs-button-destructive-ghost-text-hover)]",
+          "active:bg-[var(--pcs-button-destructive-ghost-bg-active)] active:text-[color:var(--pcs-button-destructive-ghost-text-active)]",
+        ],
+
         // Link — text link with button semantics. Zero chrome.
         link: [
           "bg-[var(--pcs-button-link-bg)] text-[color:var(--pcs-button-link-text)] border-[color:var(--pcs-button-link-border)] underline-offset-4",

@@ -63,6 +63,8 @@ const [label, setLabel] = useState("personal")
 						<Button variant="link">Link</Button>
 						<Button variant="destructive">Destructive</Button>
 						<Button variant="destructive-outline">Destructive Outline</Button>
+						<Button variant="destructive-ghost">Destructive Ghost</Button>
+						<Button variant="destructive-ghost" size="icon"><Trash2Icon /></Button>
 					</div>
 
 					{/* Rounded */}

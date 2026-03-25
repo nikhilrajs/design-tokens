@@ -3,7 +3,7 @@
    =============================================================================
 
    Variants:
-     primary | secondary | ghost | destructive | destructive-emphasis |
+     primary | secondary | ghost | destructive | destructive-outline |
      destructive-ghost | link
 
    Sizes:
@@ -217,35 +217,6 @@
 
 
   /* ===========================================================================
-     VARIANT — DESTRUCTIVE EMPHASIS
-     Filled red-700 base. Reserved for catastrophic actions (bulk delete,
-     purge, disable account). Darker and more alarming than destructive.
-  =========================================================================== */
-
-  --pcs-button-destructive-emphasis-bg:               var(--pcs-primitive-color-red-700);
-  --pcs-button-destructive-emphasis-bg-hover:          var(--pcs-primitive-color-red-800);
-  --pcs-button-destructive-emphasis-bg-active:         var(--pcs-primitive-color-red-900);
-  --pcs-button-destructive-emphasis-bg-disabled:       var(--pcs-color-state-disabled-bg);
-
-  --pcs-button-destructive-emphasis-text:              var(--pcs-color-error-on-emphasis);
-  --pcs-button-destructive-emphasis-text-hover:        var(--pcs-color-error-on-emphasis);
-  --pcs-button-destructive-emphasis-text-active:       var(--pcs-color-error-on-emphasis);
-  --pcs-button-destructive-emphasis-text-disabled:     var(--pcs-color-state-disabled-text);
-
-  --pcs-button-destructive-emphasis-border:            var(--pcs-primitive-color-red-700);
-  --pcs-button-destructive-emphasis-border-hover:      var(--pcs-primitive-color-red-800);
-  --pcs-button-destructive-emphasis-border-active:     var(--pcs-primitive-color-red-900);
-  --pcs-button-destructive-emphasis-border-disabled:   var(--pcs-color-state-disabled-border);
-
-  --pcs-button-destructive-emphasis-icon:              var(--pcs-color-error-on-emphasis);
-  --pcs-button-destructive-emphasis-icon-disabled:     var(--pcs-color-state-disabled-text);
-
-  --pcs-button-destructive-emphasis-shadow:            var(--pcs-shadow-md);
-  --pcs-button-destructive-emphasis-shadow-hover:      var(--pcs-shadow-md);
-  --pcs-button-destructive-emphasis-shadow-disabled:   none;
-
-
-  /* ===========================================================================
      VARIANT — DESTRUCTIVE OUTLINE
      Red border + text, transparent bg. Softer than filled destructive.
   =========================================================================== */
@@ -366,13 +337,6 @@
   --pcs-button-destructive-border:           var(--pcs-primitive-color-red-600);
   --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-500);
   --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-400);
-
-  /* --- Destructive Emphasis --- */
-  --pcs-button-destructive-emphasis-bg:          var(--pcs-primitive-color-red-700);
-  --pcs-button-destructive-emphasis-bg-hover:    var(--pcs-primitive-color-red-600);
-  --pcs-button-destructive-emphasis-bg-active:   var(--pcs-primitive-color-red-500);
-  --pcs-button-destructive-emphasis-border:      var(--pcs-primitive-color-red-700);
-  --pcs-button-destructive-emphasis-border-hover:var(--pcs-primitive-color-red-600);
 
   /* --- Destructive Outline ---
      red-700 (#b91c1c) is nearly invisible on dark bg — use red-500 (emphasis)
