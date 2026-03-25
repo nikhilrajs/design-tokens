@@ -37,6 +37,10 @@ import {
   InputGroupTextarea,
 } from "../components/ui/input-group"
 import { Label } from "../components/ui/label"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "../components/ui/radio-group"
 import { SearchIcon, EyeIcon, EyeOffIcon, DollarSignIcon, AtSignIcon } from "lucide-react"
 
 export const Inputs: React.FC = () => {
@@ -284,6 +288,50 @@ const years = [
 					<div className="flex items-center gap-2">
 						<Checkbox id="cb-error" aria-invalid="true" />
 						<Label htmlFor="cb-error">Error</Label>
+					</div>
+				</div>
+			</CardContent>
+		</Card>
+
+		{/* Radio Group States */}
+		<Card>
+			<CardHeader>
+				<CardTitle>Radio Group</CardTitle>
+			</CardHeader>
+			<CardContent>
+				<div className="flex flex-wrap gap-8">
+					{/* Default group */}
+					<div>
+						<p className="text-sm font-medium text-[color:var(--pcs-color-text-muted)] mb-3">Default</p>
+						<RadioGroup defaultValue="option2">
+							<div className="flex items-center gap-2">
+								<RadioGroupItem id="rg-opt1" value="option1" />
+								<Label htmlFor="rg-opt1">Option 1</Label>
+							</div>
+							<div className="flex items-center gap-2">
+								<RadioGroupItem id="rg-opt2" value="option2" />
+								<Label htmlFor="rg-opt2">Option 2</Label>
+							</div>
+							<div className="flex items-center gap-2">
+								<RadioGroupItem id="rg-opt3" value="option3" />
+								<Label htmlFor="rg-opt3">Option 3</Label>
+							</div>
+						</RadioGroup>
+					</div>
+
+					{/* Disabled */}
+					<div>
+						<p className="text-sm font-medium text-[color:var(--pcs-color-text-muted)] mb-3">Disabled</p>
+						<RadioGroup defaultValue="option2">
+							<div className="flex items-center gap-2">
+								<RadioGroupItem id="rgd-opt1" value="option1" disabled />
+								<Label htmlFor="rgd-opt1" className="opacity-50">Option 1</Label>
+							</div>
+							<div className="flex items-center gap-2">
+								<RadioGroupItem id="rgd-opt2" value="option2" disabled />
+								<Label htmlFor="rgd-opt2" className="opacity-50">Option 2</Label>
+							</div>
+						</RadioGroup>
 					</div>
 				</div>
 			</CardContent>
