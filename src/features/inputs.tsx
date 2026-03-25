@@ -36,6 +36,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "../components/ui/input-group"
+import { Label } from "../components/ui/label"
 import { SearchIcon, EyeIcon, EyeOffIcon, DollarSignIcon, AtSignIcon } from "lucide-react"
 
 export const Inputs: React.FC = () => {
@@ -253,7 +254,42 @@ const years = [
 				</CardContent>
 			</Card>
 
-			{/* Payment Method form */}
+			{/* Checkbox States */}
+		<Card>
+			<CardHeader>
+				<CardTitle>Checkbox</CardTitle>
+			</CardHeader>
+			<CardContent>
+				<div className="flex flex-wrap gap-x-8 gap-y-4">
+					<div className="flex items-center gap-2">
+						<Checkbox id="cb-unchecked" />
+						<Label htmlFor="cb-unchecked">Unchecked</Label>
+					</div>
+					<div className="flex items-center gap-2">
+						<Checkbox id="cb-checked" defaultChecked />
+						<Label htmlFor="cb-checked">Checked</Label>
+					</div>
+					<div className="flex items-center gap-2">
+						<Checkbox id="cb-indeterminate" indeterminate />
+						<Label htmlFor="cb-indeterminate">Indeterminate</Label>
+					</div>
+					<div className="flex items-center gap-2">
+						<Checkbox id="cb-disabled" disabled />
+						<Label htmlFor="cb-disabled" className="opacity-50">Disabled</Label>
+					</div>
+					<div className="flex items-center gap-2">
+						<Checkbox id="cb-disabled-checked" disabled defaultChecked />
+						<Label htmlFor="cb-disabled-checked" className="opacity-50">Disabled checked</Label>
+					</div>
+					<div className="flex items-center gap-2">
+						<Checkbox id="cb-error" aria-invalid="true" />
+						<Label htmlFor="cb-error">Error</Label>
+					</div>
+				</div>
+			</CardContent>
+		</Card>
+
+		{/* Payment Method form */}
 			<Card>
 				<CardHeader>
 					<CardTitle>Input & Textarea</CardTitle>
