@@ -247,6 +247,23 @@ const [label, setLabel] = useState("personal")
 						</div>
 					</div>
 
+					{/* Toggle Group — joined */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Toggle Group — joined</p>
+						<div className="flex flex-wrap gap-2">
+							<ToggleGroup variant="outline" defaultValue={["bold"]}>
+								<ToggleGroupItem value="bold"><BoldIcon /></ToggleGroupItem>
+								<ToggleGroupItem value="italic"><ItalicIcon /></ToggleGroupItem>
+								<ToggleGroupItem value="underline"><UnderlineIcon /></ToggleGroupItem>
+							</ToggleGroup>
+							<ToggleGroup variant="outline" defaultValue={["left"]}>
+								<ToggleGroupItem value="left"><AlignLeftIcon /></ToggleGroupItem>
+								<ToggleGroupItem value="center"><AlignCenterIcon /></ToggleGroupItem>
+								<ToggleGroupItem value="right"><AlignRightIcon /></ToggleGroupItem>
+							</ToggleGroup>
+						</div>
+					</div>
+
 					{/* Icon toggles */}
 					<div>
 						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Icon + label</p>
