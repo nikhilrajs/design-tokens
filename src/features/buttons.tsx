@@ -16,7 +16,7 @@ import {
 import {
 	Spinner
 } from "../components/ui/spinner"
-import { ButtonGroup } from "../components/ui/button-group"
+import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "../components/ui/button-group"
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -114,6 +114,23 @@ const [label, setLabel] = useState("personal")
 						<Button disabled>Disabled</Button>
 						<Button variant="outline" disabled>Disabled Outline</Button>
 						<Button><Spinner className="mr-2 h-4 w-4" />Loading</Button>
+					</div>
+
+					{/* ButtonGroupText */}
+					<div className="flex flex-wrap gap-4">
+						<ButtonGroup>
+							<ButtonGroupText>https://</ButtonGroupText>
+							<Button variant="outline">example.com</Button>
+						</ButtonGroup>
+						<ButtonGroup>
+							<Button variant="outline">Amount</Button>
+							<ButtonGroupText>USD</ButtonGroupText>
+						</ButtonGroup>
+						<ButtonGroup>
+							<Button variant="default">Search</Button>
+							<ButtonGroupSeparator />
+							<Button variant="default">Filter</Button>
+						</ButtonGroup>
 					</div>
 
 					{/* Button Group */}

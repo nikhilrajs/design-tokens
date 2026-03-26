@@ -299,6 +299,31 @@
   --pcs-button-link-shadow-hover:        none;
   --pcs-button-link-shadow-disabled:     none;
 
+
+
+  /* ===========================================================================
+     BUTTON GROUP
+     Container that joins multiple buttons into a single compound control.
+     Visual seam is created by collapsing adjacent borders and radii via CSS
+     selectors in the component — no tokens needed for that structural logic.
+
+     ButtonGroupText — inline label/adornment sitting within the group.
+     ButtonGroupSeparator — thin rule between sections of a group.
+  =========================================================================== */
+
+  /* --- ButtonGroupText surface --- */
+  --pcs-button-group-text-bg:            var(--pcs-color-surface-muted);
+  --pcs-button-group-text-border-color:  var(--pcs-color-border-default);
+  --pcs-button-group-text-border-width:  var(--pcs-border-width-default);    /* 1px */
+  --pcs-button-group-text-padding-x:     var(--pcs-primitive-space-2-5);     /* 10px — matches shadcn px-2.5 */
+  --pcs-button-group-text-color:         var(--pcs-color-text-default);
+  --pcs-button-group-text-font-size:     var(--pcs-text-label-lg-size);      /* 14px */
+  --pcs-button-group-text-font-weight:   var(--pcs-text-label-lg-weight);    /* 500  */
+  --pcs-button-group-text-icon-size:     var(--pcs-size-icon-md);            /* 16px */
+
+  /* --- ButtonGroupSeparator --- */
+  --pcs-button-group-separator-color:    var(--pcs-color-border-default);
+
 }
 
 

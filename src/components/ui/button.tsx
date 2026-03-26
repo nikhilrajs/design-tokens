@@ -82,7 +82,7 @@ const buttonVariants = cva(
         xs: [
           "h-[var(--pcs-button-size-xs-height)] gap-[var(--pcs-button-size-xs-gap)] px-[var(--pcs-button-size-xs-padding-x)]",
           "text-[length:var(--pcs-button-size-xs-font-size)] rounded-[min(var(--pcs-button-size-xs-radius),12px)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
           "[&_svg:not([class*='size-'])]:size-3",
         ],
 
@@ -90,7 +90,7 @@ const buttonVariants = cva(
         sm: [
           "h-[var(--pcs-button-size-sm-height)] gap-[var(--pcs-button-size-sm-gap)] px-[var(--pcs-button-size-sm-padding-x)]",
           "text-[length:var(--pcs-button-size-sm-font-size)] rounded-[min(var(--pcs-button-size-sm-radius),12px)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
           "has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5",
           "[&_svg:not([class*='size-'])]:size-3.5",
         ],
@@ -99,7 +99,7 @@ const buttonVariants = cva(
         default: [
           "h-[var(--pcs-button-size-md-height)] gap-[var(--pcs-button-size-md-gap)] px-[var(--pcs-button-size-md-padding-x)]",
           "text-[length:var(--pcs-button-size-md-font-size)] rounded-[var(--pcs-button-size-md-radius)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
           "has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
         ],
 
@@ -107,32 +107,32 @@ const buttonVariants = cva(
         lg: [
           "h-[var(--pcs-button-size-lg-height)] gap-[var(--pcs-button-size-lg-gap)] px-[var(--pcs-button-size-lg-padding-x)]",
           "text-[length:var(--pcs-button-size-lg-font-size)] rounded-[var(--pcs-button-size-lg-radius)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
           "has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
         ],
 
         // Icon-only — xs square
         "icon-xs": [
           "size-[var(--pcs-button-icon-size-xs)] rounded-[min(var(--pcs-button-size-xs-radius),12px)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
         ],
 
         // Icon-only — sm square
         "icon-sm": [
           "size-[var(--pcs-button-icon-size-sm)] rounded-[min(var(--pcs-button-size-sm-radius),12px)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
         ],
 
         // Icon-only — md square
         icon: [
           "size-[var(--pcs-button-icon-size-md)] rounded-[var(--pcs-button-size-md-radius)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
         ],
 
         // Icon-only — lg square
         "icon-lg": [
           "size-[var(--pcs-button-icon-size-lg)] rounded-[var(--pcs-button-size-lg-radius)]",
-          "in-data-[slot=button-group]:rounded-lg",
+          "in-data-[slot=button-group]:rounded-md",
         ],
       },
 
