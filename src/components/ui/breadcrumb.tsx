@@ -21,7 +21,12 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
     <ol
       data-slot="breadcrumb-list"
       className={cn(
-        "flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground",
+        "flex flex-wrap items-center wrap-break-word",
+        "gap-[var(--pcs-breadcrumb-gap)]",
+        "font-[family-name:var(--pcs-breadcrumb-font-family)]",
+        "text-[length:var(--pcs-breadcrumb-font-size)]",
+        "font-[number:var(--pcs-breadcrumb-font-weight)]",
+        "text-[color:var(--pcs-breadcrumb-item-color)]",
         className
       )}
       {...props}
@@ -33,7 +38,11 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
       data-slot="breadcrumb-item"
-      className={cn("inline-flex items-center gap-1", className)}
+      className={cn(
+        "inline-flex items-center",
+        "gap-[var(--pcs-breadcrumb-separator-gap)]",
+        className
+      )}
       {...props}
     />
   )
@@ -48,7 +57,16 @@ function BreadcrumbLink({
     defaultTagName: "a",
     props: mergeProps<"a">(
       {
-        className: cn("transition-colors hover:text-foreground", className),
+        className: cn(
+          "transition-colors",
+          "rounded-[var(--pcs-breadcrumb-item-border-radius)]",
+          "hover:text-[color:var(--pcs-breadcrumb-item-color-hover)] hover:underline",
+          "focus-visible:outline-none",
+          "focus-visible:ring-[length:var(--pcs-breadcrumb-focus-ring-width)]",
+          "focus-visible:ring-[var(--pcs-breadcrumb-focus-ring-color)]/50",
+          "focus-visible:ring-offset-[var(--pcs-breadcrumb-focus-ring-offset)]",
+          className
+        ),
       },
       props
     ),
@@ -66,7 +84,12 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
       role="link"
       aria-disabled="true"
       aria-current="page"
-      className={cn("font-normal text-foreground", className)}
+      className={cn(
+        "cursor-[var(--pcs-breadcrumb-item-cursor-current)]",
+        "font-[number:var(--pcs-breadcrumb-font-weight-current)]",
+        "text-[color:var(--pcs-breadcrumb-item-color-current)]",
+        className
+      )}
       {...props}
     />
   )
@@ -82,12 +105,14 @@ function BreadcrumbSeparator({
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      className={cn("[&>svg]:size-3.5", className)}
+      className={cn(
+        "text-[color:var(--pcs-breadcrumb-separator-color)]",
+        "[&>svg]:size-[var(--pcs-breadcrumb-separator-size)]",
+        className
+      )}
       {...props}
     >
-      {children ?? (
-        <ChevronRightIcon />
-      )}
+      {children ?? <ChevronRightIcon />}
     </li>
   )
 }
@@ -102,13 +127,14 @@ function BreadcrumbEllipsis({
       role="presentation"
       aria-hidden="true"
       className={cn(
-        "flex size-5 items-center justify-center [&>svg]:size-4",
+        "flex size-5 items-center justify-center",
+        "text-[color:var(--pcs-breadcrumb-ellipsis-color)]",
+        "[&>svg]:size-[var(--pcs-breadcrumb-icon-size)]",
         className
       )}
       {...props}
     >
-      <MoreHorizontalIcon
-      />
+      <MoreHorizontalIcon />
       <span className="sr-only">More</span>
     </span>
   )
