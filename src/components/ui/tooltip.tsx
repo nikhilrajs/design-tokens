@@ -84,10 +84,17 @@ function TooltipContent({
           {...props}
         >
           {children}
-          {/* Arrow — Base UI positions this automatically via inline styles;
-              only visual styles belong here */}
+          {/* Arrow — Base UI sets along-axis left/top via inline styles;
+              cross-axis edge offset must be set per side here */}
           <TooltipPrimitive.Arrow
-            className="size-[var(--pcs-tooltip-arrow-size)] rotate-45 rounded-[2px] bg-[var(--pcs-tooltip-arrow-color)]"
+            className={cn(
+              "size-[var(--pcs-tooltip-arrow-size)] rotate-45 rounded-[2px]",
+              "bg-[var(--pcs-tooltip-arrow-color)]",
+              "data-[side=top]:-bottom-1",
+              "data-[side=bottom]:-top-1",
+              "data-[side=left]:-right-1",
+              "data-[side=right]:-left-1",
+            )}
           />
         </TooltipPrimitive.Popup>
       </TooltipPrimitive.Positioner>

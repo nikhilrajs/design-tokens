@@ -211,7 +211,7 @@ names directly. Do not add a two-layer indirection system.
 
 ## Wiring Up a shadcn Component with Tokens
 
-Follow these steps in order when connecting a shadcn component to the token system.
+Follow these steps in order when connecting a shadcn component to the token system. Also be mindful that we are using BaseUI for the components. For interactive elements always check BaseUI documentation as well.
 
 ### 1. Compare token values against shadcn defaults FIRST
 
