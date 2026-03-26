@@ -164,30 +164,22 @@ export const Feedback: React.FC = () => {
             <TooltipProvider>
               <div className="flex flex-wrap gap-3 items-center">
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Top</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Top</Button>} />
                   <TooltipContent side="top">Tooltip on top</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Right</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Right</Button>} />
                   <TooltipContent side="right">Tooltip on right</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Bottom</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Bottom</Button>} />
                   <TooltipContent side="bottom">Tooltip on bottom</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Left</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Left</Button>} />
                   <TooltipContent side="left">Tooltip on left</TooltipContent>
                 </Tooltip>
               </div>
@@ -200,27 +192,19 @@ export const Feedback: React.FC = () => {
             <TooltipProvider>
               <div className="flex flex-wrap gap-3 items-center">
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Short</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Short</Button>} />
                   <TooltipContent>Save file</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Long</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Long</Button>} />
                   <TooltipContent>
                     This action cannot be undone. All selected items will be permanently deleted.
                   </TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" aria-label="More info">
-                      <InfoIcon className="size-4" />
-                    </Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="ghost" size="icon" aria-label="More info"><InfoIcon className="size-4" /></Button>} />
                   <TooltipContent>More information</TooltipContent>
                 </Tooltip>
               </div>
@@ -233,27 +217,21 @@ export const Feedback: React.FC = () => {
             <TooltipProvider>
               <div className="flex flex-wrap gap-3 items-center">
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Bold</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Bold</Button>} />
                   <TooltipContent>
                     Bold <Kbd>⌘B</Kbd>
                   </TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Save</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Save</Button>} />
                   <TooltipContent>
                     Save file <Kbd>⌘S</Kbd>
                   </TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="sm">Undo</Button>
-                  </TooltipTrigger>
+                  <TooltipTrigger render={<Button variant="outline" size="sm">Undo</Button>} />
                   <TooltipContent>
                     Undo <Kbd>⌘Z</Kbd>
                   </TooltipContent>

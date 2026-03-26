@@ -76,8 +76,7 @@ function TooltipContent({
             "data-[side=left]:slide-in-from-right-2",
             "data-[side=right]:slide-in-from-left-2",
             "data-[side=top]:slide-in-from-bottom-2",
-            // State-driven animations
-            "data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95",
+            // State-driven animations — Base UI sets data-open / data-closed
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
             "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
             className
@@ -85,21 +84,10 @@ function TooltipContent({
           {...props}
         >
           {children}
+          {/* Arrow — Base UI positions this automatically via inline styles;
+              only visual styles belong here */}
           <TooltipPrimitive.Arrow
-            className={cn(
-              // Size + shape
-              "size-[var(--pcs-tooltip-arrow-size)] rounded-[2px] rotate-45",
-              // Color
-              "bg-[var(--pcs-tooltip-arrow-color)] fill-[var(--pcs-tooltip-arrow-color)]",
-              // Positioning per side
-              "z-50 translate-y-[calc(-50%-2px)]",
-              "data-[side=bottom]:top-1",
-              "data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2",
-              "data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2",
-              "data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2",
-              "data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2",
-              "data-[side=top]:-bottom-2.5"
-            )}
+            className="size-[var(--pcs-tooltip-arrow-size)] rotate-45 rounded-[2px] bg-[var(--pcs-tooltip-arrow-color)]"
           />
         </TooltipPrimitive.Popup>
       </TooltipPrimitive.Positioner>
