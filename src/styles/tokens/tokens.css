@@ -444,7 +444,7 @@
 
   --pcs-text-title-sm-size: var(--pcs-primitive-font-size-xl); /* 20px */
   --pcs-text-title-sm-weight: var(--pcs-primitive-font-weight-semibold);
-  --pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-normal);
+  --pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-snug);
 
   /* --- Subtitle --- */
   --pcs-text-subtitle-size: var(--pcs-primitive-font-size-lg); /* 18px */

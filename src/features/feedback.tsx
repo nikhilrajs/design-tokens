@@ -2,7 +2,10 @@ import React from 'react';
 
 import {
   Card,
+  CardAction,
   CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/ui/card"
@@ -453,6 +456,51 @@ export const Feedback: React.FC = () => {
 
         </CardContent>
       </Card>
+
+      {/* Card anatomy showcase — uses a plain div wrapper to avoid nesting Cards */}
+      <div className="space-y-3">
+        <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide">Card</p>
+
+        {/* Default — title + description + content + footer */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Payment details</CardTitle>
+            <CardDescription>Update your billing information and payment method.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-[color:var(--pcs-color-text-muted)]">Card content goes here.</p>
+          </CardContent>
+          <CardFooter>
+            <Button variant="outline">Cancel</Button>
+            <Button className="ml-auto">Save changes</Button>
+          </CardFooter>
+        </Card>
+
+        {/* With action in header */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Team members</CardTitle>
+            <CardDescription>Invite and manage your team.</CardDescription>
+            <CardAction>
+              <Button size="sm" variant="outline">Invite</Button>
+            </CardAction>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-[color:var(--pcs-color-text-muted)]">Card content goes here.</p>
+          </CardContent>
+        </Card>
+
+        {/* sm size */}
+        <Card size="sm">
+          <CardHeader>
+            <CardTitle>Compact card</CardTitle>
+            <CardDescription>Using the sm size variant.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-[color:var(--pcs-color-text-muted)]">Reduced padding and gap.</p>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };

@@ -43,7 +43,7 @@
   --pcs-card-elevated-shadow:            var(--pcs-shadow-md);
 
   /* --- Header --- */
-  --pcs-card-header-padding:             var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-card-header-padding:             var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
   --pcs-card-header-gap:                 var(--pcs-space-component-gap-xs);     /*  4px — title to description */
 
   /* --- Title --- */
@@ -59,11 +59,11 @@
   --pcs-card-description-color:          var(--pcs-color-text-muted);
 
   /* --- Content --- */
-  --pcs-card-content-padding:            var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-card-content-padding:            var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
   --pcs-card-content-padding-top:        0;                                 /* header already provides top space */
 
   /* --- Footer --- */
-  --pcs-card-footer-padding:             var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-card-footer-padding:             var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
   --pcs-card-footer-padding-top:         0;
   --pcs-card-footer-gap:                 var(--pcs-space-component-gap-sm);     /*  8px — between footer actions */
   --pcs-card-footer-border-top:          none;                              /* no separator by default */
