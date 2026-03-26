@@ -57,9 +57,9 @@
   --pcs-alert-title-description-gap:     var(--pcs-space-component-gap-xs);     /*  4px */
 
   /* --- VARIANT: Neutral --- */
-  --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* slate-100 */
-  --pcs-alert-neutral-border:            var(--pcs-color-border-default);       /* slate-200 */
-  --pcs-alert-neutral-accent:            var(--pcs-color-border-strong);        /* slate-300 */
+  --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* neutral-100 */
+  --pcs-alert-neutral-border:            var(--pcs-color-border-default);       /* neutral-200 */
+  --pcs-alert-neutral-accent:            var(--pcs-color-border-strong);        /* neutral-300 */
   --pcs-alert-neutral-title:             var(--pcs-color-text-default);
   --pcs-alert-neutral-description:       var(--pcs-color-text-muted);
   --pcs-alert-neutral-icon:              var(--pcs-color-icon-default);
@@ -106,7 +106,7 @@
   =========================================================================== */
 
   /* --- Base / Shared --- */
-  --pcs-toast-bg:                        var(--pcs-color-surface-overlay);      /* white / slate-900 dark */
+  --pcs-toast-bg:                        var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
   --pcs-toast-border-color:              var(--pcs-color-border-default);
   --pcs-toast-border-width:              var(--pcs-border-width-default);
   --pcs-toast-border-radius:             var(--pcs-radius-lg);                  /* 8px  */
@@ -158,7 +158,7 @@
   --------------------------------------------------------------------------- */
   --pcs-toast-neutral-bg:                var(--pcs-toast-bg);
   --pcs-toast-neutral-border:            var(--pcs-toast-border-color);
-  --pcs-toast-neutral-accent:            var(--pcs-color-border-strong);        /* slate-300 */
+  --pcs-toast-neutral-accent:            var(--pcs-color-border-strong);        /* neutral-300 */
   --pcs-toast-neutral-icon:              var(--pcs-color-icon-default);
 
   /* --- VARIANT: Success --- */
@@ -205,7 +205,7 @@
 
   /* --- Icon / Illustration --- */
   --pcs-empty-state-icon-size:           var(--pcs-primitive-space-12);         /* 48px — larger than UI icons */
-  --pcs-empty-state-icon-color:          var(--pcs-color-icon-muted);           /* slate-400 — intentionally subtle */
+  --pcs-empty-state-icon-color:          var(--pcs-color-icon-muted);           /* neutral-400 — intentionally subtle */
 
   /* --- Typography --- */
   --pcs-empty-state-title-font-size:     var(--pcs-text-title-sm-size);         /* 20px */
@@ -241,11 +241,11 @@
 
   /* Alert — border tokens cascade to --pcs-color-*-border which resolves to 700-step in dark */
 
-  /* Toast — white surface becomes slate-900 via --pcs-color-surface-overlay */
+  /* Toast — white surface becomes neutral-900 via --pcs-color-surface-overlay */
   /* Role accents stay the same — colored left borders read well on dark */
 
   /* Empty state — all handled by semantic tokens */
   /* Dashed border color slightly more visible in dark */
-  --pcs-empty-state-border-color:        var(--pcs-color-border-default);       /* slate-700 in dark */
+  --pcs-empty-state-border-color:        var(--pcs-color-border-default);       /* neutral-700 in dark */
 
 }

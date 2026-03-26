@@ -62,7 +62,7 @@
      Supporting text directly below a title. One level lower in hierarchy.
   =========================================================================== */
 
-  --pcs-typography-subtitle-color:             var(--pcs-color-text-muted);          /* slate-500 — intentionally subdued */
+  --pcs-typography-subtitle-color:             var(--pcs-color-text-muted);          /* neutral-500 — intentionally subdued */
   --pcs-typography-subtitle-margin-top:        calc(-1 * var(--pcs-space-component-gap-xs)); /* pulls up toward title */
   --pcs-typography-subtitle-margin-bottom:     var(--pcs-space-component-gap-md);    /*  8px */
 
@@ -99,7 +99,7 @@
   --pcs-typography-label-required-margin-left: var(--pcs-primitive-space-0-5);       /* 2px */
 
   /* Optional field indicator */
-  --pcs-typography-label-optional-color:       var(--pcs-color-text-subtle);         /* slate-400 */
+  --pcs-typography-label-optional-color:       var(--pcs-color-text-subtle);         /* neutral-400 */
   --pcs-typography-label-optional-font-size:   var(--pcs-text-caption-size);         /* 12px */
   --pcs-typography-label-optional-font-weight: var(--pcs-text-caption-weight);       /* 400 */
   --pcs-typography-label-optional-content:     '(optional)';
@@ -112,7 +112,7 @@
      Smallest text in the system.
   =========================================================================== */
 
-  --pcs-typography-caption-color:              var(--pcs-color-text-subtle);         /* slate-400 */
+  --pcs-typography-caption-color:              var(--pcs-color-text-subtle);         /* neutral-400 */
   --pcs-typography-caption-margin-top:         var(--pcs-space-component-gap-xs);    /*  4px — below its parent element */
   --pcs-typography-caption-margin-bottom:      0;
 
@@ -126,7 +126,7 @@
   /* --- Inline link (inside a sentence) --- */
   --pcs-typography-link-color:                 var(--pcs-color-primary-text);        /* brand-700 — accessible on white */
   --pcs-typography-link-color-hover:           var(--pcs-color-primary-emphasis);    /* brand-800 */
-  --pcs-typography-link-color-visited:         var(--pcs-color-text-muted);          /* slate-500 — visited fades */
+  --pcs-typography-link-color-visited:         var(--pcs-color-text-muted);          /* neutral-500 — visited fades */
   --pcs-typography-link-color-disabled:        var(--pcs-color-text-disabled);
 
   --pcs-typography-link-text-decoration:       underline;
@@ -157,9 +157,9 @@
      Shadcn renders this as <code> with a pill background.
   =========================================================================== */
 
-  --pcs-typography-code-inline-bg:             var(--pcs-color-surface-muted);       /* slate-100 */
+  --pcs-typography-code-inline-bg:             var(--pcs-color-surface-muted);       /* neutral-100 */
   --pcs-typography-code-inline-color:          var(--pcs-color-error-text);          /* red-700 — standard convention */
-  --pcs-typography-code-inline-border-color:   var(--pcs-color-border-default);      /* slate-200 */
+  --pcs-typography-code-inline-border-color:   var(--pcs-color-border-default);      /* neutral-200 */
   --pcs-typography-code-inline-border-width:   var(--pcs-border-width-default);
   --pcs-typography-code-inline-border-radius:  var(--pcs-radius-sm);                 /* 2px — tight, not pill */
   --pcs-typography-code-inline-padding-x:      var(--pcs-primitive-space-1);         /* 4px */
@@ -181,11 +181,11 @@
   --pcs-typography-list-line-height:           var(--pcs-text-body-md-line-height);
 
   /* Unordered list marker */
-  --pcs-typography-list-ul-marker-color:       var(--pcs-color-icon-muted);          /* slate-400 */
+  --pcs-typography-list-ul-marker-color:       var(--pcs-color-icon-muted);          /* neutral-400 */
   --pcs-typography-list-ul-marker-size:        0.375em;                          /* relative disc size */
 
   /* Ordered list marker */
-  --pcs-typography-list-ol-marker-color:       var(--pcs-color-text-muted);          /* slate-500 */
+  --pcs-typography-list-ol-marker-color:       var(--pcs-color-text-muted);          /* neutral-500 */
   --pcs-typography-list-ol-marker-font-weight: 500;
 
   /* Nested list — additional indent */
@@ -214,7 +214,7 @@
      Distinct from the Separator component (which is decorative).
   =========================================================================== */
 
-  --pcs-typography-divider-color:              var(--pcs-color-border-muted);        /* slate-100 */
+  --pcs-typography-divider-color:              var(--pcs-color-border-muted);        /* neutral-100 */
   --pcs-typography-divider-thickness:          var(--pcs-border-width-default);      /* 1px  */
   --pcs-typography-divider-margin-y:           var(--pcs-space-component-gap-lg);    /* 12px above and below */
 
@@ -228,7 +228,7 @@
 [data-app-color-scheme="dark"] {
 
   /* Inline code — slightly brighter bg in dark */
-  --pcs-typography-code-inline-bg:             var(--pcs-color-surface-muted);       /* slate-800 in dark */
+  --pcs-typography-code-inline-bg:             var(--pcs-color-surface-muted);       /* neutral-800 in dark */
   --pcs-typography-code-inline-color:          var(--pcs-color-error-icon);          /* red-400 — softer on dark bg */
   --pcs-typography-code-inline-border-color:   var(--pcs-color-border-muted);
 

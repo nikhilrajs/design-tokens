@@ -12,6 +12,15 @@ import {
   AlertTitle,
 } from "../components/ui/alert"
 import { Badge } from "../components/ui/badge"
+import { Separator } from "../components/ui/separator"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  AvatarBadge,
+  AvatarGroup,
+  AvatarGroupCount,
+} from "../components/ui/avatar"
 import { Button } from "../components/ui/button"
 import { Kbd } from "../components/ui/kbd"
 import {
@@ -314,6 +323,132 @@ export const Feedback: React.FC = () => {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+          </div>
+
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Separator</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Horizontal */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Horizontal</p>
+            <div className="space-y-2">
+              <p className="text-sm text-[color:var(--pcs-color-text-default)]">Above the line</p>
+              <Separator />
+              <p className="text-sm text-[color:var(--pcs-color-text-default)]">Below the line</p>
+            </div>
+          </div>
+
+          {/* Vertical */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Vertical</p>
+            <div className="flex items-center gap-3 h-5">
+              <span className="text-sm text-[color:var(--pcs-color-text-default)]">Blog</span>
+              <Separator orientation="vertical" />
+              <span className="text-sm text-[color:var(--pcs-color-text-default)]">Docs</span>
+              <Separator orientation="vertical" />
+              <span className="text-sm text-[color:var(--pcs-color-text-default)]">Source</span>
+            </div>
+          </div>
+
+          {/* In context — section divider with label */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With label</p>
+            <div className="flex items-center gap-3">
+              <Separator className="flex-1" />
+              <span className="text-xs text-[color:var(--pcs-color-text-subtle)]">or continue with</span>
+              <Separator className="flex-1" />
+            </div>
+          </div>
+
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Avatar</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Sizes */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Sizes</p>
+            <div className="flex items-center gap-4">
+              <Avatar size="sm">
+                <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+                <AvatarFallback>SC</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+                <AvatarFallback>SC</AvatarFallback>
+              </Avatar>
+              <Avatar size="lg">
+                <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+                <AvatarFallback>SC</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+
+          {/* Fallback (initials) */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Fallback</p>
+            <div className="flex items-center gap-4">
+              <Avatar size="sm">
+                <AvatarFallback>AB</AvatarFallback>
+              </Avatar>
+              <Avatar>
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <Avatar size="lg">
+                <AvatarFallback>NK</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
+
+          {/* With status badge */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With status badge</p>
+            <div className="flex items-center gap-4">
+              <Avatar>
+                <AvatarFallback>ON</AvatarFallback>
+                <AvatarBadge style={{ backgroundColor: "var(--pcs-avatar-status-online)" }} />
+              </Avatar>
+              <Avatar>
+                <AvatarFallback>OF</AvatarFallback>
+                <AvatarBadge style={{ backgroundColor: "var(--pcs-avatar-status-offline)" }} />
+              </Avatar>
+              <Avatar>
+                <AvatarFallback>BZ</AvatarFallback>
+                <AvatarBadge style={{ backgroundColor: "var(--pcs-avatar-status-busy)" }} />
+              </Avatar>
+              <Avatar>
+                <AvatarFallback>AW</AvatarFallback>
+                <AvatarBadge style={{ backgroundColor: "var(--pcs-avatar-status-away)" }} />
+              </Avatar>
+            </div>
+          </div>
+
+          {/* Stacked group */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Group</p>
+            <div className="flex flex-col gap-3">
+              <AvatarGroup>
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" alt="User 1" />
+                  <AvatarFallback>U1</AvatarFallback>
+                </Avatar>
+                <Avatar>
+                  <AvatarFallback>U2</AvatarFallback>
+                </Avatar>
+                <Avatar>
+                  <AvatarFallback>U3</AvatarFallback>
+                </Avatar>
+                <AvatarGroupCount>+4</AvatarGroupCount>
+              </AvatarGroup>
+            </div>
           </div>
 
         </CardContent>

@@ -46,7 +46,7 @@
 
   /* --- Container --- */
   --pcs-table-bg:                          var(--pcs-color-surface-card);
-  --pcs-table-border-color:                var(--pcs-color-border-default);       /* slate-200 */
+  --pcs-table-border-color:                var(--pcs-color-border-default);       /* neutral-200 */
   --pcs-table-border-width:                var(--pcs-border-width-default);       /* 1px  */
   --pcs-table-border-radius:               var(--pcs-radius-lg);                  /* 8px  */
 
@@ -59,7 +59,7 @@
   /* --- Caption --- */
   --pcs-table-caption-font-size:           var(--pcs-text-body-sm-size);           /* 12px */
   --pcs-table-caption-font-weight:         var(--pcs-text-body-sm-weight);
-  --pcs-table-caption-color:               var(--pcs-color-text-subtle);           /* slate-400 */
+  --pcs-table-caption-color:               var(--pcs-color-text-subtle);           /* neutral-400 */
   --pcs-table-caption-padding:             var(--pcs-space-component-gap-md);      /* 8px  */
   --pcs-table-caption-side:                bottom;                             /* caption below table */
 
@@ -69,9 +69,9 @@
      Column header cells. Sticky when table scrolls.
   =========================================================================== */
 
-  --pcs-table-head-bg:                     var(--pcs-color-surface-muted);         /* slate-50  */
+  --pcs-table-head-bg:                     var(--pcs-color-surface-muted);         /* neutral-50  */
   --pcs-table-head-bg-sticky:              var(--pcs-color-surface-muted);         /* same — must be opaque for sticky */
-  --pcs-table-head-border-bottom-color:    var(--pcs-color-border-default);        /* slate-200 */
+  --pcs-table-head-border-bottom-color:    var(--pcs-color-border-default);        /* neutral-200 */
   --pcs-table-head-border-bottom-width:    var(--pcs-border-width-default);
 
   /* Shadow under sticky header when content scrolls beneath it */
@@ -80,7 +80,7 @@
   --pcs-table-head-font-size:              var(--pcs-text-label-sm-size);          /* 12px */
   --pcs-table-head-font-weight:            600;                                /* heavier than body — signals header */
   --pcs-table-head-line-height:            var(--pcs-text-label-sm-line-height);
-  --pcs-table-head-color:                  var(--pcs-color-text-muted);            /* slate-500 — subdued, not default */
+  --pcs-table-head-color:                  var(--pcs-color-text-muted);            /* neutral-500 — subdued, not default */
   --pcs-table-head-text-transform:         uppercase;
   --pcs-table-head-letter-spacing:         0.04em;
 
@@ -91,7 +91,7 @@
   --pcs-table-head-sort-gap:               var(--pcs-space-component-gap-xs);      /* 4px — between label and icon */
 
   /* Sortable header hover */
-  --pcs-table-head-bg-hover:               var(--pcs-color-state-hover);           /* slate-100 */
+  --pcs-table-head-bg-hover:               var(--pcs-color-state-hover);           /* neutral-100 */
   --pcs-table-head-color-hover:            var(--pcs-color-text-default);
   --pcs-table-head-cursor-sortable:        pointer;
 
@@ -109,14 +109,14 @@
 
   /* --- Default --- */
   --pcs-table-row-bg:                      transparent;
-  --pcs-table-row-border-bottom-color:     var(--pcs-color-border-muted);          /* slate-100 */
+  --pcs-table-row-border-bottom-color:     var(--pcs-color-border-muted);          /* neutral-100 */
   --pcs-table-row-border-bottom-width:     var(--pcs-border-width-default);
 
   /* Last row in body — no bottom border */
   --pcs-table-row-last-border-bottom:      none;
 
   /* --- Hover --- */
-  --pcs-table-row-bg-hover:                var(--pcs-color-state-hover);           /* slate-50  */
+  --pcs-table-row-bg-hover:                var(--pcs-color-state-hover);           /* neutral-50  */
 
   /* --- Selected (checkbox row selection) --- */
   --pcs-table-row-bg-selected:             var(--pcs-color-primary-surface);       /* brand-50  */
@@ -176,7 +176,7 @@
      Used for summary rows or pagination controls.
   =========================================================================== */
 
-  --pcs-table-footer-bg:                   var(--pcs-color-surface-muted);         /* slate-50 — mirrors header */
+  --pcs-table-footer-bg:                   var(--pcs-color-surface-muted);         /* neutral-50 — mirrors header */
   --pcs-table-footer-border-top-color:     var(--pcs-color-border-default);
   --pcs-table-footer-border-top-width:     var(--pcs-border-width-default);
   --pcs-table-footer-font-size:            var(--pcs-text-body-sm-size);           /* 12px */
@@ -228,7 +228,7 @@
 [data-app-color-scheme="dark"] {
 
   /* Header and footer backgrounds */
-  --pcs-table-head-bg:                     var(--pcs-color-surface-muted);         /* slate-900 in dark */
+  --pcs-table-head-bg:                     var(--pcs-color-surface-muted);         /* neutral-900 in dark */
   --pcs-table-head-bg-sticky:              var(--pcs-color-surface-muted);
   --pcs-table-footer-bg:                   var(--pcs-color-surface-muted);
 
@@ -236,7 +236,7 @@
   --pcs-table-head-sticky-shadow:          0 2px 6px 0 rgba(0, 0, 0, 0.25);
 
   /* Row borders slightly more subtle in dark */
-  --pcs-table-row-border-bottom-color:     var(--pcs-color-border-muted);          /* slate-800 */
+  --pcs-table-row-border-bottom-color:     var(--pcs-color-border-muted);          /* neutral-800 */
 
   /* Selected row — primary surface in dark */
   --pcs-table-row-bg-selected:             var(--pcs-color-primary-surface);       /* brand-950 in dark */

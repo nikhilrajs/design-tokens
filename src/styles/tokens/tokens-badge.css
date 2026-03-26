@@ -59,14 +59,14 @@
 
   /* ===========================================================================
      APPEARANCE — NEUTRAL
-     Default: slate tint surface, slate text.
-     Emphasis: slate-700 fill, white text.
+     Default: neutral tint surface, neutral text.
+     Emphasis: neutral-700 fill, white text.
   =========================================================================== */
 
   /* Default weight */
-  --pcs-badge-neutral-bg:                var(--pcs-color-surface-muted);         /* slate-100 */
-  --pcs-badge-neutral-border:            var(--pcs-color-border-default);        /* slate-200 */
-  --pcs-badge-neutral-text:              var(--pcs-primitive-color-neutral-700); /* slate-700 ~9:1 on slate-100, text-muted(slate-500) fails AA */
+  --pcs-badge-neutral-bg:                var(--pcs-color-surface-muted);         /* neutral-100 */
+  --pcs-badge-neutral-border:            var(--pcs-color-border-default);        /* neutral-200 */
+  --pcs-badge-neutral-text:              var(--pcs-primitive-color-neutral-700); /* neutral-700 ~9:1 on neutral-100, text-muted(neutral-500) fails AA */
 
   /* Emphasis weight */
   --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-600);

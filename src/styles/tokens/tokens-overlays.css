@@ -56,7 +56,7 @@
   =========================================================================== */
 
   /* --- Surface --- */
-  --pcs-dialog-bg:                       var(--pcs-color-surface-card);         /* white / slate-900 dark */
+  --pcs-dialog-bg:                       var(--pcs-color-surface-card);         /* white / neutral-900 dark */
   --pcs-dialog-border-color:             var(--pcs-color-border-default);
   --pcs-dialog-border-width:             var(--pcs-border-width-default);
   --pcs-dialog-border-radius:            var(--pcs-radius-xl);                  /* 12px — prominent surface */
@@ -175,7 +175,7 @@
   --pcs-floating-border-width:           var(--pcs-border-width-default);
   --pcs-floating-border-color:           var(--pcs-color-border-default);
   --pcs-floating-shadow:                 var(--pcs-shadow-md);
-  --pcs-floating-bg:                     var(--pcs-color-surface-overlay);      /* white / slate-900 dark */
+  --pcs-floating-bg:                     var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
 
   /* Arrow / caret */
   --pcs-floating-arrow-size:             var(--pcs-primitive-space-2);          /* 8px */

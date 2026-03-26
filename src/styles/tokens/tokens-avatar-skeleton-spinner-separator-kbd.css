@@ -26,12 +26,12 @@
   --pcs-avatar-border-radius-square:     var(--pcs-radius-lg);                  /* 8px — for org/team avatars */
 
   /* --- Background fallback (when no image, no initials color set) --- */
-  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* slate-100 */
+  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* neutral-100 */
 
   /* --- Initials (text rendered inside avatar when no image) --- */
   --pcs-avatar-initials-font-family:     var(--pcs-text-font-sans);
   --pcs-avatar-initials-font-weight:     var(--pcs-primitive-font-weight-medium);
-  --pcs-avatar-initials-color:           var(--pcs-color-text-muted);           /* slate-500 */
+  --pcs-avatar-initials-color:           var(--pcs-color-text-muted);           /* neutral-500 */
 
   /* Initials font sizes — relative to avatar size, one per size token */
   --pcs-avatar-initials-size-xs:         var(--pcs-primitive-font-size-xs);     /* 12px — for 20px avatar */
@@ -55,7 +55,7 @@
 
   /* Status dot colors */
   --pcs-avatar-status-online:            var(--pcs-color-success-emphasis);     /* emerald-600 */
-  --pcs-avatar-status-offline:           var(--pcs-color-text-subtle);          /* slate-400   */
+  --pcs-avatar-status-offline:           var(--pcs-color-text-subtle);          /* neutral-400   */
   --pcs-avatar-status-busy:              var(--pcs-color-error-emphasis);       /* red-600     */
   --pcs-avatar-status-away:              var(--pcs-color-warning-emphasis);     /* yellow-500  */
 
@@ -82,7 +82,7 @@
   --pcs-avatar-stack-count-border:       var(--pcs-color-background);
 
   /* Fallback bg slightly lighter on dark surfaces */
-  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* slate-800 — already dark-aware */
+  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* neutral-800 — already dark-aware */
 
 }
 
@@ -189,8 +189,8 @@
 :root {
 
   /* Color */
-  --pcs-separator-color:                 var(--pcs-color-border-muted);         /* slate-100 — very subtle */
-  --pcs-separator-color-strong:          var(--pcs-color-border-default);       /* slate-200 — standard   */
+  --pcs-separator-color:                 var(--pcs-color-border-muted);         /* neutral-100 — very subtle */
+  --pcs-separator-color-strong:          var(--pcs-color-border-default);       /* neutral-200 — standard   */
 
   /* Thickness */
   --pcs-separator-thickness:             var(--pcs-border-width-default);       /* 1px */
@@ -232,8 +232,8 @@
   --pcs-kbd-border-radius:               var(--pcs-radius-md);                  /*  6px */
 
   /* --- Colors --- */
-  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* slate-100 */
-  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* slate-500 */
+  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* neutral-100 */
+  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* neutral-500 */
 
   /* --- Border ---
      Kbd uses a two-part border to simulate physical key depth:
@@ -241,9 +241,9 @@
      creates a 3D key press appearance.
   --------------------------------------------------------------------------- */
   --pcs-kbd-border-width:                var(--pcs-border-width-default);       /* 1px — all sides  */
-  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* slate-200        */
+  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* neutral-200        */
   --pcs-kbd-border-bottom-width:         var(--pcs-border-width-medium);        /* 2px — bottom only */
-  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* slate-300 — darker bottom */
+  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* neutral-300 — darker bottom */
 
   /* Alternative: use box-shadow for depth instead of border hack */
   --pcs-kbd-shadow:
@@ -253,10 +253,10 @@
 
 [data-app-color-scheme="dark"] {
 
-  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* slate-800 — dark-aware */
-  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* slate-400 — dark-aware */
-  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* slate-700 — dark-aware */
-  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* slate-600 — dark-aware */
+  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* neutral-800 — dark-aware */
+  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* neutral-400 — dark-aware */
+  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* neutral-700 — dark-aware */
+  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* neutral-600 — dark-aware */
   --pcs-kbd-shadow:
     0 1px 0 0 var(--pcs-color-border-strong);
 
