@@ -31,10 +31,15 @@ import {
 	DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu"
 import {
+	AlignCenterIcon,
+	AlignLeftIcon,
+	AlignRightIcon,
 	ArchiveIcon,
 	ArrowLeftIcon,
+	BoldIcon,
 	CalendarPlusIcon,
 	ClockIcon,
+	ItalicIcon,
 	ListFilterIcon,
 	MailCheckIcon,
 	MoreHorizontalIcon,
@@ -43,6 +48,7 @@ import {
 	Settings2Icon,
 	TagIcon,
 	Trash2Icon,
+	UnderlineIcon,
 } from "lucide-react"
 
 export const Buttons: React.FC = () => {
@@ -216,15 +222,61 @@ const [label, setLabel] = useState("personal")
 				<CardHeader>
 					<CardTitle>Toggle & Toggle Group</CardTitle>
 				</CardHeader>
-				<CardContent className="space-y-4">
-					<div className="flex gap-4">
-						<Toggle variant="outline">Bold</Toggle>
-						<ToggleGroup variant="outline" defaultValue={["bold"]}>
-							<ToggleGroupItem value="bold">Bold</ToggleGroupItem>
-							<ToggleGroupItem value="italic">Italic</ToggleGroupItem>
-							<ToggleGroupItem value="underline">Underline</ToggleGroupItem>
+				<CardContent className="space-y-6">
+
+					{/* Variants */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Variants</p>
+						<div className="flex flex-wrap gap-2">
+							<Toggle>Ghost</Toggle>
+							<Toggle variant="outline">Outline</Toggle>
+							<Toggle pressed>Ghost (pressed)</Toggle>
+							<Toggle variant="outline" pressed>Outline (pressed)</Toggle>
+							<Toggle disabled>Disabled</Toggle>
+							<Toggle variant="outline" disabled>Disabled outline</Toggle>
+						</div>
+					</div>
+
+					{/* Sizes */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Sizes</p>
+						<div className="flex flex-wrap items-center gap-2">
+							<Toggle variant="outline" size="sm">Small</Toggle>
+							<Toggle variant="outline">Default</Toggle>
+							<Toggle variant="outline" size="lg">Large</Toggle>
+						</div>
+					</div>
+
+					{/* Icon toggles */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Icon + label</p>
+						<div className="flex flex-wrap gap-2">
+							<Toggle variant="outline" pressed><BoldIcon />Bold</Toggle>
+							<Toggle variant="outline"><ItalicIcon />Italic</Toggle>
+							<Toggle variant="outline"><UnderlineIcon />Underline</Toggle>
+						</div>
+					</div>
+
+					{/* Toggle Group — spaced */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Toggle Group — spaced</p>
+						<ToggleGroup variant="outline" spacing={2} defaultValue={["bold"]}>
+							<ToggleGroupItem value="bold"><BoldIcon />Bold</ToggleGroupItem>
+							<ToggleGroupItem value="italic"><ItalicIcon />Italic</ToggleGroupItem>
+							<ToggleGroupItem value="underline"><UnderlineIcon />Underline</ToggleGroupItem>
 						</ToggleGroup>
 					</div>
+
+					{/* Toggle Group — vertical */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">Toggle Group — vertical</p>
+						<ToggleGroup variant="outline" orientation="vertical" defaultValue={["left"]}>
+							<ToggleGroupItem value="left"><AlignLeftIcon />Left</ToggleGroupItem>
+							<ToggleGroupItem value="center"><AlignCenterIcon />Center</ToggleGroupItem>
+							<ToggleGroupItem value="right"><AlignRightIcon />Right</ToggleGroupItem>
+						</ToggleGroup>
+					</div>
+
 				</CardContent>
 			</Card>
 		</div>

@@ -184,6 +184,9 @@
   --pcs-toggle-size-lg-font-size:        var(--pcs-primitive-font-size-base);
   --pcs-toggle-size-lg-gap:              var(--pcs-space-component-gap-md);
 
+  /* Square dimensions for icon-only toggle (full control size, not SVG icon size).
+     Currently unused — the component uses size-4 (16px) for SVGs at all sizes.
+     Keep if icon-only toggle sizing is added; remove otherwise. */
   --pcs-toggle-icon-size-sm:             var(--pcs-size-control-sm);
   --pcs-toggle-icon-size-md:             var(--pcs-size-control-md);
   --pcs-toggle-icon-size-lg:             var(--pcs-size-control-lg);
@@ -198,6 +201,7 @@
   /* Default (unpressed) */
   --pcs-toggle-bg:                       transparent;
   --pcs-toggle-border-color:             transparent;
+  --pcs-toggle-outline-border-color:     var(--pcs-color-border-default);
   --pcs-toggle-text:                     var(--pcs-color-text-default);
   --pcs-toggle-icon-color:               var(--pcs-color-icon-default);
 
@@ -232,23 +236,8 @@
      TOGGLE GROUP
   =========================================================================== */
 
-  --pcs-toggle-group-bg:                 var(--pcs-color-surface-muted);
-  --pcs-toggle-group-border-color:       var(--pcs-color-border-default);
-  --pcs-toggle-group-border-width:       var(--pcs-border-width-default);
   --pcs-toggle-group-border-radius:      var(--pcs-radius-md);
-  --pcs-toggle-group-padding:            var(--pcs-primitive-space-0-5);
-  --pcs-toggle-group-gap:                var(--pcs-primitive-space-0-5);
 
-  --pcs-toggle-group-item-border-radius: var(--pcs-radius-sm);
-
-  /* Selected item */
-  --pcs-toggle-group-selected-bg:        var(--pcs-color-background);
-  --pcs-toggle-group-selected-border:    var(--pcs-color-border-default);
-  --pcs-toggle-group-selected-text:      var(--pcs-color-text-default);
-  --pcs-toggle-group-selected-shadow:    var(--pcs-shadow-sm);
-
-  --pcs-toggle-group-separator-color:    var(--pcs-color-border-default);
-  --pcs-toggle-group-separator-width:    var(--pcs-border-width-default);
 
 }
 
@@ -277,9 +266,5 @@
   --pcs-toggle-text-active:              var(--pcs-primitive-color-neutral-200);
   --pcs-toggle-icon-color-active:        var(--pcs-primitive-color-neutral-200);
   --pcs-toggle-bg-active-hover:          var(--pcs-primitive-color-neutral-600);
-
-  /* Toggle Group */
-  --pcs-toggle-group-selected-bg:        var(--pcs-color-surface-card);
-  --pcs-toggle-group-selected-shadow:    var(--pcs-shadow-sm);
 
 }
