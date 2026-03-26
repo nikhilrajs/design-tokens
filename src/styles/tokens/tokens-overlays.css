@@ -309,9 +309,10 @@
 
   /* Floating base — handled by --pcs-color-surface-overlay dark override */
 
-  /* Tooltip stays inverted but adjusts slightly for dark bg context */
-  --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-700);  /* lighter dark — still inverted vs slate-950 page */
-  --pcs-tooltip-color:                   var(--pcs-primitive-color-white);
+  /* Tooltip fully inverts in dark mode: light bg + dark text against the near-black page */
+  --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-100);
+  --pcs-tooltip-color:                   var(--pcs-primitive-color-neutral-900);
+  --pcs-tooltip-arrow-color:             var(--pcs-primitive-color-neutral-100);
 
   /* Overlay scrim is slightly more opaque in dark mode */
   --pcs-overlay-scrim-bg:                var(--pcs-color-overlay-scrim);        /* rgb(0 0 0 / 0.7) — dark-aware via semantic */

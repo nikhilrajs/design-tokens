@@ -207,3 +207,109 @@ names directly. Do not add a two-layer indirection system.
 - Component token files (`tokens-*.css`) NEVER migrate to Style Dictionary
 - This showcase project is the **reference implementation** — other projects
   copy `src/components/ui/` and `src/styles/tokens/tokens-*.css` from here
+
+
+## Wiring Up a shadcn Component with Tokens
+
+Follow these steps in order when connecting a shadcn component to the token system.
+
+### 1. Compare token values against shadcn defaults FIRST
+
+Before writing any token overrides, inspect shadcn's actual default styles for
+the component (source CSS, not just docs). Our component tokens were created
+without visual validation against a Figma reference. There will be cases where
+shadcn's default value is more visually correct than what we have defined.
+
+For each token property (color, spacing, radius, shadow, typography):
+- Check what shadcn ships by default
+- Check what our token resolves to in OKLCH → hex
+- If our token produces a visually inferior result (too harsh, too tight,
+  wrong contrast ratio), flag it before overriding
+- Prefer adjusting the token value to match intent over forcing shadcn to
+  use a token that doesn't look right
+
+> The goal is to pass our design language into shadcn, not to fight it.
+> If shadcn's default looks better, our token probably needs revisiting.
+
+### 2. Structural changes are a last resort
+
+Work strictly within the component's existing DOM structure and class API.
+Do not restructure or wrap shadcn primitives unless every other option has
+been exhausted.
+
+Acceptable approaches (in order of preference):
+1. CSS custom property override via token file
+2. Tailwind utility class addition via `className` prop
+3. CSS targeting the existing element/selector
+4. Wrapping with a styled container (not the component itself)
+5. ⚠️ Structural change — only if none of the above work, and only after
+   flagging to Nikhil
+
+Reason: shadcn is a copy-paste architecture. Structural changes break the
+upgrade path and create maintenance debt across all three projects.
+
+### 3. Tokens must not change component behaviour
+
+Tokens carry visual design only. If applying a token changes how a component
+behaves (interaction, focus, visibility, layout flow, accessibility), stop
+and reassess the token.
+
+Check explicitly:
+- Focus ring still visible and WCAG-compliant after token application
+- Hover/active/disabled states still function and are visually distinct
+- Component is keyboard-navigable as Radix/shadcn intends
+- ARIA attributes and roles are unaffected
+- Animation/transition timing is not broken by token overrides
+
+### 4. Add to the showcase page after wiring
+
+Once tokens are applied and visually validated (see step 5), add the component
+to the showcase page.
+- If the component belongs to an existing category → add as a new card under
+  that category's tab
+- If it is a new category → add a new tab
+
+### 5. Visual review before committing
+
+Do not commit or push until a visual review pass is complete. This is
+especially important given the absence of a Figma reference.
+
+Visual review checklist:
+- [ ] Light mode: component looks intentional, not accidental
+- [ ] Dark mode: component is legible, contrast is sufficient
+- [ ] All interactive states: default, hover, focus, active, disabled
+- [ ] Tokens produce visually coherent results alongside adjacent components
+- [ ] No jarring contrast jumps compared to shadcn's defaults
+- [ ] Spot-check in both Chromium and Firefox
+
+Only after this review should you run `git commit` and `git push`.
+
+### 6. Audit all comments in component and token files
+
+Before committing, read every comment in the component file and its
+corresponding token file critically.
+
+Remove or rewrite comments that:
+- State the obvious (`/* sets the background color */`)
+- Are stale or no longer accurate
+- Were copied from shadcn source and no longer apply
+- Are TODO/FIXME items that have already been resolved
+
+Keep comments that:
+- Explain a non-obvious decision ("using inline here because value is an alias")
+- Document a known quirk or workaround
+- Clarify why a token deviates from shadcn's default
+
+### 7. Flag unused and questionable tokens
+
+After wiring is complete, review the component's token file for:
+- Tokens defined but not referenced anywhere in the component
+- Tokens that duplicate a semantic token already available in `tokens.css`
+- Tokens whose resolved value does not match their name's intent
+  (e.g., `--badge-border-radius` resolving to `0` when badges clearly
+  have a pill shape in the UI)
+- Tokens that exist only because they were copy-pasted from another
+  component's file and never cleaned up
+
+Do not silently remove uncertain tokens. Highlight them to Nikhil with a
+brief reason. He decides whether they are removed, corrected, or kept.

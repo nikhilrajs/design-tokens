@@ -12,6 +12,14 @@ import {
   AlertTitle,
 } from "../components/ui/alert"
 import { Badge } from "../components/ui/badge"
+import { Button } from "../components/ui/button"
+import { Kbd } from "../components/ui/kbd"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../components/ui/tooltip"
 import {
   AlertCircleIcon,
   CheckCircleIcon,
@@ -132,6 +140,118 @@ export const Feedback: React.FC = () => {
               <Badge appearance="primary" weight="emphasis">New</Badge>
             </div>
           </div>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Tooltip</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Placement */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Placement</p>
+            <TooltipProvider>
+              <div className="flex flex-wrap gap-3 items-center">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Top</Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">Tooltip on top</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Right</Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="right">Tooltip on right</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Bottom</Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">Tooltip on bottom</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Left</Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="left">Tooltip on left</TooltipContent>
+                </Tooltip>
+              </div>
+            </TooltipProvider>
+          </div>
+
+          {/* Content types */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Content</p>
+            <TooltipProvider>
+              <div className="flex flex-wrap gap-3 items-center">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Short</Button>
+                  </TooltipTrigger>
+                  <TooltipContent>Save file</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Long</Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    This action cannot be undone. All selected items will be permanently deleted.
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="ghost" size="icon" aria-label="More info">
+                      <InfoIcon className="size-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>More information</TooltipContent>
+                </Tooltip>
+              </div>
+            </TooltipProvider>
+          </div>
+
+          {/* With keyboard shortcut */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With keyboard shortcut</p>
+            <TooltipProvider>
+              <div className="flex flex-wrap gap-3 items-center">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Bold</Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Bold <Kbd>⌘B</Kbd>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Save</Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Save file <Kbd>⌘S</Kbd>
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="sm">Undo</Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Undo <Kbd>⌘Z</Kbd>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+            </TooltipProvider>
+          </div>
+
         </CardContent>
       </Card>
     </div>
