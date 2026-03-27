@@ -26,6 +26,7 @@ import {
 } from "../components/ui/avatar"
 import { Button } from "../components/ui/button"
 import { Kbd } from "../components/ui/kbd"
+import { Spinner } from "../components/ui/spinner"
 import {
   Tooltip,
   TooltipContent,
@@ -451,6 +452,82 @@ export const Feedback: React.FC = () => {
                 </Avatar>
                 <AvatarGroupCount>+4</AvatarGroupCount>
               </AvatarGroup>
+            </div>
+          </div>
+
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Spinner</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Sizes */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Sizes</p>
+            <div className="flex items-center gap-6">
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="sm" variant="primary" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">sm · 12px</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="md" variant="primary" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">md · 16px</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="lg" variant="primary" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">lg · 20px</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="xl" variant="primary" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">xl · 32px</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Variants */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Variants</p>
+            <div className="flex items-center gap-6">
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="lg" variant="inherit" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">inherit</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="lg" variant="primary" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">primary</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Spinner size="lg" variant="muted" />
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">muted</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center justify-center rounded-md size-8" style={{ backgroundColor: 'var(--pcs-color-primary-emphasis)' }}>
+                  <Spinner size="md" variant="on-emphasis" />
+                </div>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">on-emphasis</span>
+              </div>
+            </div>
+          </div>
+
+          {/* In context */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">In context</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button disabled>
+                <Spinner size="sm" variant="on-emphasis" />
+                Saving…
+              </Button>
+              <Button variant="outline" disabled>
+                <Spinner size="sm" variant="inherit" />
+                Loading
+              </Button>
+              <div className="flex flex-col items-center justify-center gap-3 rounded-lg border border-[color:var(--pcs-color-border-muted)] p-8 w-48">
+                <Spinner size="xl" variant="muted" />
+                <span className="text-xs text-[color:var(--pcs-color-text-subtle)]">Loading data…</span>
+              </div>
             </div>
           </div>
 
