@@ -170,6 +170,13 @@
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 
+  /* Same stack as sans today — split out as an architectural hook so a
+     dedicated display typeface can be dropped in here without touching
+     every display/title/subtitle token. */
+  --pcs-primitive-font-family-sans-display:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
   --pcs-primitive-font-family-mono:
     ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
     monospace;
@@ -420,36 +427,44 @@
 
   /* ---------------------------------------------------------------------------
      2.11 SEMANTIC TYPOGRAPHY TOKENS
-     Modelled after GitHub Primer. Scale stays unchanged.
-     Body default is sm (14px) = body-medium per our decision.
+     Scale designed for dense B2B product UI (similar usage patterns to GitHub).
+     Headings: 36 / 24 / 20 / 16. Body default: 14px (body-md).
+     Reference: Primer typography, Atlassian design system.
   --------------------------------------------------------------------------- */
 
   /* Font families */
   --pcs-text-font-sans: var(--pcs-primitive-font-family-sans);
-  --pcs-text-font-mono: var(--pcs-primitive-font-family-mono);
+  --pcs-text-font-sans-display: var(--pcs-primitive-font-family-sans-display); /* display, title, subtitle */
+  --pcs-text-font-mono: var(--pcs-primitive-font-family-mono); /* code-inline only */
 
   /* --- Display --- */
   --pcs-text-display-size: var(--pcs-primitive-font-size-4xl); /* 36px */
-  --pcs-text-display-weight: var(--pcs-primitive-font-weight-bold);
-  --pcs-text-display-line-height: var(--pcs-primitive-line-height-tight);
+  --pcs-text-display-weight: var(--pcs-primitive-font-weight-semibold); /* 600 — bold (700) is too aggressive at this size in product UI */
+  --pcs-text-display-line-height: var(--pcs-primitive-line-height-snug); /* 1.375 */
 
-  /* --- Title --- */
-  --pcs-text-title-lg-size: var(--pcs-primitive-font-size-3xl); /* 30px */
+  /* --- Title ---
+     Scale: 24 / 20 / 16 — even 4px steps, all semibold.
+     LG is rare (primary page heading). MD and SM are the workhorses.
+  --------------------------------------------------------------------------- */
+  --pcs-text-title-lg-size: var(--pcs-primitive-font-size-2xl); /* 24px — page-level heading */
   --pcs-text-title-lg-weight: var(--pcs-primitive-font-weight-semibold);
-  --pcs-text-title-lg-line-height: var(--pcs-primitive-line-height-snug);
+  --pcs-text-title-lg-line-height: var(--pcs-primitive-line-height-normal); /* 1.5 */
 
-  --pcs-text-title-md-size: var(--pcs-primitive-font-size-2xl); /* 24px */
+  --pcs-text-title-md-size: var(--pcs-primitive-font-size-xl); /* 20px — modal / panel / major card title */
   --pcs-text-title-md-weight: var(--pcs-primitive-font-weight-semibold);
-  --pcs-text-title-md-line-height: var(--pcs-primitive-line-height-snug);
+  --pcs-text-title-md-line-height: var(--pcs-primitive-line-height-relaxed); /* 1.625 */
 
-  --pcs-text-title-sm-size: var(--pcs-primitive-font-size-xl); /* 20px */
+  --pcs-text-title-sm-size: var(--pcs-primitive-font-size-base); /* 16px — section headers, form groups */
   --pcs-text-title-sm-weight: var(--pcs-primitive-font-weight-semibold);
-  --pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-snug);
+  --pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-normal); /* 1.5 */
 
-  /* --- Subtitle --- */
-  --pcs-text-subtitle-size: var(--pcs-primitive-font-size-lg); /* 18px */
+  /* --- Subtitle ---
+     Companion to Title LG. Same size as Title SM — regular weight + muted color
+     provide the distinction. Not used beneath Title MD or SM.
+  --------------------------------------------------------------------------- */
+  --pcs-text-subtitle-size: var(--pcs-primitive-font-size-base); /* 16px */
   --pcs-text-subtitle-weight: var(--pcs-primitive-font-weight-normal);
-  --pcs-text-subtitle-line-height: var(--pcs-primitive-line-height-relaxed);
+  --pcs-text-subtitle-line-height: var(--pcs-primitive-line-height-relaxed); /* 1.625 */
 
   /* --- Body ---
      body-md = 14px — this is the app default.
@@ -470,8 +485,8 @@
   --pcs-text-body-sm-line-height: var(--pcs-primitive-line-height-relaxed);
 
   /* --- Label / UI Label ---
-     Used for form labels, table headers, input hints.
-     Distinct from body — slightly tighter, slightly heavier.
+     Used for form labels, table headers, input hints, button text.
+     Distinct from body via weight only — medium (500) vs regular (400).
   --------------------------------------------------------------------------- */
 
   --pcs-text-label-lg-size: var(--pcs-primitive-font-size-sm); /* 14px */
@@ -485,13 +500,9 @@
   /* --- Caption --- */
   --pcs-text-caption-size: var(--pcs-primitive-font-size-xs); /* 12px */
   --pcs-text-caption-weight: var(--pcs-primitive-font-weight-normal);
-  --pcs-text-caption-line-height: var(--pcs-primitive-line-height-tight);
+  --pcs-text-caption-line-height: var(--pcs-primitive-line-height-snug); /* 1.375 — tight (1.25) was too cramped when wrapping */
 
-  /* --- Code --- */
-  --pcs-text-code-block-size: 0.8125rem; /* 13px */
-  --pcs-text-code-block-weight: var(--pcs-primitive-font-weight-normal);
-  --pcs-text-code-block-line-height: var(--pcs-primitive-line-height-normal);
-
+  /* --- Code (inline only — no code blocks in this application) --- */
   --pcs-text-code-inline-size: 0.9285em; /* relative */
   --pcs-text-code-inline-weight: var(--pcs-primitive-font-weight-normal);
 
@@ -507,47 +518,43 @@
   --------------------------------------------------------------------------- */
 
   --pcs-text-display-shorthand: var(--pcs-text-display-weight)
-    var(--pcs-text-display-size) / var(--pcs-text-display-line-height) var(--pcs-font-sans);
+    var(--pcs-text-display-size) / var(--pcs-text-display-line-height) var(--pcs-text-font-sans-display);
 
   --pcs-text-title-lg-shorthand: var(--pcs-text-title-lg-weight)
     var(--pcs-text-title-lg-size) / var(--pcs-text-title-lg-line-height)
-    var(--pcs-font-sans);
+    var(--pcs-text-font-sans-display);
 
   --pcs-text-title-md-shorthand: var(--pcs-text-title-md-weight)
     var(--pcs-text-title-md-size) / var(--pcs-text-title-md-line-height)
-    var(--pcs-font-sans);
+    var(--pcs-text-font-sans-display);
 
   --pcs-text-title-sm-shorthand: var(--pcs-text-title-sm-weight)
     var(--pcs-text-title-sm-size) / var(--pcs-text-title-sm-line-height)
-    var(--pcs-font-sans);
+    var(--pcs-text-font-sans-display);
 
   --pcs-text-subtitle-shorthand: var(--pcs-text-subtitle-weight)
     var(--pcs-text-subtitle-size) / var(--pcs-text-subtitle-line-height)
-    var(--pcs-font-sans);
+    var(--pcs-text-font-sans-display);
 
   --pcs-text-body-lg-shorthand: var(--pcs-text-body-lg-weight)
-    var(--pcs-text-body-lg-size) / var(--pcs-text-body-lg-line-height) var(--pcs-font-sans);
+    var(--pcs-text-body-lg-size) / var(--pcs-text-body-lg-line-height) var(--pcs-text-font-sans);
 
   --pcs-text-body-md-shorthand: var(--pcs-text-body-md-weight)
-    var(--pcs-text-body-md-size) / var(--pcs-text-body-md-line-height) var(--pcs-font-sans);
+    var(--pcs-text-body-md-size) / var(--pcs-text-body-md-line-height) var(--pcs-text-font-sans);
 
   --pcs-text-body-sm-shorthand: var(--pcs-text-body-sm-weight)
-    var(--pcs-text-body-sm-size) / var(--pcs-text-body-sm-line-height) var(--pcs-font-sans);
+    var(--pcs-text-body-sm-size) / var(--pcs-text-body-sm-line-height) var(--pcs-text-font-sans);
 
   --pcs-text-label-lg-shorthand: var(--pcs-text-label-lg-weight)
     var(--pcs-text-label-lg-size) / var(--pcs-text-label-lg-line-height)
-    var(--pcs-font-sans);
+    var(--pcs-text-font-sans);
 
   --pcs-text-label-sm-shorthand: var(--pcs-text-label-sm-weight)
     var(--pcs-text-label-sm-size) / var(--pcs-text-label-sm-line-height)
-    var(--pcs-font-sans);
+    var(--pcs-text-font-sans);
 
   --pcs-text-caption-shorthand: var(--pcs-text-caption-weight)
-    var(--pcs-text-caption-size) / var(--pcs-text-caption-line-height) var(--pcs-font-sans);
-
-  --pcs-text-code-block-shorthand: var(--pcs-text-code-block-weight)
-    var(--pcs-text-code-block-size) / var(--pcs-text-code-block-line-height)
-    var(--pcs-font-mono);
+    var(--pcs-text-caption-size) / var(--pcs-text-caption-line-height) var(--pcs-text-font-sans);
 
   /* code-inline omitted from shorthand — font-size is relative (em)
      and no line-height is defined. Set font-family and font-size separately. */

@@ -35,6 +35,7 @@ import { Buttons } from './features/buttons'
 import { Feedback } from './features/feedback'
 import { Inputs } from './features/inputs'
 import { Tokens } from './features/tokens'
+import { Typography } from './features/typography'
 
 
 function App() {
@@ -85,6 +86,7 @@ function App() {
 						<Tabs defaultValue="tokens" >
 							<TabsList variant="line">
 								<TabsTrigger value="tokens">Tokens</TabsTrigger>
+								<TabsTrigger value="typography">Typography</TabsTrigger>
 								<TabsTrigger value="buttons">Buttons</TabsTrigger>
 								<TabsTrigger value="feedback">Feedback</TabsTrigger>
 								<TabsTrigger value="inputs">Inputs</TabsTrigger>
@@ -93,6 +95,9 @@ function App() {
 							</TabsList>
 							<TabsContent value="tokens" className="space-y-6">
 								<Tokens />
+							</TabsContent>
+							<TabsContent value="typography" className="space-y-6">
+								<Typography />
 							</TabsContent>
 							<TabsContent value="buttons" className="space-y-6">
 								<Buttons />

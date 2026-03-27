@@ -165,7 +165,7 @@
   --pcs-typography-code-inline-padding-x:      var(--pcs-primitive-space-1);         /* 4px */
   --pcs-typography-code-inline-padding-y:      var(--pcs-primitive-space-0-5);       /* 2px */
   --pcs-typography-code-inline-font-size:      0.875em;                          /* relative to parent — scales with context */
-  --pcs-typography-code-inline-font-family:    var(--pcs-font-mono);
+  --pcs-typography-code-inline-font-family:    var(--pcs-text-font-mono);
 
 
   /* ===========================================================================
