@@ -214,3 +214,41 @@
 		color-scheme: dark;
 	}
 }
+
+/* -----------------------------------------------------------------------------
+   6. COMPONENT ANIMATION UTILITIES
+   Defined outside @layer base so they are available globally.
+----------------------------------------------------------------------------- */
+
+/* Skeleton shimmer — a highlight band translates across the placeholder.
+   Uses ::after + translateX so both endpoints are fully off-screen,
+   making the loop seamless with no visible gap or snap-back.
+   Duration is 1.5s: Open Props UX durations (up to 420ms) cover
+   interaction animations; skeleton is an ambient repeating animation
+   that needs a longer, perceptible cycle. */
+@keyframes pcs-skeleton-shimmer {
+	from {
+		transform: translateX(-100%);
+	}
+
+	to {
+		transform: translateX(100%);
+	}
+}
+
+.animate-skeleton {
+	position: relative;
+	overflow: hidden;
+	background-color: var(--pcs-skeleton-bg);
+}
+
+.animate-skeleton::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg,
+			transparent 0%,
+			var(--pcs-skeleton-shimmer-color) 50%,
+			transparent 100%);
+	animation: pcs-skeleton-shimmer 2s linear infinite;
+}

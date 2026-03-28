@@ -91,34 +91,21 @@
    SKELETON
    =============================================================================
    Skeleton is a shape-neutral loading placeholder.
-   Shape (line, circle, rectangle) is set at component level.
-   Tokens only govern color and animation.
+   Tokens govern color only — shape, radius, and animation timing are
+   handled by the .animate-skeleton utility class in globals.css.
    =============================================================================*/
 
 :root {
 
-  /* Base color of the skeleton block */
-  --pcs-skeleton-bg:                     var(--pcs-primitive-color-neutral-200);
-
-  /* Shimmer highlight color — lighter band that sweeps across */
-  --pcs-skeleton-shimmer-color:          var(--pcs-primitive-color-neutral-100);
-
-  /* Border radius — matches the element being replaced */
-  --pcs-skeleton-border-radius-line:     var(--pcs-radius-sm);                  /* text line  */
-  --pcs-skeleton-border-radius-circle:   var(--pcs-radius-full);                /* avatar     */
-  --pcs-skeleton-border-radius-rect:     var(--pcs-radius-md);                  /* card/block */
-
-  /* Animation duration — references OpenProps when available */
-  /* --pcs-skeleton-animation-duration: var(--pcs-animation-duration-slow, 1.5s); */
-  --pcs-skeleton-animation-duration:     1.5s;
-  --pcs-skeleton-animation-easing:       ease-in-out;
+  --pcs-skeleton-bg:            var(--pcs-primitive-color-neutral-200);
+  --pcs-skeleton-shimmer-color: var(--pcs-primitive-color-neutral-100); /* lighter highlight band */
 
 }
 
 [data-app-color-scheme="dark"] {
 
-  --pcs-skeleton-bg:                     var(--pcs-primitive-color-neutral-700);
-  --pcs-skeleton-shimmer-color:          var(--pcs-primitive-color-neutral-600);
+  --pcs-skeleton-bg:            var(--pcs-primitive-color-neutral-700);
+  --pcs-skeleton-shimmer-color: var(--pcs-primitive-color-neutral-600);
 
 }
 

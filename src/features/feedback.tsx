@@ -26,6 +26,7 @@ import {
 } from "../components/ui/avatar"
 import { Button } from "../components/ui/button"
 import { Kbd } from "../components/ui/kbd"
+import { Skeleton } from "../components/ui/skeleton"
 import { Spinner } from "../components/ui/spinner"
 import {
   Tooltip,
@@ -531,6 +532,40 @@ export const Feedback: React.FC = () => {
             </div>
           </div>
 
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Skeleton</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap items-start gap-6">
+
+            {/* Text block */}
+            <div className="space-y-2 w-56">
+              <Skeleton className="h-3 w-full rounded-sm" />
+              <Skeleton className="h-3 w-full rounded-sm" />
+              <Skeleton className="h-3 w-4/5 rounded-sm" />
+            </div>
+
+            {/* Avatar + text */}
+            <div className="flex items-center gap-3">
+              <Skeleton className="size-9 shrink-0 rounded-full" />
+              <div className="space-y-2">
+                <Skeleton className="h-3 w-28 rounded-sm" />
+                <Skeleton className="h-3 w-20 rounded-sm" />
+              </div>
+            </div>
+
+            {/* Card */}
+            <div className="w-48 space-y-3 rounded-lg border border-[color:var(--pcs-color-border-muted)] p-4">
+              <Skeleton className="h-24 w-full" />
+              <Skeleton className="h-3 w-3/4 rounded-sm" />
+              <Skeleton className="h-3 w-1/2 rounded-sm" />
+            </div>
+
+          </div>
         </CardContent>
       </Card>
 
