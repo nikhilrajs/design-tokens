@@ -39,6 +39,7 @@
 @import './tokens/tokens-card-accordion-collapsible-scrollarea-slider.css';
 @import './tokens/tokens-table.css';
 @import './tokens/tokens-typography.css';
+@import './tokens/tokens-sidebar.css';
 
 /* -----------------------------------------------------------------------------
    2B. TOKEN IMPORTS — PHASE 2 (from @proteus2/shared-ui)

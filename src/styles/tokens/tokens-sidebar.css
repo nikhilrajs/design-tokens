@@ -1,0 +1,27 @@
+/* =============================================================================
+   COMPONENT TOKENS — SIDEBAR
+   =============================================================================
+
+   Component:
+     Sidebar — collapsible navigation panel, desktop + mobile variants
+
+   Notes:
+     - Color tokens are NOT defined here. Sidebar colors flow through
+       shadcn-bridge.css (--sidebar, --sidebar-accent, --sidebar-border,
+       --sidebar-ring) which map to our semantic tokens.
+     - Only layout/dimension tokens that cannot be expressed as Tailwind
+       utilities live here — the three width constants previously hardcoded
+       as JS strings in sidebar.tsx.
+   =============================================================================*/
+
+:root {
+
+  /* --- Widths ---
+     Set as CSS custom properties so the sidebar layout logic
+     (SidebarProvider, Sidebar gap/container) reads them via var()
+     rather than hardcoded JS string literals. */
+  --pcs-sidebar-width:        16rem;   /* desktop expanded width                     */
+  --pcs-sidebar-width-mobile: 18rem;   /* mobile sheet width — slightly wider         */
+  --pcs-sidebar-width-icon:   3rem;    /* collapsed icon-only width (48px)            */
+
+}

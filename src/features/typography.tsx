@@ -147,7 +147,7 @@ function TypographyRow({ role }: { role: TypographyRole }) {
         <p style={{ font: `var(${role.shorthand})`, color: role.color }}>
           {role.sample}
         </p>
-        <p className="text-[11px] leading-snug" style={{ color: 'var(--pcs-color-text-subtle)' }}>
+        <p className="text-[11px] leading-snug" style={{ color: 'var(--pcs-color-text-muted)' }}>
           {role.useCase}
         </p>
       </div>
