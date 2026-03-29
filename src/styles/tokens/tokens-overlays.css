@@ -78,7 +78,7 @@
   --pcs-dialog-padding-footer:           var(--pcs-space-inset-md);             /* 16px */
 
   /* Gap between header elements (title + description) */
-  --pcs-dialog-header-gap:               var(--pcs-space-component-gap-xs);     /* 4px */
+  --pcs-dialog-header-gap:               var(--pcs-space-component-gap-md);     /* 8px */
 
   /* Gap between footer buttons */
   --pcs-dialog-footer-gap:               var(--pcs-space-component-gap-md);     /* 8px */
@@ -141,7 +141,7 @@
   --pcs-sheet-padding-header:            var(--pcs-space-inset-lg);             /* 24px */
   --pcs-sheet-padding-body:              var(--pcs-space-inset-lg);             /* 24px */
   --pcs-sheet-padding-footer:            var(--pcs-space-inset-md);             /* 16px */
-  --pcs-sheet-header-gap:                var(--pcs-space-component-gap-xs);     /*  4px */
+  --pcs-sheet-header-gap:                var(--pcs-space-component-gap-sm);     /*  6px */
   --pcs-sheet-footer-gap:                var(--pcs-space-component-gap-md);     /*  8px */
   --pcs-sheet-separator-color:           var(--pcs-dialog-separator-color);
   --pcs-sheet-separator-width:           var(--pcs-dialog-separator-width);
