@@ -120,7 +120,7 @@
   --pcs-sheet-bg:                        var(--pcs-dialog-bg);                  /* same as dialog */
   --pcs-sheet-border-color:              var(--pcs-dialog-border-color);
   --pcs-sheet-border-width:              var(--pcs-dialog-border-width);
-  --pcs-sheet-shadow:                    var(--pcs-shadow-xl);
+  --pcs-sheet-shadow:                    var(--pcs-shadow-lg);
   --pcs-sheet-z:                         var(--pcs-z-overlay);                  /* 300 — below modal */
 
   /* Right-side: only left corners are rounded, right edge flush */

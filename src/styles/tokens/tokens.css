@@ -422,8 +422,9 @@
   --pcs-color-state-disabled-text: var(--pcs-primitive-color-neutral-400);
   --pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-200);
 
-  /* Overlay scrim — behind modals, sheets, dialogs */
-  --pcs-color-overlay-scrim: rgb(0 0 0 / 0.5);
+  /* Overlay scrim — behind modals, sheets, dialogs
+     Uses on-light-500 (dark navy base, 64% alpha) — same hue as Atlassian's ds-blanket */
+  --pcs-color-overlay-scrim: var(--pcs-primitive-color-neutral-alpha-on-light-500);
 
   /* ---------------------------------------------------------------------------
      2.11 SEMANTIC TYPOGRAPHY TOKENS
@@ -790,7 +791,7 @@
   --pcs-color-state-disabled-text: var(--pcs-primitive-color-neutral-600);
   --pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-700);
 
-  --pcs-color-overlay-scrim: rgb(0 0 0 / 0.7);
+  /* on-light-500 applies in dark mode too — the near-black page surface under it handles the visual weight */
 
   /* ---------------------------------------------------------------------------
      3.11 SHADOWS — Dark
