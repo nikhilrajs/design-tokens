@@ -88,9 +88,9 @@
   --pcs-dialog-separator-width:          var(--pcs-border-width-default);
 
   /* --- Typography --- */
-  --pcs-dialog-title-font-size:          var(--pcs-text-title-sm-size);         /* 20px */
+  --pcs-dialog-title-font-size:          var(--pcs-primitive-font-size-lg);     /* 18px — between title-sm (16px) and title-md (20px), matches shadcn default */
   --pcs-dialog-title-font-weight:        var(--pcs-text-title-sm-weight);       /* 600  */
-  --pcs-dialog-title-line-height:        var(--pcs-text-title-sm-line-height);
+  --pcs-dialog-title-line-height:        var(--pcs-text-title-sm-line-height);  /* 1.5  */
   --pcs-dialog-title-color:              var(--pcs-color-text-default);
 
   --pcs-dialog-description-font-size:    var(--pcs-text-body-md-size);          /* 14px */

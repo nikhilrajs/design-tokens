@@ -2,6 +2,14 @@ import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button'
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '../components/ui/dialog'
+import {
   Sheet,
   SheetContent,
   SheetDescription,
@@ -91,12 +99,93 @@ function SheetShowcase() {
 }
 
 // ---------------------------------------------------------------------------
+// Dialog showcase
+// ---------------------------------------------------------------------------
+
+function DialogShowcase() {
+  const [openSimple, setOpenSimple] = useState(false)
+  const [openForm, setOpenForm] = useState(false)
+  const [openDestructive, setOpenDestructive] = useState(false)
+
+  return (
+    <>
+      <Dialog open={openSimple} onOpenChange={setOpenSimple}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Save changes?</DialogTitle>
+            <DialogDescription>
+              Your unsaved changes will be lost if you leave without saving.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setOpenSimple(false)}>Discard</Button>
+            <Button onClick={() => setOpenSimple(false)}>Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={openForm} onOpenChange={setOpenForm}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit Profile</DialogTitle>
+            <DialogDescription>
+              Update your display name and email address.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="dialog-name">Name</Label>
+              <Input id="dialog-name" defaultValue="Alex Chen" />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="dialog-email">Email</Label>
+              <Input id="dialog-email" defaultValue="alex@example.com" />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setOpenForm(false)}>Cancel</Button>
+            <Button onClick={() => setOpenForm(false)}>Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={openDestructive} onOpenChange={setOpenDestructive}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Delete project?</DialogTitle>
+            <DialogDescription>
+              This action cannot be undone. All data associated with this project will be permanently removed.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setOpenDestructive(false)}>Cancel</Button>
+            <Button variant="destructive" onClick={() => setOpenDestructive(false)}>Delete project</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Dialog</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-wrap gap-3">
+          <Button variant="outline" onClick={() => setOpenSimple(true)}>Confirmation</Button>
+          <Button variant="outline" onClick={() => setOpenForm(true)}>Form</Button>
+          <Button variant="outline" onClick={() => setOpenDestructive(true)}>Destructive</Button>
+        </CardContent>
+      </Card>
+    </>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Main page
 // ---------------------------------------------------------------------------
 
 export const Overlays: React.FC = () => {
   return (
     <div className="space-y-6 pb-12">
+      <DialogShowcase />
       <SheetShowcase />
     </div>
   )
