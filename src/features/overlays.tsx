@@ -17,8 +17,17 @@ import {
   SheetHeader,
   SheetTitle,
 } from '../components/ui/sheet'
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from '../components/ui/popover'
 import { Label } from '../components/ui/label'
 import { Input } from '../components/ui/input'
+import { InfoIcon, Settings2Icon, UserIcon } from 'lucide-react'
 
 // ---------------------------------------------------------------------------
 // Sheet showcase
@@ -182,11 +191,105 @@ function DialogShowcase() {
 // Main page
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Popover showcase
+// ---------------------------------------------------------------------------
+
+function PopoverShowcase() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Popover</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+
+        {/* Basic */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Basic</p>
+          <div className="flex flex-wrap gap-3">
+            <Popover>
+              <PopoverTrigger render={<Button variant="outline"><InfoIcon />Info</Button>} />
+              <PopoverContent>
+                <PopoverHeader>
+                  <PopoverTitle>What is this?</PopoverTitle>
+                  <PopoverDescription>
+                    This is a popover. It stays open until you click outside or press Escape.
+                  </PopoverDescription>
+                </PopoverHeader>
+              </PopoverContent>
+            </Popover>
+
+            <Popover>
+              <PopoverTrigger render={<Button variant="outline"><UserIcon />Account</Button>} />
+              <PopoverContent>
+                <PopoverHeader>
+                  <PopoverTitle>Alex Chen</PopoverTitle>
+                  <PopoverDescription>alex.chen@example.com · Admin</PopoverDescription>
+                </PopoverHeader>
+                <div className="flex gap-2 pt-1">
+                  <Button size="sm" variant="outline" className="flex-1">Profile</Button>
+                  <Button size="sm" variant="outline" className="flex-1">Sign out</Button>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+        </div>
+
+        {/* With form */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With form</p>
+          <Popover>
+            <PopoverTrigger render={<Button variant="outline"><Settings2Icon />Edit dimensions</Button>} />
+            <PopoverContent>
+              <PopoverHeader>
+                <PopoverTitle>Dimensions</PopoverTitle>
+                <PopoverDescription>Set the width and height for this element.</PopoverDescription>
+              </PopoverHeader>
+              <div className="grid grid-cols-2 gap-2 pt-1">
+                <div className="space-y-1">
+                  <Label htmlFor="pop-width" className="text-xs">Width</Label>
+                  <Input id="pop-width" defaultValue="100%" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="pop-height" className="text-xs">Height</Label>
+                  <Input id="pop-height" defaultValue="auto" />
+                </div>
+              </div>
+              <Button size="sm" className="w-full mt-2">Apply</Button>
+            </PopoverContent>
+          </Popover>
+        </div>
+
+        {/* Placement */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Placement</p>
+          <div className="flex flex-wrap gap-3">
+            {(['top', 'bottom', 'left', 'right'] as const).map((side) => (
+              <Popover key={side}>
+                <PopoverTrigger render={<Button variant="outline" className="capitalize">{side}</Button>} />
+                <PopoverContent side={side}>
+                  <PopoverDescription>Opens to the {side}.</PopoverDescription>
+                </PopoverContent>
+              </Popover>
+            ))}
+          </div>
+        </div>
+
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Main page
+// ---------------------------------------------------------------------------
+
 export const Overlays: React.FC = () => {
   return (
     <div className="space-y-6 pb-12">
       <DialogShowcase />
       <SheetShowcase />
+      <PopoverShowcase />
     </div>
   )
 }
