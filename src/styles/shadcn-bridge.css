@@ -30,7 +30,8 @@
 
    NOTE ON --input
    In shadcn, --input is used exclusively for the input border color, not the
-   background. Mapped to --color-border-default accordingly.
+   background. Mapped to --color-border-strong (neutral-300) so form control
+   borders are visually distinct from decorative borders (--border = neutral-200).
 
    NOTE ON --ring
    shadcn's --ring drives focus rings via ring-* utilities. Mapped to our
@@ -78,7 +79,7 @@
   --border:                        var(--pcs-color-border-default);
 
   /* --- Input (input border color — shadcn uses this for borders only) --- */
-  --input:                         var(--pcs-color-border-default);
+  --input:                         var(--pcs-color-border-strong);
 
   /* --- Ring (focus ring color) --- */
   --ring:                          var(--pcs-color-focus-ring);
@@ -142,7 +143,7 @@
   --destructive:                   var(--pcs-color-error-emphasis);
   --destructive-foreground:        var(--pcs-color-error-on-emphasis);
   --border:                        var(--pcs-color-border-default);
-  --input:                         var(--pcs-color-border-default);
+  --input:                         var(--pcs-color-border-strong);
   --ring:                          var(--pcs-color-focus-ring);
   --sidebar:                       var(--pcs-color-surface-sidebar);
   --sidebar-foreground:            var(--pcs-color-text-default);

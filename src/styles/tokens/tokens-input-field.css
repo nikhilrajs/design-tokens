@@ -88,17 +88,17 @@
   =========================================================================== */
 
   --pcs-input-bg:                        var(--pcs-color-background);
-  --pcs-input-border-color:              var(--pcs-color-border-default);
+  --pcs-input-border-color:              var(--pcs-color-border-strong);
   --pcs-input-text:                      var(--pcs-color-text-default);
   --pcs-input-placeholder:               var(--pcs-color-text-subtle);
   --pcs-input-shadow:                    var(--pcs-shadow-sm);
 
   /* ===========================================================================
      INPUT — STATE: HOVER
+     No border color change on hover — focus ring is the primary interaction signal.
   =========================================================================== */
 
   --pcs-input-bg-hover:                  var(--pcs-color-background);
-  --pcs-input-border-color-hover:        var(--pcs-color-border-strong);
   --pcs-input-shadow-hover:              var(--pcs-shadow-sm);
 
   /* ===========================================================================

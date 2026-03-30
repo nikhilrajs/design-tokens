@@ -176,14 +176,14 @@
 
   /* --- STATE: Default --- */
   --pcs-select-trigger-bg:               var(--pcs-input-bg);              /* mirrors Input bg — tracks dark mode tint automatically */
-  --pcs-select-trigger-border-color:     var(--pcs-color-border-default);
+  --pcs-select-trigger-border-color:     var(--pcs-color-border-strong);
   --pcs-select-trigger-text:             var(--pcs-color-text-default);
   --pcs-select-trigger-placeholder:      var(--pcs-color-text-subtle);
   --pcs-select-trigger-shadow:           none;                              /* Input has no shadow; Select appears alongside inputs */
 
   /* --- STATE: Hover --- */
   --pcs-select-trigger-bg-hover:         var(--pcs-input-bg);
-  --pcs-select-trigger-border-color-hover: var(--pcs-color-border-strong);
+  --pcs-select-trigger-border-color-hover: var(--pcs-color-border-strong); /* same as default — no color change on hover */
 
   /* --- STATE: Open / Focus --- */
   --pcs-select-trigger-bg-open:          var(--pcs-input-bg);
