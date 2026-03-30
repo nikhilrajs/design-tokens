@@ -27,7 +27,12 @@ import {
 } from '../components/ui/popover'
 import { Label } from '../components/ui/label'
 import { Input } from '../components/ui/input'
-import { InfoIcon, Settings2Icon, UserIcon } from 'lucide-react'
+import { CalendarIcon, InfoIcon, LinkIcon, Settings2Icon, UserIcon } from 'lucide-react'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '../components/ui/hover-card'
 
 // ---------------------------------------------------------------------------
 // Sheet showcase
@@ -284,12 +289,125 @@ function PopoverShowcase() {
 // Main page
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Hover Card showcase
+// ---------------------------------------------------------------------------
+
+function HoverCardShowcase() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Hover Card</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+
+        {/* User profile */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">User profile</p>
+          <div className="flex flex-wrap gap-6 text-sm">
+            <HoverCard>
+              <HoverCardTrigger
+                render={
+                  <span className="cursor-pointer font-medium underline underline-offset-4 text-[color:var(--pcs-color-primary-emphasis)]">
+                    @alex_chen
+                  </span>
+                }
+              />
+              <HoverCardContent>
+                <div className="flex gap-3">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--pcs-color-surface-muted)]">
+                    <UserIcon className="size-5 text-[color:var(--pcs-color-icon-muted)]" />
+                  </div>
+                  <div className="space-y-1 min-w-0">
+                    <p className="font-[number:var(--pcs-text-label-lg-weight)] text-[color:var(--pcs-color-text-default)]">Alex Chen</p>
+                    <p className="text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)]">@alex_chen</p>
+                    <p className="text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)] pt-1">
+                      Design systems engineer. Building Proteus2.
+                    </p>
+                    <div className="flex gap-3 pt-1 text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)]">
+                      <span><strong className="text-[color:var(--pcs-color-text-default)]">142</strong> Following</span>
+                      <span><strong className="text-[color:var(--pcs-color-text-default)]">3.4k</strong> Followers</span>
+                    </div>
+                  </div>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
+
+            <HoverCard>
+              <HoverCardTrigger
+                render={
+                  <span className="cursor-pointer font-medium underline underline-offset-4 text-[color:var(--pcs-color-primary-emphasis)]">
+                    @nikhil_raj
+                  </span>
+                }
+              />
+              <HoverCardContent>
+                <div className="flex gap-3">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--pcs-color-surface-muted)]">
+                    <UserIcon className="size-5 text-[color:var(--pcs-color-icon-muted)]" />
+                  </div>
+                  <div className="space-y-1 min-w-0">
+                    <p className="font-[number:var(--pcs-text-label-lg-weight)] text-[color:var(--pcs-color-text-default)]">Nikhil Raj</p>
+                    <p className="text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)]">@nikhil_raj</p>
+                    <p className="text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)] pt-1">
+                      Product designer. Focused on scalable UI systems.
+                    </p>
+                    <div className="flex gap-3 pt-1 text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)]">
+                      <span><strong className="text-[color:var(--pcs-color-text-default)]">89</strong> Following</span>
+                      <span><strong className="text-[color:var(--pcs-color-text-default)]">1.2k</strong> Followers</span>
+                    </div>
+                  </div>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
+          </div>
+        </div>
+
+        {/* Link preview */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Link preview</p>
+          <HoverCard>
+            <HoverCardTrigger
+              render={
+                <span className="inline-flex items-center gap-1.5 cursor-pointer text-sm font-medium underline underline-offset-4 text-[color:var(--pcs-color-primary-emphasis)]">
+                  <LinkIcon className="size-3.5" />
+                  Proteus2 Design System
+                </span>
+              }
+            />
+            <HoverCardContent side="top">
+              <div className="space-y-2">
+                <p className="font-[number:var(--pcs-text-label-lg-weight)] text-[color:var(--pcs-color-text-default)]">
+                  Proteus2 Design System
+                </p>
+                <p className="text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)]">
+                  Shared token and component library for all web products. Built on Base UI + Tailwind CSS 4.
+                </p>
+                <div className="flex items-center gap-1.5 text-[length:var(--pcs-hover-card-meta-font-size)] text-[color:var(--pcs-hover-card-meta-color)]">
+                  <CalendarIcon className="size-3.5" />
+                  Last updated March 2025
+                </div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        </div>
+
+      </CardContent>
+    </Card>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Main page
+// ---------------------------------------------------------------------------
+
 export const Overlays: React.FC = () => {
   return (
     <div className="space-y-6 pb-12">
       <DialogShowcase />
       <SheetShowcase />
       <PopoverShowcase />
+      <HoverCardShowcase />
     </div>
   )
 }

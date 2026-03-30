@@ -263,38 +263,24 @@
      Larger rich content panel that appears on hover.
      Unlike Tooltip, user can move their mouse into it (it stays open).
      Unlike Popover, it's triggered by hover not click.
-     Contains richer content: avatar, name, meta, actions.
+
+     Surface, border, padding, and z-index are identical to Popover and
+     reference --pcs-floating-* directly in the component — no aliases needed.
+     Only values that genuinely differ from Popover are tokenised here.
   =========================================================================== */
 
-  /* --- Surface (extends floating base — same color as page, not inverted) --- */
-  --pcs-hover-card-bg:                   var(--pcs-floating-bg);
-  --pcs-hover-card-border-color:         var(--pcs-floating-border-color);
-  --pcs-hover-card-border-width:         var(--pcs-floating-border-width);
-  --pcs-hover-card-border-radius:        var(--pcs-floating-border-radius);     /* 8px */
-  --pcs-hover-card-shadow:               var(--pcs-shadow-lg);                  /* larger shadow than popover */
-  --pcs-hover-card-z:                    var(--pcs-z-dropdown);                 /* 100 */
+  /* Larger shadow than popover — hover cards appear without user intent and
+     need more visual lift to read as a floating element immediately */
+  --pcs-hover-card-shadow:               var(--pcs-shadow-lg);
 
-  /* --- Sizing --- */
-  --pcs-hover-card-min-width:            16rem;                             /* 256px — wider than popover */
+  /* Wider than popover — hover cards contain richer layout (avatar + meta) */
+  --pcs-hover-card-min-width:            16rem;                             /* 256px */
   --pcs-hover-card-max-width:            24rem;                             /* 384px */
 
-  /* --- Spacing --- */
-  --pcs-hover-card-padding:              var(--pcs-space-inset-md);             /* 16px */
-  --pcs-hover-card-gap:                  var(--pcs-space-component-gap-md);     /*  8px — between content sections */
-
-  /* --- Typography --- */
-  --pcs-hover-card-title-font-size:      var(--pcs-text-label-lg-size);         /* 14px */
-  --pcs-hover-card-title-font-weight:    var(--pcs-text-label-lg-weight);       /* 500  */
-  --pcs-hover-card-title-color:          var(--pcs-color-text-default);
-
+  /* Secondary metadata text — smaller than popover body (14px) because
+     hover cards show dense info: handles, follower counts, timestamps */
   --pcs-hover-card-meta-font-size:       var(--pcs-text-body-sm-size);          /* 12px */
-  --pcs-hover-card-meta-font-weight:     var(--pcs-text-body-sm-weight);
   --pcs-hover-card-meta-color:           var(--pcs-color-text-muted);
-
-  /* --- Arrow --- */
-  --pcs-hover-card-arrow-size:           var(--pcs-floating-arrow-size);
-  --pcs-hover-card-arrow-color:          var(--pcs-floating-arrow-color);
-  --pcs-hover-card-arrow-border-color:   var(--pcs-floating-arrow-border-color);
 
 }
 
