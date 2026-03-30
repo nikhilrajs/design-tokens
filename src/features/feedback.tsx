@@ -46,10 +46,23 @@ import {
 import {
   AlertCircleIcon,
   CheckCircleIcon,
+  FolderOpenIcon,
   InfoIcon,
+  InboxIcon,
+  SearchIcon,
   SlashIcon,
   TriangleAlertIcon,
+  UploadIcon,
+  UsersIcon,
 } from "lucide-react"
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "../components/ui/empty"
 
 export const Feedback: React.FC = () => {
   return (
@@ -613,6 +626,102 @@ export const Feedback: React.FC = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* ---- Empty State ---- */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Empty State</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Icon variant */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Icon variant</p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Empty>
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <InboxIcon />
+                  </EmptyMedia>
+                  <EmptyTitle>No messages</EmptyTitle>
+                  <EmptyDescription>
+                    You're all caught up. New messages will appear here.
+                  </EmptyDescription>
+                </EmptyHeader>
+              </Empty>
+              <Empty>
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <FolderOpenIcon />
+                  </EmptyMedia>
+                  <EmptyTitle>No files yet</EmptyTitle>
+                  <EmptyDescription>
+                    Upload a file to get started.
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent>
+                  <Button size="sm">
+                    <UploadIcon />
+                    Upload file
+                  </Button>
+                </EmptyContent>
+              </Empty>
+            </div>
+          </div>
+
+          {/* Default media slot */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Default media slot</p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Empty>
+                <EmptyHeader>
+                  <EmptyMedia>
+                    <SearchIcon className="size-10 text-[color:var(--pcs-color-icon-muted)]" />
+                  </EmptyMedia>
+                  <EmptyTitle>No results found</EmptyTitle>
+                  <EmptyDescription>
+                    Try adjusting your search or filters to find what you're looking for.
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent>
+                  <Button variant="outline" size="sm">Clear filters</Button>
+                </EmptyContent>
+              </Empty>
+              <Empty>
+                <EmptyHeader>
+                  <EmptyMedia>
+                    <UsersIcon className="size-10 text-[color:var(--pcs-color-icon-muted)]" />
+                  </EmptyMedia>
+                  <EmptyTitle>No team members</EmptyTitle>
+                  <EmptyDescription>
+                    Invite colleagues to collaborate.{' '}
+                    <a href="#">Learn more</a>
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent>
+                  <Button size="sm">Invite members</Button>
+                  <Button variant="ghost" size="sm">Maybe later</Button>
+                </EmptyContent>
+              </Empty>
+            </div>
+          </div>
+
+          {/* Text only */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Text only</p>
+            <Empty className="py-8">
+              <EmptyHeader>
+                <EmptyTitle>Nothing here yet</EmptyTitle>
+                <EmptyDescription>
+                  Items you create will appear in this list.
+                </EmptyDescription>
+              </EmptyHeader>
+            </Empty>
+          </div>
+
+        </CardContent>
+      </Card>
+
     </div>
   );
 };

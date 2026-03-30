@@ -40,6 +40,7 @@
 @import './tokens/tokens-table.css';
 @import './tokens/tokens-typography.css';
 @import './tokens/tokens-sidebar.css';
+@import './tokens/tokens-empty.css';
 
 /* -----------------------------------------------------------------------------
    2B. TOKEN IMPORTS — PHASE 2 (from @proteus2/shared-ui)

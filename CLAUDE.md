@@ -313,3 +313,52 @@ After wiring is complete, review the component's token file for:
 
 Do not silently remove uncertain tokens. Highlight them to Nikhil with a
 brief reason. He decides whether they are removed, corrected, or kept.
+
+### 8. Validate token granularity — avoid over-specification
+
+Some component token files were created by reasoning through possibilities
+rather than working from actual implementation. This can lead to over-specified
+token sets where a simple Tailwind utility class or a single semantic token
+would be the more appropriate solution.
+
+When reviewing a token file, ask for each token:
+> "Is this token doing something a Tailwind utility class or a semantic token
+> could not do on its own?"
+
+If the answer is no — it is a candidate for simplification.
+
+**Signs of over-specification:**
+- Multiple tokens for what is essentially one visual property
+  (e.g., `--skeleton-bg`, `--skeleton-shimmer-start`, `--skeleton-shimmer-end`,
+  `--skeleton-shimmer-speed` when shadcn/Tailwind handles the animation
+  with a single `animate-pulse` class)
+- Variant tokens for things Tailwind already handles idiomatically
+  (`--skeleton-shape-square`, `--skeleton-shape-circle` when `rounded-full`
+  and `rounded-none` are the idiomatic Tailwind approach)
+- Implementation detail tokens — tokens that encode how something works
+  rather than what it looks like (keyframe stops, animation duration,
+  transform values)
+- Tokens that will always be a constant and will never need to differ
+  between light/dark mode, themes, or component variants
+
+**Signs that specificity is justified:**
+- The value genuinely needs to differ between light and dark mode
+- The value is reused across multiple components and benefits from a
+  single source of truth
+- The value is part of the brand/design language (color, radius, typography)
+  that needs to stay consistent under theming
+- The value overrides a shadcn default that conflicts with our design language
+
+**The balance to find:**
+Do not over-simplify either. Collapsing tokens that genuinely need to be
+independently adjustable creates a different problem — you end up with
+magic numbers scattered in component files that are hard to track and
+impossible to theme.
+
+When in doubt, flag the specific tokens to Nikhil with a brief note:
+- What the token currently does
+- What the simpler alternative would be (Tailwind class, semantic token,
+  or inline value)
+- What would be lost by simplifying
+
+Do not simplify unilaterally. The decision belongs to Nikhil.
