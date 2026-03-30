@@ -22,7 +22,7 @@ const inputVariants = cva(
     // Read-only — Option B: transparent bg, dashed border, default text (user can read + copy, not edit)
     "[&[readonly]]:bg-transparent [&[readonly]]:border-dashed [&[readonly]]:shadow-none [&[readonly]]:cursor-default",
     // Disabled
-    "disabled:pointer-events-none disabled:cursor-[var(--pcs-input-cursor-disabled)]",
+    "disabled:pointer-events-none",
     "disabled:bg-[var(--pcs-input-bg-disabled)] disabled:text-[color:var(--pcs-input-text-disabled)]",
     // Error
     "aria-invalid:border-[color:var(--pcs-input-border-color-error)]",

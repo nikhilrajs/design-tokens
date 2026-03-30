@@ -134,7 +134,6 @@
   --pcs-input-border-color-disabled:     var(--pcs-color-state-disabled-border);
   --pcs-input-text-disabled:             var(--pcs-color-state-disabled-text);
   --pcs-input-placeholder-disabled:      var(--pcs-color-state-disabled-text);
-  --pcs-input-cursor-disabled:           not-allowed;
   --pcs-input-shadow-disabled:           none;
 
   /* ===========================================================================

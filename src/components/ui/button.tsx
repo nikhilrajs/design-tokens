@@ -15,7 +15,7 @@ const buttonVariants = cva(
     // SVG icon defaults
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     // Interaction
-    "cursor-pointer active:translate-y-px disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+    "cursor-pointer active:translate-y-px disabled:pointer-events-none disabled:opacity-50",
     // Focus ring — no offset; ring-3 at 50% opacity matches input focus pattern
     "focus-visible:ring-3 focus-visible:ring-[var(--pcs-button-focus-ring-color)]/50 focus-visible:border-[color:var(--pcs-button-focus-ring-color)]",
     // aria-invalid (form validation error state)

@@ -70,7 +70,6 @@
   --pcs-menu-item-bg-disabled:           transparent;
   --pcs-menu-item-text-disabled:         var(--pcs-color-state-disabled-text);
   --pcs-menu-item-icon-color-disabled:   var(--pcs-color-icon-disabled);
-  --pcs-menu-item-cursor-disabled:       not-allowed;
 
   /* --- Item — destructive ---
      Destructive items (Delete, Remove) have red text in default state.
@@ -176,27 +175,26 @@
   --pcs-select-trigger-icon-gap:         var(--pcs-space-component-gap-sm);     /*  6px */
 
   /* --- STATE: Default --- */
-  --pcs-select-trigger-bg:               var(--pcs-color-background);
+  --pcs-select-trigger-bg:               var(--pcs-input-bg);              /* mirrors Input bg — tracks dark mode tint automatically */
   --pcs-select-trigger-border-color:     var(--pcs-color-border-default);
   --pcs-select-trigger-text:             var(--pcs-color-text-default);
   --pcs-select-trigger-placeholder:      var(--pcs-color-text-subtle);
-  --pcs-select-trigger-shadow:           var(--pcs-shadow-sm);
+  --pcs-select-trigger-shadow:           none;                              /* Input has no shadow; Select appears alongside inputs */
 
   /* --- STATE: Hover --- */
-  --pcs-select-trigger-bg-hover:         var(--pcs-color-background);
+  --pcs-select-trigger-bg-hover:         var(--pcs-input-bg);
   --pcs-select-trigger-border-color-hover: var(--pcs-color-border-strong);
 
   /* --- STATE: Open / Focus --- */
-  --pcs-select-trigger-bg-open:          var(--pcs-color-background);
+  --pcs-select-trigger-bg-open:          var(--pcs-input-bg);
   --pcs-select-trigger-border-color-open:var(--pcs-color-primary-emphasis);
   --pcs-select-trigger-shadow-open:
     0 0 0 2px var(--pcs-color-focus-ring);
 
   /* --- STATE: Disabled --- */
-  --pcs-select-trigger-bg-disabled:      var(--pcs-color-state-disabled-bg);
+  --pcs-select-trigger-bg-disabled:      var(--pcs-input-bg-disabled);     /* mirrors Input disabled bg */
   --pcs-select-trigger-border-color-disabled: var(--pcs-color-state-disabled-border);
   --pcs-select-trigger-text-disabled:    var(--pcs-color-state-disabled-text);
-  --pcs-select-trigger-cursor-disabled:  not-allowed;
   --pcs-select-trigger-shadow-disabled:  none;
 
   /* --- STATE: Error --- */
@@ -235,15 +233,20 @@
 
   /* Menu panel — handled by --pcs-color-surface-overlay dark override */
 
-  /* Item hover is slightly more prominent in dark mode */
-  --pcs-menu-item-bg-hover:              var(--pcs-color-state-hover);          /* neutral-800 — dark-aware */
+  /* Separator — border-muted = neutral-800 = same as panel bg; use border-default (neutral-700) instead */
+  --pcs-menu-separator-color:            var(--pcs-color-border-default);
 
-  /* Destructive item hover bg in dark mode */
-  --pcs-menu-item-bg-destructive-hover:  var(--pcs-color-error-background);     /* red-950 — dark-aware  */
-  --pcs-menu-item-text-destructive:      var(--pcs-color-error-text);           /* red-200 — dark-aware  */
+  /* In dark mode, --pcs-color-surface-overlay = neutral-800 AND --pcs-color-state-hover = neutral-800.
+     They are the same value, so hover would be invisible. Use state-active (neutral-700) instead
+     to ensure one visible step of contrast above the panel background. */
+  --pcs-menu-item-bg-hover:              var(--pcs-color-state-active);         /* neutral-700 — one step above panel (neutral-800) */
 
-  /* Select trigger — shadow removed in dark mode (border does the work) */
-  --pcs-select-trigger-shadow:           none;
+  /* Destructive hover in dark mode: bg is red-950, text must stay light (red-200) not drop to red-700 */
+  --pcs-menu-item-bg-destructive-hover:  var(--pcs-color-error-background);     /* red-950 */
+  --pcs-menu-item-text-destructive:      var(--pcs-color-error-text);           /* red-200 — default */
+  --pcs-menu-item-text-destructive-hover: var(--pcs-color-error-text);          /* red-200 — stays light on red-950 bg */
+
+  /* Select trigger — no shadow needed, dark mode already relies on border */
   --pcs-select-trigger-shadow-open:
     0 0 0 2px var(--pcs-color-focus-ring);
 

@@ -34,6 +34,7 @@ import { Button } from "./components/ui/button"
 import { Buttons } from './features/buttons'
 import { Feedback } from './features/feedback'
 import { Inputs } from './features/inputs'
+import { Menus } from './features/menus'
 import { Overlays } from './features/overlays'
 import { Tokens } from './features/tokens'
 import { Typography } from './features/typography'
@@ -92,6 +93,7 @@ function App() {
 								<TabsTrigger value="feedback">Feedback</TabsTrigger>
 								<TabsTrigger value="inputs">Inputs</TabsTrigger>
 								<TabsTrigger value="overlays">Overlays</TabsTrigger>
+								<TabsTrigger value="menus">Menus</TabsTrigger>
 								<TabsTrigger value="reports">Reports</TabsTrigger>
 								<TabsTrigger value="settings">Settings</TabsTrigger>
 							</TabsList>
@@ -112,6 +114,9 @@ function App() {
 							</TabsContent>
 							<TabsContent value="overlays" className="space-y-6">
 								<Overlays />
+							</TabsContent>
+							<TabsContent value="menus" className="space-y-6">
+								<Menus />
 							</TabsContent>
 							<TabsContent value="analytics">
 								<Card>
