@@ -8,6 +8,12 @@ import {
 } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../components/ui/tabs"
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -488,6 +494,79 @@ export const Menus: React.FC = () => {
                 </SelectGroup>
               </SelectContent>
             </Select>
+          </div>
+
+        </CardContent>
+      </Card>
+
+      {/* ---- Tabs ---- */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Tabs</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Default variant */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Default</p>
+            <Tabs defaultValue="account">
+              <TabsList>
+                <TabsTrigger value="account">Account</TabsTrigger>
+                <TabsTrigger value="billing">Billing</TabsTrigger>
+                <TabsTrigger value="notifications">Notifications</TabsTrigger>
+                <TabsTrigger value="security">Security</TabsTrigger>
+              </TabsList>
+              <TabsContent value="account" className="pt-3 text-sm text-[color:var(--pcs-color-text-muted)]">Manage your account settings and preferences.</TabsContent>
+              <TabsContent value="billing" className="pt-3 text-sm text-[color:var(--pcs-color-text-muted)]">View invoices and manage your payment methods.</TabsContent>
+              <TabsContent value="notifications" className="pt-3 text-sm text-[color:var(--pcs-color-text-muted)]">Configure how and when you receive notifications.</TabsContent>
+              <TabsContent value="security" className="pt-3 text-sm text-[color:var(--pcs-color-text-muted)]">Update your password and two-factor authentication settings.</TabsContent>
+            </Tabs>
+          </div>
+
+          {/* Line variant */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Line</p>
+            <Tabs defaultValue="overview">
+              <TabsList variant="line">
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="analytics">Analytics</TabsTrigger>
+                <TabsTrigger value="reports">Reports</TabsTrigger>
+                <TabsTrigger value="export">Export</TabsTrigger>
+              </TabsList>
+              <TabsContent value="overview" className="pt-4 text-sm text-[color:var(--pcs-color-text-muted)]">Summary of key metrics and recent activity.</TabsContent>
+              <TabsContent value="analytics" className="pt-4 text-sm text-[color:var(--pcs-color-text-muted)]">Detailed charts and breakdowns by segment.</TabsContent>
+              <TabsContent value="reports" className="pt-4 text-sm text-[color:var(--pcs-color-text-muted)]">Scheduled and on-demand reports for your team.</TabsContent>
+              <TabsContent value="export" className="pt-4 text-sm text-[color:var(--pcs-color-text-muted)]">Export data as CSV, JSON, or Excel.</TabsContent>
+            </Tabs>
+          </div>
+
+          {/* Disabled tab */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With disabled tab</p>
+            <Tabs defaultValue="general">
+              <TabsList>
+                <TabsTrigger value="general">General</TabsTrigger>
+                <TabsTrigger value="team">Team</TabsTrigger>
+                <TabsTrigger value="integrations" disabled>Integrations</TabsTrigger>
+              </TabsList>
+              <TabsContent value="general" className="pt-3 text-sm text-[color:var(--pcs-color-text-muted)]">General workspace settings.</TabsContent>
+              <TabsContent value="team" className="pt-3 text-sm text-[color:var(--pcs-color-text-muted)]">Manage team members and roles.</TabsContent>
+            </Tabs>
+          </div>
+
+          {/* Vertical orientation */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Vertical</p>
+            <Tabs defaultValue="profile" orientation="vertical" className="max-w-sm">
+              <TabsList className="w-36">
+                <TabsTrigger value="profile">Profile</TabsTrigger>
+                <TabsTrigger value="appearance">Appearance</TabsTrigger>
+                <TabsTrigger value="privacy">Privacy</TabsTrigger>
+              </TabsList>
+              <TabsContent value="profile" className="px-4 text-sm text-[color:var(--pcs-color-text-muted)]">Update your name, photo, and personal details.</TabsContent>
+              <TabsContent value="appearance" className="px-4 text-sm text-[color:var(--pcs-color-text-muted)]">Choose your theme and display preferences.</TabsContent>
+              <TabsContent value="privacy" className="px-4 text-sm text-[color:var(--pcs-color-text-muted)]">Control who can see your profile and activity.</TabsContent>
+            </Tabs>
           </div>
 
         </CardContent>

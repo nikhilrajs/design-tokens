@@ -1,0 +1,73 @@
+/* =============================================================================
+   COMPONENT TOKENS — TABS
+   =============================================================================
+
+   Variants:
+     default — pill/segment control: muted bg container, active tab lifts on
+               a white (light) or translucent (dark) surface with shadow
+     line    — underline indicator: no background, active tab shows a 2px
+               bottom line (horizontal) or right line (vertical)
+
+   Orientations:
+     horizontal (default) — list is a row; indicator is bottom edge
+     vertical              — list is a column; indicator is right edge
+
+   Structure: Tabs > TabsList > TabsTrigger(s)
+                    TabsContent(s)
+   =============================================================================*/
+
+
+:root {
+
+  /* ===========================================================================
+     TABS LIST — container bar
+  =========================================================================== */
+
+  /* --- Default variant --- */
+  --pcs-tabs-list-bg:                    var(--pcs-color-surface-muted);        /* neutral-100 / neutral-900 dark */
+  --pcs-tabs-list-border-radius:         var(--pcs-radius-lg);                  /* 8px */
+  --pcs-tabs-list-padding:               3px;                                   /* inset between list edge and triggers */
+  --pcs-tabs-list-height:                var(--pcs-size-control-md);            /* 32px — horizontal */
+  --pcs-tabs-list-text:                  var(--pcs-color-text-muted);           /* inactive trigger color */
+
+
+  /* ===========================================================================
+     TABS TRIGGER
+  =========================================================================== */
+
+  /* --- Shape + typography --- */
+  --pcs-tabs-trigger-border-radius:      var(--pcs-radius-md);                  /* 6px — inside the list pill */
+  --pcs-tabs-trigger-font-size:          var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-tabs-trigger-font-weight:        var(--pcs-text-label-lg-weight);       /* 500  */
+
+  /* --- Text states --- */
+  --pcs-tabs-trigger-text:               var(--pcs-color-text-muted);           /* inactive */
+  --pcs-tabs-trigger-text-hover:         var(--pcs-color-text-default);
+  --pcs-tabs-trigger-text-active:        var(--pcs-color-text-default);
+
+  /* --- Default variant — active tab surface ---
+     Uses --pcs-input-bg so the active tab matches the Input bg in both
+     light mode (solid white) and dark mode (neutral-700 @ 30% tint).
+  --------------------------------------------------------------------------- */
+  --pcs-tabs-trigger-active-bg:          var(--pcs-input-bg);
+  --pcs-tabs-trigger-active-border-color: transparent;                          /* dark mode: border-default */
+  --pcs-tabs-trigger-active-shadow:      var(--pcs-shadow-sm);
+
+  /* --- Line variant — active indicator (::after pseudo-element) --- */
+  --pcs-tabs-trigger-indicator-color:    var(--pcs-color-primary-emphasis);     /* brand-500 — matches primary interactive color */
+  --pcs-tabs-trigger-indicator-size:     2px;                                   /* h-0.5 / w-0.5 */
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — TABS
+   =============================================================================*/
+
+[data-app-color-scheme="dark"] {
+
+  /* Active tab border in default variant — adds delineation in dark since
+     the translucent bg alone doesn't separate from the list clearly enough */
+  --pcs-tabs-trigger-active-border-color: var(--pcs-color-border-default);     /* neutral-700 */
+
+}
