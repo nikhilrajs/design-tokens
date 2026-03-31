@@ -45,8 +45,8 @@
   --pcs-input-border-radius:             var(--pcs-radius-md);                  /* 6px */
 
   /* Focus ring */
-  --pcs-input-focus-ring-width:          2px;
-  --pcs-input-focus-ring-offset:         0px;
+  --pcs-input-focus-ring-width:          var(--pcs-focus-ring-width);
+  --pcs-input-focus-ring-offset:         0px;   /* intentional — inputs use box-shadow not outline, so no offset is needed */
   /* Note: focus ring is expressed as box-shadow on inputs, not outline,
      so it sits flush with the border rather than outside it. */
 

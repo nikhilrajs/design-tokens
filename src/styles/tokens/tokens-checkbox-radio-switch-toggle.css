@@ -60,8 +60,8 @@
   --pcs-checkbox-border-color-indeterminate: var(--pcs-color-primary-emphasis);
   --pcs-checkbox-indicator-color-indeterminate: var(--pcs-color-primary-on-emphasis);
 
-  --pcs-checkbox-focus-ring-width:       2px;
-  --pcs-checkbox-focus-ring-offset:      2px;
+  --pcs-checkbox-focus-ring-width:       var(--pcs-focus-ring-width);
+  --pcs-checkbox-focus-ring-offset:      var(--pcs-focus-ring-offset);
   --pcs-checkbox-focus-ring-color:       var(--pcs-color-focus-ring);
 
   --pcs-checkbox-bg-disabled:            var(--pcs-color-state-disabled-bg);
@@ -105,8 +105,8 @@
   --pcs-radio-bg-selected-hover:         var(--pcs-color-primary-emphasis-hover);
   --pcs-radio-border-color-selected-hover: var(--pcs-color-primary-emphasis-hover);
 
-  --pcs-radio-focus-ring-width:          2px;
-  --pcs-radio-focus-ring-offset:         2px;
+  --pcs-radio-focus-ring-width:          var(--pcs-focus-ring-width);
+  --pcs-radio-focus-ring-offset:         var(--pcs-focus-ring-offset);
   --pcs-radio-focus-ring-color:          var(--pcs-color-focus-ring);
 
   --pcs-radio-bg-disabled:               var(--pcs-color-state-disabled-bg);
@@ -153,8 +153,8 @@
 
   --pcs-switch-track-bg-on-hover:        var(--pcs-color-primary-emphasis-hover);
 
-  --pcs-switch-focus-ring-width:         2px;
-  --pcs-switch-focus-ring-offset:        2px;
+  --pcs-switch-focus-ring-width:         var(--pcs-focus-ring-width);
+  --pcs-switch-focus-ring-offset:        var(--pcs-focus-ring-offset);
   --pcs-switch-focus-ring-color:         var(--pcs-color-focus-ring);
 
   --pcs-switch-track-bg-disabled:        var(--pcs-color-state-disabled-bg);
@@ -221,8 +221,8 @@
   --pcs-toggle-border-color-active-hover:var(--pcs-color-border-strong);
 
   /* Focus */
-  --pcs-toggle-focus-ring-width:         2px;
-  --pcs-toggle-focus-ring-offset:        2px;
+  --pcs-toggle-focus-ring-width:         var(--pcs-focus-ring-width);
+  --pcs-toggle-focus-ring-offset:        var(--pcs-focus-ring-offset);
   --pcs-toggle-focus-ring-color:         var(--pcs-color-focus-ring);
 
   /* Disabled */

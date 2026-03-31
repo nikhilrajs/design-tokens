@@ -41,8 +41,8 @@
   --pcs-button-border-style:             solid;
 
   /* Focus ring — shared across all variants */
-  --pcs-button-focus-ring-width:         2px;
-  --pcs-button-focus-ring-offset:        2px;
+  --pcs-button-focus-ring-width:         var(--pcs-focus-ring-width);
+  --pcs-button-focus-ring-offset:        var(--pcs-focus-ring-offset);
   --pcs-button-focus-ring-color:         var(--pcs-color-focus-ring);
 
   /* Transition — placeholder for when motion tokens are added */

@@ -1,5 +1,9 @@
 /* =============================================================================
    COMPONENT TOKENS — TABLE
+
+   ⚠️ NOT YET CONSUMED — no component implementation exists.
+      Do not use or reference these tokens until the component
+      is built. Review during token cleanup sprint.
    =============================================================================
 
    Architecture:
@@ -87,7 +91,7 @@
   /* Sort indicator icon */
   --pcs-table-head-sort-icon-size:         var(--pcs-size-icon-sm);                /* 12px */
   --pcs-table-head-sort-icon-color:        var(--pcs-color-icon-muted);
-  --pcs-table-head-sort-icon-color-active: var(--pcs-color-primary-default);       /* brand-500 when sorted */
+  --pcs-table-head-sort-icon-color-active: var(--pcs-color-primary-emphasis);       /* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis is the canonical filled-primary token */
   --pcs-table-head-sort-gap:               var(--pcs-space-component-gap-xs);      /* 4px — between label and icon */
 
   /* Sortable header hover */
@@ -193,7 +197,7 @@
 
   /* Select-all checkbox in header */
   --pcs-table-head-checkbox-color:         var(--pcs-color-icon-muted);
-  --pcs-table-head-checkbox-color-checked: var(--pcs-color-primary-default);
+  --pcs-table-head-checkbox-color-checked: var(--pcs-color-primary-emphasis);     /* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis is the canonical filled-primary token */
 
 
   /* ===========================================================================
@@ -215,7 +219,7 @@
   --pcs-table-skeleton-row-count:          5;                                  /* informational — used in component */
   --pcs-table-skeleton-cell-height:        var(--pcs-primitive-space-4);           /* 16px — skeleton bar height */
   --pcs-table-skeleton-cell-border-radius: var(--pcs-radius-sm);                   /* 2px  */
-  --pcs-table-skeleton-bg:                 var(--pcs-skeleton-base-color);         /* resolves from skeleton tokens */
+  --pcs-table-skeleton-bg:                 var(--pcs-skeleton-bg);                 /* --pcs-skeleton-base-color did not exist; --pcs-skeleton-bg is the actual token in tokens-avatar-skeleton-spinner-separator-kbd.css */
   --pcs-table-skeleton-shimmer:            var(--pcs-skeleton-shimmer-color);
 
 }

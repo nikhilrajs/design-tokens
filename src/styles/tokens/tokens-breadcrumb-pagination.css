@@ -56,8 +56,8 @@
   --pcs-breadcrumb-item-cursor-current:  default;
 
   /* --- Item — focus --- */
-  --pcs-breadcrumb-focus-ring-width:     2px;
-  --pcs-breadcrumb-focus-ring-offset:    1px;
+  --pcs-breadcrumb-focus-ring-width:     var(--pcs-focus-ring-width);
+  --pcs-breadcrumb-focus-ring-offset:    1px;   /* intentional — tighter offset for inline text links */
   --pcs-breadcrumb-focus-ring-color:     var(--pcs-color-focus-ring);
 
   /* --- Separator --- */
@@ -156,8 +156,8 @@
   --pcs-pagination-item-text-active:     var(--pcs-color-primary-on-emphasis);  /* white     */
 
   /* --- Item — focus --- */
-  --pcs-pagination-focus-ring-width:     2px;
-  --pcs-pagination-focus-ring-offset:    2px;
+  --pcs-pagination-focus-ring-width:     var(--pcs-focus-ring-width);
+  --pcs-pagination-focus-ring-offset:    var(--pcs-focus-ring-offset);
   --pcs-pagination-focus-ring-color:     var(--pcs-color-focus-ring);
 
   /* --- Control (Prev / Next) — default --- */

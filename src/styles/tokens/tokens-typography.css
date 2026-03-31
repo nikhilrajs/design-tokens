@@ -1,5 +1,9 @@
 /* =============================================================================
    COMPONENT TOKENS — TYPOGRAPHY
+
+   ⚠️ NOT YET CONSUMED — no component implementation exists.
+      Do not use or reference these tokens until the component
+      is built. Review during token cleanup sprint.
    =============================================================================
 
    Scope: UI typography only. No long-form prose, no article rhythm.
@@ -138,9 +142,9 @@
   --pcs-typography-link-cursor-disabled:      not-allowed;
 
   /* Focus ring */
-  --pcs-typography-link-focus-ring-color:      var(--pcs-color-primary-focus-ring);
-  --pcs-typography-link-focus-ring-width:      var(--pcs-focus-ring-width);          /* 2px */
-  --pcs-typography-link-focus-ring-offset:     var(--pcs-focus-ring-offset);         /* 2px */
+  --pcs-typography-link-focus-ring-color:      var(--pcs-color-focus-ring);
+  --pcs-typography-link-focus-ring-width:      var(--pcs-focus-ring-width);
+  --pcs-typography-link-focus-ring-offset:     var(--pcs-focus-ring-offset);
   --pcs-typography-link-focus-ring-radius:     var(--pcs-radius-sm);                 /* 2px */
 
   /* --- Standalone link (navigation, "View all", "Learn more") --- */

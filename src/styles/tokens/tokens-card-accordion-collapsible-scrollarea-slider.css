@@ -81,6 +81,10 @@
      Variants:
        default — each item is a bordered card (separated blocks)
        flush   — items share a single container; dividers only between items
+
+     ⚠️ NOT YET CONSUMED — no component implementation exists.
+        Do not use or reference these tokens until the component
+        is built. Review during token cleanup sprint.
   =========================================================================== */
 
   /* --- Trigger row --- */
@@ -104,8 +108,8 @@
   --pcs-accordion-chevron-transition:    transform 200ms ease;
 
   /* Focus ring on trigger */
-  --pcs-accordion-trigger-focus-ring:    var(--pcs-color-primary-focus-ring);
-  --pcs-accordion-trigger-focus-ring-width: var(--pcs-focus-ring-width);        /* 2px */
+  --pcs-accordion-trigger-focus-ring:       var(--pcs-color-focus-ring);
+  --pcs-accordion-trigger-focus-ring-width: var(--pcs-focus-ring-width);
   --pcs-accordion-trigger-border-radius: var(--pcs-radius-md);                  /* for focus ring shape */
 
   /* --- Content panel --- */
@@ -186,6 +190,10 @@
      Range input with track, range fill, and draggable thumb.
      Shadcn structure: Slider > SliderTrack > SliderRange + SliderThumb
      Sizes: sm | md (default) | lg
+
+     ⚠️ NOT YET CONSUMED — no component implementation exists.
+        Do not use or reference these tokens until the component
+        is built. Review during token cleanup sprint.
   =========================================================================== */
 
   /* --- Track --- */
@@ -198,13 +206,13 @@
   --pcs-slider-track-height-lg:          var(--pcs-primitive-space-2);          /* 8px  */
 
   /* --- Range fill (filled portion of track) --- */
-  --pcs-slider-range-bg:                 var(--pcs-color-primary-default);      /* brand-500 */
-  --pcs-slider-range-bg-hover:           var(--pcs-color-primary-hover);        /* brand-600 */
+  --pcs-slider-range-bg:                 var(--pcs-color-primary-emphasis);     /* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis is the canonical filled-primary token */
+  --pcs-slider-range-bg-hover:           var(--pcs-color-primary-emphasis-hover); /* --pcs-color-primary-hover did not exist; maps to emphasis-hover */
   --pcs-slider-range-bg-disabled:        var(--pcs-color-state-disabled-border);
 
   /* --- Thumb --- */
   --pcs-slider-thumb-bg:                 var(--pcs-color-surface-card);         /* white     */
-  --pcs-slider-thumb-border-color:       var(--pcs-color-primary-default);      /* brand-500 */
+  --pcs-slider-thumb-border-color:       var(--pcs-color-primary-emphasis);     /* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis is the canonical filled-primary token */
   --pcs-slider-thumb-border-width:       var(--pcs-border-width-thick);         /* 2px       */
   --pcs-slider-thumb-border-radius:      var(--pcs-radius-full);
   --pcs-slider-thumb-shadow:             var(--pcs-shadow-sm);
@@ -217,9 +225,9 @@
   --pcs-slider-thumb-scale-hover:        1.1;
 
   /* Focus ring on thumb */
-  --pcs-slider-thumb-focus-ring-color:   var(--pcs-color-primary-focus-ring);
-  --pcs-slider-thumb-focus-ring-width:   var(--pcs-focus-ring-width);           /* 2px */
-  --pcs-slider-thumb-focus-ring-offset:  var(--pcs-focus-ring-offset);          /* 2px */
+  --pcs-slider-thumb-focus-ring-color:   var(--pcs-color-focus-ring);
+  --pcs-slider-thumb-focus-ring-width:   var(--pcs-focus-ring-width);
+  --pcs-slider-thumb-focus-ring-offset:  var(--pcs-focus-ring-offset);
 
   /* Disabled */
   --pcs-slider-thumb-bg-disabled:        var(--pcs-color-surface-muted);

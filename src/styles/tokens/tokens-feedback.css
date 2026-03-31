@@ -190,45 +190,36 @@
   --pcs-toast-info-title:                var(--pcs-color-text-default);
 
 
-  /* ===========================================================================
-     EMPTY STATE
-     No-data feedback pattern. Used when a list, table, or section has no items.
+  /* ── Empty State ──────────────────────────────────────────────────────────
+     No-data feedback pattern. Shown when a list, table, or section has no items.
      NOT an error — neutral styling only. Guides the user toward next action.
-     Shadcn-style: centered layout, icon/illustration + title + description + action.
-  =========================================================================== */
+     Component: empty.tsx
+  ──────────────────────────────────────────────────────────────────────────*/
 
-  /* --- Layout --- */
-  --pcs-empty-state-padding:             var(--pcs-space-inset-xl);             /* 32px */
-  --pcs-empty-state-gap:                 var(--pcs-space-component-gap-lg);     /* 12px — between elements */
-  --pcs-empty-state-max-width:           24rem;                             /* 384px — centers nicely */
-  --pcs-empty-state-text-align:          center;
+  /* --- Container --- */
+  --pcs-empty-bg:                        transparent;
+  --pcs-empty-border-color:              var(--pcs-color-border-default);
+  --pcs-empty-border-width:              var(--pcs-border-width-default);       /* 1px */
+  --pcs-empty-border-radius:             var(--pcs-radius-xl);                  /* 12px */
+  --pcs-empty-padding:                   var(--pcs-space-inset-lg);             /* 24px */
 
-  /* --- Icon / Illustration --- */
-  --pcs-empty-state-icon-size:           var(--pcs-primitive-space-12);         /* 48px — larger than UI icons */
-  --pcs-empty-state-icon-color:          var(--pcs-color-icon-muted);           /* neutral-400 — intentionally subtle */
+  /* --- Media — icon variant (small rounded icon box) --- */
+  --pcs-empty-media-icon-size:           2rem;                                  /* 32px — container */
+  --pcs-empty-media-icon-border-radius:  var(--pcs-radius-md);                  /*  6px */
+  --pcs-empty-media-icon-bg:             var(--pcs-color-surface-muted);
+  --pcs-empty-media-icon-color:          var(--pcs-color-text-default);
 
-  /* --- Typography --- */
-  --pcs-empty-state-title-font-size:     var(--pcs-text-title-sm-size);         /* 20px */
-  --pcs-empty-state-title-font-weight:   var(--pcs-text-title-sm-weight);       /* 600  */
-  --pcs-empty-state-title-line-height:   var(--pcs-text-title-sm-line-height);
-  --pcs-empty-state-title-color:         var(--pcs-color-text-default);
+  /* --- Title --- */
+  --pcs-empty-title-font-size:           var(--pcs-text-title-sm-size);         /* 16px — section header scale; use display (36px) for full-page hero empty states */
+  --pcs-empty-title-font-weight:         var(--pcs-text-title-sm-weight);       /* 600  */
+  --pcs-empty-title-color:               var(--pcs-color-text-default);
 
-  --pcs-empty-state-description-font-size:  var(--pcs-text-body-md-size);       /* 14px */
-  --pcs-empty-state-description-font-weight:var(--pcs-text-body-md-weight);
-  --pcs-empty-state-description-line-height:var(--pcs-text-body-md-line-height);
-  --pcs-empty-state-description-color:      var(--pcs-color-text-muted);
-
-  --pcs-empty-state-title-description-gap:  var(--pcs-space-component-gap-sm);  /*  6px */
-
-  /* --- Action button --- */
-  /* Uses standard Button tokens — no override needed here */
-  --pcs-empty-state-action-margin-top:   var(--pcs-space-component-gap-md);     /*  8px */
-
-  /* --- Border (optional — for empty state inside a card/table) --- */
-  --pcs-empty-state-border-color:        var(--pcs-color-border-muted);
-  --pcs-empty-state-border-width:        var(--pcs-border-width-default);
-  --pcs-empty-state-border-style:        dashed;                            /* dashed signals "nothing here yet" */
-  --pcs-empty-state-border-radius:       var(--pcs-radius-lg);
+  /* --- Description --- */
+  --pcs-empty-description-font-size:     var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-empty-description-color:         var(--pcs-color-text-muted);
+  /* Links inside description */
+  --pcs-empty-description-link-color:    var(--pcs-color-text-muted);
+  --pcs-empty-description-link-color-hover: var(--pcs-color-primary-emphasis);
 
 }
 
@@ -244,8 +235,7 @@
   /* Toast — white surface becomes neutral-900 via --pcs-color-surface-overlay */
   /* Role accents stay the same — colored left borders read well on dark */
 
-  /* Empty state — all handled by semantic tokens */
-  /* Dashed border color slightly more visible in dark */
-  --pcs-empty-state-border-color:        var(--pcs-color-border-default);       /* neutral-700 in dark */
+  /* Empty state — all handled by semantic tokens; --pcs-empty-border-color resolves via
+     --pcs-color-border-default which is already dark-aware upstream */
 
 }
