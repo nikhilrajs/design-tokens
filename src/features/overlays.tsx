@@ -2,6 +2,18 @@ import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button'
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '../components/ui/alert-dialog'
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -27,7 +39,7 @@ import {
 } from '../components/ui/popover'
 import { Label } from '../components/ui/label'
 import { Input } from '../components/ui/input'
-import { CalendarIcon, InfoIcon, LinkIcon, Settings2Icon, UserIcon } from 'lucide-react'
+import { AlertTriangleIcon, CalendarIcon, InfoIcon, LinkIcon, Settings2Icon, Trash2Icon, UserIcon } from 'lucide-react'
 import {
   HoverCard,
   HoverCardContent,
@@ -109,6 +121,97 @@ function SheetShowcase() {
         </CardContent>
       </Card>
     </>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// Alert Dialog showcase
+// ---------------------------------------------------------------------------
+
+function AlertDialogShowcase() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Alert Dialog</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-wrap gap-3">
+
+        {/* Default — confirmation */}
+        <AlertDialog>
+          <AlertDialogTrigger render={<Button variant="outline">Confirmation</Button>} />
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Save changes?</AlertDialogTitle>
+              <AlertDialogDescription>
+                Your unsaved changes will be lost if you leave without saving.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Discard</AlertDialogCancel>
+              <AlertDialogAction>Save changes</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        {/* Destructive */}
+        <AlertDialog>
+          <AlertDialogTrigger render={<Button variant="outline">Destructive</Button>} />
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Delete account?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. Your account and all associated data will be permanently removed.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction variant="destructive">Delete account</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        {/* With media icon */}
+        <AlertDialog>
+          <AlertDialogTrigger render={<Button variant="outline">With icon</Button>} />
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogMedia>
+                <AlertTriangleIcon className="text-[color:var(--pcs-color-warning-icon)]" />
+              </AlertDialogMedia>
+              <AlertDialogTitle>Unsaved changes</AlertDialogTitle>
+              <AlertDialogDescription>
+                You have unsaved changes. Are you sure you want to leave this page?
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Stay</AlertDialogCancel>
+              <AlertDialogAction>Leave page</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        {/* sm size — destructive with icon */}
+        <AlertDialog>
+          <AlertDialogTrigger render={<Button variant="outline">Small size</Button>} />
+          <AlertDialogContent size="sm">
+            <AlertDialogHeader>
+              <AlertDialogMedia>
+                <Trash2Icon className="text-[color:var(--pcs-color-error-icon)]" />
+              </AlertDialogMedia>
+              <AlertDialogTitle>Delete file?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This file will be moved to trash.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+      </CardContent>
+    </Card>
   )
 }
 
@@ -404,6 +507,7 @@ function HoverCardShowcase() {
 export const Overlays: React.FC = () => {
   return (
     <div className="space-y-6 pb-12">
+      <AlertDialogShowcase />
       <DialogShowcase />
       <SheetShowcase />
       <PopoverShowcase />

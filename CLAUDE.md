@@ -362,3 +362,160 @@ When in doubt, flag the specific tokens to Nikhil with a brief note:
 - What would be lost by simplifying
 
 Do not simplify unilaterally. The decision belongs to Nikhil.
+
+## Token Reuse and File Governance
+
+### The default position: reuse before create
+
+When wiring a new component, the first question is always:
+> "Does a token file already exist that covers this component's
+> visual properties?"
+
+You need a reason to CREATE a new token file.
+You do not need a reason to REUSE an existing one.
+
+If a component belongs to an established family (see below), wire
+it to that family's token file. Do not create a new token file for
+it under any circumstances unless it is genuinely a new visual
+category with no overlap with any existing family.
+
+If you believe a new token file is warranted, stop and flag it to
+Nikhil with:
+- Which existing family files you considered
+- Why none of them cover this component's needs
+- What the new file would contain that does not already exist
+
+---
+
+### Established token families
+
+These are the confirmed token families derived from the actual
+codebase. Every new component should be mapped to one of these
+before any token work begins.
+
+**Form inputs** → `tokens-input-field.css`
+input, textarea, input-group, label, field, native-select,
+and any future field-like element (date picker, search input,
+number input, OTP input)
+
+**Selection controls** → `tokens-checkbox-radio-switch-toggle.css`
+checkbox, radio-group, toggle, toggle-group,
+and any future binary or multi-select control
+
+**Overlays** → `tokens-overlays.css`
+dialog, sheet, tooltip, popover, hover-card, alert-dialog,
+and any future floating or modal surface
+
+**Menus** → `tokens-menus.css`
+dropdown-menu, select, context-menu, menubar, combobox,
+and any future trigger-and-panel or command surface
+
+**Feedback** → `tokens-feedback.css`
+alert, toast, empty state,
+and any future inline message, banner, or status pattern
+
+**Navigation** → `tokens-breadcrumb-pagination.css`
+breadcrumb, pagination,
+and any future wayfinding or paging component
+
+**Containment** → `tokens-card-accordion-collapsible-scrollarea-slider.css`
+card, collapsible, scroll-area,
+accordion and slider when their components are built
+
+**Buttons** → `tokens-button.css`
+button, button-group
+
+**Utility group** → `tokens-avatar-skeleton-spinner-separator-kbd.css`
+avatar, skeleton, spinner, separator, kbd
+
+**Standalone files** (justified by complexity or distinct identity)
+- `tokens-badge.css` — badge
+- `tokens-tabs.css` — tabs
+- `tokens-sidebar.css` — sidebar
+
+---
+
+### New component wiring checklist
+
+Before writing a single token, answer these in order:
+
+1. Which family does this component belong to?
+   → Identify the family file from the list above
+
+2. Does the family file already have tokens that cover this
+   component's visual properties?
+   → If yes, wire to those tokens directly. Do not add new ones.
+
+3. Does the family file need new tokens to cover this component?
+   → If yes, add them to the existing family file.
+   → Do not create a new file.
+
+4. Is this component genuinely a new visual category with no
+   overlap with any existing family?
+   → If yes, flag to Nikhil before creating anything.
+
+---
+
+### Known family mappings for unwired components
+
+The following components are installed and ready to wire. Their
+token homes are already confirmed — no new token files needed:
+
+| Component | Wire to |
+|---|---|
+| alert-dialog | tokens-overlays.css |
+| context-menu | tokens-menus.css |
+| menubar | tokens-menus.css |
+| combobox | tokens-menus.css |
+| pagination | tokens-breadcrumb-pagination.css |
+| native-select | tokens-input-field.css |
+| field | tokens-input-field.css |
+| kbd | tokens-avatar-skeleton-spinner-separator-kbd.css |
+| collapsible | tokens-card-accordion-collapsible-scrollarea-slider.css |
+
+---
+
+### Token granularity rules
+
+**Before adding any new token to a family file, ask all three:**
+
+1. Does this value need to change per theme, tenant, or color
+   scheme — or must it stay consistent across multiple components
+   in this family?
+   → If neither: use a Tailwind utility class directly
+
+2. Does a semantic token in tokens.css already express this intent?
+   → If yes: use var(--pcs-semantic-token) directly in the
+   component. Do not create a component token that just aliases it.
+
+3. Does this component token add specific meaning beyond what the
+   semantic token name already communicates?
+   → If no: it is a redundant pass-through. Do not add it.
+
+Only if a token passes at least one of these tests is it worth
+adding to the family file.
+
+**Signs of over-specification (do not add these):**
+- Multiple tokens for what is one visual property
+- Variant tokens for things Tailwind handles idiomatically
+  (e.g., rounded-full vs rounded-none for shape variants)
+- Implementation detail tokens — tokens that encode how something
+  works rather than what it looks like (keyframe stops, animation
+  timing, transform values)
+- Tokens that will always be a constant and never differ between
+  themes, modes, or variants
+
+The skeleton component is the canonical example of over-
+specification in this codebase. Use it as the reference for
+what not to do.
+
+**Signs that a new token is justified:**
+- The value needs to differ between light and dark mode
+- The value is reused across multiple components in the same family
+- The value is part of the brand/design language (color, radius,
+  typography) that must stay consistent under theming
+- The value overrides a shadcn default that conflicts with our
+  design language
+
+When in doubt, flag the candidate token to Nikhil with a one-line
+reason. Do not add it unilaterally.
