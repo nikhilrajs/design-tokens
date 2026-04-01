@@ -187,7 +187,7 @@
 
   /* --- STATE: Open / Focus --- */
   --pcs-select-trigger-bg-open:          var(--pcs-input-bg);
-  --pcs-select-trigger-border-color-open:var(--pcs-color-primary-emphasis);
+  --pcs-select-trigger-border-color-open:var(--pcs-color-focus-ring);
   --pcs-select-trigger-shadow-open:
     0 0 0 var(--pcs-focus-ring-width) var(--pcs-color-focus-ring);
 
