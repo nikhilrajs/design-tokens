@@ -15,6 +15,23 @@ import {
   TabsTrigger,
 } from "../components/ui/tabs"
 import {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarGroup,
+  MenubarItem,
+  MenubarLabel,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "../components/ui/menubar"
+import {
   ContextMenu,
   ContextMenuCheckboxItem,
   ContextMenuContent,
@@ -100,6 +117,9 @@ export const Menus: React.FC = () => {
   const [theme, setTheme] = useState("system")
   const [ctxShowRulers, setCtxShowRulers] = useState(false)
   const [ctxViewMode, setCtxViewMode] = useState("fit")
+  const [mbShowStatusBar, setMbShowStatusBar] = useState(true)
+  const [mbShowPanel, setMbShowPanel] = useState(false)
+  const [mbTheme, setMbTheme] = useState("system")
   const [comboSingle, setComboSingle] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>(['Design'])
   const chipsAnchor = useComboboxAnchor()
@@ -116,6 +136,136 @@ export const Menus: React.FC = () => {
 
   return (
     <div className="space-y-4">
+
+      {/* ---- Menubar ---- */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Menubar</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Basic */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Basic</p>
+            <Menubar>
+              <MenubarMenu>
+                <MenubarTrigger>File</MenubarTrigger>
+                <MenubarContent>
+                  <MenubarItem>
+                    <FilePlusIcon />
+                    New file
+                    <MenubarShortcut>⌘N</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarItem>
+                    <FolderOpenIcon />
+                    Open
+                    <MenubarShortcut>⌘O</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarItem>
+                    <SaveIcon />
+                    Save
+                    <MenubarShortcut>⌘S</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarSeparator />
+                  <MenubarItem>
+                    <PrinterIcon />
+                    Print
+                    <MenubarShortcut>⌘P</MenubarShortcut>
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarMenu>
+
+              <MenubarMenu>
+                <MenubarTrigger>Edit</MenubarTrigger>
+                <MenubarContent>
+                  <MenubarItem>
+                    <ScissorsIcon />
+                    Cut
+                    <MenubarShortcut>⌘X</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarItem>
+                    <CopyIcon />
+                    Copy
+                    <MenubarShortcut>⌘C</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarItem>
+                    <ClipboardIcon />
+                    Paste
+                    <MenubarShortcut>⌘V</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarSeparator />
+                  <MenubarItem disabled>
+                    <BoldIcon />
+                    Find &amp; Replace
+                    <MenubarShortcut>⌘H</MenubarShortcut>
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarMenu>
+
+              <MenubarMenu>
+                <MenubarTrigger>View</MenubarTrigger>
+                <MenubarContent>
+                  <MenubarGroup>
+                    <MenubarLabel>Panels</MenubarLabel>
+                    <MenubarCheckboxItem
+                      checked={mbShowStatusBar}
+                      onCheckedChange={setMbShowStatusBar}
+                    >
+                      Status bar
+                    </MenubarCheckboxItem>
+                    <MenubarCheckboxItem
+                      checked={mbShowPanel}
+                      onCheckedChange={setMbShowPanel}
+                    >
+                      Side panel
+                    </MenubarCheckboxItem>
+                  </MenubarGroup>
+                  <MenubarSeparator />
+                  <MenubarGroup>
+                    <MenubarLabel>Appearance</MenubarLabel>
+                    <MenubarRadioGroup value={mbTheme} onValueChange={setMbTheme}>
+                      <MenubarRadioItem value="light">
+                        <SunIcon />
+                        Light
+                      </MenubarRadioItem>
+                      <MenubarRadioItem value="dark">
+                        <MoonIcon />
+                        Dark
+                      </MenubarRadioItem>
+                      <MenubarRadioItem value="system">
+                        <Settings2Icon />
+                        System
+                      </MenubarRadioItem>
+                    </MenubarRadioGroup>
+                  </MenubarGroup>
+                </MenubarContent>
+              </MenubarMenu>
+
+              <MenubarMenu>
+                <MenubarTrigger>Help</MenubarTrigger>
+                <MenubarContent>
+                  <MenubarItem>Documentation</MenubarItem>
+                  <MenubarItem>Keyboard shortcuts</MenubarItem>
+                  <MenubarSeparator />
+                  <MenubarSub>
+                    <MenubarSubTrigger>More tools</MenubarSubTrigger>
+                    <MenubarSubContent>
+                      <MenubarItem>Developer tools</MenubarItem>
+                      <MenubarItem>Extensions</MenubarItem>
+                    </MenubarSubContent>
+                  </MenubarSub>
+                  <MenubarSeparator />
+                  <MenubarItem variant="destructive">
+                    <LogOutIcon />
+                    Sign out
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarMenu>
+            </Menubar>
+          </div>
+
+        </CardContent>
+      </Card>
 
       {/* ---- Dropdown Menu ---- */}
       <Card>
