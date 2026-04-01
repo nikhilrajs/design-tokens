@@ -15,6 +15,22 @@ import {
   TabsTrigger,
 } from "../components/ui/tabs"
 import {
+  ContextMenu,
+  ContextMenuCheckboxItem,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuLabel,
+  ContextMenuItem,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from "../components/ui/context-menu"
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -82,6 +98,8 @@ export const Menus: React.FC = () => {
   const [showStatusBar, setShowStatusBar] = useState(true)
   const [showPanel, setShowPanel] = useState(false)
   const [theme, setTheme] = useState("system")
+  const [ctxShowRulers, setCtxShowRulers] = useState(false)
+  const [ctxViewMode, setCtxViewMode] = useState("fit")
   const [comboSingle, setComboSingle] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>(['Design'])
   const chipsAnchor = useComboboxAnchor()
@@ -402,6 +420,126 @@ export const Menus: React.FC = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+          </div>
+
+        </CardContent>
+      </Card>
+
+      {/* ---- Context Menu ---- */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Context Menu</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Basic — right-click area */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Basic</p>
+            <ContextMenu>
+              <ContextMenuTrigger className="flex h-24 w-full items-center justify-center rounded-lg border border-dashed border-[color:var(--pcs-color-border-default)] text-sm text-[color:var(--pcs-color-text-muted)]">
+                Right-click here
+              </ContextMenuTrigger>
+              <ContextMenuContent className="w-48">
+                <ContextMenuItem>
+                  <CopyIcon />
+                  Copy
+                  <ContextMenuShortcut>⌘C</ContextMenuShortcut>
+                </ContextMenuItem>
+                <ContextMenuItem>
+                  <ScissorsIcon />
+                  Cut
+                  <ContextMenuShortcut>⌘X</ContextMenuShortcut>
+                </ContextMenuItem>
+                <ContextMenuItem>
+                  <ClipboardIcon />
+                  Paste
+                  <ContextMenuShortcut>⌘V</ContextMenuShortcut>
+                </ContextMenuItem>
+                <ContextMenuSeparator />
+                <ContextMenuItem variant="destructive">
+                  <Trash2Icon />
+                  Delete
+                </ContextMenuItem>
+              </ContextMenuContent>
+            </ContextMenu>
+          </div>
+
+          {/* Groups + sub-menu + disabled */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Groups, sub-menu, and disabled</p>
+            <ContextMenu>
+              <ContextMenuTrigger className="flex h-24 w-full items-center justify-center rounded-lg border border-dashed border-[color:var(--pcs-color-border-default)] text-sm text-[color:var(--pcs-color-text-muted)]">
+                Right-click here
+              </ContextMenuTrigger>
+              <ContextMenuContent className="w-52">
+                <ContextMenuGroup>
+                  <ContextMenuLabel>File</ContextMenuLabel>
+                  <ContextMenuItem>
+                    <FilePlusIcon />
+                    New file
+                    <ContextMenuShortcut>⌘N</ContextMenuShortcut>
+                  </ContextMenuItem>
+                  <ContextMenuItem>
+                    <SaveIcon />
+                    Save
+                    <ContextMenuShortcut>⌘S</ContextMenuShortcut>
+                  </ContextMenuItem>
+                  <ContextMenuItem disabled>
+                    <PrinterIcon />
+                    Print
+                    <ContextMenuShortcut>⌘P</ContextMenuShortcut>
+                  </ContextMenuItem>
+                </ContextMenuGroup>
+                <ContextMenuSeparator />
+                <ContextMenuSub>
+                  <ContextMenuSubTrigger>
+                    <Settings2Icon />
+                    Preferences
+                  </ContextMenuSubTrigger>
+                  <ContextMenuSubContent>
+                    <ContextMenuItem>General</ContextMenuItem>
+                    <ContextMenuItem>Appearance</ContextMenuItem>
+                    <ContextMenuItem>Shortcuts</ContextMenuItem>
+                  </ContextMenuSubContent>
+                </ContextMenuSub>
+                <ContextMenuSeparator />
+                <ContextMenuItem variant="destructive">
+                  <Trash2Icon />
+                  Delete
+                  <ContextMenuShortcut>⌫</ContextMenuShortcut>
+                </ContextMenuItem>
+              </ContextMenuContent>
+            </ContextMenu>
+          </div>
+
+          {/* Checkbox + radio items */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Checkbox and radio items</p>
+            <ContextMenu>
+              <ContextMenuTrigger className="flex h-24 w-full items-center justify-center rounded-lg border border-dashed border-[color:var(--pcs-color-border-default)] text-sm text-[color:var(--pcs-color-text-muted)]">
+                Right-click here
+              </ContextMenuTrigger>
+              <ContextMenuContent className="w-48">
+                <ContextMenuGroup>
+                  <ContextMenuLabel>View</ContextMenuLabel>
+                  <ContextMenuCheckboxItem
+                    checked={ctxShowRulers}
+                    onCheckedChange={setCtxShowRulers}
+                  >
+                    Show rulers
+                  </ContextMenuCheckboxItem>
+                </ContextMenuGroup>
+                <ContextMenuSeparator />
+                <ContextMenuGroup>
+                  <ContextMenuLabel>Zoom</ContextMenuLabel>
+                  <ContextMenuRadioGroup value={ctxViewMode} onValueChange={setCtxViewMode}>
+                    <ContextMenuRadioItem value="fit">Fit to screen</ContextMenuRadioItem>
+                    <ContextMenuRadioItem value="actual">Actual size</ContextMenuRadioItem>
+                    <ContextMenuRadioItem value="fill">Fill</ContextMenuRadioItem>
+                  </ContextMenuRadioGroup>
+                </ContextMenuGroup>
+              </ContextMenuContent>
+            </ContextMenu>
           </div>
 
         </CardContent>
