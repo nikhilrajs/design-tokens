@@ -20,6 +20,11 @@ import {
 } from "../components/ui/field"
 import { Input } from "../components/ui/input"
 import {
+  NativeSelect,
+  NativeSelectOption,
+  NativeSelectOptGroup,
+} from "../components/ui/native-select"
+import {
   Select,
   SelectContent,
   SelectGroup,
@@ -465,6 +470,77 @@ const years = [
 							</FieldGroup>
 						</form>
 					</div>
+				</CardContent>
+			</Card>
+
+			{/* ---- Native Select ---- */}
+			<Card>
+				<CardHeader>
+					<CardTitle>Native Select</CardTitle>
+				</CardHeader>
+				<CardContent className="space-y-6">
+
+					{/* Sizes */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Sizes</p>
+						<div className="flex flex-wrap items-center gap-3">
+							<NativeSelect size="sm">
+								<NativeSelectOption value="">Small</NativeSelectOption>
+								<NativeSelectOption value="opt1">Option 1</NativeSelectOption>
+								<NativeSelectOption value="opt2">Option 2</NativeSelectOption>
+							</NativeSelect>
+							<NativeSelect>
+								<NativeSelectOption value="">Default</NativeSelectOption>
+								<NativeSelectOption value="opt1">Option 1</NativeSelectOption>
+								<NativeSelectOption value="opt2">Option 2</NativeSelectOption>
+							</NativeSelect>
+						</div>
+					</div>
+
+					{/* With label */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With label</p>
+						<div className="flex flex-col gap-1.5 w-48">
+							<Label htmlFor="ns-country">Country</Label>
+							<NativeSelect id="ns-country">
+								<NativeSelectOption value="">Select a country</NativeSelectOption>
+								<NativeSelectOptGroup label="North America">
+									<NativeSelectOption value="us">United States</NativeSelectOption>
+									<NativeSelectOption value="ca">Canada</NativeSelectOption>
+									<NativeSelectOption value="mx">Mexico</NativeSelectOption>
+								</NativeSelectOptGroup>
+								<NativeSelectOptGroup label="Europe">
+									<NativeSelectOption value="gb">United Kingdom</NativeSelectOption>
+									<NativeSelectOption value="de">Germany</NativeSelectOption>
+									<NativeSelectOption value="fr">France</NativeSelectOption>
+								</NativeSelectOptGroup>
+							</NativeSelect>
+						</div>
+					</div>
+
+					{/* States */}
+					<div>
+						<p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">States</p>
+						<div className="flex flex-wrap items-center gap-3">
+							<NativeSelect>
+								<NativeSelectOption value="">Default</NativeSelectOption>
+								<NativeSelectOption value="opt1">Option 1</NativeSelectOption>
+							</NativeSelect>
+							<NativeSelect defaultValue="opt1">
+								<NativeSelectOption value="opt1">Selected</NativeSelectOption>
+								<NativeSelectOption value="opt2">Option 2</NativeSelectOption>
+							</NativeSelect>
+							<NativeSelect disabled>
+								<NativeSelectOption value="">Disabled</NativeSelectOption>
+								<NativeSelectOption value="opt1">Option 1</NativeSelectOption>
+							</NativeSelect>
+							<NativeSelect aria-invalid="true">
+								<NativeSelectOption value="">Error</NativeSelectOption>
+								<NativeSelectOption value="opt1">Option 1</NativeSelectOption>
+							</NativeSelect>
+						</div>
+					</div>
+
 				</CardContent>
 			</Card>
 		</div>
