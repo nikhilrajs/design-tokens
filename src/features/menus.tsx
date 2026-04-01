@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 import {
   Card,
   CardContent,
@@ -40,6 +41,22 @@ import {
   SelectValue,
 } from "../components/ui/select"
 import {
+  Combobox,
+  ComboboxChip,
+  ComboboxChips,
+  ComboboxChipsInput,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxLabel,
+  ComboboxList,
+  ComboboxSeparator,
+  useComboboxAnchor,
+} from '../components/ui/combobox'
+import { Label } from '../components/ui/label'
+import {
   BoldIcon,
   ChevronDownIcon,
   ClipboardIcon,
@@ -52,6 +69,7 @@ import {
   LayoutIcon,
   LogOutIcon,
   MoonIcon,
+  PlusIcon,
   PrinterIcon,
   SaveIcon,
   Settings2Icon,
@@ -64,6 +82,19 @@ export const Menus: React.FC = () => {
   const [showStatusBar, setShowStatusBar] = useState(true)
   const [showPanel, setShowPanel] = useState(false)
   const [theme, setTheme] = useState("system")
+  const [comboSingle, setComboSingle] = useState('')
+  const [selectedTags, setSelectedTags] = useState<string[]>(['Design'])
+  const chipsAnchor = useComboboxAnchor()
+  const [creatableItems, setCreatableItems] = useState(['React', 'Vue', 'Angular', 'Svelte', 'Solid'])
+  const [creatableValue, setCreatableValue] = useState('')
+  const [creatableQuery, setCreatableQuery] = useState('')
+
+  function createItem() {
+    if (!creatableQuery) return
+    setCreatableItems(prev => [...prev, creatableQuery])
+    setCreatableValue(creatableQuery)
+    setCreatableQuery('')
+  }
 
   return (
     <div className="space-y-4">
@@ -567,6 +598,129 @@ export const Menus: React.FC = () => {
               <TabsContent value="appearance" className="px-4 text-sm text-[color:var(--pcs-color-text-muted)]">Choose your theme and display preferences.</TabsContent>
               <TabsContent value="privacy" className="px-4 text-sm text-[color:var(--pcs-color-text-muted)]">Control who can see your profile and activity.</TabsContent>
             </Tabs>
+          </div>
+
+        </CardContent>
+      </Card>
+
+      {/* ---- Combobox ---- */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Combobox</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+
+          {/* Basic — single select */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Single select</p>
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="combo-framework">Framework</Label>
+            <Combobox value={comboSingle} onValueChange={setComboSingle}>
+              <ComboboxInput id="combo-framework" placeholder="Search framework…" className="w-56" />
+              <ComboboxContent>
+                <ComboboxList>
+                  <ComboboxItem value="react">React</ComboboxItem>
+                  <ComboboxItem value="vue">Vue</ComboboxItem>
+                  <ComboboxItem value="angular">Angular</ComboboxItem>
+                  <ComboboxItem value="svelte">Svelte</ComboboxItem>
+                  <ComboboxItem value="solid">Solid</ComboboxItem>
+                  <ComboboxEmpty>No results.</ComboboxEmpty>
+                </ComboboxList>
+              </ComboboxContent>
+            </Combobox>
+            </div>
+          </div>
+
+          {/* With groups + separator */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Groups and separator</p>
+            <Combobox>
+              <ComboboxInput placeholder="Select timezone…" className="w-64" showClear />
+              <ComboboxContent>
+                <ComboboxList>
+                  <ComboboxGroup>
+                    <ComboboxLabel>North America</ComboboxLabel>
+                    <ComboboxItem value="est">Eastern Time (ET)</ComboboxItem>
+                    <ComboboxItem value="cst">Central Time (CT)</ComboboxItem>
+                    <ComboboxItem value="pst">Pacific Time (PT)</ComboboxItem>
+                  </ComboboxGroup>
+                  <ComboboxSeparator />
+                  <ComboboxGroup>
+                    <ComboboxLabel>Europe</ComboboxLabel>
+                    <ComboboxItem value="gmt">Greenwich (GMT)</ComboboxItem>
+                    <ComboboxItem value="cet">Central European (CET)</ComboboxItem>
+                  </ComboboxGroup>
+                  <ComboboxEmpty>No results.</ComboboxEmpty>
+                </ComboboxList>
+              </ComboboxContent>
+            </Combobox>
+          </div>
+
+          {/* Multi-select with chips */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Multi-select (chips)</p>
+            <Combobox
+              items={['Design', 'Engineering', 'Product', 'Marketing', 'Data']}
+              multiple
+              value={selectedTags}
+              onValueChange={(v) => setSelectedTags(v)}
+            >
+              <ComboboxChips ref={chipsAnchor} className="w-72">
+                {selectedTags.map((item) => (
+                  <ComboboxChip key={item} value={item}>{item}</ComboboxChip>
+                ))}
+                <ComboboxChipsInput placeholder="Add tags…" />
+              </ComboboxChips>
+              <ComboboxContent anchor={chipsAnchor}>
+                <ComboboxList>
+                  {(item: string) => (
+                    <ComboboxItem key={item} value={item}>{item}</ComboboxItem>
+                  )}
+                </ComboboxList>
+                <ComboboxEmpty>No results.</ComboboxEmpty>
+              </ComboboxContent>
+            </Combobox>
+          </div>
+
+          {/* Creatable */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Creatable</p>
+            <Combobox
+              value={creatableValue}
+              onValueChange={(v) => { setCreatableValue(v); setCreatableQuery('') }}
+            >
+              <ComboboxInput
+                placeholder="Select or create…"
+                className="w-56"
+                onChange={(e) => setCreatableQuery((e.target as HTMLInputElement).value)}
+              />
+              <ComboboxContent>
+                <ComboboxList>
+                  {creatableItems.map(item => (
+                    <ComboboxItem key={item} value={item}>{item}</ComboboxItem>
+                  ))}
+                  <ComboboxEmpty className="justify-start text-left py-0">
+                    {creatableQuery ? (
+                      <button
+                        className="flex w-full items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] px-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] text-foreground hover:bg-[var(--pcs-menu-item-bg-hover)] cursor-default"
+                        onMouseDown={(e) => { e.preventDefault(); createItem() }}
+                      >
+                        <PlusIcon className="size-4 shrink-0 text-muted-foreground" />
+                        Create "{creatableQuery}"
+                      </button>
+                    ) : null}
+                  </ComboboxEmpty>
+                </ComboboxList>
+              </ComboboxContent>
+            </Combobox>
+          </div>
+
+          {/* Disabled */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Disabled</p>
+            <Combobox disabled>
+              <ComboboxInput placeholder="Unavailable…" className="w-56" disabled />
+            </Combobox>
           </div>
 
         </CardContent>
