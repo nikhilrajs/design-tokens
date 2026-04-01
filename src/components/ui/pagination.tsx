@@ -46,14 +46,12 @@ function PaginationLink({
 }: PaginationLinkProps) {
   return (
     <Button
-      variant="ghost"
+      variant={isActive ? "outline" : "ghost"}
       size={size}
       className={cn(
-        "border-[length:var(--pcs-pagination-item-border-width)] border-[color:var(--pcs-pagination-item-border-color)]",
-        "text-[length:var(--pcs-pagination-font-size)] font-[number:var(--pcs-pagination-font-weight)] text-[color:var(--pcs-pagination-item-text)]",
-        "hover:bg-[var(--pcs-pagination-item-bg-hover)] hover:border-[color:var(--pcs-pagination-item-border-color-hover)] hover:text-[color:var(--pcs-pagination-item-text-hover)]",
-        // aria-current="page" is the semantic active-page marker — use it for styling
-        "aria-[current=page]:bg-[var(--pcs-pagination-item-bg-active)] aria-[current=page]:border-[color:var(--pcs-pagination-item-border-color-active)] aria-[current=page]:text-[color:var(--pcs-pagination-item-text-active)] aria-[current=page]:hover:bg-[var(--pcs-pagination-item-bg-active)]",
+        "font-[number:var(--pcs-pagination-font-weight)]",
+        // Inactive items use muted text; ghost variant defaults to the full default text color
+        !isActive && "text-[color:var(--pcs-pagination-item-text)]",
         "focus-visible:ring-3 focus-visible:ring-[var(--pcs-pagination-focus-ring-color)]/50",
         className
       )}
@@ -72,45 +70,41 @@ function PaginationLink({
 
 function PaginationPrevious({
   className,
+  size,
   text = "Previous",
   ...props
 }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
+  // When no text label is shown, use icon size so the button stays square
+  const resolvedSize = size ?? (text ? "default" : "icon")
   return (
     <PaginationLink
       aria-label="Go to previous page"
-      size="default"
-      className={cn(
-        "bg-[var(--pcs-pagination-control-bg)] border-[color:var(--pcs-pagination-control-border-color)] text-[color:var(--pcs-pagination-control-text)]",
-        "hover:bg-[var(--pcs-pagination-control-bg-hover)] hover:border-[color:var(--pcs-pagination-control-border-color-hover)] hover:text-[color:var(--pcs-pagination-control-text-hover)]",
-        "disabled:opacity-100 disabled:border-[color:var(--pcs-pagination-control-border-color-disabled)] disabled:text-[color:var(--pcs-pagination-control-text-disabled)]",
-        className
-      )}
+      size={resolvedSize}
+      className={cn(className)}
       {...props}
     >
       <ChevronLeftIcon data-icon="inline-start" />
-      <span className="hidden sm:block">{text}</span>
+      {text && <span className="hidden sm:block">{text}</span>}
     </PaginationLink>
   )
 }
 
 function PaginationNext({
   className,
+  size,
   text = "Next",
   ...props
 }: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
+  // When no text label is shown, use icon size so the button stays square
+  const resolvedSize = size ?? (text ? "default" : "icon")
   return (
     <PaginationLink
       aria-label="Go to next page"
-      size="default"
-      className={cn(
-        "bg-[var(--pcs-pagination-control-bg)] border-[color:var(--pcs-pagination-control-border-color)] text-[color:var(--pcs-pagination-control-text)]",
-        "hover:bg-[var(--pcs-pagination-control-bg-hover)] hover:border-[color:var(--pcs-pagination-control-border-color-hover)] hover:text-[color:var(--pcs-pagination-control-text-hover)]",
-        "disabled:opacity-100 disabled:border-[color:var(--pcs-pagination-control-border-color-disabled)] disabled:text-[color:var(--pcs-pagination-control-text-disabled)]",
-        className
-      )}
+      size={resolvedSize}
+      className={cn(className)}
       {...props}
     >
-      <span className="hidden sm:block">{text}</span>
+      {text && <span className="hidden sm:block">{text}</span>}
       <ChevronRightIcon data-icon="inline-end" />
     </PaginationLink>
   )

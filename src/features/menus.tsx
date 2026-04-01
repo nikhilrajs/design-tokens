@@ -1035,83 +1035,61 @@ export const Menus: React.FC = () => {
             <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Default</p>
             <Pagination>
               <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious href="#" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#" isActive>2</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">3</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">8</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">9</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" />
-                </PaginationItem>
+                <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
+                <PaginationItem><PaginationLink href="#">1</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#" isActive>2</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#">3</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationEllipsis /></PaginationItem>
+                <PaginationItem><PaginationLink href="#">8</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#">9</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationNext href="#" /></PaginationItem>
               </PaginationContent>
             </Pagination>
           </div>
 
-          {/* Active on last page — Next disabled */}
-          <div>
-            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Last page (Next disabled)</p>
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious href="#" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">7</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">8</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#" isActive>9</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" aria-disabled="true" className="pointer-events-none" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
-
-          {/* No labels — icon-only controls */}
+          {/* Icon-only controls */}
           <div>
             <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Icon-only controls</p>
             <Pagination>
               <PaginationContent>
+                <PaginationItem><PaginationPrevious href="#" text="" /></PaginationItem>
+                <PaginationItem><PaginationLink href="#">1</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#" isActive>2</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#">3</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationEllipsis /></PaginationItem>
+                <PaginationItem><PaginationLink href="#">10</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationNext href="#" text="" /></PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+
+          {/* Small size */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Small</p>
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem><PaginationPrevious href="#" size="sm" text="" /></PaginationItem>
+                <PaginationItem><PaginationLink href="#" size="sm">1</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#" size="sm" isActive>2</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#" size="sm">3</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationEllipsis className="size-7" /></PaginationItem>
+                <PaginationItem><PaginationLink href="#" size="sm">9</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationNext href="#" size="sm" text="" /></PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+
+          {/* Last page — Next visually disabled */}
+          <div>
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Last page</p>
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
+                <PaginationItem><PaginationLink href="#">7</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#">8</PaginationLink></PaginationItem>
+                <PaginationItem><PaginationLink href="#" isActive>9</PaginationLink></PaginationItem>
                 <PaginationItem>
-                  <PaginationPrevious href="#" text="" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#" isActive>2</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">3</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">10</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" text="" />
+                  <PaginationNext href="#" aria-disabled="true" className="pointer-events-none opacity-50" />
                 </PaginationItem>
               </PaginationContent>
             </Pagination>
