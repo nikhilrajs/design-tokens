@@ -219,7 +219,7 @@ function ComboboxChips({
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
       className={cn(
-        "flex min-h-8 flex-wrap items-center gap-1 rounded-[var(--pcs-select-trigger-border-radius)] border-[length:var(--pcs-select-trigger-border-width)] border-[color:var(--pcs-select-trigger-border-color)] bg-[var(--pcs-select-trigger-bg)] px-2.5 py-1 text-[length:var(--pcs-select-trigger-md-font-size)] transition-colors focus-within:border-[color:var(--pcs-select-trigger-border-color-open)] focus-within:[box-shadow:var(--pcs-select-trigger-shadow-open)] has-aria-invalid:border-[color:var(--pcs-select-trigger-border-color-error)] has-aria-invalid:[box-shadow:var(--pcs-select-trigger-shadow-error-focus)] has-data-[slot=combobox-chip]:px-1",
+        "flex min-h-8 flex-wrap items-center gap-1 rounded-[var(--pcs-select-trigger-border-radius)] border-[length:var(--pcs-select-trigger-border-width)] border-[color:var(--pcs-select-trigger-border-color)] bg-[var(--pcs-select-trigger-bg)] px-2.5 py-1 text-[length:var(--pcs-select-trigger-md-font-size)] transition-colors focus-within:border-[color:var(--pcs-select-trigger-border-color-open)] focus-within:ring-3 focus-within:ring-[var(--pcs-color-focus-ring)]/50 has-aria-invalid:border-[color:var(--pcs-select-trigger-border-color-error)] has-aria-invalid:[box-shadow:var(--pcs-select-trigger-shadow-error-focus)] has-data-[slot=combobox-chip]:px-1",
         className
       )}
       {...props}
