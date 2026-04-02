@@ -7,7 +7,6 @@
      Skeleton   — loading placeholder with shimmer
      Spinner    — loading indicator, color variants and sizes
      Separator  — horizontal and vertical divider line
-     Kbd        — keyboard shortcut key badge
    =============================================================================*/
 
 
@@ -193,58 +192,3 @@
 }
 
 /* Separator has no dark mode overrides — fully handled by semantic border tokens */
-
-
-/* =============================================================================
-   KBD
-   =============================================================================
-   Keyboard shortcut badge. Looks like a physical keyboard key.
-   Used in: tooltips, help text, command palettes, shortcut hints.
-   Distinct from Badge — rectangular with visible depth/shadow.
-   =============================================================================*/
-
-:root {
-
-  /* --- Typography --- */
-  --pcs-kbd-font-family:                 var(--pcs-text-font-mono);
-  --pcs-kbd-font-size:                   var(--pcs-primitive-font-size-xs);     /* 12px */
-  --pcs-kbd-font-weight:                 var(--pcs-primitive-font-weight-normal);
-  --pcs-kbd-line-height:                 var(--pcs-primitive-line-height-normal);
-
-  /* --- Sizing --- */
-  --pcs-kbd-min-width:                   var(--pcs-primitive-space-5);          /* 20px — single char keys */
-  --pcs-kbd-height:                      var(--pcs-primitive-space-5);          /* 20px */
-  --pcs-kbd-padding-x:                   var(--pcs-space-component-padding-sm); /*  8px */
-  --pcs-kbd-padding-y:                   var(--pcs-primitive-space-0-5);        /*  2px */
-  --pcs-kbd-border-radius:               var(--pcs-radius-md);                  /*  6px */
-
-  /* --- Colors --- */
-  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* neutral-100 */
-  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* neutral-500 */
-
-  /* --- Border ---
-     Kbd uses a two-part border to simulate physical key depth:
-     Standard border on all sides + slightly darker/thicker bottom border
-     creates a 3D key press appearance.
-  --------------------------------------------------------------------------- */
-  --pcs-kbd-border-width:                var(--pcs-border-width-default);       /* 1px — all sides  */
-  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* neutral-200        */
-  --pcs-kbd-border-bottom-width:         var(--pcs-border-width-medium);        /* 2px — bottom only */
-  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* neutral-300 — darker bottom */
-
-  /* Alternative: use box-shadow for depth instead of border hack */
-  --pcs-kbd-shadow:
-    0 1px 0 0 var(--pcs-color-border-strong);                               /* single-pixel bottom shadow */
-
-}
-
-[data-app-color-scheme="dark"] {
-
-  --pcs-kbd-bg:                          var(--pcs-color-surface-muted);        /* neutral-800 — dark-aware */
-  --pcs-kbd-text:                        var(--pcs-color-text-muted);           /* neutral-400 — dark-aware */
-  --pcs-kbd-border-color:                var(--pcs-color-border-default);       /* neutral-700 — dark-aware */
-  --pcs-kbd-border-bottom-color:         var(--pcs-color-border-strong);        /* neutral-600 — dark-aware */
-  --pcs-kbd-shadow:
-    0 1px 0 0 var(--pcs-color-border-strong);
-
-}

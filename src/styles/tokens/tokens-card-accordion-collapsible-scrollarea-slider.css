@@ -7,7 +7,6 @@
      accordion-*     — collapsible list with trigger rows
      collapsible-*   — single-panel show/hide (lighter than accordion)
      scroll-area-*   — custom scrollbar overlay (shadcn ScrollArea)
-     slider-*        — range input with track + fill + thumb
 
    All components reference semantic tokens only.
    Primitives never referenced directly.
@@ -184,56 +183,6 @@
   --pcs-scroll-area-transition:          width 150ms ease, height 150ms ease,
                                      background-color 150ms ease;
 
-
-  /* ===========================================================================
-     SLIDER
-     Range input with track, range fill, and draggable thumb.
-     Shadcn structure: Slider > SliderTrack > SliderRange + SliderThumb
-     Sizes: sm | md (default) | lg
-
-     ⚠️ NOT YET CONSUMED — no component implementation exists.
-        Do not use or reference these tokens until the component
-        is built. Review during token cleanup sprint.
-  =========================================================================== */
-
-  /* --- Track --- */
-  --pcs-slider-track-bg:                 var(--pcs-color-surface-muted);        /* neutral-100  */
-  --pcs-slider-track-bg-disabled:        var(--pcs-color-state-disabled-bg);
-  --pcs-slider-track-border-radius:      var(--pcs-radius-full);
-
-  --pcs-slider-track-height-sm:          var(--pcs-primitive-space-1);          /* 4px  */
-  --pcs-slider-track-height-md:          var(--pcs-primitive-space-1-5);        /* 6px  */
-  --pcs-slider-track-height-lg:          var(--pcs-primitive-space-2);          /* 8px  */
-
-  /* --- Range fill (filled portion of track) --- */
-  --pcs-slider-range-bg:                 var(--pcs-color-primary-emphasis);     /* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis is the canonical filled-primary token */
-  --pcs-slider-range-bg-hover:           var(--pcs-color-primary-emphasis-hover); /* --pcs-color-primary-hover did not exist; maps to emphasis-hover */
-  --pcs-slider-range-bg-disabled:        var(--pcs-color-state-disabled-border);
-
-  /* --- Thumb --- */
-  --pcs-slider-thumb-bg:                 var(--pcs-color-surface-card);         /* white     */
-  --pcs-slider-thumb-border-color:       var(--pcs-color-primary-emphasis);     /* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis is the canonical filled-primary token */
-  --pcs-slider-thumb-border-width:       var(--pcs-border-width-thick);         /* 2px       */
-  --pcs-slider-thumb-border-radius:      var(--pcs-radius-full);
-  --pcs-slider-thumb-shadow:             var(--pcs-shadow-sm);
-
-  --pcs-slider-thumb-size-sm:            var(--pcs-primitive-space-3-5);        /* 14px */
-  --pcs-slider-thumb-size-md:            var(--pcs-primitive-space-5);          /* 20px */
-  --pcs-slider-thumb-size-lg:            var(--pcs-primitive-space-6);          /* 24px */
-
-  /* Hover state — thumb grows slightly */
-  --pcs-slider-thumb-scale-hover:        1.1;
-
-  /* Focus ring on thumb */
-  --pcs-slider-thumb-focus-ring-color:   var(--pcs-color-focus-ring);
-  --pcs-slider-thumb-focus-ring-width:   var(--pcs-focus-ring-width);
-  --pcs-slider-thumb-focus-ring-offset:  var(--pcs-focus-ring-offset);
-
-  /* Disabled */
-  --pcs-slider-thumb-bg-disabled:        var(--pcs-color-surface-muted);
-  --pcs-slider-thumb-border-color-disabled: var(--pcs-color-state-disabled-border);
-  --pcs-slider-cursor-disabled:          not-allowed;
-
 }
 
 
@@ -255,9 +204,5 @@
   --pcs-scroll-area-thumb-bg:            var(--pcs-color-border-default);       /* neutral-700 */
   --pcs-scroll-area-thumb-bg-hover:      var(--pcs-color-border-strong);        /* neutral-500 */
   --pcs-scroll-area-track-bg-hover:      var(--pcs-color-surface-muted);        /* neutral-900 */
-
-  /* Slider */
-  /* --pcs-slider-track-bg resolves to --pcs-color-surface-muted — dark-aware */
-  /* Thumb white bg in dark mode: stays white — acts as contrast element */
 
 }
