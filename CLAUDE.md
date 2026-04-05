@@ -520,6 +520,17 @@ what not to do.
 When in doubt, flag the candidate token to Nikhil with a one-line
 reason. Do not add it unilaterally.
 
+## Semantic-Direct Components
+
+Components that reference semantic tokens directly in the component file.
+No component token layer exists or is needed.
+
+| Component | Token used | Notes |
+|---|---|---|
+| Separator | `--pcs-color-border-default` | All 7 proposed component tokens audited and removed — every one failed Boundary 1 or Boundary 2 |
+
+---
+
 ## Deferred Components
 
 ### Table — Pending component selection
