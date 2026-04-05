@@ -519,3 +519,15 @@ what not to do.
 
 When in doubt, flag the candidate token to Nikhil with a one-line
 reason. Do not add it unilaterally.
+
+## Deferred Components
+
+### Table — Pending component selection
+
+TanStack Table is under evaluation. Author tokens at implementation time;
+apply ownership boundaries before defining.
+
+Known design decisions to carry forward:
+- Action column width: 80px (content-driven, outside spacing scale)
+- Selected row bg: `--pcs-color-primary-subtle`
+- Header font-weight: semibold (via `--pcs-primitive-font-weight-semibold`)
