@@ -159,7 +159,7 @@
 
   /* --- Column type: Action --- */
   /* Fixed width column hosting icon buttons. Right-aligned. */
-  --pcs-table-cell-action-width:           var(--pcs-primitive-space-20);          /* 80px — fits 2–3 icon buttons */
+  --pcs-table-cell-action-width:           80px;          /* 80px — fits 2–3 icon buttons */
   --pcs-table-cell-action-text-align:      right;
   --pcs-table-cell-action-gap:             var(--pcs-space-component-gap-xs);      /* 4px between action buttons */
 

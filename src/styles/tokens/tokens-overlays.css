@@ -282,6 +282,8 @@
   --pcs-hover-card-meta-font-size:       var(--pcs-text-body-sm-size);          /* 12px */
   --pcs-hover-card-meta-color:           var(--pcs-color-text-muted);
 
+	--pcs-hover-card-z:                    var(--pcs-z-dropdown);
+
 }
 
 
