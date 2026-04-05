@@ -1,0 +1,737 @@
+TOKEN SYSTEM DIAGNOSTIC REPORT
+Generated: 2026-04-02
+================================================================================
+
+
+================================================================================
+1. TOKEN INVENTORY
+================================================================================
+
+TIER 1 — PRIMITIVES (tokens.css, :root Section 1)
+--------------------------------------------------
+
+Group                          | Count | Token prefix
+-------------------------------|-------|----------------------------------------------
+Neutral (Zinc) colors          |    11 | --pcs-primitive-color-neutral-{50–950}
+Neutral alpha on-light         |     5 | --pcs-primitive-color-neutral-alpha-on-light-{100–500}
+Neutral alpha on-dark          |     8 | --pcs-primitive-color-neutral-alpha-on-dark-{100–800}
+Brand colors                   |    11 | --pcs-primitive-color-brand-{50–950}
+Red colors                     |    11 | --pcs-primitive-color-red-{50–950}
+Yellow colors                  |    11 | --pcs-primitive-color-yellow-{50–950}
+Emerald colors                 |    11 | --pcs-primitive-color-emerald-{50–950}
+Sky colors                     |    11 | --pcs-primitive-color-sky-{50–950}
+Absolute (white/black/transp.) |     3 | --pcs-primitive-color-white/black/transparent
+Font families                  |     3 | --pcs-primitive-font-family-{sans,sans-display,mono}
+Font sizes                     |     8 | --pcs-primitive-font-size-{xs–4xl}
+Font weights                   |     4 | --pcs-primitive-font-weight-{normal,medium,semibold,bold}
+Line heights                   |     5 | --pcs-primitive-line-height-{tight–loose}
+Spacing                        |    17 | --pcs-primitive-space-{0–16}
+Border radius                  |     7 | --pcs-primitive-radius-{none–full}
+Shadows                        |     4 | --pcs-primitive-shadow-{sm–xl}
+
+Total Tier 1: ~131 tokens
+
+Flags — unclear tier membership:
+  - --pcs-focus-ring-width (tokens.css:358): Structural constant defined in the
+    semantic block. No category segment. Closer to a primitive-like infrastructure
+    constant than a semantic alias.
+  - --pcs-focus-ring-offset (tokens.css:359): Same issue.
+  - --pcs-border-width-default/medium/thick: Named by scale, not by role.
+    Convention leans primitive despite living in the semantic block.
+
+
+TIER 2 — SEMANTIC (tokens.css, :root Section 2)
+------------------------------------------------
+
+Group                          | Count | Notes
+-------------------------------|-------|----------------------------------------------
+Surfaces                       |     5 | background, card, muted, overlay, sidebar
+Borders                        |     3 | default, muted, strong
+Text                           |     6 | default, muted, subtle, disabled, inverse, on-emphasis
+Icons                          |     3 | default, muted, disabled
+Primary / Brand                |    10 | emphasis/hover/active, subtle/hover, text,
+                               |       | border, icon, on-emphasis
+Focus ring                     |     3 | --pcs-color-focus-ring, --pcs-focus-ring-width,
+                               |       | --pcs-focus-ring-offset
+Success (role)                 |     7 | background/hover, border, text, icon, emphasis,
+                               |       | on-emphasis
+Error (role)                   |     7 | same shape
+Warning (role)                 |     7 | same shape
+Info (role)                    |     7 | same shape
+Interactive states             |     8 | hover, active, selected, selected-border,
+                               |       | disabled-bg/text/border, overlay-scrim
+Typography semantic            |    ~38| display, title-lg/md/sm, subtitle,
+                               |       | body-lg/md/sm, label-lg/sm, caption,
+                               |       | code-inline + shorthands + 3 font-family aliases
+Spacing (semantic)             |    18 | component-padding xs–xl, component-gap xs–lg,
+                               |       | layout-gap sm–xl, inset sm–xl
+Sizing                         |    14 | control xs–xl, avatar xs–xl, icon sm–lg
+Border widths                  |     3 | default (1px), medium (2px), thick (4px)
+Radius (semantic)              |     7 | none through full
+Shadows (semantic)             |     4 | sm through xl
+Z-index                        |     8 | base, raised, dropdown, sticky, overlay,
+                               |       | modal, toast, tooltip, external
+
+Total Tier 2: ~162 tokens
+
+
+TIER 3 — COMPONENT (all tokens-*.css files)
+--------------------------------------------
+
+File                                                          | Count | Components covered
+--------------------------------------------------------------|-------|------------------
+tokens-button.css                                             |   ~90 | button (7 variants), button-group
+tokens-input-field.css                                        |   ~65 | input, textarea, field
+tokens-badge.css                                              |   ~45 | badge (6 appearances × 2 weights)
+tokens-avatar-skeleton-spinner-separator-kbd.css              |   ~55 | avatar, skeleton, spinner, separator
+tokens-checkbox-radio-switch-toggle.css                       |   ~75 | checkbox, radio, switch, toggle, toggle-group
+tokens-breadcrumb-pagination.css                              |   ~50 | breadcrumb, pagination
+tokens-overlays.css                                           |   ~65 | scrim, dialog, sheet, floating-base,
+                                                              |       | popover, tooltip, hover-card
+tokens-menus.css                                              |   ~55 | menu, menubar, select-trigger, native-select
+tokens-feedback.css                                           |   ~60 | alert (5 variants), toast (5 variants),
+                                                              |       | empty-state
+tokens-card-accordion-collapsible-scrollarea-slider.css       |   ~75 | card (2 variants), accordion (2 variants),
+                                                              |       | collapsible, scroll-area
+tokens-table.css                                              |   ~60 | table (NOT YET CONSUMED)
+tokens-typography.css                                         |   ~55 | typography components (NOT YET CONSUMED)
+tokens-sidebar.css                                            |     3 | sidebar widths only
+tokens-tabs.css                                               |   ~11 | tabs (2 variants)
+
+Total Tier 3: ~769 tokens
+
+GRAND TOTAL: ~1,062 tokens across all tiers
+
+
+================================================================================
+2. TOKEN USAGE
+================================================================================
+
+ACTIVELY CONSUMED
+-----------------
+The following families are confirmed active (380+ var(--pcs-*) usages across
+33 component files):
+
+  --pcs-button-*              → button.tsx, button-group.tsx
+  --pcs-input-*, --pcs-field-*→ input.tsx, textarea.tsx, field.tsx,
+                                 input-group.tsx, native-select.tsx
+  --pcs-badge-*               → badge.tsx
+  --pcs-avatar-*              → avatar.tsx
+  --pcs-skeleton-bg,
+  --pcs-skeleton-shimmer-color→ consumed via .animate-skeleton in globals.css
+                                 (NOT from skeleton.tsx directly)
+  --pcs-spinner-*             → spinner.tsx
+  --pcs-checkbox-*            → checkbox.tsx
+  --pcs-radio-*               → radio-group.tsx
+  --pcs-switch-*              → (within checkbox-radio-switch-toggle family)
+  --pcs-toggle-*              → toggle.tsx, toggle-group.tsx
+  --pcs-breadcrumb-*          → breadcrumb.tsx (partial — see dead tokens)
+  --pcs-pagination-*          → pagination.tsx
+  --pcs-overlay-scrim-bg      → dialog.tsx, alert-dialog.tsx
+  --pcs-dialog-title-font-size,
+  --pcs-dialog-title-line-height → dialog.tsx, alert-dialog.tsx (ONLY these 2)
+  --pcs-floating-*            → hover-card.tsx, popover.tsx, tooltip.tsx
+  --pcs-hover-card-shadow,
+  --pcs-hover-card-min-width  → hover-card.tsx
+  --pcs-popover-*             → popover.tsx
+  --pcs-tooltip-*             → tooltip.tsx
+  --pcs-menu-*, --pcs-menubar-*,
+  --pcs-select-trigger-*,
+  --pcs-native-select-*       → dropdown-menu.tsx, context-menu.tsx,
+                                 menubar.tsx, select.tsx, combobox.tsx,
+                                 native-select.tsx
+  --pcs-alert-* (colors only) → alert.tsx
+  --pcs-empty-*               → empty.tsx
+  --pcs-card-*                → card.tsx
+  --pcs-tabs-*                → tabs.tsx
+  --pcs-sidebar-width*        → sidebar.tsx
+  --pcs-scroll-area-*         → (scroll-area component)
+
+
+DEAD TOKENS — DEFINED BUT NEVER CONSUMED ANYWHERE
+--------------------------------------------------
+
+Entire files / sections marked "NOT YET CONSUMED":
+
+  tokens-table.css (~60 tokens)
+    All --pcs-table-* tokens. File header: "NOT YET CONSUMED — no component
+    implementation exists." No .tsx file references any --pcs-table-*.
+
+  tokens-typography.css (~55 tokens)
+    All --pcs-typography-* tokens. File header: same warning.
+
+  Accordion section in tokens-card-accordion-collapsible-scrollarea-slider.css
+  (~30 tokens)
+    All --pcs-accordion-* tokens. Section comment: "NOT YET CONSUMED."
+
+Components implemented but tokens fully bypassed:
+
+  collapsible.tsx (5 tokens dead)
+    --pcs-collapsible-content-font-size/color/line-height,
+    --pcs-collapsible-animation-duration/easing
+    collapsible.tsx is an unstyled wrapper — zero token references.
+
+  separator.tsx (7 tokens dead)
+    --pcs-separator-color, --pcs-separator-color-strong,
+    --pcs-separator-thickness, --pcs-separator-margin-sm/md,
+    --pcs-separator-decorative-color, --pcs-separator-decorative-thickness
+    separator.tsx line 15 uses --pcs-color-border-default (semantic) directly.
+
+  kbd.tsx (0 tokens — none defined)
+    No --pcs-kbd-* tokens exist in the designated file.
+    kbd.tsx uses hardcoded Tailwind utilities only.
+
+  sheet.tsx (~20 tokens dead)
+    All --pcs-sheet-* tokens. sheet.tsx has zero --pcs-sheet-* references.
+
+  dialog.tsx / alert-dialog.tsx (~35 tokens dead)
+    Only --pcs-dialog-title-font-size and --pcs-dialog-title-line-height
+    consumed. All layout/spacing/close-button/width tokens are dead.
+    Both components use shadcn bridge classes + hardcoded Tailwind instead.
+
+  alert.tsx (~12 tokens dead)
+    --pcs-alert-border-radius, --pcs-alert-padding, --pcs-alert-gap,
+    --pcs-alert-icon-size, --pcs-alert-accent-border-width,
+    --pcs-alert-title-font-size/weight/line-height,
+    --pcs-alert-description-font-size/weight/line-height,
+    --pcs-alert-title-description-gap
+    alert.tsx uses hardcoded Tailwind (rounded-lg, px-2.5 py-2, etc.)
+    for all structural properties.
+
+Individual tokens marked "Unused" within otherwise-consumed files:
+
+  tokens-breadcrumb-pagination.css (9 tokens, lines 44–91):
+    --pcs-breadcrumb-item-padding-x/y           (comment: "Unused — padding was removed")
+    --pcs-breadcrumb-icon-color                 (comment: "Unused — no leading-icon slot")
+    --pcs-breadcrumb-icon-color-hover
+    --pcs-breadcrumb-icon-gap
+    --pcs-breadcrumb-ellipsis-color-hover       (comment: "Unused — ellipsis is static")
+    --pcs-breadcrumb-ellipsis-bg-hover
+    --pcs-breadcrumb-ellipsis-border-radius
+    --pcs-breadcrumb-ellipsis-padding-x/y
+    --pcs-breadcrumb-item-max-width             (comment: "Unused — truncation not implemented")
+
+  tokens-card-accordion-collapsible-scrollarea-slider.css (8 tokens dead):
+    --pcs-card-default-bg/border-color/shadow       (variant not implemented)
+    --pcs-card-elevated-bg/border-color/shadow      (variant not implemented)
+    --pcs-card-footer-gap
+    --pcs-card-content-padding-top
+    --pcs-card-footer-padding-top
+    --pcs-card-footer-border-top
+    --pcs-card-border-style
+
+  tokens-overlays.css (3+ tokens dead):
+    --pcs-hover-card-meta-font-size
+    --pcs-hover-card-meta-color
+    --pcs-hover-card-max-width
+
+  tokens-feedback.css (~20 tokens dead):
+    --pcs-toast-neutral-bg/border/accent/icon
+    --pcs-toast-success-bg/border/accent/icon/title
+    --pcs-toast-error-bg/border/accent/icon/title
+    --pcs-toast-warning-bg/border/accent/icon/title
+    --pcs-toast-info-bg/border/accent/icon/title
+    No Toast component file found in src/components/ui/.
+
+Estimated dead token count: ~265 (~34% of all Tier 3 tokens)
+
+
+TIER BOUNDARY VIOLATIONS — COMPONENT CONSUMING PRIMITIVE DIRECTLY
+-----------------------------------------------------------------
+All are documented with inline comments explaining the rationale.
+
+  Token                                     | File / Line          | Primitive used
+  ------------------------------------------|----------------------|------------------------
+  --pcs-button-destructive-bg-hover         | tokens-button.css:200| --pcs-primitive-color-red-700
+  --pcs-button-destructive-bg-active        | tokens-button.css:201| --pcs-primitive-color-red-800
+  --pcs-button-destructive-ghost-text-hover | tokens-button.css:252| --pcs-primitive-color-red-700
+  --pcs-button-destructive-ghost-text-active| tokens-button.css:253| --pcs-primitive-color-red-800
+  Dark destructive variants                 | tokens-button.css:   | red-400/500/600/200/300
+                                            |   363–384            |
+  --pcs-badge-neutral-emphasis-bg/border    | tokens-badge.css:72  | neutral-600
+  --pcs-badge-primary-emphasis-bg/border    | tokens-badge.css:90  | brand-700
+  --pcs-badge-success-emphasis-bg/border    | tokens-badge.css:108 | emerald-700
+  --pcs-badge-info-emphasis-bg/border       | tokens-badge.css:162 | sky-700
+  --pcs-badge-warning-emphasis-text         | tokens-badge.css:146 | yellow-950
+
+  Additionally: separator.tsx line 15 uses --pcs-color-border-default (Tier 2
+  semantic) directly, bypassing the --pcs-separator-color component token.
+
+
+================================================================================
+3. SHADCN BRIDGE AUDIT
+================================================================================
+
+MAPPINGS IN shadcn-bridge.css :root BLOCK
+-----------------------------------------
+
+shadcn variable               | Maps to                              | Target exists?
+------------------------------|--------------------------------------|---------------
+--background                  | --pcs-color-background               | YES
+--foreground                  | --pcs-color-text-default             | YES
+--card                        | --pcs-color-surface-card             | YES
+--card-foreground             | --pcs-color-text-default             | YES
+--popover                     | --pcs-color-surface-overlay          | YES
+--popover-foreground          | --pcs-color-text-default             | YES
+--primary                     | --pcs-color-primary-emphasis         | YES
+--primary-foreground          | --pcs-color-primary-on-emphasis      | YES
+--secondary                   | --pcs-color-surface-muted            | YES
+--secondary-foreground        | --pcs-color-text-default             | YES
+--muted                       | --pcs-color-surface-muted            | YES
+--muted-foreground            | --pcs-color-text-muted               | YES
+--accent                      | --pcs-color-surface-muted            | YES (see note)
+--accent-foreground           | --pcs-color-text-default             | YES
+--destructive                 | --pcs-color-error-emphasis           | YES
+--destructive-foreground      | --pcs-color-error-on-emphasis        | YES
+--border                      | --pcs-color-border-default           | YES
+--input                       | --pcs-color-border-strong            | YES
+--ring                        | --pcs-color-focus-ring               | YES
+--radius                      | --pcs-radius-md                      | YES
+--chart-1                     | --pcs-color-primary-emphasis         | YES
+--chart-2                     | --pcs-color-info-emphasis            | YES
+--chart-3                     | --pcs-color-success-emphasis         | YES
+--chart-4                     | --pcs-color-warning-emphasis         | YES
+--chart-5                     | --pcs-color-error-emphasis           | YES
+--sidebar                     | --pcs-color-surface-sidebar          | YES
+--sidebar-foreground          | --pcs-color-text-default             | YES
+--sidebar-primary             | --pcs-color-primary-emphasis         | YES
+--sidebar-primary-foreground  | --pcs-color-primary-on-emphasis      | YES
+--sidebar-accent              | --pcs-color-state-hover              | YES
+--sidebar-accent-foreground   | --pcs-color-text-default             | YES
+--sidebar-border              | --pcs-color-border-default           | YES
+--sidebar-ring                | --pcs-color-focus-ring               | YES
+
+No broken mappings. All 29 target tokens exist.
+No standard shadcn variables are missing from the bridge.
+
+
+INCONSISTENCY BETWEEN :root AND .dark BLOCKS
+--------------------------------------------
+
+Variable   | :root value                  | .dark value
+-----------|------------------------------|---------------------------
+--accent   | --pcs-color-surface-muted    | --pcs-color-state-hover
+
+Both tokens resolve to the same underlying primitives in both modes:
+  Light: neutral-100 / Dark: neutral-800
+No functional rendering bug. However, the :root block naming is inconsistent
+with both the .dark block and the @theme inline mapping in globals.css (which
+uses --pcs-color-state-hover). Three different token names are used as the
+canonical value for --accent across two files.
+
+
+================================================================================
+4. HARDCODED VALUES
+================================================================================
+
+No hardcoded color/spacing/shadow hex, oklch, rgb, or rgba values were found
+in any component .tsx file. All color values route through var(--pcs-*) or
+shadcn bridge classes.
+
+The following are hardcoded Tailwind utility values in components that have
+corresponding component tokens defined but not used:
+
+Component        | Line | Hardcoded value        | Bypassed token
+-----------------|------|------------------------|----------------------------------
+alert-dialog.tsx |   55 | p-6 (24px)             | --pcs-dialog-padding-body
+alert-dialog.tsx |   55 | gap-4 (16px)           | --pcs-dialog-header-gap / footer-gap
+alert-dialog.tsx |   55 | rounded-xl (12px)      | --pcs-dialog-border-radius
+alert-dialog.tsx |   55 | shadow-lg              | --pcs-dialog-shadow
+alert-dialog.tsx |   55 | z-50                   | --pcs-dialog-z
+alert-dialog.tsx |   88 | p-4 (16px)             | --pcs-dialog-padding-footer
+alert-dialog.tsx |   88 | bg-muted/50            | no 50%-opacity surface token exists
+alert-dialog.tsx |   88 | gap-2 (8px)            | --pcs-dialog-footer-gap
+alert-dialog.tsx |  104 | size-10 (40px)         | no dialog-media size token
+alert-dialog.tsx |  104 | rounded-md             | --pcs-dialog-close-border-radius
+alert.tsx        |    8 | rounded-lg             | --pcs-alert-border-radius
+alert.tsx        |    8 | px-2.5 py-2 (10px/8px) | --pcs-alert-padding (defined as 16px
+                 |      |                        | — component deviates from token value)
+alert.tsx        |    8 | gap-0.5 (2px)          | --pcs-alert-title-description-gap
+alert.tsx        |    8 | text-sm                | --pcs-alert-title-font-size
+kbd.tsx          |    8 | h-5 min-w-5 px-1       | No --pcs-kbd-* tokens defined at all
+kbd.tsx          |    8 | rounded-sm text-xs     | No --pcs-kbd-* tokens defined at all
+kbd.tsx          |    8 | font-medium            | No --pcs-kbd-* tokens defined at all
+skeleton.tsx     |    7 | rounded-md             | No skeleton shape token defined
+
+
+================================================================================
+5. @THEME COVERAGE
+================================================================================
+
+The @theme inline block in globals.css (lines 64–187) contains 88 Tailwind
+utility token registrations. Every entry uses var(--pcs-*) aliasing.
+
+RULE COMPLIANCE
+---------------
+  - All tokens in @theme inline are aliases (use var()). CORRECT.
+  - No literal values present in @theme inline. CORRECT.
+  - No plain @theme block exists. Primitive literal values live as :root
+    CSS custom properties in tokens.css and are aliased through @theme inline
+    via the semantic layer. CORRECT.
+
+No @theme rule violations found.
+
+WHAT IS NOT IN @theme inline (by design)
+-----------------------------------------
+The following semantic token families are consumed via var() directly in
+component CSS/JSX, not as Tailwind utility classes:
+  - All spacing tokens (--pcs-space-*, --pcs-size-*)
+  - All z-index tokens (--pcs-z-*)
+  - All typography scale tokens (--pcs-text-*)
+  - All role on-emphasis tokens
+  - --pcs-color-state-selected, --pcs-color-state-selected-border
+  - --pcs-color-overlay-scrim
+  - --pcs-focus-ring-width/offset
+  - --pcs-border-width-*
+
+
+================================================================================
+6. DARK MODE COVERAGE
+================================================================================
+
+All semantic color tokens defined in the light-mode :root block have
+corresponding overrides in the dark mode block (.dark, [data-app-color-scheme="dark"])
+in tokens.css Section 3. No semantic color token gaps found.
+
+INTENTIONALLY NOT OVERRIDDEN IN DARK MODE (constants):
+  --pcs-focus-ring-width/offset, --pcs-border-width-*, --pcs-radius-*,
+  --pcs-z-*, --pcs-size-*, --pcs-space-*, all typography scale tokens
+
+  --pcs-color-overlay-scrim: intentionally constant. Comment at tokens.css
+  line 796 confirms "on-light-500 applies in dark mode too."
+  NOTE: tokens-overlays.css dark block comment (line 304) claims "0.7" opacity
+  for this token, but the actual primitive resolves to 64% alpha. Comment is
+  inaccurate.
+
+
+COMPONENT FILE DARK MODE STATUS
+--------------------------------
+
+File                                                     | Dark block  | Notes
+---------------------------------------------------------|-------------|------------------
+tokens-button.css                                        | YES         | Covers destructive variants
+tokens-input-field.css                                   | YES         | Covers bg tint (oklch relative)
+tokens-badge.css                                         | YES         | Covers emphasis variants
+tokens-avatar-skeleton-spinner-separator-kbd.css         | YES         | Avatar/skeleton/spinner;
+                                                         |             | separator intentionally omitted
+tokens-checkbox-radio-switch-toggle.css                  | YES         | Checkbox bg, switch track, toggle
+tokens-breadcrumb-pagination.css                         | YES (no-op) | Comment: semantic tokens handle it
+tokens-overlays.css                                      | YES         | Tooltip inversion
+tokens-menus.css                                         | YES         | Hover fix for dark panel bg
+tokens-feedback.css                                      | YES (no-op) | Comment: semantic tokens handle it
+tokens-card-accordion-collapsible-scrollarea-slider.css  | YES         | Elevated shadow, scroll thumb
+tokens-table.css                                         | YES         | Head/footer bg, sticky shadow, rows
+tokens-typography.css                                    | YES         | Code bg, link decoration, selection
+tokens-tabs.css                                          | YES         | Active trigger border
+tokens-sidebar.css                                       | NONE        | Width constants — correct, no colors
+
+No semantic color tokens missing a dark mode override. Coverage is complete.
+No orphaned dark overrides (overrides without a corresponding light token) found.
+
+
+================================================================================
+7. CSS-SPECIFIC VALUES (Mobile Token Strategy Inventory)
+================================================================================
+
+rem VALUES
+----------
+All font-size, spacing, and radius primitives in tokens.css use rem (0.125rem–4rem).
+
+Additional rem values in component files:
+  --pcs-badge-max-width                       tokens-badge.css:57              12.5rem
+  --pcs-badge-border-radius                   tokens-badge.css:54              0.25rem
+  --pcs-breadcrumb-item-max-width             tokens-breadcrumb-pagination:91  12rem
+  --pcs-dialog-width-sm/md/lg/xl              tokens-overlays.css:67–70        25rem, 32rem, 40rem, 48rem
+  --pcs-popover-min-width/max-width           tokens-overlays.css:202–203      12rem, 22rem
+  --pcs-tooltip-max-width                     tokens-overlays.css:245          16rem
+  --pcs-hover-card-min-width/max-width        tokens-overlays.css:277–278      16rem, 24rem
+  --pcs-sheet-width-sm/md/lg                  tokens-overlays.css:133–135      20rem, 24rem, 32rem
+  --pcs-menu-min-width/max-width/max-height   tokens-menus.css:41–43           10rem, 22rem, 22rem
+  --pcs-toast-width                           tokens-feedback.css:118          24rem
+  --pcs-empty-media-icon-size                 tokens-feedback.css:207          2rem
+  --pcs-input-textarea-min-height             tokens-input-field.css:81        5rem
+  --pcs-sidebar-width                         tokens-sidebar.css:23            16rem
+  --pcs-sidebar-width-mobile                  tokens-sidebar.css:24            18rem
+  --pcs-sidebar-width-icon                    tokens-sidebar.css:25            3rem
+  --pcs-switch-track-width                    tokens-checkbox-radio-switch:124 2.25rem
+  --pcs-checkbox-touch-target                 tokens-checkbox-radio-switch:34  2.75rem
+  --pcs-radio-touch-target                    tokens-checkbox-radio-switch:81  2.75rem
+  --pcs-switch-touch-target                   tokens-checkbox-radio-switch:134 2.75rem
+  --pcs-toggle-touch-target                   tokens-checkbox-radio-switch:187 2.75rem
+
+px VALUES
+----------
+  --pcs-primitive-space-0                     tokens.css                       0px
+  --pcs-primitive-space-px                    tokens.css                       1px
+  --pcs-primitive-radius-none                 tokens.css                       0px
+  --pcs-primitive-radius-full                 tokens.css                       9999px
+  --pcs-border-width-default/medium/thick     tokens.css                       1px, 2px, 4px
+  --pcs-focus-ring-width                      tokens.css:358                   2px
+  --pcs-focus-ring-offset                     tokens.css:359                   2px
+  --pcs-input-focus-ring-offset               tokens-input-field.css:49        0px
+  --pcs-overlay-backdrop-blur                 tokens-overlays.css:36           0px
+  --pcs-tooltip-border-width                  tokens-overlays.css:239          0px
+  --pcs-scroll-area-scrollbar-size            tokens-card-accordion-...:167    6px
+  --pcs-scroll-area-scrollbar-size-hover      tokens-card-accordion-...:168    8px
+  --pcs-tabs-trigger-indicator-size           tokens-tabs.css:58               2px
+  --pcs-table-row-height-default/compact      tokens-table.css:152–153         48px, 36px
+  --pcs-spinner-track-width-sm/md/lg/xl       tokens-avatar-...:129–132        1.5px, 2px, 2px, 3px
+  --pcs-breadcrumb-focus-ring-offset          tokens-breadcrumb-pagination:58  1px
+  --pcs-menubar-trigger-focus-ring-offset     tokens-menus.css:140             1px
+
+vw / vh VALUES
+--------------
+  --pcs-dialog-width-full       tokens-overlays.css:71    calc(100vw - var(--pcs-primitive-space-8))
+  --pcs-dialog-max-height       tokens-overlays.css:73    calc(100vh - var(--pcs-primitive-space-16))
+  --pcs-sheet-width-full        tokens-overlays.css:136   100vw
+  --pcs-sheet-max-width         tokens-overlays.css:137   80vw
+  --pcs-sheet-height            tokens-overlays.css:138   100vh
+  --pcs-toast-max-width         tokens-feedback.css:118   calc(100vw - var(--pcs-primitive-space-8))
+
+calc() VALUES
+-------------
+  --pcs-dialog-width-full             calc(100vw - var(...))
+  --pcs-dialog-max-height             calc(100vh - var(...))
+  --pcs-toast-max-width               calc(100vw - var(...))
+  --pcs-avatar-stack-overlap-sm/md/lg calc(var(--pcs-size-avatar-*) * -0.25)
+  --pcs-typography-subtitle-margin-top calc(-1 * var(--pcs-space-component-gap-xs))
+
+em VALUES
+---------
+  --pcs-text-code-inline-size              tokens.css:509               0.9285em
+  --pcs-typography-code-inline-font-size   tokens-typography.css:171    0.875em
+  --pcs-typography-list-ul-marker-size     tokens-typography.css:189    0.375em
+  --pcs-badge-letter-spacing               tokens-badge.css:45          0.025em
+  --pcs-table-head-letter-spacing          tokens-table.css:89          0.04em
+
+
+================================================================================
+8. NAMING CONSISTENCY
+================================================================================
+
+All tokens use the --pcs- namespace prefix. No prefix violations found.
+
+SEMANTIC TIER — PATTERN VIOLATIONS
+Expected: --pcs-[namespace]-[category]-[property]-[variant]
+-----------------------------------
+
+  --pcs-focus-ring-width (tokens.css:358)
+    Missing category segment. Should be something like
+    --pcs-border-focus-ring-width. Currently sits in the semantic block without
+    a category qualifier.
+
+  --pcs-focus-ring-offset (tokens.css:359)
+    Same issue as above.
+
+  --pcs-border-width-default/medium/thick
+    Named by scale (default, medium, thick) not by role. Naming convention
+    leans more primitive than semantic.
+
+  --pcs-color-text-disabled (tokens.css:315)
+  --pcs-color-state-disabled-text (tokens.css:425)
+    Two tokens expressing "disabled text color" at the semantic tier. They
+    resolve to DIFFERENT values in light mode:
+      --pcs-color-text-disabled       → neutral-300
+      --pcs-color-state-disabled-text → neutral-400
+    Both resolve to neutral-600 in dark mode. The duplication creates
+    ambiguity about which to use. Neither name clearly signals when to
+    prefer one over the other.
+
+
+COMPONENT TIER — PATTERN VIOLATIONS
+Expected: --pcs-[component]-[variant]-[property]-[state]
+------------------------------------
+
+  Size-grouping pattern diverges from variant pattern:
+    --pcs-button-size-xs-height, --pcs-button-icon-size-xs (tokens-button.css)
+    --pcs-input-size-sm-height (tokens-input-field.css)
+    These use [component]-size-[scale]-[property] grouping, not the
+    [component]-[variant]-[property]-[state] pattern documented in the file
+    header. Internally consistent but structurally different.
+
+  Hardcoded literals within component token files (not aliases):
+    --pcs-table-head-font-weight: 600          tokens-table.css:85
+      Should reference --pcs-primitive-font-weight-semibold.
+    --pcs-tabs-list-padding: 3px               tokens-tabs.css:29
+      No corresponding primitive for 3px. Hardcoded literal.
+    --pcs-button-border-style: solid           tokens-button.css:41
+      Hardcoded CSS keyword.
+    --pcs-input-textarea-resize: vertical      tokens-input-field.css:84
+      Hardcoded CSS keyword.
+    --pcs-button-cursor-default: pointer       tokens-button.css:52
+      Hardcoded CSS keyword.
+    --pcs-spinner-animation-duration: 0.75s    tokens-avatar-...:155
+      Animation timing not from a primitive.
+    --pcs-accordion-chevron-rotate-open: 180deg tokens-card-...:106
+      Hardcoded transform value.
+
+  Toast base + variant redundancy:
+    --pcs-toast-bg (base) and --pcs-toast-neutral-bg (variant pointing to base)
+    are one-level-deep re-aliases with no added value. Neutral variant bg,
+    border etc. all alias back to the base tokens they shadow.
+
+INCONSISTENT ABBREVIATIONS
+---------------------------
+  bg vs background:
+    Component tier uses "bg" (--pcs-input-bg, --pcs-checkbox-bg).
+    Semantic tier uses "background" (--pcs-color-success-background).
+    Convention is intentional (different tiers) but undocumented.
+
+APPEARANCE-DESCRIPTIVE NAMES AT SEMANTIC TIER
+---------------------------------------------
+  None found. All semantic color tokens describe roles, not visual appearances.
+
+
+================================================================================
+9. COMMENT QUALITY
+================================================================================
+
+USEFUL COMMENTS (explain non-obvious decisions)
+------------------------------------------------
+
+  tokens.css:397   --pcs-color-warning-on-emphasis
+    "yellow is too bright for white text — ~1.8:1 contrast"
+    Explains why neutral-950 is used instead of white. Useful.
+
+  tokens.css:417   --pcs-color-state-hover
+    "neutral-50 (98.5%) is invisible on white — neutral-100 (96.7%) is the
+    minimum perceptible hover"
+    Explains the step choice. Useful.
+
+  tokens.css:732   Dark --pcs-color-primary-on-emphasis
+    "dark text on brand-400 — brand-400 is light (L=73.91%) in dark mode"
+    Contrast justification. Useful.
+
+  tokens-button.css:195–197   Destructive hover/active
+    "Note: hover/active intentionally reference primitives (red-700, red-800).
+    No semantic 'deeper red' tokens exist."
+    Documents the intentional tier bypass. Useful.
+
+  tokens-input-field.css:49   --pcs-input-focus-ring-offset: 0px
+    "intentional — inputs use box-shadow not outline, so no offset is needed"
+    Explains an unusual zero value. Useful.
+
+  tokens-menus.css:236–238   Dark --pcs-menu-item-bg-hover
+    "In dark mode, --pcs-color-surface-overlay = neutral-800 AND
+    --pcs-color-state-hover = neutral-800. They are the same value, so hover
+    would be invisible. Use state-active (neutral-700) instead."
+    Documents a dark mode edge case. Useful.
+
+  tokens-breadcrumb-pagination.css:44–91   Unused breadcrumb tokens
+    Each unused token has a comment explaining why it's unused and what would
+    be needed to wire it. Useful.
+
+  tokens-card-accordion-collapsible-scrollarea-slider.css:87   Accordion
+    "NOT YET CONSUMED — no component implementation exists. Do not use or
+    reference these tokens until the component is built."
+    Clear guard. Useful.
+
+  globals.css:225–230   Skeleton shimmer keyframe
+    Explains duration choice (1.5s vs interaction animation durations),
+    and why translateX rather than left offset is used.
+    Useful.
+
+
+REDUNDANT COMMENTS (restate token name or value)
+------------------------------------------------
+
+  Many component token files include inline "/* Npx */" annotations after
+  var() references, e.g.:
+    --pcs-input-size-md-height: var(--pcs-size-control-md); /* 32px */
+
+  These are borderline — useful as quick px reference (rem requires mental
+  conversion) but they can drift when primitive values change. Not flagged as
+  critical but noted as a maintenance hazard.
+
+  Some comments simply restate the CSS variable name in prose, e.g.:
+    "/* sets border color */" — these add no information.
+    Found sporadically, not systematically.
+
+
+POTENTIALLY STALE COMMENTS
+---------------------------
+
+  tokens-table.css:94 and tokens-table.css:200
+    "/* --pcs-color-primary-default did not exist; --pcs-color-primary-emphasis
+    is the canonical filled-primary token */"
+    References a token name (--pcs-color-primary-default) that never existed
+    in this codebase. The comment was written during authoring to explain a
+    choice, but to a reader it looks like a reference to a removed or renamed
+    token. Potentially stale.
+
+  shadcn-bridge.css (import comment, line 22)
+    "@import "@proteus2/shared-ui/web/tokens.css""
+    Shows a future Phase 2 package path. The actual current import in
+    globals.css is "@import "./tokens/tokens.css"". Mismatch between the
+    bridge file's own comment and reality.
+
+  tokens-overlays.css:304
+    "/* rgb(0 0 0 / 0.7) — dark-aware via semantic */"
+    The referenced token --pcs-color-overlay-scrim resolves to
+    oklch(14.1% 0.005 285.823 / 64%) in ALL modes (no dark override exists).
+    The comment's "0.7" / 70% value is inaccurate — actual alpha is 64%.
+    Stale.
+
+
+================================================================================
+SUMMARY
+================================================================================
+
+TOKEN COUNTS BY TIER
+--------------------
+  Tier 1 — Primitives :  ~131
+  Tier 2 — Semantic   :  ~162
+  Tier 3 — Component  :  ~769
+  TOTAL               : ~1,062
+
+KEY METRICS
+-----------
+  Dead tokens (defined, never consumed)          : ~265  (~34% of Tier 3)
+  Broken token references (undefined targets)    :     4  distinct tokens,
+                                                         referenced 7 times:
+    - --pcs-color-primary-surface   (×4, in tokens-table.css and
+                                        tokens-typography.css)
+    - --pcs-primitive-space-20      (×1, in tokens-table.css:162)
+    - --pcs-hover-card-z            (×1, in hover-card.tsx:34)
+    - --pcs-color-transparent       (×2, in tokens-button.css:166,169
+                                        — has CSS fallback, not hard-broken)
+  Bridge mappings with broken targets            :     0
+  Shadcn variables missing from bridge           :     0
+  Hardcoded Tailwind values bypassing tokens     :   ~18  instances in 4 files
+  Semantic tokens missing dark mode override     :     0
+  Tokens using CSS-specific values               :  ~75+  (rem, px, vw, vh,
+                                                         calc, em)
+  Naming inconsistencies                         :   ~15  (missing category
+                                                         segment, duplicate
+                                                         intent, hardcoded
+                                                         literals in token files)
+
+MOST CRITICAL ISSUES
+--------------------
+
+1. --pcs-color-primary-surface does not exist
+   Referenced in tokens-table.css (lines 126, 246) and tokens-typography.css
+   (lines 211, 243) as both light-mode and dark-mode values. The intended
+   token is --pcs-color-primary-subtle. Because both files are marked
+   "NOT YET CONSUMED," this is a latent bug — it will silently produce
+   invisible selected rows and broken text-selection highlights the moment
+   those components are wired.
+
+2. --pcs-primitive-space-20 does not exist
+   Referenced in tokens-table.css line 162. The spacing primitive scale ends
+   at --pcs-primitive-space-16 (64px / 4rem). An 80px step has no primitive.
+   Latent bug in the same unconsumed file.
+
+3. ~34% of Tier 3 is dead weight
+   Three entire token files (tokens-table.css, tokens-typography.css, and the
+   accordion section) are explicitly flagged as unconsumed. Several other
+   large sections are functionally dead: all separator tokens, all collapsible
+   tokens, most dialog and sheet tokens, all KBD tokens, all toast variant
+   tokens. The separator case is notable because the component bypasses all its
+   own tokens and consumes the semantic layer directly — the component tokens
+   exist but are functionally orphaned. This inflates maintenance surface,
+   makes audits harder, and creates false confidence that components are wired.
+
+================================================================================
+END OF REPORT
+================================================================================
