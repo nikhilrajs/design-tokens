@@ -163,10 +163,10 @@
      No border, no fill. Tertiary / low-emphasis actions.
   =========================================================================== */
 
-  --pcs-button-ghost-bg:                 var(--pcs-color-transparent, transparent);
+  --pcs-button-ghost-bg:                 transparent;
   --pcs-button-ghost-bg-hover:           var(--pcs-color-state-hover);
   --pcs-button-ghost-bg-active:          var(--pcs-color-state-active);
-  --pcs-button-ghost-bg-disabled:        var(--pcs-color-transparent, transparent);
+  --pcs-button-ghost-bg-disabled:        transparent;
 
   --pcs-button-ghost-text:               var(--pcs-color-text-default);
   --pcs-button-ghost-text-hover:         var(--pcs-color-text-default);
