@@ -64,15 +64,7 @@
 	--color-background: var(--pcs-color-background);
 	--color-foreground: var(--pcs-color-text-default);
 
-	/* Surfaces */
-	--color-surface-card: var(--pcs-color-surface-card);
-	--color-surface-muted: var(--pcs-color-surface-muted);
-	--color-surface-overlay: var(--pcs-color-surface-overlay);
-	--color-surface-sidebar: var(--pcs-color-surface-sidebar);
-
 	/* Text */
-	--color-text-default: var(--pcs-color-text-default);
-	--color-text-muted: var(--pcs-color-text-muted);
 	--color-text-subtle: var(--pcs-color-text-subtle);
 	--color-text-disabled: var(--pcs-color-text-disabled);
 	--color-text-inverse: var(--pcs-color-text-inverse);
@@ -126,7 +118,6 @@
 	--color-info-icon: var(--pcs-color-info-icon);
 
 	/* State */
-	--color-state-hover: var(--pcs-color-state-hover);
 	--color-state-active: var(--pcs-color-state-active);
 	--color-state-selected: var(--pcs-color-state-selected);
 	--color-state-disabled-bg: var(--pcs-color-state-disabled-bg);
