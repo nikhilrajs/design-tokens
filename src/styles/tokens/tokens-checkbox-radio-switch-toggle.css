@@ -40,7 +40,7 @@
   --pcs-checkbox-label-font-weight:      var(--pcs-text-body-md-weight);
   --pcs-checkbox-label-line-height:      var(--pcs-text-body-md-line-height);
   --pcs-checkbox-label-color:            var(--pcs-color-text-default);
-  --pcs-checkbox-label-color-disabled:   var(--pcs-color-state-disabled-text);
+  --pcs-checkbox-label-color-disabled:   var(--pcs-color-text-disabled);
   --pcs-checkbox-gap:                    var(--pcs-space-component-gap-md);
 
   --pcs-checkbox-bg:                     var(--pcs-color-background);
@@ -70,7 +70,7 @@
 
   --pcs-checkbox-bg-disabled-checked:    var(--pcs-color-state-disabled-bg);
   --pcs-checkbox-border-color-disabled-checked: var(--pcs-color-state-disabled-border);
-  --pcs-checkbox-indicator-color-disabled-checked: var(--pcs-color-state-disabled-text);
+  --pcs-checkbox-indicator-color-disabled-checked: var(--pcs-color-text-disabled);
 
 
   /* ===========================================================================
@@ -87,7 +87,7 @@
   --pcs-radio-label-font-weight:         var(--pcs-text-body-md-weight);
   --pcs-radio-label-line-height:         var(--pcs-text-body-md-line-height);
   --pcs-radio-label-color:               var(--pcs-color-text-default);
-  --pcs-radio-label-color-disabled:      var(--pcs-color-state-disabled-text);
+  --pcs-radio-label-color-disabled:      var(--pcs-color-text-disabled);
   --pcs-radio-gap:                       var(--pcs-space-component-gap-md);
   --pcs-radio-group-gap:                 var(--pcs-space-component-gap-lg);
 
@@ -114,7 +114,7 @@
 
   --pcs-radio-bg-disabled-selected:      var(--pcs-color-state-disabled-bg);
   --pcs-radio-border-color-disabled-selected: var(--pcs-color-state-disabled-border);
-  --pcs-radio-dot-color-disabled-selected: var(--pcs-color-state-disabled-text);
+  --pcs-radio-dot-color-disabled-selected: var(--pcs-color-text-disabled);
 
 
   /* ===========================================================================
@@ -136,7 +136,7 @@
   --pcs-switch-label-font-size:          var(--pcs-text-body-md-size);
   --pcs-switch-label-font-weight:        var(--pcs-text-body-md-weight);
   --pcs-switch-label-color:              var(--pcs-color-text-default);
-  --pcs-switch-label-color-disabled:     var(--pcs-color-state-disabled-text);
+  --pcs-switch-label-color-disabled:     var(--pcs-color-text-disabled);
   --pcs-switch-gap:                      var(--pcs-space-component-gap-md);
 
   /* Off state */
@@ -159,10 +159,10 @@
 
   --pcs-switch-track-bg-disabled:        var(--pcs-color-state-disabled-bg);
   --pcs-switch-track-border-color-disabled: var(--pcs-color-state-disabled-border);
-  --pcs-switch-thumb-bg-disabled:        var(--pcs-color-state-disabled-text);
+  --pcs-switch-thumb-bg-disabled:        var(--pcs-color-text-disabled);
 
   --pcs-switch-track-bg-disabled-on:     var(--pcs-color-state-disabled-bg);
-  --pcs-switch-thumb-bg-disabled-on:     var(--pcs-color-state-disabled-text);
+  --pcs-switch-thumb-bg-disabled-on:     var(--pcs-color-text-disabled);
 
 
   /* ===========================================================================
@@ -221,7 +221,7 @@
   /* Disabled */
   --pcs-toggle-bg-disabled:              transparent;
   --pcs-toggle-border-color-disabled:    transparent;
-  --pcs-toggle-text-disabled:            var(--pcs-color-state-disabled-text);
+  --pcs-toggle-text-disabled:            var(--pcs-color-text-disabled);
   --pcs-toggle-icon-color-disabled:      var(--pcs-color-icon-disabled);
 
 

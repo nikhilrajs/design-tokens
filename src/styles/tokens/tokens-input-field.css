@@ -132,8 +132,8 @@
 
   --pcs-input-bg-disabled:               var(--pcs-color-state-disabled-bg);
   --pcs-input-border-color-disabled:     var(--pcs-color-state-disabled-border);
-  --pcs-input-text-disabled:             var(--pcs-color-state-disabled-text);
-  --pcs-input-placeholder-disabled:      var(--pcs-color-state-disabled-text);
+  --pcs-input-text-disabled:             var(--pcs-color-text-disabled);
+  --pcs-input-placeholder-disabled:      var(--pcs-color-text-disabled);
   --pcs-input-shadow-disabled:           none;
 
   /* ===========================================================================
@@ -187,7 +187,7 @@
   --pcs-field-label-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
   --pcs-field-label-line-height:         var(--pcs-text-label-lg-line-height);
   --pcs-field-label-color:               var(--pcs-color-text-default);
-  --pcs-field-label-color-disabled:      var(--pcs-color-state-disabled-text);
+  --pcs-field-label-color-disabled:      var(--pcs-color-text-disabled);
 
   /* Required indicator (*) */
   --pcs-field-label-required-color:      var(--pcs-color-error-text);

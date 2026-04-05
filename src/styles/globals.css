@@ -121,7 +121,7 @@
 	--color-state-active: var(--pcs-color-state-active);
 	--color-state-selected: var(--pcs-color-state-selected);
 	--color-state-disabled-bg: var(--pcs-color-state-disabled-bg);
-	--color-state-disabled-text: var(--pcs-color-state-disabled-text);
+	--color-state-disabled-text: var(--pcs-color-text-disabled);
 	--color-state-disabled-border: var(--pcs-color-state-disabled-border);
 
 	/* Focus */

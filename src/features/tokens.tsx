@@ -175,7 +175,7 @@ export const Tokens: React.FC = () => {
           <SemanticSwatch token="--pcs-color-state-selected"        name="State / Selected" />
           <SemanticSwatch token="--pcs-color-state-selected-border" name="State / Selected Border" />
           <SemanticSwatch token="--pcs-color-state-disabled-bg"     name="Disabled / BG" />
-          <SemanticSwatch token="--pcs-color-state-disabled-text"   name="Disabled / Text" />
+          <SemanticSwatch token="--pcs-color-text-disabled"   name="Disabled / Text" />
           <SemanticSwatch token="--pcs-color-state-disabled-border" name="Disabled / Border" />
         </div>
       </Section>

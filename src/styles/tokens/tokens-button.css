@@ -115,7 +115,7 @@
   --pcs-button-primary-text:             var(--pcs-color-primary-on-emphasis);
   --pcs-button-primary-text-hover:       var(--pcs-color-primary-on-emphasis);
   --pcs-button-primary-text-active:      var(--pcs-color-primary-on-emphasis);
-  --pcs-button-primary-text-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-button-primary-text-disabled:    var(--pcs-color-text-disabled);
 
   --pcs-button-primary-border:           var(--pcs-color-primary-emphasis);
   --pcs-button-primary-border-hover:     var(--pcs-color-primary-emphasis-hover);
@@ -123,7 +123,7 @@
   --pcs-button-primary-border-disabled:  var(--pcs-color-state-disabled-border);
 
   --pcs-button-primary-icon:             var(--pcs-color-primary-on-emphasis);
-  --pcs-button-primary-icon-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-button-primary-icon-disabled:    var(--pcs-color-text-disabled);
 
   --pcs-button-primary-shadow:           var(--pcs-shadow-sm);
   --pcs-button-primary-shadow-hover:     var(--pcs-shadow-sm);
@@ -143,7 +143,7 @@
   --pcs-button-secondary-text:           var(--pcs-color-text-default);
   --pcs-button-secondary-text-hover:     var(--pcs-color-text-default);
   --pcs-button-secondary-text-active:    var(--pcs-color-text-default);
-  --pcs-button-secondary-text-disabled:  var(--pcs-color-state-disabled-text);
+  --pcs-button-secondary-text-disabled:  var(--pcs-color-text-disabled);
 
   --pcs-button-secondary-border:         var(--pcs-color-border-default);
   --pcs-button-secondary-border-hover:   var(--pcs-color-border-strong);
@@ -171,7 +171,7 @@
   --pcs-button-ghost-text:               var(--pcs-color-text-default);
   --pcs-button-ghost-text-hover:         var(--pcs-color-text-default);
   --pcs-button-ghost-text-active:        var(--pcs-color-text-default);
-  --pcs-button-ghost-text-disabled:      var(--pcs-color-state-disabled-text);
+  --pcs-button-ghost-text-disabled:      var(--pcs-color-text-disabled);
 
   /* Ghost has no border — transparent keeps layout stable (no reflow on hover) */
   --pcs-button-ghost-border:             transparent;
@@ -204,7 +204,7 @@
   --pcs-button-destructive-text:             var(--pcs-color-error-on-emphasis);
   --pcs-button-destructive-text-hover:       var(--pcs-color-error-on-emphasis);
   --pcs-button-destructive-text-active:      var(--pcs-color-error-on-emphasis);
-  --pcs-button-destructive-text-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-button-destructive-text-disabled:    var(--pcs-color-text-disabled);
 
   --pcs-button-destructive-border:           var(--pcs-color-error-emphasis);
   --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-700);
@@ -212,7 +212,7 @@
   --pcs-button-destructive-border-disabled:  var(--pcs-color-state-disabled-border);
 
   --pcs-button-destructive-icon:             var(--pcs-color-error-on-emphasis);
-  --pcs-button-destructive-icon-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-button-destructive-icon-disabled:    var(--pcs-color-text-disabled);
 
   --pcs-button-destructive-shadow:           var(--pcs-shadow-sm);
   --pcs-button-destructive-shadow-hover:     var(--pcs-shadow-sm);
@@ -251,7 +251,7 @@
   --pcs-button-destructive-ghost-text:             var(--pcs-color-error-text);
   --pcs-button-destructive-ghost-text-hover:       var(--pcs-primitive-color-red-700);
   --pcs-button-destructive-ghost-text-active:      var(--pcs-primitive-color-red-800);
-  --pcs-button-destructive-ghost-text-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-button-destructive-ghost-text-disabled:    var(--pcs-color-text-disabled);
 
   --pcs-button-destructive-ghost-border:           transparent;
   --pcs-button-destructive-ghost-border-hover:     transparent;
@@ -259,7 +259,7 @@
   --pcs-button-destructive-ghost-border-disabled:  transparent;
 
   --pcs-button-destructive-ghost-icon:             var(--pcs-color-error-icon);
-  --pcs-button-destructive-ghost-icon-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-button-destructive-ghost-icon-disabled:    var(--pcs-color-text-disabled);
 
   --pcs-button-destructive-ghost-shadow:           none;
   --pcs-button-destructive-ghost-shadow-hover:     none;
@@ -281,7 +281,7 @@
   --pcs-button-link-text:                var(--pcs-color-primary-text);
   --pcs-button-link-text-hover:          var(--pcs-color-primary-emphasis-hover);
   --pcs-button-link-text-active:         var(--pcs-color-primary-emphasis-active);
-  --pcs-button-link-text-disabled:       var(--pcs-color-state-disabled-text);
+  --pcs-button-link-text-disabled:       var(--pcs-color-text-disabled);
 
   --pcs-button-link-border:              transparent;
   --pcs-button-link-border-hover:        transparent;
@@ -289,7 +289,7 @@
   --pcs-button-link-border-disabled:     transparent;
 
   --pcs-button-link-icon:                var(--pcs-color-primary-icon);
-  --pcs-button-link-icon-disabled:       var(--pcs-color-state-disabled-text);
+  --pcs-button-link-icon-disabled:       var(--pcs-color-text-disabled);
 
   --pcs-button-link-underline:           none;
   --pcs-button-link-underline-hover:     underline;

@@ -312,7 +312,7 @@
   --pcs-color-text-default: var(--pcs-primitive-color-neutral-900);
   --pcs-color-text-muted: var(--pcs-primitive-color-neutral-500);
   --pcs-color-text-subtle: var(--pcs-primitive-color-neutral-400);
-  --pcs-color-text-disabled: var(--pcs-primitive-color-neutral-300);
+  --pcs-color-text-disabled: var(--pcs-primitive-color-neutral-400);
   --pcs-color-text-inverse: var(--pcs-primitive-color-white);
   --pcs-color-text-on-emphasis: var(--pcs-primitive-color-white);
 
@@ -421,7 +421,6 @@
 
   /* Disabled state — applies to backgrounds of disabled controls */
   --pcs-color-state-disabled-bg: var(--pcs-primitive-color-neutral-100);
-  --pcs-color-state-disabled-text: var(--pcs-primitive-color-neutral-400);
   --pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-200);
 
   /* Overlay scrim — behind modals, sheets, dialogs
@@ -790,7 +789,6 @@
   --pcs-color-state-selected: var(--pcs-primitive-color-brand-950);
   --pcs-color-state-selected-border: var(--pcs-primitive-color-brand-600);
   --pcs-color-state-disabled-bg: var(--pcs-primitive-color-neutral-800);
-  --pcs-color-state-disabled-text: var(--pcs-primitive-color-neutral-600);
   --pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-700);
 
   /* on-light-500 applies in dark mode too — the near-black page surface under it handles the visual weight */

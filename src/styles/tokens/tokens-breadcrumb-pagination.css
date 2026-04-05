@@ -150,7 +150,7 @@
   /* --- Control — disabled (on first/last page) --- */
   --pcs-pagination-control-bg-disabled:  transparent;
   --pcs-pagination-control-border-color-disabled: var(--pcs-color-state-disabled-border);
-  --pcs-pagination-control-text-disabled:var(--pcs-color-state-disabled-text);
+  --pcs-pagination-control-text-disabled:var(--pcs-color-text-disabled);
   --pcs-pagination-control-icon-color-disabled: var(--pcs-color-icon-disabled);
   --pcs-pagination-control-cursor-disabled: not-allowed;
 

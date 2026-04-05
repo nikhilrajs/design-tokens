@@ -68,7 +68,7 @@
 
   /* --- Item — disabled --- */
   --pcs-menu-item-bg-disabled:           transparent;
-  --pcs-menu-item-text-disabled:         var(--pcs-color-state-disabled-text);
+  --pcs-menu-item-text-disabled:         var(--pcs-color-text-disabled);
   --pcs-menu-item-icon-color-disabled:   var(--pcs-color-icon-disabled);
 
   /* --- Item — destructive ---
@@ -191,7 +191,7 @@
   /* --- STATE: Disabled --- */
   --pcs-select-trigger-bg-disabled:      var(--pcs-input-bg-disabled);     /* mirrors Input disabled bg */
   --pcs-select-trigger-border-color-disabled: var(--pcs-color-state-disabled-border);
-  --pcs-select-trigger-text-disabled:    var(--pcs-color-state-disabled-text);
+  --pcs-select-trigger-text-disabled:    var(--pcs-color-text-disabled);
   --pcs-select-trigger-shadow-disabled:  none;
 
   /* --- STATE: Error --- */
