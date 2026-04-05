@@ -67,8 +67,8 @@
 
   /* --- Accent (hover/focus highlight backgrounds) --- */
   /* shadcn uses --accent for dropdown/menu item hover (bg-accent). Maps to
-     --color-surface-muted (neutral-100) so hover states are perceptible on white. */
-  --accent:                        var(--pcs-color-surface-muted);
+     --pcs-color-state-hover — the canonical interactive hover surface token. */
+  --accent:                        var(--pcs-color-state-hover);
   --accent-foreground:             var(--pcs-color-text-default);
 
   /* --- Destructive (delete, remove, irreversible actions) --- */
