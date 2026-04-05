@@ -1,12 +1,14 @@
 /* =============================================================================
-   COMPONENT TOKENS — CARD / ACCORDION / COLLAPSIBLE / SCROLL AREA / SLIDER
+   COMPONENT TOKENS — CARD / COLLAPSIBLE / SCROLL AREA / SLIDER
    =============================================================================
 
    Architecture:
      card-*          — static surface container (shadcn Card structure)
-     accordion-*     — collapsible list with trigger rows
-     collapsible-*   — single-panel show/hide (lighter than accordion)
+     collapsible-*   — single-panel show/hide (trigger is freeform)
      scroll-area-*   — custom scrollbar overlay (shadcn ScrollArea)
+
+   Accordion tokens are deferred — no component implementation exists.
+   Author at implementation time; apply ownership boundaries before defining.
 
    All components reference semantic tokens only.
    Primitives never referenced directly.
@@ -28,18 +30,7 @@
   --pcs-card-bg:                         var(--pcs-color-surface-card);         /* white / neutral-950 dark */
   --pcs-card-border-color:               var(--pcs-color-border-default);       /* neutral-200 */
   --pcs-card-border-width:               var(--pcs-border-width-default);       /* 1px  */
-  --pcs-card-border-style:               solid;
   --pcs-card-border-radius:              var(--pcs-radius-xl);                  /* 12px — slightly larger than controls */
-
-  /* --- Variant: Default (bordered) --- */
-  --pcs-card-default-bg:                 var(--pcs-card-bg);
-  --pcs-card-default-border-color:       var(--pcs-card-border-color);
-  --pcs-card-default-shadow:             none;
-
-  /* --- Variant: Elevated (shadow, no visible border) --- */
-  --pcs-card-elevated-bg:                var(--pcs-card-bg);
-  --pcs-card-elevated-border-color:      transparent;
-  --pcs-card-elevated-shadow:            var(--pcs-shadow-md);
 
   /* --- Header --- */
   --pcs-card-header-padding:             var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
@@ -59,101 +50,13 @@
 
   /* --- Content --- */
   --pcs-card-content-padding:            var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
-  --pcs-card-content-padding-top:        0;                                 /* header already provides top space */
 
   /* --- Footer --- */
   --pcs-card-footer-padding:             var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
-  --pcs-card-footer-padding-top:         0;
-  --pcs-card-footer-gap:                 var(--pcs-space-component-gap-sm);     /*  8px — between footer actions */
-  --pcs-card-footer-border-top:          none;                              /* no separator by default */
 
   /* --- Separator (optional divider between header/content/footer) --- */
   --pcs-card-separator-color:            var(--pcs-color-border-muted);         /* neutral-100 */
   --pcs-card-separator-thickness:        var(--pcs-border-width-default);
-
-
-  /* ===========================================================================
-     ACCORDION
-     Collapsible item list. Each item has a trigger row + content panel.
-     Shadcn structure: Accordion > AccordionItem > AccordionTrigger + AccordionContent
-
-     Variants:
-       default — each item is a bordered card (separated blocks)
-       flush   — items share a single container; dividers only between items
-
-     ⚠️ NOT YET CONSUMED — no component implementation exists.
-        Do not use or reference these tokens until the component
-        is built. Review during token cleanup sprint.
-  =========================================================================== */
-
-  /* --- Trigger row --- */
-  --pcs-accordion-trigger-padding-x:     var(--pcs-space-inset-md);             /* 16px */
-  --pcs-accordion-trigger-padding-y:     var(--pcs-primitive-space-4);          /* 16px — equal to padding-x for square feel */
-  --pcs-accordion-trigger-min-height:    var(--pcs-size-control-lg);            /* 40px minimum; typically taller */
-  --pcs-accordion-trigger-bg:            transparent;
-  --pcs-accordion-trigger-bg-hover:      var(--pcs-color-state-hover);          /* neutral-50  */
-  --pcs-accordion-trigger-bg-open:       transparent;                       /* no bg change when open */
-
-  --pcs-accordion-trigger-font-size:     var(--pcs-text-label-lg-size);         /* 14px */
-  --pcs-accordion-trigger-font-weight:   var(--pcs-text-label-lg-weight);       /* 500  */
-  --pcs-accordion-trigger-color:         var(--pcs-color-text-default);
-  --pcs-accordion-trigger-color-hover:   var(--pcs-color-text-default);
-
-  /* Chevron icon */
-  --pcs-accordion-chevron-size:          var(--pcs-size-icon-md);               /* 16px */
-  --pcs-accordion-chevron-color:         var(--pcs-color-icon-muted);
-  --pcs-accordion-chevron-color-hover:   var(--pcs-color-icon-default);
-  --pcs-accordion-chevron-rotate-open:   180deg;                            /* flips on open */
-  --pcs-accordion-chevron-transition:    transform 200ms ease;
-
-  /* Focus ring on trigger */
-  --pcs-accordion-trigger-focus-ring:       var(--pcs-color-focus-ring);
-  --pcs-accordion-trigger-focus-ring-width: var(--pcs-focus-ring-width);
-  --pcs-accordion-trigger-border-radius: var(--pcs-radius-md);                  /* for focus ring shape */
-
-  /* --- Content panel --- */
-  --pcs-accordion-content-padding-x:    var(--pcs-space-inset-md);             /* 16px — aligns with trigger text */
-  --pcs-accordion-content-padding-bottom:var(--pcs-primitive-space-4);          /* 16px */
-  --pcs-accordion-content-font-size:    var(--pcs-text-body-md-size);           /* 14px */
-  --pcs-accordion-content-color:        var(--pcs-color-text-muted);
-  --pcs-accordion-content-line-height:  var(--pcs-text-body-md-line-height);
-
-  /* Animation — height 0 → auto on open */
-  --pcs-accordion-content-animation-duration: 200ms;
-  --pcs-accordion-content-animation-easing:   ease-out;
-
-  /* --- VARIANT: Default (each item is a card) --- */
-  --pcs-accordion-default-item-bg:          var(--pcs-color-surface-card);
-  --pcs-accordion-default-item-border-color: var(--pcs-color-border-default);
-  --pcs-accordion-default-item-border-width: var(--pcs-border-width-default);
-  --pcs-accordion-default-item-border-radius:var(--pcs-radius-lg);              /* 8px  */
-  --pcs-accordion-default-item-gap:          var(--pcs-space-component-gap-sm); /*  6px between items */
-
-  /* --- VARIANT: Flush (single container, dividers between items) --- */
-  --pcs-accordion-flush-item-bg:             transparent;
-  --pcs-accordion-flush-item-border-color:   transparent;
-  --pcs-accordion-flush-container-border-color: var(--pcs-color-border-default);
-  --pcs-accordion-flush-container-border-width: var(--pcs-border-width-default);
-  --pcs-accordion-flush-container-border-radius:var(--pcs-radius-lg);
-  --pcs-accordion-flush-divider-color:       var(--pcs-color-border-muted);     /* neutral-100 */
-  --pcs-accordion-flush-divider-thickness:   var(--pcs-border-width-default);
-
-
-  /* ===========================================================================
-     COLLAPSIBLE
-     Single-panel show/hide. Lighter than Accordion.
-     Shadcn structure: Collapsible > CollapsibleTrigger + CollapsibleContent
-     Trigger is freeform — not a styled row. Only content panel is tokenised.
-  =========================================================================== */
-
-  /* --- Content panel --- */
-  --pcs-collapsible-content-font-size:   var(--pcs-text-body-md-size);
-  --pcs-collapsible-content-color:       var(--pcs-color-text-muted);
-  --pcs-collapsible-content-line-height: var(--pcs-text-body-md-line-height);
-
-  /* Animation — same rhythm as accordion */
-  --pcs-collapsible-animation-duration:  200ms;
-  --pcs-collapsible-animation-easing:    ease-out;
 
 
   /* ===========================================================================
@@ -194,11 +97,6 @@
 
   /* Card */
   /* --pcs-card-bg resolves to --pcs-color-surface-card which is already dark-aware */
-  /* Elevated card: shadow needs to be stronger in dark */
-  --pcs-card-elevated-shadow:            var(--pcs-shadow-lg);
-
-  /* Accordion */
-  /* All resolved via semantic tokens — no overrides needed */
 
   /* Scroll Area — thumb needs to be more visible on dark backgrounds */
   --pcs-scroll-area-thumb-bg:            var(--pcs-color-border-default);       /* neutral-700 */
