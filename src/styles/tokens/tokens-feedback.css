@@ -1,27 +1,21 @@
 /* =============================================================================
-   COMPONENT TOKENS — ALERT / TOAST / SONNER / EMPTY STATE
+   COMPONENT TOKENS — ALERT / EMPTY STATE
    =============================================================================
 
    Architecture:
      alert-*       — inline static feedback message (shadcn Alert structure)
-     toast-*       — ephemeral floating notification (shadcn Toast / Sonner)
      empty-state-* — no-data feedback pattern
 
-   Alert vs Toast:
-     Alert   — inline, static, lives in the page flow, not dismissible by default
-     Toast   — floating, ephemeral, auto-dismisses, sits above page content
-
-   Toast vs Sonner:
-     Sonner is the library. Toast is the pattern.
-     They share all visual tokens — one namespace covers both.
-
-   Role variants (all components):
+   Role variants (alert):
      neutral | success | error | warning | info
 
    shadcn Alert structure:
      [Icon]  [Title]
              [Description]
      Full role-colored background. Left border accent for extra role signal.
+
+   Toast tokens are deferred — no Toast/Sonner component exists.
+   Author at implementation time; apply ownership boundaries before defining.
    =============================================================================*/
 
 
@@ -37,25 +31,6 @@
   /* --- Base / Shared --- */
   --pcs-alert-border-width:              var(--pcs-border-width-default);       /* 1px  */
   --pcs-alert-border-style:              solid;
-  --pcs-alert-border-radius:             var(--pcs-radius-lg);                  /* 8px  */
-  --pcs-alert-padding:                   var(--pcs-space-inset-md);             /* 16px */
-  --pcs-alert-gap:                       var(--pcs-space-component-gap-md);     /*  8px — icon to text block */
-  --pcs-alert-icon-size:                 var(--pcs-size-icon-lg);               /* 20px */
-
-  /* Left border accent — stronger role signal alongside filled bg */
-  --pcs-alert-accent-border-width:       var(--pcs-border-width-thick);         /*  4px */
-
-  /* --- Typography --- */
-  --pcs-alert-title-font-size:           var(--pcs-text-label-lg-size);         /* 14px */
-  --pcs-alert-title-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
-  --pcs-alert-title-line-height:         var(--pcs-text-label-lg-line-height);
-
-  --pcs-alert-description-font-size:     var(--pcs-text-body-md-size);          /* 14px */
-  --pcs-alert-description-font-weight:   var(--pcs-text-body-md-weight);        /* 400  */
-  --pcs-alert-description-line-height:   var(--pcs-text-body-md-line-height);
-
-  --pcs-alert-title-description-gap:     var(--pcs-space-component-gap-xs);     /*  4px */
-
   /* --- VARIANT: Neutral --- */
   --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* neutral-100 */
   --pcs-alert-neutral-border:            var(--pcs-color-border-default);       /* neutral-200 */
@@ -95,99 +70,6 @@
   --pcs-alert-info-title:                var(--pcs-color-info-text);            /* sky-800 */
   --pcs-alert-info-description:          var(--pcs-color-info-text);
   --pcs-alert-info-icon:                 var(--pcs-color-info-icon);            /* sky-700 */
-
-
-  /* ===========================================================================
-     TOAST / SONNER
-     Floating ephemeral notification. Sits above page content.
-     Stacks vertically. Auto-dismisses (duration set at component level).
-     Can be dismissed manually via close button.
-     Shadcn Sonner structure: icon + message + optional action + close button.
-  =========================================================================== */
-
-  /* --- Base / Shared --- */
-  --pcs-toast-bg:                        var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
-  --pcs-toast-border-color:              var(--pcs-color-border-default);
-  --pcs-toast-border-width:              var(--pcs-border-width-default);
-  --pcs-toast-border-radius:             var(--pcs-radius-lg);                  /* 8px  */
-  --pcs-toast-shadow:                    var(--pcs-shadow-lg);
-  --pcs-toast-z:                         var(--pcs-z-toast);                    /* 500  */
-
-  /* --- Sizing --- */
-  --pcs-toast-width:                     24rem;                             /* 384px — fixed width */
-  --pcs-toast-max-width:                 calc(100vw - var(--pcs-primitive-space-8)); /* mobile safe */
-  --pcs-toast-padding:                   var(--pcs-space-inset-md);             /* 16px */
-  --pcs-toast-gap:                       var(--pcs-space-component-gap-md);     /*  8px — icon to content */
-  --pcs-toast-icon-size:                 var(--pcs-size-icon-lg);               /* 20px */
-
-  /* Stack offset — each toast in a stack is offset slightly */
-  --pcs-toast-stack-gap:                 var(--pcs-primitive-space-2);          /* 8px between toasts */
-  --pcs-toast-stack-scale:               0.95;                              /* slightly smaller behind front toast */
-
-  /* --- Typography --- */
-  --pcs-toast-title-font-size:           var(--pcs-text-label-lg-size);         /* 14px */
-  --pcs-toast-title-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
-  --pcs-toast-title-color:               var(--pcs-color-text-default);
-
-  --pcs-toast-description-font-size:     var(--pcs-text-body-sm-size);          /* 12px — slightly smaller than title */
-  --pcs-toast-description-font-weight:   var(--pcs-text-body-sm-weight);
-  --pcs-toast-description-color:         var(--pcs-color-text-muted);
-
-  --pcs-toast-title-description-gap:     var(--pcs-primitive-space-1);          /* 4px */
-
-  /* --- Action button --- */
-  /* Small ghost-style button inside toast — links to relevant page or retries */
-  --pcs-toast-action-font-size:          var(--pcs-text-label-sm-size);         /* 12px */
-  --pcs-toast-action-font-weight:        var(--pcs-text-label-sm-weight);       /* 500  */
-  --pcs-toast-action-color:              var(--pcs-color-primary-text);
-  --pcs-toast-action-color-hover:        var(--pcs-color-primary-emphasis-hover);
-  --pcs-toast-action-underline-hover:    underline;
-  --pcs-toast-action-margin-top:         var(--pcs-primitive-space-1-5);        /* 6px  */
-
-  /* --- Close button --- */
-  --pcs-toast-close-size:                var(--pcs-size-control-xs);            /* 24px */
-  --pcs-toast-close-icon-size:           var(--pcs-size-icon-sm);               /* 12px */
-  --pcs-toast-close-color:               var(--pcs-color-icon-muted);
-  --pcs-toast-close-color-hover:         var(--pcs-color-icon-default);
-  --pcs-toast-close-bg-hover:            var(--pcs-color-state-hover);
-  --pcs-toast-close-border-radius:       var(--pcs-radius-md);
-
-  /* --- VARIANT: Neutral (default) ---
-     Neutral toast uses the standard overlay surface.
-     Role variants add a colored left border accent — same pattern as Alert.
-  --------------------------------------------------------------------------- */
-  --pcs-toast-neutral-bg:                var(--pcs-toast-bg);
-  --pcs-toast-neutral-border:            var(--pcs-toast-border-color);
-  --pcs-toast-neutral-accent:            var(--pcs-color-border-strong);        /* neutral-300 */
-  --pcs-toast-neutral-icon:              var(--pcs-color-icon-default);
-
-  /* --- VARIANT: Success --- */
-  --pcs-toast-success-bg:                var(--pcs-toast-bg);                   /* stays white — accent carries role */
-  --pcs-toast-success-border:            var(--pcs-color-success-border);
-  --pcs-toast-success-accent:            var(--pcs-color-success-emphasis);     /* emerald-600 left border */
-  --pcs-toast-success-icon:              var(--pcs-color-success-icon);
-  --pcs-toast-success-title:             var(--pcs-color-text-default);         /* title stays default — accent is enough */
-
-  /* --- VARIANT: Error --- */
-  --pcs-toast-error-bg:                  var(--pcs-toast-bg);
-  --pcs-toast-error-border:              var(--pcs-color-error-border);
-  --pcs-toast-error-accent:              var(--pcs-color-error-emphasis);       /* red-600 left border */
-  --pcs-toast-error-icon:                var(--pcs-color-error-icon);
-  --pcs-toast-error-title:               var(--pcs-color-text-default);
-
-  /* --- VARIANT: Warning --- */
-  --pcs-toast-warning-bg:                var(--pcs-toast-bg);
-  --pcs-toast-warning-border:            var(--pcs-color-warning-border);
-  --pcs-toast-warning-accent:            var(--pcs-color-warning-emphasis);     /* yellow-500 left border */
-  --pcs-toast-warning-icon:              var(--pcs-color-warning-icon);
-  --pcs-toast-warning-title:             var(--pcs-color-text-default);
-
-  /* --- VARIANT: Info --- */
-  --pcs-toast-info-bg:                   var(--pcs-toast-bg);
-  --pcs-toast-info-border:               var(--pcs-color-info-border);
-  --pcs-toast-info-accent:               var(--pcs-color-info-emphasis);        /* sky-600 left border */
-  --pcs-toast-info-icon:                 var(--pcs-color-info-icon);
-  --pcs-toast-info-title:                var(--pcs-color-text-default);
 
 
   /* ── Empty State ──────────────────────────────────────────────────────────
@@ -231,9 +113,6 @@
 [data-app-color-scheme="dark"] {
 
   /* Alert — border tokens cascade to --pcs-color-*-border which resolves to 700-step in dark */
-
-  /* Toast — white surface becomes neutral-900 via --pcs-color-surface-overlay */
-  /* Role accents stay the same — colored left borders read well on dark */
 
   /* Empty state — all handled by semantic tokens; --pcs-empty-border-color resolves via
      --pcs-color-border-default which is already dark-aware upstream */
