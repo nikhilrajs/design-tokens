@@ -26,7 +26,7 @@
   /* --- Default variant --- */
   --pcs-tabs-list-bg:                    var(--pcs-color-surface-muted);        /* neutral-100 / neutral-900 dark */
   --pcs-tabs-list-border-radius:         var(--pcs-radius-lg);                  /* 8px */
-  --pcs-tabs-list-padding:               3px;                                   /* inset between list edge and triggers */
+  --pcs-tabs-list-padding:               3px;                                   /* Visual alignment — intentionally outside spacing scale */
   --pcs-tabs-list-height:                var(--pcs-size-control-md);            /* 32px — horizontal */
   --pcs-tabs-list-text:                  var(--pcs-color-text-muted);           /* inactive trigger color */
 

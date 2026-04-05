@@ -40,7 +40,7 @@
   --pcs-input-font-weight:               var(--pcs-text-body-md-weight);
   --pcs-input-line-height:               var(--pcs-text-body-md-line-height);
 
-  --pcs-input-border-width:              var(--pcs-border-width-default);       /* 1px */
+  --pcs-input-border-width:              var(--pcs-primitive-border-width-default);       /* 1px */
   --pcs-input-border-style:              solid;
   --pcs-input-border-radius:             var(--pcs-radius-md);                  /* 6px */
 

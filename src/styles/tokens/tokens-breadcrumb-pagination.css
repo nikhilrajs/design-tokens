@@ -100,7 +100,7 @@
   --pcs-pagination-item-size:            var(--pcs-size-control-md);            /* 32px — square */
   --pcs-pagination-item-min-width:       var(--pcs-size-control-md);            /* 32px */
   --pcs-pagination-item-border-radius:   var(--pcs-radius-md);                  /*  6px */
-  --pcs-pagination-item-border-width:    var(--pcs-border-width-default);
+  --pcs-pagination-item-border-width:    var(--pcs-primitive-border-width-default);
 
   /* Prev/Next controls are slightly wider (icon + optional label) */
   --pcs-pagination-control-height:       var(--pcs-size-control-md);            /* 32px */

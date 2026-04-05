@@ -268,6 +268,14 @@
 
   --pcs-primitive-shadow-xl:
     0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* ---------------------------------------------------------------------------
+     1.15 BORDER WIDTH PRIMITIVES
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-border-width-default: 1px;
+  --pcs-primitive-border-width-medium: 2px;
+  --pcs-primitive-border-width-thick: 4px;
 }
 
 /* =============================================================================
@@ -614,14 +622,6 @@
   --pcs-size-icon-sm: var(--pcs-primitive-space-3); /* 12px */
   --pcs-size-icon-md: var(--pcs-primitive-space-4); /* 16px */
   --pcs-size-icon-lg: var(--pcs-primitive-space-5); /* 20px */
-
-  /* ---------------------------------------------------------------------------
-     2.14 SEMANTIC BORDER TOKENS
-  --------------------------------------------------------------------------- */
-
-  --pcs-border-width-default: 1px;
-  --pcs-border-width-medium: 2px;
-  --pcs-border-width-thick: 4px;
 
   /* ---------------------------------------------------------------------------
      2.15 SEMANTIC RADIUS TOKENS

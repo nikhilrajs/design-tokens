@@ -40,7 +40,7 @@
   --pcs-avatar-initials-size-xl:         var(--pcs-primitive-font-size-lg);     /* 18px — for 48px avatar */
 
   /* --- Border (separates avatar from background — used in stacked groups) --- */
-  --pcs-avatar-border-width:             var(--pcs-border-width-medium);        /* 2px  */
+  --pcs-avatar-border-width:             var(--pcs-primitive-border-width-medium);        /* 2px  */
   --pcs-avatar-border-color:             var(--pcs-color-background);           /* matches page bg — creates gap effect */
 
   /* --- Status ring (online / offline / busy / away indicator dot) --- */
@@ -48,7 +48,7 @@
   --pcs-avatar-status-size-md:           var(--pcs-primitive-space-2);          /*  8px — for md avatar    */
   --pcs-avatar-status-size-lg:           var(--pcs-primitive-space-2-5);        /* 10px — for lg/xl avatars */
 
-  --pcs-avatar-status-border-width:      var(--pcs-border-width-medium);        /* 2px — ring around dot   */
+  --pcs-avatar-status-border-width:      var(--pcs-primitive-border-width-medium);        /* 2px — ring around dot   */
   --pcs-avatar-status-border-color:      var(--pcs-color-background);           /* matches page bg          */
   --pcs-avatar-status-border-radius:     var(--pcs-radius-full);
 
@@ -179,7 +179,7 @@
   --pcs-separator-color-strong:          var(--pcs-color-border-default);       /* neutral-200 — standard   */
 
   /* Thickness */
-  --pcs-separator-thickness:             var(--pcs-border-width-default);       /* 1px */
+  --pcs-separator-thickness:             var(--pcs-primitive-border-width-default);       /* 1px */
 
   /* Margin — spacing around a separator when used between sections */
   --pcs-separator-margin-sm:             var(--pcs-space-layout-gap-sm);        /* 16px */
@@ -187,7 +187,7 @@
 
   /* Decorative separator — slightly more prominent, used in cards/panels */
   --pcs-separator-decorative-color:      var(--pcs-color-border-default);
-  --pcs-separator-decorative-thickness:  var(--pcs-border-width-default);
+  --pcs-separator-decorative-thickness:  var(--pcs-primitive-border-width-default);
 
 }
 

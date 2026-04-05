@@ -29,7 +29,7 @@
   /* --- Base --- */
   --pcs-card-bg:                         var(--pcs-color-surface-card);         /* white / neutral-950 dark */
   --pcs-card-border-color:               var(--pcs-color-border-default);       /* neutral-200 */
-  --pcs-card-border-width:               var(--pcs-border-width-default);       /* 1px  */
+  --pcs-card-border-width:               var(--pcs-primitive-border-width-default);       /* 1px  */
   --pcs-card-border-radius:              var(--pcs-radius-xl);                  /* 12px — slightly larger than controls */
 
   /* --- Header --- */
@@ -56,7 +56,7 @@
 
   /* --- Separator (optional divider between header/content/footer) --- */
   --pcs-card-separator-color:            var(--pcs-color-border-muted);         /* neutral-100 */
-  --pcs-card-separator-thickness:        var(--pcs-border-width-default);
+  --pcs-card-separator-thickness:        var(--pcs-primitive-border-width-default);
 
 
   /* ===========================================================================

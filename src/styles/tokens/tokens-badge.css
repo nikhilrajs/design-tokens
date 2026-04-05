@@ -49,7 +49,7 @@
   --pcs-badge-padding-y:                 var(--pcs-primitive-space-0-5);         /*  2px */
 
   /* Border */
-  --pcs-badge-border-width:              var(--pcs-border-width-default);        /*  1px */
+  --pcs-badge-border-width:              var(--pcs-primitive-border-width-default);        /*  1px */
   --pcs-badge-border-style:              solid;
   --pcs-badge-border-radius:             0.25rem;                                /* 4px — between radius-sm(2px) and radius-md(6px) */
 

@@ -29,7 +29,7 @@
   =========================================================================== */
 
   /* --- Base / Shared --- */
-  --pcs-alert-border-width:              var(--pcs-border-width-default);       /* 1px  */
+  --pcs-alert-border-width:              var(--pcs-primitive-border-width-default);       /* 1px  */
   --pcs-alert-border-style:              solid;
   /* --- VARIANT: Neutral --- */
   --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* neutral-100 */
@@ -81,7 +81,7 @@
   /* --- Container --- */
   --pcs-empty-bg:                        transparent;
   --pcs-empty-border-color:              var(--pcs-color-border-default);
-  --pcs-empty-border-width:              var(--pcs-border-width-default);       /* 1px */
+  --pcs-empty-border-width:              var(--pcs-primitive-border-width-default);       /* 1px */
   --pcs-empty-border-radius:             var(--pcs-radius-xl);                  /* 12px */
   --pcs-empty-padding:                   var(--pcs-space-inset-lg);             /* 24px */
 

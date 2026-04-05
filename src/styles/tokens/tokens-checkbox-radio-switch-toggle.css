@@ -33,7 +33,7 @@
   --pcs-checkbox-size:                   var(--pcs-primitive-space-4);
   --pcs-checkbox-touch-target:           2.75rem;
   --pcs-checkbox-border-radius:          var(--pcs-radius-sm);
-  --pcs-checkbox-border-width:           var(--pcs-border-width-default);
+  --pcs-checkbox-border-width:           var(--pcs-primitive-border-width-default);
   --pcs-checkbox-indicator-size:         var(--pcs-primitive-space-3-5);        /* 14px — matches original shadcn size-3.5 */
 
   --pcs-checkbox-label-font-size:        var(--pcs-text-body-md-size);
@@ -80,7 +80,7 @@
   --pcs-radio-size:                      var(--pcs-primitive-space-4);
   --pcs-radio-touch-target:              2.75rem;
   --pcs-radio-border-radius:             var(--pcs-radius-full);
-  --pcs-radio-border-width:              var(--pcs-border-width-default);
+  --pcs-radio-border-width:              var(--pcs-primitive-border-width-default);
   --pcs-radio-dot-size:                  var(--pcs-primitive-space-2);
 
   --pcs-radio-label-font-size:           var(--pcs-text-body-md-size);
@@ -124,7 +124,7 @@
   --pcs-switch-track-width:              2.25rem;
   --pcs-switch-track-height:             var(--pcs-primitive-space-5);
   --pcs-switch-track-border-radius:      var(--pcs-radius-full);
-  --pcs-switch-track-border-width:       var(--pcs-border-width-default);
+  --pcs-switch-track-border-width:       var(--pcs-primitive-border-width-default);
 
   --pcs-switch-thumb-size:               var(--pcs-primitive-space-4);
   --pcs-switch-thumb-border-radius:      var(--pcs-radius-full);
@@ -186,7 +186,7 @@
 
   --pcs-toggle-touch-target:             2.75rem;
 
-  --pcs-toggle-border-width:             var(--pcs-border-width-default);
+  --pcs-toggle-border-width:             var(--pcs-primitive-border-width-default);
   --pcs-toggle-border-radius:            var(--pcs-radius-md);
   --pcs-toggle-font-family:              var(--pcs-text-font-sans);
   --pcs-toggle-font-weight:              var(--pcs-primitive-font-weight-medium);

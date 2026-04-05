@@ -31,7 +31,7 @@
   /* --- Panel (floating surface) --- */
   --pcs-menu-bg:                         var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
   --pcs-menu-border-color:               var(--pcs-color-border-default);
-  --pcs-menu-border-width:               var(--pcs-border-width-default);
+  --pcs-menu-border-width:               var(--pcs-primitive-border-width-default);
   --pcs-menu-border-radius:              var(--pcs-radius-lg);                  /* 8px */
   --pcs-menu-shadow:                     var(--pcs-shadow-lg);
   --pcs-menu-z:                          var(--pcs-z-dropdown);                 /* 100 */
@@ -97,7 +97,7 @@
 
   /* --- Separator --- */
   --pcs-menu-separator-color:            var(--pcs-color-border-muted);
-  --pcs-menu-separator-width:            var(--pcs-border-width-default);
+  --pcs-menu-separator-width:            var(--pcs-primitive-border-width-default);
   --pcs-menu-separator-margin-y:         var(--pcs-primitive-space-1);          /* 4px — top and bottom */
 
 
@@ -111,7 +111,7 @@
   /* --- Bar container --- */
   --pcs-menubar-bg:                      var(--pcs-color-background);
   --pcs-menubar-border-color:            var(--pcs-color-border-muted);
-  --pcs-menubar-border-width:            var(--pcs-border-width-default);
+  --pcs-menubar-border-width:            var(--pcs-primitive-border-width-default);
   --pcs-menubar-height:                  var(--pcs-size-control-md);            /* 32px */
   --pcs-menubar-padding-x:               var(--pcs-primitive-space-1);          /*  4px — outer padding */
   --pcs-menubar-gap:                     var(--pcs-primitive-space-0-5);        /*  2px — between triggers */
@@ -164,7 +164,7 @@
   --pcs-select-trigger-lg-font-size:     var(--pcs-primitive-font-size-base);   /* 16px */
 
   /* --- Shared trigger properties --- */
-  --pcs-select-trigger-border-width:     var(--pcs-border-width-default);
+  --pcs-select-trigger-border-width:     var(--pcs-primitive-border-width-default);
   --pcs-select-trigger-border-radius:    var(--pcs-radius-md);                  /* 6px */
   --pcs-select-trigger-font-family:      var(--pcs-text-font-sans);
   --pcs-select-trigger-font-weight:      var(--pcs-text-body-md-weight);

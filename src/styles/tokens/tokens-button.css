@@ -37,8 +37,7 @@
   --pcs-button-line-height:              var(--pcs-primitive-line-height-normal);
 
   /* Border */
-  --pcs-button-border-width:             var(--pcs-border-width-default);       /* 1px */
-  --pcs-button-border-style:             solid;
+  --pcs-button-border-width:             var(--pcs-primitive-border-width-default);       /* 1px */
 
   /* Focus ring — shared across all variants */
   --pcs-button-focus-ring-width:         var(--pcs-focus-ring-width);
@@ -313,7 +312,7 @@
   /* --- ButtonGroupText surface --- */
   --pcs-button-group-text-bg:            var(--pcs-color-surface-muted);
   --pcs-button-group-text-border-color:  var(--pcs-color-border-default);
-  --pcs-button-group-text-border-width:  var(--pcs-border-width-default);    /* 1px */
+  --pcs-button-group-text-border-width:  var(--pcs-primitive-border-width-default);    /* 1px */
   --pcs-button-group-text-padding-x:     var(--pcs-primitive-space-2-5);     /* 10px — matches shadcn px-2.5 */
   --pcs-button-group-text-color:         var(--pcs-color-text-default);
   --pcs-button-group-text-font-size:     var(--pcs-text-label-lg-size);      /* 14px */

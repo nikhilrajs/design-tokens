@@ -51,7 +51,7 @@
   =========================================================================== */
 
   --pcs-floating-border-radius:          var(--pcs-radius-lg);                  /* 8px */
-  --pcs-floating-border-width:           var(--pcs-border-width-default);
+  --pcs-floating-border-width:           var(--pcs-primitive-border-width-default);
   --pcs-floating-border-color:           var(--pcs-color-border-default);
   --pcs-floating-shadow:                 var(--pcs-shadow-md);
   --pcs-floating-bg:                     var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
