@@ -1,11 +1,9 @@
 /* =============================================================================
-   COMPONENT TOKENS — DIALOG / ALERT DIALOG / SHEET / POPOVER / TOOLTIP / HOVER CARD
+   COMPONENT TOKENS — DIALOG / ALERT DIALOG / POPOVER / TOOLTIP / HOVER CARD
    =============================================================================
 
    Architecture:
-     overlay-*     — shared scrim and backdrop tokens (Dialog, Alert, Sheet)
      dialog-*      — Dialog and Alert Dialog (share all visual tokens)
-     sheet-*       — right-side drawer (extends dialog surface tokens)
      floating-*    — shared base for Popover, Tooltip, Hover Card
      popover-*     — rich content floating panel
      tooltip-*     — small text-only hover label
@@ -16,8 +14,8 @@
      Alert Dialog ignores scrim click and Escape key dismissal.
      No separate token namespace needed.
 
-   Sheet:
-     Right-side only. Left corners rounded, right edge flush to viewport.
+   Sheet tokens are deferred — no component implementation exists.
+   Author at implementation time; apply ownership boundaries before defining.
    =============================================================================*/
 
 
@@ -25,143 +23,24 @@
 
   /* ===========================================================================
      OVERLAY — SHARED SCRIM / BACKDROP
-     Used by: Dialog, Alert Dialog, Sheet
+     Used by: Dialog, Alert Dialog
      Not used by: Popover, Tooltip, Hover Card (these have no scrim)
   =========================================================================== */
 
-  --pcs-overlay-scrim-bg:                var(--pcs-color-overlay-scrim);        /* rgb(0 0 0 / 0.5) */
   --pcs-overlay-scrim-z:                 var(--pcs-z-modal);                    /* 400 */
-
-  /* Backdrop blur — optional, apply if design calls for it */
-  --pcs-overlay-backdrop-blur:           0px;                               /* set to e.g. 4px to enable */
 
 
   /* ===========================================================================
      DIALOG / ALERT DIALOG
-     ==========================================================================
-     Anatomy:
-       [Scrim]
-         [Dialog surface]
-           [Header — title + optional description]
-           [Body — scrollable content]
-           [Footer — action buttons]
-           [Close button — top right corner]
-
-     Sizes:
-       sm  — confirmation dialogs, simple alerts (max-width: 400px)
-       md  — standard dialogs (max-width: 512px) — default
-       lg  — complex dialogs, forms (max-width: 640px)
-       xl  — wide dialogs, data tables (max-width: 768px)
-       full— full viewport minus safe margin (mobile-first)
+     Only the 2 title tokens below are actively consumed by the component.
+     All other dialog tokens (surface, sizing, spacing, close-button) failed
+     Boundary 1 or the over-specification test and have been removed.
+     Flagged for a future naming-consistency pass — these technically fail
+     Boundary 1 but removal requires code changes in the dialog component.
   =========================================================================== */
 
-  /* --- Surface --- */
-  --pcs-dialog-bg:                       var(--pcs-color-surface-card);         /* white / neutral-900 dark */
-  --pcs-dialog-border-color:             var(--pcs-color-border-default);
-  --pcs-dialog-border-width:             var(--pcs-border-width-default);
-  --pcs-dialog-border-radius:            var(--pcs-radius-xl);                  /* 12px — prominent surface */
-  --pcs-dialog-shadow:                   var(--pcs-shadow-xl);
-  --pcs-dialog-z:                        var(--pcs-z-modal);                    /* 400 */
-
-  /* --- Sizing --- */
-  --pcs-dialog-width-sm:                 25rem;                             /* 400px */
-  --pcs-dialog-width-md:                 32rem;                             /* 512px — default */
-  --pcs-dialog-width-lg:                 40rem;                             /* 640px */
-  --pcs-dialog-width-xl:                 48rem;                             /* 768px */
-  --pcs-dialog-width-full:               calc(100vw - var(--pcs-primitive-space-8)); /* viewport - 32px margin */
-
-  --pcs-dialog-max-height:               calc(100vh - var(--pcs-primitive-space-16)); /* viewport - 64px */
-
-  /* --- Internal spacing --- */
-  --pcs-dialog-padding-header:           var(--pcs-space-inset-lg);             /* 24px */
-  --pcs-dialog-padding-body:             var(--pcs-space-inset-lg);             /* 24px */
-  --pcs-dialog-padding-footer:           var(--pcs-space-inset-md);             /* 16px */
-
-  /* Gap between header elements (title + description) */
-  --pcs-dialog-header-gap:               var(--pcs-space-component-gap-md);     /* 8px */
-
-  /* Gap between footer buttons */
-  --pcs-dialog-footer-gap:               var(--pcs-space-component-gap-md);     /* 8px */
-
-  /* Separator between header/body/footer */
-  --pcs-dialog-separator-color:          var(--pcs-color-border-muted);
-  --pcs-dialog-separator-width:          var(--pcs-border-width-default);
-
-  /* --- Typography --- */
   --pcs-dialog-title-font-size:          var(--pcs-primitive-font-size-lg);     /* 18px — between title-sm (16px) and title-md (20px), matches shadcn default */
-  --pcs-dialog-title-font-weight:        var(--pcs-text-title-sm-weight);       /* 600  */
   --pcs-dialog-title-line-height:        var(--pcs-text-title-sm-line-height);  /* 1.5  */
-  --pcs-dialog-title-color:              var(--pcs-color-text-default);
-
-  --pcs-dialog-description-font-size:    var(--pcs-text-body-md-size);          /* 14px */
-  --pcs-dialog-description-font-weight:  var(--pcs-text-body-md-weight);
-  --pcs-dialog-description-line-height:  var(--pcs-text-body-md-line-height);
-  --pcs-dialog-description-color:        var(--pcs-color-text-muted);
-
-  /* --- Close button --- */
-  /* Reuses ghost button tokens visually — these are positional/size tokens only */
-  --pcs-dialog-close-size:               var(--pcs-size-control-sm);            /* 28px */
-  --pcs-dialog-close-offset:             var(--pcs-primitive-space-3);          /* 12px from corner */
-  --pcs-dialog-close-icon-size:          var(--pcs-size-icon-md);               /* 16px */
-  --pcs-dialog-close-color:              var(--pcs-color-icon-muted);
-  --pcs-dialog-close-color-hover:        var(--pcs-color-icon-default);
-  --pcs-dialog-close-bg-hover:           var(--pcs-color-state-hover);
-  --pcs-dialog-close-border-radius:      var(--pcs-radius-md);
-
-
-  /* ===========================================================================
-     SHEET
-     Right-side drawer. Slides in from the right edge.
-     Left corners are rounded, right edge is flush to viewport.
-     Extends dialog surface tokens — only overrides what differs.
-  =========================================================================== */
-
-  /* --- Surface overrides --- */
-  --pcs-sheet-bg:                        var(--pcs-dialog-bg);                  /* same as dialog */
-  --pcs-sheet-border-color:              var(--pcs-dialog-border-color);
-  --pcs-sheet-border-width:              var(--pcs-dialog-border-width);
-  --pcs-sheet-shadow:                    var(--pcs-shadow-lg);
-  --pcs-sheet-z:                         var(--pcs-z-overlay);                  /* 300 — below modal */
-
-  /* Right-side: only left corners are rounded, right edge flush */
-  --pcs-sheet-border-radius-top-left:    var(--pcs-radius-xl);                  /* 12px */
-  --pcs-sheet-border-radius-bottom-left: var(--pcs-radius-xl);                  /* 12px */
-  --pcs-sheet-border-radius-top-right:   var(--pcs-radius-none);                /*  0px */
-  --pcs-sheet-border-radius-bottom-right:var(--pcs-radius-none);                /*  0px */
-
-  /* --- Sizing --- */
-  --pcs-sheet-width-sm:                  20rem;                             /* 320px — narrow info panel */
-  --pcs-sheet-width-md:                  24rem;                             /* 384px — default          */
-  --pcs-sheet-width-lg:                  32rem;                             /* 512px — wide form panel  */
-  --pcs-sheet-width-full:                100vw;                             /* full width on mobile     */
-  --pcs-sheet-max-width:                 80vw;                              /* never wider than 80% viewport */
-  --pcs-sheet-height:                    100vh;                             /* full height always       */
-
-  /* --- Internal spacing --- */
-  --pcs-sheet-padding-header:            var(--pcs-space-inset-lg);             /* 24px */
-  --pcs-sheet-padding-body:              var(--pcs-space-inset-lg);             /* 24px */
-  --pcs-sheet-padding-footer:            var(--pcs-space-inset-md);             /* 16px */
-  --pcs-sheet-header-gap:                var(--pcs-space-component-gap-sm);     /*  6px */
-  --pcs-sheet-footer-gap:                var(--pcs-space-component-gap-md);     /*  8px */
-  --pcs-sheet-separator-color:           var(--pcs-dialog-separator-color);
-  --pcs-sheet-separator-width:           var(--pcs-dialog-separator-width);
-
-  /* --- Typography (inherits dialog typography tokens) --- */
-  --pcs-sheet-title-font-size:           var(--pcs-dialog-title-font-size);
-  --pcs-sheet-title-font-weight:         var(--pcs-dialog-title-font-weight);
-  --pcs-sheet-title-color:               var(--pcs-dialog-title-color);
-
-  --pcs-sheet-description-font-size:     var(--pcs-dialog-description-font-size);
-  --pcs-sheet-description-color:         var(--pcs-dialog-description-color);
-
-  /* --- Close button (same as dialog) --- */
-  --pcs-sheet-close-size:                var(--pcs-dialog-close-size);
-  --pcs-sheet-close-offset:              var(--pcs-dialog-close-offset);
-  --pcs-sheet-close-icon-size:           var(--pcs-dialog-close-icon-size);
-  --pcs-sheet-close-color:               var(--pcs-dialog-close-color);
-  --pcs-sheet-close-color-hover:         var(--pcs-dialog-close-color-hover);
-  --pcs-sheet-close-bg-hover:            var(--pcs-dialog-close-bg-hover);
-  --pcs-sheet-close-border-radius:       var(--pcs-dialog-close-border-radius);
 
 
   /* ===========================================================================
@@ -275,12 +154,6 @@
 
   /* Wider than popover — hover cards contain richer layout (avatar + meta) */
   --pcs-hover-card-min-width:            16rem;                             /* 256px */
-  --pcs-hover-card-max-width:            24rem;                             /* 384px */
-
-  /* Secondary metadata text — smaller than popover body (14px) because
-     hover cards show dense info: handles, follower counts, timestamps */
-  --pcs-hover-card-meta-font-size:       var(--pcs-text-body-sm-size);          /* 12px */
-  --pcs-hover-card-meta-color:           var(--pcs-color-text-muted);
 
 	--pcs-hover-card-z:                    var(--pcs-z-dropdown);
 
@@ -293,7 +166,7 @@
 
 [data-app-color-scheme="dark"] {
 
-  /* Dialog / Sheet surface — handled by --pcs-color-surface-card dark override */
+  /* Dialog surface — handled by --pcs-color-surface-card dark override */
 
   /* Floating base — handled by --pcs-color-surface-overlay dark override */
 
@@ -301,8 +174,5 @@
   --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-100);
   --pcs-tooltip-color:                   var(--pcs-primitive-color-neutral-900);
   --pcs-tooltip-arrow-color:             var(--pcs-primitive-color-neutral-100);
-
-  /* Overlay scrim is slightly more opaque in dark mode */
-  --pcs-overlay-scrim-bg:                var(--pcs-color-overlay-scrim);        /* rgb(0 0 0 / 0.7) — dark-aware via semantic */
 
 }
