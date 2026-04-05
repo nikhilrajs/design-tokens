@@ -41,9 +41,6 @@
   --pcs-breadcrumb-item-color:           var(--pcs-color-text-muted);           /* neutral-500 */
   --pcs-breadcrumb-item-bg:              transparent;                           /* unused — links have no bg */
   --pcs-breadcrumb-item-border-radius:   var(--pcs-radius-sm);                  /* 2px — for focus ring */
-  /* Unused — padding was removed; ring draws outside the element without needing it */
-  --pcs-breadcrumb-item-padding-x:       var(--pcs-primitive-space-1);          /* 4px */
-  --pcs-breadcrumb-item-padding-y:       var(--pcs-primitive-space-0-5);        /* 2px */
 
   /* --- Item — hover --- */
   --pcs-breadcrumb-item-color-hover:     var(--pcs-color-text-default);         /* neutral-900 */
@@ -68,27 +65,8 @@
   /* icon-size is also used by BreadcrumbEllipsis for the MoreHorizontal icon */
   --pcs-breadcrumb-icon-size:            var(--pcs-size-icon-md);               /* 16px */
 
-  /* Unused — component has no leading-icon slot per item. Add if a HomeIcon
-     breadcrumb pattern is needed. */
-  --pcs-breadcrumb-icon-color:           var(--pcs-color-icon-muted);
-  --pcs-breadcrumb-icon-color-hover:     var(--pcs-color-icon-default);
-  --pcs-breadcrumb-icon-gap:             var(--pcs-space-component-gap-xs);     /* 4px — icon to label */
-
   /* --- Ellipsis (truncation indicator) --- */
   --pcs-breadcrumb-ellipsis-color:       var(--pcs-color-text-muted);
-
-  /* Unused — ellipsis is a static aria-hidden span, not interactive.
-     Wire these if ellipsis becomes a clickable expand button. */
-  --pcs-breadcrumb-ellipsis-color-hover: var(--pcs-color-text-default);
-  --pcs-breadcrumb-ellipsis-bg-hover:    var(--pcs-color-state-hover);
-  --pcs-breadcrumb-ellipsis-border-radius: var(--pcs-radius-sm);
-  --pcs-breadcrumb-ellipsis-padding-x:   var(--pcs-primitive-space-1-5);        /* 6px */
-  --pcs-breadcrumb-ellipsis-padding-y:   var(--pcs-primitive-space-0-5);        /* 2px */
-
-  /* Unused — text truncation not implemented in the component.
-     Wire as max-w-[var(--pcs-breadcrumb-item-max-width)] + truncate on
-     BreadcrumbItem if overflow truncation is needed. */
-  --pcs-breadcrumb-item-max-width:       12rem;                             /* 192px */
 
 }
 
