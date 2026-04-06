@@ -40,7 +40,7 @@
   --pcs-avatar-initials-size-xl:         var(--pcs-primitive-font-size-lg);     /* 18px — for 48px avatar */
 
   /* --- Border (separates avatar from background — used in stacked groups) --- */
-  --pcs-avatar-border-width:             var(--pcs-primitive-border-width-medium);        /* 2px  */
+  --pcs-avatar-border-width:             var(--pcs-primitive-border-width-medium);
   --pcs-avatar-border-color:             var(--pcs-color-background);           /* matches page bg — creates gap effect */
 
   /* --- Status ring (online / offline / busy / away indicator dot) --- */
@@ -68,7 +68,7 @@
   --pcs-avatar-stack-count-bg:           var(--pcs-color-surface-muted);
   --pcs-avatar-stack-count-border:       var(--pcs-color-background);
   --pcs-avatar-stack-count-text:         var(--pcs-color-text-muted);
-  --pcs-avatar-stack-count-font-size:    var(--pcs-text-label-sm-size);         /* 12px */
+  --pcs-avatar-stack-count-font-size:    var(--pcs-text-label-sm-size);
   --pcs-avatar-stack-count-font-weight:  var(--pcs-text-label-sm-weight);       /* 500  */
 
 }
@@ -120,9 +120,9 @@
 :root {
 
   /* --- Sizes --- */
-  --pcs-spinner-size-sm:                 var(--pcs-size-icon-sm);               /* 12px */
-  --pcs-spinner-size-md:                 var(--pcs-size-icon-md);               /* 16px */
-  --pcs-spinner-size-lg:                 var(--pcs-size-icon-lg);               /* 20px */
+  --pcs-spinner-size-sm:                 var(--pcs-size-icon-sm);
+  --pcs-spinner-size-md:                 var(--pcs-size-icon-md);
+  --pcs-spinner-size-lg:                 var(--pcs-size-icon-lg);
   --pcs-spinner-size-xl:                 var(--pcs-primitive-space-8);          /* 32px — page-level loading */
 
   /* Track width (the stroke of the spinning arc) */
@@ -179,11 +179,11 @@
   --pcs-separator-color-strong:          var(--pcs-color-border-default);       /* neutral-200 — standard   */
 
   /* Thickness */
-  --pcs-separator-thickness:             var(--pcs-primitive-border-width-default);       /* 1px */
+  --pcs-separator-thickness:             var(--pcs-primitive-border-width-default);
 
   /* Margin — spacing around a separator when used between sections */
-  --pcs-separator-margin-sm:             var(--pcs-space-layout-gap-sm);        /* 16px */
-  --pcs-separator-margin-md:             var(--pcs-space-layout-gap-md);        /* 24px */
+  --pcs-separator-margin-sm:             var(--pcs-space-layout-gap-sm);
+  --pcs-separator-margin-md:             var(--pcs-space-layout-gap-md);
 
   /* Decorative separator — slightly more prominent, used in cards/panels */
   --pcs-separator-decorative-color:      var(--pcs-color-border-default);

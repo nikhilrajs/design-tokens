@@ -27,7 +27,7 @@
 
   /* --- Typography --- */
   --pcs-breadcrumb-font-family:          var(--pcs-text-font-sans);
-  --pcs-breadcrumb-font-size:            var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-breadcrumb-font-size:            var(--pcs-text-body-md-size);
   --pcs-breadcrumb-font-weight:          var(--pcs-text-body-md-weight);        /* 400  */
   --pcs-breadcrumb-line-height:          var(--pcs-text-body-md-line-height);
 
@@ -35,7 +35,7 @@
   --pcs-breadcrumb-font-weight-current:  var(--pcs-primitive-font-weight-medium); /* 500 */
 
   /* --- Gap between items (including separator) --- */
-  --pcs-breadcrumb-gap:                  var(--pcs-space-component-gap-sm);     /* 6px */
+  --pcs-breadcrumb-gap:                  var(--pcs-space-component-gap-sm);
 
   /* --- Item — default (ancestor links) --- */
   --pcs-breadcrumb-item-color:           var(--pcs-color-text-muted);           /* neutral-500 */
@@ -63,7 +63,7 @@
 
   /* --- Icon (optional leading icon per item, e.g. home icon) --- */
   /* icon-size is also used by BreadcrumbEllipsis for the MoreHorizontal icon */
-  --pcs-breadcrumb-icon-size:            var(--pcs-size-icon-md);               /* 16px */
+  --pcs-breadcrumb-icon-size:            var(--pcs-size-icon-md);
 
   /* --- Ellipsis (truncation indicator) --- */
   --pcs-breadcrumb-ellipsis-color:       var(--pcs-color-text-muted);
@@ -98,21 +98,21 @@
   /* --- Sizing --- */
   /* Page items are square buttons */
   --pcs-pagination-item-size:            var(--pcs-size-control-md);            /* 32px — square */
-  --pcs-pagination-item-min-width:       var(--pcs-size-control-md);            /* 32px */
-  --pcs-pagination-item-border-radius:   var(--pcs-radius-md);                  /*  6px */
+  --pcs-pagination-item-min-width:       var(--pcs-size-control-md);
+  --pcs-pagination-item-border-radius:   var(--pcs-radius-md);
   --pcs-pagination-item-border-width:    var(--pcs-primitive-border-width-default);
 
   /* Prev/Next controls are slightly wider (icon + optional label) */
-  --pcs-pagination-control-height:       var(--pcs-size-control-md);            /* 32px */
-  --pcs-pagination-control-padding-x:    var(--pcs-space-component-padding-md); /* 12px */
+  --pcs-pagination-control-height:       var(--pcs-size-control-md);
+  --pcs-pagination-control-padding-x:    var(--pcs-space-component-padding-md);
   --pcs-pagination-control-border-radius:var(--pcs-radius-md);
 
   /* Gap between items */
-  --pcs-pagination-gap:                  var(--pcs-space-component-gap-xs);     /* 4px */
+  --pcs-pagination-gap:                  var(--pcs-space-component-gap-xs);
 
   /* --- Typography --- */
   --pcs-pagination-font-family:          var(--pcs-text-font-sans);
-  --pcs-pagination-font-size:            var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-pagination-font-size:            var(--pcs-text-body-md-size);
   --pcs-pagination-font-weight:          var(--pcs-primitive-font-weight-medium);/* 500  */
   --pcs-pagination-line-height:          var(--pcs-primitive-line-height-normal);
 
@@ -160,7 +160,7 @@
   --pcs-pagination-ellipsis-size:        var(--pcs-size-control-md);            /* 32px — same as item for alignment */
 
   /* --- Icon sizes within controls --- */
-  --pcs-pagination-icon-size:            var(--pcs-size-icon-md);               /* 16px */
+  --pcs-pagination-icon-size:            var(--pcs-size-icon-md);
   --pcs-pagination-icon-gap:             var(--pcs-space-component-gap-xs);     /* 4px — icon to label */
 
   /* --- Compact variant ---
@@ -168,7 +168,7 @@
      Compact uses icon-only prev/next controls.
   --------------------------------------------------------------------------- */
   --pcs-pagination-compact-item-size:    var(--pcs-size-control-sm);            /* 28px — smaller items */
-  --pcs-pagination-compact-font-size:    var(--pcs-primitive-font-size-xs);     /* 12px */
+  --pcs-pagination-compact-font-size:    var(--pcs-primitive-font-size-xs);
   --pcs-pagination-compact-gap:          var(--pcs-primitive-space-0-5);        /*  2px — tighter gap   */
 
 }

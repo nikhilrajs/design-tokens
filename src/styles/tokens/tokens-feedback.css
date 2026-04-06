@@ -29,7 +29,7 @@
   =========================================================================== */
 
   /* --- Base / Shared --- */
-  --pcs-alert-border-width:              var(--pcs-primitive-border-width-default);       /* 1px  */
+  --pcs-alert-border-width:              var(--pcs-primitive-border-width-default);
   --pcs-alert-border-style:              solid;
   /* --- VARIANT: Neutral --- */
   --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* neutral-100 */
@@ -81,13 +81,13 @@
   /* --- Container --- */
   --pcs-empty-bg:                        transparent;
   --pcs-empty-border-color:              var(--pcs-color-border-default);
-  --pcs-empty-border-width:              var(--pcs-primitive-border-width-default);       /* 1px */
-  --pcs-empty-border-radius:             var(--pcs-radius-xl);                  /* 12px */
-  --pcs-empty-padding:                   var(--pcs-space-inset-lg);             /* 24px */
+  --pcs-empty-border-width:              var(--pcs-primitive-border-width-default);
+  --pcs-empty-border-radius:             var(--pcs-radius-xl);
+  --pcs-empty-padding:                   var(--pcs-space-inset-lg);
 
   /* --- Media — icon variant (small rounded icon box) --- */
   --pcs-empty-media-icon-size:           2rem;                                  /* 32px — container */
-  --pcs-empty-media-icon-border-radius:  var(--pcs-radius-md);                  /*  6px */
+  --pcs-empty-media-icon-border-radius:  var(--pcs-radius-md);
   --pcs-empty-media-icon-bg:             var(--pcs-color-surface-muted);
   --pcs-empty-media-icon-color:          var(--pcs-color-text-default);
 
@@ -97,7 +97,7 @@
   --pcs-empty-title-color:               var(--pcs-color-text-default);
 
   /* --- Description --- */
-  --pcs-empty-description-font-size:     var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-empty-description-font-size:     var(--pcs-text-body-md-size);
   --pcs-empty-description-color:         var(--pcs-color-text-muted);
   /* Links inside description */
   --pcs-empty-description-link-color:    var(--pcs-color-text-muted);

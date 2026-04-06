@@ -16,11 +16,6 @@
    Only if shadcn adds new CSS variables in a future release, or if our
    semantic token names change. Neither happens often.
 
-   IMPORT ORDER IN globals.css
-   1. @import "tailwindcss"
-   2. @import "@proteus2/shared-ui/web/tokens.css"    ← our tokens
-   3. @import "./shadcn-bridge.css"                   ← this file (last)
-
    NOTE ON --secondary AND --accent
    shadcn uses these inconsistently across its own components — sometimes as
    hover backgrounds, sometimes as subtle fills. We've mapped them deliberately:

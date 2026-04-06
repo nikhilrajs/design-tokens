@@ -187,14 +187,14 @@
      Base: 16px (1rem = 16px)
   --------------------------------------------------------------------------- */
 
-  --pcs-primitive-font-size-xs: 0.75rem; /* 12px */
-  --pcs-primitive-font-size-sm: 0.875rem; /* 14px */
-  --pcs-primitive-font-size-base: 1rem; /* 16px */
-  --pcs-primitive-font-size-lg: 1.125rem; /* 18px */
-  --pcs-primitive-font-size-xl: 1.25rem; /* 20px */
-  --pcs-primitive-font-size-2xl: 1.5rem; /* 24px */
-  --pcs-primitive-font-size-3xl: 1.875rem; /* 30px */
-  --pcs-primitive-font-size-4xl: 2.25rem; /* 36px */
+  --pcs-primitive-font-size-xs: 0.75rem;
+  --pcs-primitive-font-size-sm: 0.875rem;
+  --pcs-primitive-font-size-base: 1rem;
+  --pcs-primitive-font-size-lg: 1.125rem;
+  --pcs-primitive-font-size-xl: 1.25rem;
+  --pcs-primitive-font-size-2xl: 1.5rem;
+  --pcs-primitive-font-size-3xl: 1.875rem;
+  --pcs-primitive-font-size-4xl: 2.25rem;
 
   /* ---------------------------------------------------------------------------
      1.10 TYPOGRAPHY PRIMITIVES — Font Weight
@@ -223,22 +223,22 @@
 
   --pcs-primitive-space-0: 0px;
   --pcs-primitive-space-px: 1px;
-  --pcs-primitive-space-0-5: 0.125rem; /*  2px */
-  --pcs-primitive-space-1: 0.25rem; /*  4px */
-  --pcs-primitive-space-1-5: 0.375rem; /*  6px */
-  --pcs-primitive-space-2: 0.5rem; /*  8px */
-  --pcs-primitive-space-2-5: 0.625rem; /* 10px */
-  --pcs-primitive-space-3: 0.75rem; /* 12px */
-  --pcs-primitive-space-3-5: 0.875rem; /* 14px */
-  --pcs-primitive-space-4: 1rem; /* 16px */
-  --pcs-primitive-space-5: 1.25rem; /* 20px */
-  --pcs-primitive-space-6: 1.5rem; /* 24px */
-  --pcs-primitive-space-7: 1.75rem; /* 28px */
-  --pcs-primitive-space-8: 2rem; /* 32px */
-  --pcs-primitive-space-10: 2.5rem; /* 40px */
-  --pcs-primitive-space-12: 3rem; /* 48px */
-  --pcs-primitive-space-14: 3.5rem; /* 56px */
-  --pcs-primitive-space-16: 4rem; /* 64px */
+  --pcs-primitive-space-0-5: 0.125rem;
+  --pcs-primitive-space-1: 0.25rem;
+  --pcs-primitive-space-1-5: 0.375rem;
+  --pcs-primitive-space-2: 0.5rem;
+  --pcs-primitive-space-2-5: 0.625rem;
+  --pcs-primitive-space-3: 0.75rem;
+  --pcs-primitive-space-3-5: 0.875rem;
+  --pcs-primitive-space-4: 1rem;
+  --pcs-primitive-space-5: 1.25rem;
+  --pcs-primitive-space-6: 1.5rem;
+  --pcs-primitive-space-7: 1.75rem;
+  --pcs-primitive-space-8: 2rem;
+  --pcs-primitive-space-10: 2.5rem;
+  --pcs-primitive-space-12: 3rem;
+  --pcs-primitive-space-14: 3.5rem;
+  --pcs-primitive-space-16: 4rem;
 
   /* ---------------------------------------------------------------------------
      1.13 BORDER RADIUS PRIMITIVES
@@ -246,11 +246,11 @@
   --------------------------------------------------------------------------- */
 
   --pcs-primitive-radius-none: 0px;
-  --pcs-primitive-radius-sm: 0.125rem; /*  2px */
-  --pcs-primitive-radius-md: 0.375rem; /*  6px */
-  --pcs-primitive-radius-lg: 0.5rem; /*  8px */
-  --pcs-primitive-radius-xl: 0.75rem; /* 12px */
-  --pcs-primitive-radius-2xl: 1rem; /* 16px */
+  --pcs-primitive-radius-sm: 0.125rem;
+  --pcs-primitive-radius-md: 0.375rem;
+  --pcs-primitive-radius-lg: 0.5rem;
+  --pcs-primitive-radius-xl: 0.75rem;
+  --pcs-primitive-radius-2xl: 1rem;
   --pcs-primitive-radius-full: 9999px;
 
   /* ---------------------------------------------------------------------------
@@ -448,7 +448,7 @@
   --pcs-text-font-mono: var(--pcs-primitive-font-family-mono); /* code-inline only */
 
   /* --- Display --- */
-  --pcs-text-display-size: var(--pcs-primitive-font-size-4xl); /* 36px */
+  --pcs-text-display-size: var(--pcs-primitive-font-size-4xl);
   --pcs-text-display-weight: var(--pcs-primitive-font-weight-semibold); /* 600 — bold (700) is too aggressive at this size in product UI */
   --pcs-text-display-line-height: var(--pcs-primitive-line-height-snug); /* 1.375 */
 
@@ -472,7 +472,7 @@
      Companion to Title LG. Same size as Title SM — regular weight + muted color
      provide the distinction. Not used beneath Title MD or SM.
   --------------------------------------------------------------------------- */
-  --pcs-text-subtitle-size: var(--pcs-primitive-font-size-base); /* 16px */
+  --pcs-text-subtitle-size: var(--pcs-primitive-font-size-base);
   --pcs-text-subtitle-weight: var(--pcs-primitive-font-weight-normal);
   --pcs-text-subtitle-line-height: var(--pcs-primitive-line-height-relaxed); /* 1.625 */
 
@@ -482,7 +482,7 @@
      body-sm = 12px — for tight secondary text.
   --------------------------------------------------------------------------- */
 
-  --pcs-text-body-lg-size: var(--pcs-primitive-font-size-base); /* 16px */
+  --pcs-text-body-lg-size: var(--pcs-primitive-font-size-base);
   --pcs-text-body-lg-weight: var(--pcs-primitive-font-weight-normal);
   --pcs-text-body-lg-line-height: var(--pcs-primitive-line-height-normal);
 
@@ -490,7 +490,7 @@
   --pcs-text-body-md-weight: var(--pcs-primitive-font-weight-normal);
   --pcs-text-body-md-line-height: var(--pcs-primitive-line-height-normal);
 
-  --pcs-text-body-sm-size: var(--pcs-primitive-font-size-xs); /* 12px */
+  --pcs-text-body-sm-size: var(--pcs-primitive-font-size-xs);
   --pcs-text-body-sm-weight: var(--pcs-primitive-font-weight-normal);
   --pcs-text-body-sm-line-height: var(--pcs-primitive-line-height-relaxed);
 
@@ -499,16 +499,16 @@
      Distinct from body via weight only — medium (500) vs regular (400).
   --------------------------------------------------------------------------- */
 
-  --pcs-text-label-lg-size: var(--pcs-primitive-font-size-sm); /* 14px */
+  --pcs-text-label-lg-size: var(--pcs-primitive-font-size-sm);
   --pcs-text-label-lg-weight: var(--pcs-primitive-font-weight-medium);
   --pcs-text-label-lg-line-height: var(--pcs-primitive-line-height-normal);
 
-  --pcs-text-label-sm-size: var(--pcs-primitive-font-size-xs); /* 12px */
+  --pcs-text-label-sm-size: var(--pcs-primitive-font-size-xs);
   --pcs-text-label-sm-weight: var(--pcs-primitive-font-weight-medium);
   --pcs-text-label-sm-line-height: var(--pcs-primitive-line-height-normal);
 
   /* --- Caption --- */
-  --pcs-text-caption-size: var(--pcs-primitive-font-size-xs); /* 12px */
+  --pcs-text-caption-size: var(--pcs-primitive-font-size-xs);
   --pcs-text-caption-weight: var(--pcs-primitive-font-weight-normal);
   --pcs-text-caption-line-height: var(--pcs-primitive-line-height-snug); /* 1.375 — tight (1.25) was too cramped when wrapping */
 
@@ -575,29 +575,29 @@
   --------------------------------------------------------------------------- */
 
   /* Component internal padding — used inside buttons, inputs, badges etc. */
-  --pcs-space-component-padding-xs: var(--pcs-primitive-space-1); /*  4px */
-  --pcs-space-component-padding-sm: var(--pcs-primitive-space-2); /*  8px */
-  --pcs-space-component-padding-md: var(--pcs-primitive-space-3); /* 12px */
-  --pcs-space-component-padding-lg: var(--pcs-primitive-space-4); /* 16px */
-  --pcs-space-component-padding-xl: var(--pcs-primitive-space-6); /* 24px */
+  --pcs-space-component-padding-xs: var(--pcs-primitive-space-1);
+  --pcs-space-component-padding-sm: var(--pcs-primitive-space-2);
+  --pcs-space-component-padding-md: var(--pcs-primitive-space-3);
+  --pcs-space-component-padding-lg: var(--pcs-primitive-space-4);
+  --pcs-space-component-padding-xl: var(--pcs-primitive-space-6);
 
   /* Gaps between elements within a component (icon + label, etc.) */
-  --pcs-space-component-gap-xs: var(--pcs-primitive-space-1); /*  4px */
-  --pcs-space-component-gap-sm: var(--pcs-primitive-space-1-5); /*  6px */
-  --pcs-space-component-gap-md: var(--pcs-primitive-space-2); /*  8px */
-  --pcs-space-component-gap-lg: var(--pcs-primitive-space-3); /* 12px */
+  --pcs-space-component-gap-xs: var(--pcs-primitive-space-1);
+  --pcs-space-component-gap-sm: var(--pcs-primitive-space-1-5);
+  --pcs-space-component-gap-md: var(--pcs-primitive-space-2);
+  --pcs-space-component-gap-lg: var(--pcs-primitive-space-3);
 
   /* Layout gaps — between components on a page/panel */
-  --pcs-space-layout-gap-sm: var(--pcs-primitive-space-4); /* 16px */
-  --pcs-space-layout-gap-md: var(--pcs-primitive-space-6); /* 24px */
-  --pcs-space-layout-gap-lg: var(--pcs-primitive-space-8); /* 32px */
-  --pcs-space-layout-gap-xl: var(--pcs-primitive-space-10); /* 40px */
+  --pcs-space-layout-gap-sm: var(--pcs-primitive-space-4);
+  --pcs-space-layout-gap-md: var(--pcs-primitive-space-6);
+  --pcs-space-layout-gap-lg: var(--pcs-primitive-space-8);
+  --pcs-space-layout-gap-xl: var(--pcs-primitive-space-10);
 
   /* Inset padding — panels, cards, page sections */
-  --pcs-space-inset-sm: var(--pcs-primitive-space-3); /* 12px */
-  --pcs-space-inset-md: var(--pcs-primitive-space-4); /* 16px */
-  --pcs-space-inset-lg: var(--pcs-primitive-space-6); /* 24px */
-  --pcs-space-inset-xl: var(--pcs-primitive-space-8); /* 32px */
+  --pcs-space-inset-sm: var(--pcs-primitive-space-3);
+  --pcs-space-inset-md: var(--pcs-primitive-space-4);
+  --pcs-space-inset-lg: var(--pcs-primitive-space-6);
+  --pcs-space-inset-xl: var(--pcs-primitive-space-8);
 
   /* ---------------------------------------------------------------------------
      2.13 SEMANTIC SIZING TOKENS
@@ -605,36 +605,36 @@
   --------------------------------------------------------------------------- */
 
   /* Control heights — buttons, inputs, selects */
-  --pcs-size-control-xs: var(--pcs-primitive-space-6); /* 24px */
-  --pcs-size-control-sm: var(--pcs-primitive-space-7); /* 28px */
+  --pcs-size-control-xs: var(--pcs-primitive-space-6);
+  --pcs-size-control-sm: var(--pcs-primitive-space-7);
   --pcs-size-control-md: var(--pcs-primitive-space-8); /* 32px  — default */
-  --pcs-size-control-lg: var(--pcs-primitive-space-10); /* 40px */
-  --pcs-size-control-xl: var(--pcs-primitive-space-12); /* 48px */
+  --pcs-size-control-lg: var(--pcs-primitive-space-10);
+  --pcs-size-control-xl: var(--pcs-primitive-space-12);
 
   /* Avatar sizes */
-  --pcs-size-avatar-xs: var(--pcs-primitive-space-5); /* 20px */
-  --pcs-size-avatar-sm: var(--pcs-primitive-space-6); /* 24px */
-  --pcs-size-avatar-md: var(--pcs-primitive-space-8); /* 32px */
-  --pcs-size-avatar-lg: var(--pcs-primitive-space-10); /* 40px */
-  --pcs-size-avatar-xl: var(--pcs-primitive-space-12); /* 48px */
+  --pcs-size-avatar-xs: var(--pcs-primitive-space-5);
+  --pcs-size-avatar-sm: var(--pcs-primitive-space-6);
+  --pcs-size-avatar-md: var(--pcs-primitive-space-8);
+  --pcs-size-avatar-lg: var(--pcs-primitive-space-10);
+  --pcs-size-avatar-xl: var(--pcs-primitive-space-12);
 
   /* Icon sizes */
-  --pcs-size-icon-sm: var(--pcs-primitive-space-3); /* 12px */
-  --pcs-size-icon-md: var(--pcs-primitive-space-4); /* 16px */
-  --pcs-size-icon-lg: var(--pcs-primitive-space-5); /* 20px */
+  --pcs-size-icon-sm: var(--pcs-primitive-space-3);
+  --pcs-size-icon-md: var(--pcs-primitive-space-4);
+  --pcs-size-icon-lg: var(--pcs-primitive-space-5);
 
   /* ---------------------------------------------------------------------------
      2.15 SEMANTIC RADIUS TOKENS
      Fixed scale — predictable across web and mobile.
   --------------------------------------------------------------------------- */
 
-  --pcs-radius-none: var(--pcs-primitive-radius-none); /*  0px */
-  --pcs-radius-sm: var(--pcs-primitive-radius-sm); /*  2px */
-  --pcs-radius-md: var(--pcs-primitive-radius-md); /*  6px */
-  --pcs-radius-lg: var(--pcs-primitive-radius-lg); /*  8px */
-  --pcs-radius-xl: var(--pcs-primitive-radius-xl); /* 12px */
-  --pcs-radius-2xl: var(--pcs-primitive-radius-2xl); /* 16px */
-  --pcs-radius-full: var(--pcs-primitive-radius-full); /* 9999px */
+  --pcs-radius-none: var(--pcs-primitive-radius-none);
+  --pcs-radius-sm: var(--pcs-primitive-radius-sm);
+  --pcs-radius-md: var(--pcs-primitive-radius-md);
+  --pcs-radius-lg: var(--pcs-primitive-radius-lg);
+  --pcs-radius-xl: var(--pcs-primitive-radius-xl);
+  --pcs-radius-2xl: var(--pcs-primitive-radius-2xl);
+  --pcs-radius-full: var(--pcs-primitive-radius-full);
 
   /* ---------------------------------------------------------------------------
      2.16 SEMANTIC SHADOW TOKENS

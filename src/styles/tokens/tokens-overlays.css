@@ -50,14 +50,14 @@
      Arrow/caret is optional — each component opts in.
   =========================================================================== */
 
-  --pcs-floating-border-radius:          var(--pcs-radius-lg);                  /* 8px */
+  --pcs-floating-border-radius:          var(--pcs-radius-lg);
   --pcs-floating-border-width:           var(--pcs-primitive-border-width-default);
   --pcs-floating-border-color:           var(--pcs-color-border-default);
   --pcs-floating-shadow:                 var(--pcs-shadow-md);
   --pcs-floating-bg:                     var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
 
   /* Arrow / caret */
-  --pcs-floating-arrow-size:             var(--pcs-primitive-space-2);          /* 8px */
+  --pcs-floating-arrow-size:             var(--pcs-primitive-space-2);
   --pcs-floating-arrow-color:            var(--pcs-floating-bg);
   --pcs-floating-arrow-border-color:     var(--pcs-floating-border-color);
 
@@ -78,19 +78,19 @@
   --pcs-popover-z:                       var(--pcs-z-dropdown);                 /* 100 */
 
   /* --- Sizing --- */
-  --pcs-popover-min-width:               12rem;                             /* 192px */
-  --pcs-popover-max-width:               22rem;                             /* 352px */
+  --pcs-popover-min-width:               12rem;
+  --pcs-popover-max-width:               22rem;
 
   /* --- Spacing --- */
-  --pcs-popover-padding:                 var(--pcs-space-inset-md);             /* 16px */
-  --pcs-popover-header-gap:              var(--pcs-space-component-gap-sm);     /*  6px */
+  --pcs-popover-padding:                 var(--pcs-space-inset-md);
+  --pcs-popover-header-gap:              var(--pcs-space-component-gap-sm);
 
   /* --- Typography --- */
-  --pcs-popover-title-font-size:         var(--pcs-text-label-lg-size);         /* 14px */
+  --pcs-popover-title-font-size:         var(--pcs-text-label-lg-size);
   --pcs-popover-title-font-weight:       var(--pcs-text-label-lg-weight);       /* 500  */
   --pcs-popover-title-color:             var(--pcs-color-text-default);
 
-  --pcs-popover-body-font-size:          var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-popover-body-font-size:          var(--pcs-text-body-md-size);
   --pcs-popover-body-font-weight:        var(--pcs-text-body-md-weight);
   --pcs-popover-body-color:              var(--pcs-color-text-muted);
 
@@ -121,9 +121,9 @@
   --pcs-tooltip-z:                       var(--pcs-z-tooltip);                  /* 600 — above everything */
 
   /* --- Sizing --- */
-  --pcs-tooltip-max-width:               16rem;                             /* 256px */
-  --pcs-tooltip-padding-x:               var(--pcs-space-component-padding-sm); /*  8px  */
-  --pcs-tooltip-padding-y:               var(--pcs-primitive-space-1-5);        /*  6px  */
+  --pcs-tooltip-max-width:               16rem;
+  --pcs-tooltip-padding-x:               var(--pcs-space-component-padding-sm);
+  --pcs-tooltip-padding-y:               var(--pcs-primitive-space-1-5);
 
   /* --- Typography --- */
   --pcs-tooltip-font-family:             var(--pcs-text-font-sans);
@@ -133,7 +133,7 @@
   --pcs-tooltip-color:                   var(--pcs-primitive-color-white);
 
   /* --- Arrow --- */
-  --pcs-tooltip-arrow-size:              var(--pcs-floating-arrow-size);        /* 8px  */
+  --pcs-tooltip-arrow-size:              var(--pcs-floating-arrow-size);
   --pcs-tooltip-arrow-color:             var(--pcs-tooltip-bg);
 
 
@@ -153,7 +153,7 @@
   --pcs-hover-card-shadow:               var(--pcs-shadow-lg);
 
   /* Wider than popover — hover cards contain richer layout (avatar + meta) */
-  --pcs-hover-card-min-width:            16rem;                             /* 256px */
+  --pcs-hover-card-min-width:            16rem;
 
 	--pcs-hover-card-z:                    var(--pcs-z-dropdown);
 

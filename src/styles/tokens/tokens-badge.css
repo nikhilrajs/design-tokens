@@ -35,7 +35,7 @@
   =========================================================================== */
 
   --pcs-badge-font-family:               var(--pcs-text-font-sans);
-  --pcs-badge-font-size:                 var(--pcs-text-label-sm-size);          /* 12px */
+  --pcs-badge-font-size:                 var(--pcs-text-label-sm-size);
   --pcs-badge-font-weight:               var(--pcs-text-label-sm-weight);        /* 500  */
   --pcs-badge-line-height:               var(--pcs-primitive-line-height-normal);
 
@@ -44,12 +44,12 @@
   --pcs-badge-letter-spacing:            0.025em;
 
   /* Fixed height and padding */
-  --pcs-badge-height:                    var(--pcs-primitive-space-5);           /* 20px */
-  --pcs-badge-padding-x:                 var(--pcs-space-component-padding-sm);  /*  8px */
-  --pcs-badge-padding-y:                 var(--pcs-primitive-space-0-5);         /*  2px */
+  --pcs-badge-height:                    var(--pcs-primitive-space-5);
+  --pcs-badge-padding-x:                 var(--pcs-space-component-padding-sm);
+  --pcs-badge-padding-y:                 var(--pcs-primitive-space-0-5);
 
   /* Border */
-  --pcs-badge-border-width:              var(--pcs-primitive-border-width-default);        /*  1px */
+  --pcs-badge-border-width:              var(--pcs-primitive-border-width-default);
   --pcs-badge-border-style:              solid;
   --pcs-badge-border-radius:             0.25rem;                                /* 4px — between radius-sm(2px) and radius-md(6px) */
 

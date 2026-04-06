@@ -40,9 +40,9 @@
   --pcs-input-font-weight:               var(--pcs-text-body-md-weight);
   --pcs-input-line-height:               var(--pcs-text-body-md-line-height);
 
-  --pcs-input-border-width:              var(--pcs-primitive-border-width-default);       /* 1px */
+  --pcs-input-border-width:              var(--pcs-primitive-border-width-default);
   --pcs-input-border-style:              solid;
-  --pcs-input-border-radius:             var(--pcs-radius-md);                  /* 6px */
+  --pcs-input-border-radius:             var(--pcs-radius-md);
 
   /* Focus ring */
   --pcs-input-focus-ring-width:          var(--pcs-focus-ring-width);
@@ -57,30 +57,30 @@
   =========================================================================== */
 
   /* --- sm --- */
-  --pcs-input-size-sm-height:            var(--pcs-size-control-sm);            /* 28px */
-  --pcs-input-size-sm-padding-x:         var(--pcs-space-component-padding-sm); /*  8px */
-  --pcs-input-size-sm-padding-y:         var(--pcs-primitive-space-1);          /*  4px */
-  --pcs-input-size-sm-icon-size:         var(--pcs-size-icon-sm);               /* 12px */
-  --pcs-input-size-sm-icon-gap:          var(--pcs-space-component-gap-xs);     /*  4px */
+  --pcs-input-size-sm-height:            var(--pcs-size-control-sm);
+  --pcs-input-size-sm-padding-x:         var(--pcs-space-component-padding-sm);
+  --pcs-input-size-sm-padding-y:         var(--pcs-primitive-space-1);
+  --pcs-input-size-sm-icon-size:         var(--pcs-size-icon-sm);
+  --pcs-input-size-sm-icon-gap:          var(--pcs-space-component-gap-xs);
 
   /* --- md (default) --- */
-  --pcs-input-size-md-height:            var(--pcs-size-control-md);            /* 32px */
-  --pcs-input-size-md-padding-x:         var(--pcs-space-component-padding-md); /* 12px */
-  --pcs-input-size-md-padding-y:         var(--pcs-primitive-space-1-5);        /*  6px */
-  --pcs-input-size-md-icon-size:         var(--pcs-size-icon-md);               /* 16px */
-  --pcs-input-size-md-icon-gap:          var(--pcs-space-component-gap-sm);     /*  6px */
+  --pcs-input-size-md-height:            var(--pcs-size-control-md);
+  --pcs-input-size-md-padding-x:         var(--pcs-space-component-padding-md);
+  --pcs-input-size-md-padding-y:         var(--pcs-primitive-space-1-5);
+  --pcs-input-size-md-icon-size:         var(--pcs-size-icon-md);
+  --pcs-input-size-md-icon-gap:          var(--pcs-space-component-gap-sm);
 
   /* --- lg --- */
-  --pcs-input-size-lg-height:            var(--pcs-size-control-lg);            /* 40px */
-  --pcs-input-size-lg-padding-x:         var(--pcs-space-component-padding-lg); /* 16px */
-  --pcs-input-size-lg-padding-y:         var(--pcs-primitive-space-2);          /*  8px */
-  --pcs-input-size-lg-icon-size:         var(--pcs-size-icon-lg);               /* 20px */
-  --pcs-input-size-lg-icon-gap:          var(--pcs-space-component-gap-md);     /*  8px */
+  --pcs-input-size-lg-height:            var(--pcs-size-control-lg);
+  --pcs-input-size-lg-padding-x:         var(--pcs-space-component-padding-lg);
+  --pcs-input-size-lg-padding-y:         var(--pcs-primitive-space-2);
+  --pcs-input-size-lg-icon-size:         var(--pcs-size-icon-lg);
+  --pcs-input-size-lg-icon-gap:          var(--pcs-space-component-gap-md);
 
   /* Textarea min-height — enough for ~3 lines at body-md */
-  --pcs-input-textarea-min-height:       5rem;                              /* 80px */
-  --pcs-input-textarea-padding-x:        var(--pcs-space-component-padding-md); /* 12px */
-  --pcs-input-textarea-padding-y:        var(--pcs-space-component-padding-sm); /*  8px */
+  --pcs-input-textarea-min-height:       5rem;
+  --pcs-input-textarea-padding-x:        var(--pcs-space-component-padding-md);
+  --pcs-input-textarea-padding-y:        var(--pcs-space-component-padding-sm);
   --pcs-input-textarea-resize:           vertical;
 
   /* ===========================================================================
@@ -183,7 +183,7 @@
   --pcs-field-gap-input-message:         var(--pcs-space-component-gap-xs);     /*  4px — input to hint/error */
 
   /* --- Label --- */
-  --pcs-field-label-font-size:           var(--pcs-text-label-lg-size);         /* 14px */
+  --pcs-field-label-font-size:           var(--pcs-text-label-lg-size);
   --pcs-field-label-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
   --pcs-field-label-line-height:         var(--pcs-text-label-lg-line-height);
   --pcs-field-label-color:               var(--pcs-color-text-default);
@@ -194,19 +194,19 @@
 
   /* Optional indicator text */
   --pcs-field-label-optional-color:      var(--pcs-color-text-muted);
-  --pcs-field-label-optional-font-size:  var(--pcs-text-label-sm-size);         /* 12px */
+  --pcs-field-label-optional-font-size:  var(--pcs-text-label-sm-size);
   --pcs-field-label-optional-font-weight:var(--pcs-primitive-font-weight-normal);
 
   /* --- Hint text --- */
   /* Appears below input in default/neutral state */
-  --pcs-field-hint-font-size:            var(--pcs-text-body-sm-size);          /* 12px */
+  --pcs-field-hint-font-size:            var(--pcs-text-body-sm-size);
   --pcs-field-hint-font-weight:          var(--pcs-text-body-sm-weight);
   --pcs-field-hint-line-height:          var(--pcs-text-body-sm-line-height);
   --pcs-field-hint-color:                var(--pcs-color-text-muted);
 
   /* --- Validation message — Error --- */
   /* Replaces hint text when field is in error state */
-  --pcs-field-message-error-font-size:   var(--pcs-text-body-sm-size);          /* 12px */
+  --pcs-field-message-error-font-size:   var(--pcs-text-body-sm-size);
   --pcs-field-message-error-font-weight: var(--pcs-primitive-font-weight-medium);
   --pcs-field-message-error-line-height: var(--pcs-text-body-sm-line-height);
   --pcs-field-message-error-color:       var(--pcs-color-error-text);
@@ -230,7 +230,7 @@
 
   /* --- Character count --- */
   /* Shown for Textarea and length-limited inputs (right-aligned below input) */
-  --pcs-field-char-count-font-size:      var(--pcs-text-caption-size);          /* 12px */
+  --pcs-field-char-count-font-size:      var(--pcs-text-caption-size);
   --pcs-field-char-count-color:          var(--pcs-color-text-subtle);
   --pcs-field-char-count-color-warning:  var(--pcs-color-warning-text);         /* approaching limit */
   --pcs-field-char-count-color-error:    var(--pcs-color-error-text);           /* at/over limit */

@@ -25,7 +25,7 @@
 
   /* --- Default variant --- */
   --pcs-tabs-list-bg:                    var(--pcs-color-surface-muted);        /* neutral-100 / neutral-900 dark */
-  --pcs-tabs-list-border-radius:         var(--pcs-radius-lg);                  /* 8px */
+  --pcs-tabs-list-border-radius:         var(--pcs-radius-lg);
   --pcs-tabs-list-padding:               3px;                                   /* Visual alignment — intentionally outside spacing scale */
   --pcs-tabs-list-height:                var(--pcs-size-control-md);            /* 32px — horizontal */
   --pcs-tabs-list-text:                  var(--pcs-color-text-muted);           /* inactive trigger color */
@@ -37,7 +37,7 @@
 
   /* --- Shape + typography --- */
   --pcs-tabs-trigger-border-radius:      var(--pcs-radius-md);                  /* 6px — inside the list pill */
-  --pcs-tabs-trigger-font-size:          var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-tabs-trigger-font-size:          var(--pcs-text-body-md-size);
   --pcs-tabs-trigger-font-weight:        var(--pcs-text-label-lg-weight);       /* 500  */
 
   /* --- Text states --- */

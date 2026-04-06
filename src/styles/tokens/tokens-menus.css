@@ -32,26 +32,26 @@
   --pcs-menu-bg:                         var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
   --pcs-menu-border-color:               var(--pcs-color-border-default);
   --pcs-menu-border-width:               var(--pcs-primitive-border-width-default);
-  --pcs-menu-border-radius:              var(--pcs-radius-lg);                  /* 8px */
+  --pcs-menu-border-radius:              var(--pcs-radius-lg);
   --pcs-menu-shadow:                     var(--pcs-shadow-lg);
   --pcs-menu-z:                          var(--pcs-z-dropdown);                 /* 100 */
   --pcs-menu-padding:                    var(--pcs-primitive-space-1);          /* 4px — inner padding around item list */
 
   /* --- Sizing --- */
-  --pcs-menu-min-width:                  10rem;                             /* 160px */
-  --pcs-menu-max-width:                  22rem;                             /* 352px */
+  --pcs-menu-min-width:                  10rem;
+  --pcs-menu-max-width:                  22rem;
   --pcs-menu-max-height:                 22rem;                             /* 352px — scroll beyond this */
 
   /* --- Item --- */
-  --pcs-menu-item-height:                var(--pcs-size-control-md);            /* 32px */
-  --pcs-menu-item-padding-x:             var(--pcs-space-component-padding-sm); /*  8px */
-  --pcs-menu-item-padding-y:             var(--pcs-primitive-space-1-5);        /*  6px */
+  --pcs-menu-item-height:                var(--pcs-size-control-md);
+  --pcs-menu-item-padding-x:             var(--pcs-space-component-padding-sm);
+  --pcs-menu-item-padding-y:             var(--pcs-primitive-space-1-5);
   --pcs-menu-item-border-radius:         var(--pcs-radius-md);                  /*  6px — items round inside panel */
   --pcs-menu-item-gap:                   var(--pcs-space-component-gap-sm);     /*  6px — icon/check to label */
 
   /* --- Item typography --- */
   --pcs-menu-item-font-family:           var(--pcs-text-font-sans);
-  --pcs-menu-item-font-size:             var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-menu-item-font-size:             var(--pcs-text-body-md-size);
   --pcs-menu-item-font-weight:           var(--pcs-text-body-md-weight);        /* 400  */
   --pcs-menu-item-line-height:           var(--pcs-text-body-md-line-height);
 
@@ -82,18 +82,18 @@
 
   /* --- Item — selected (checkmark — used in Select, checked menu items) --- */
   --pcs-menu-item-check-color:           var(--pcs-color-primary-emphasis);     /* brand-500 */
-  --pcs-menu-item-check-size:            var(--pcs-size-icon-sm);               /* 12px      */
+  --pcs-menu-item-check-size:            var(--pcs-size-icon-sm);
 
   /* --- Item — sub-menu indicator (chevron right) --- */
   --pcs-menu-item-submenu-icon-color:    var(--pcs-color-icon-muted);
-  --pcs-menu-item-submenu-icon-size:     var(--pcs-size-icon-sm);               /* 12px */
+  --pcs-menu-item-submenu-icon-size:     var(--pcs-size-icon-sm);
 
   /* --- Section label (group header inside menu) --- */
-  --pcs-menu-section-label-font-size:    var(--pcs-text-label-sm-size);         /* 12px */
+  --pcs-menu-section-label-font-size:    var(--pcs-text-label-sm-size);
   --pcs-menu-section-label-font-weight:  var(--pcs-text-label-sm-weight);       /* 500  */
   --pcs-menu-section-label-color:        var(--pcs-color-text-subtle);          /* neutral-400 */
-  --pcs-menu-section-label-padding-x:    var(--pcs-space-component-padding-sm); /*  8px */
-  --pcs-menu-section-label-padding-y:    var(--pcs-primitive-space-1-5);        /*  6px */
+  --pcs-menu-section-label-padding-x:    var(--pcs-space-component-padding-sm);
+  --pcs-menu-section-label-padding-y:    var(--pcs-primitive-space-1-5);
 
   /* --- Separator --- */
   --pcs-menu-separator-color:            var(--pcs-color-border-muted);
@@ -112,15 +112,15 @@
   --pcs-menubar-bg:                      var(--pcs-color-background);
   --pcs-menubar-border-color:            var(--pcs-color-border-muted);
   --pcs-menubar-border-width:            var(--pcs-primitive-border-width-default);
-  --pcs-menubar-height:                  var(--pcs-size-control-md);            /* 32px */
+  --pcs-menubar-height:                  var(--pcs-size-control-md);
   --pcs-menubar-padding-x:               var(--pcs-primitive-space-1);          /*  4px — outer padding */
   --pcs-menubar-gap:                     var(--pcs-primitive-space-0-5);        /*  2px — between triggers */
 
   /* --- Trigger item (button inside the menubar) --- */
-  --pcs-menubar-trigger-padding-x:       var(--pcs-space-component-padding-sm); /*  8px */
-  --pcs-menubar-trigger-padding-y:       var(--pcs-primitive-space-1);          /*  4px */
+  --pcs-menubar-trigger-padding-x:       var(--pcs-space-component-padding-sm);
+  --pcs-menubar-trigger-padding-y:       var(--pcs-primitive-space-1);
   --pcs-menubar-trigger-border-radius:   var(--pcs-radius-sm);                  /*  2px — tighter than standard */
-  --pcs-menubar-trigger-font-size:       var(--pcs-text-body-md-size);          /* 14px */
+  --pcs-menubar-trigger-font-size:       var(--pcs-text-body-md-size);
   --pcs-menubar-trigger-font-weight:     var(--pcs-primitive-font-weight-medium);/* 500  */
 
   /* Trigger — default */
@@ -151,28 +151,28 @@
   =========================================================================== */
 
   /* --- Sizing (mirrors Input sizes) --- */
-  --pcs-select-trigger-sm-height:        var(--pcs-size-control-sm);            /* 28px */
-  --pcs-select-trigger-sm-padding-x:     var(--pcs-space-component-padding-sm); /*  8px */
-  --pcs-select-trigger-sm-font-size:     var(--pcs-primitive-font-size-xs);     /* 12px */
+  --pcs-select-trigger-sm-height:        var(--pcs-size-control-sm);
+  --pcs-select-trigger-sm-padding-x:     var(--pcs-space-component-padding-sm);
+  --pcs-select-trigger-sm-font-size:     var(--pcs-primitive-font-size-xs);
 
   --pcs-select-trigger-md-height:        var(--pcs-size-control-md);            /* 32px — default */
-  --pcs-select-trigger-md-padding-x:     var(--pcs-space-component-padding-md); /* 12px */
-  --pcs-select-trigger-md-font-size:     var(--pcs-primitive-font-size-sm);     /* 14px */
+  --pcs-select-trigger-md-padding-x:     var(--pcs-space-component-padding-md);
+  --pcs-select-trigger-md-font-size:     var(--pcs-primitive-font-size-sm);
 
-  --pcs-select-trigger-lg-height:        var(--pcs-size-control-lg);            /* 40px */
-  --pcs-select-trigger-lg-padding-x:     var(--pcs-space-component-padding-lg); /* 16px */
-  --pcs-select-trigger-lg-font-size:     var(--pcs-primitive-font-size-base);   /* 16px */
+  --pcs-select-trigger-lg-height:        var(--pcs-size-control-lg);
+  --pcs-select-trigger-lg-padding-x:     var(--pcs-space-component-padding-lg);
+  --pcs-select-trigger-lg-font-size:     var(--pcs-primitive-font-size-base);
 
   /* --- Shared trigger properties --- */
   --pcs-select-trigger-border-width:     var(--pcs-primitive-border-width-default);
-  --pcs-select-trigger-border-radius:    var(--pcs-radius-md);                  /* 6px */
+  --pcs-select-trigger-border-radius:    var(--pcs-radius-md);
   --pcs-select-trigger-font-family:      var(--pcs-text-font-sans);
   --pcs-select-trigger-font-weight:      var(--pcs-text-body-md-weight);
 
   /* Chevron icon inside trigger */
-  --pcs-select-trigger-icon-size:        var(--pcs-size-icon-md);               /* 16px */
+  --pcs-select-trigger-icon-size:        var(--pcs-size-icon-md);
   --pcs-select-trigger-icon-color:       var(--pcs-color-icon-muted);
-  --pcs-select-trigger-icon-gap:         var(--pcs-space-component-gap-sm);     /*  6px */
+  --pcs-select-trigger-icon-gap:         var(--pcs-space-component-gap-sm);
 
   /* --- STATE: Default --- */
   --pcs-select-trigger-bg:               var(--pcs-input-bg);              /* mirrors Input bg — tracks dark mode tint automatically */
@@ -212,7 +212,7 @@
   --pcs-native-select-appearance:        none;
 
   /* Custom chevron via background-image (SVG data URI at component level) */
-  --pcs-native-select-icon-size:         var(--pcs-size-icon-md);               /* 16px */
+  --pcs-native-select-icon-size:         var(--pcs-size-icon-md);
   --pcs-native-select-icon-color:        var(--pcs-color-icon-muted);
   --pcs-native-select-icon-padding-right:var(--pcs-space-component-padding-lg); /* 16px — room for icon */
 

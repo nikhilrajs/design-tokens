@@ -37,7 +37,7 @@
   --pcs-button-line-height:              var(--pcs-primitive-line-height-normal);
 
   /* Border */
-  --pcs-button-border-width:             var(--pcs-primitive-border-width-default);       /* 1px */
+  --pcs-button-border-width:             var(--pcs-primitive-border-width-default);
 
   /* Focus ring — shared across all variants */
   --pcs-button-focus-ring-width:         var(--pcs-focus-ring-width);
@@ -58,47 +58,47 @@
   =========================================================================== */
 
   /* --- xs (compact toggle/filter) --- */
-  --pcs-button-size-xs-height:           var(--pcs-size-control-xs);            /* 24px */
-  --pcs-button-size-xs-padding-x:        var(--pcs-primitive-space-1-5);        /*  6px */
-  --pcs-button-size-xs-font-size:        var(--pcs-text-label-sm-size);         /* 12px */
-  --pcs-button-size-xs-gap:              var(--pcs-space-component-gap-xs);     /*  4px */
-  --pcs-button-size-xs-radius:           var(--pcs-radius-md);                  /*  6px */
+  --pcs-button-size-xs-height:           var(--pcs-size-control-xs);
+  --pcs-button-size-xs-padding-x:        var(--pcs-primitive-space-1-5);
+  --pcs-button-size-xs-font-size:        var(--pcs-text-label-sm-size);
+  --pcs-button-size-xs-gap:              var(--pcs-space-component-gap-xs);
+  --pcs-button-size-xs-radius:           var(--pcs-radius-md);
 
   /* Icon-only xs — square */
-  --pcs-button-icon-size-xs:             var(--pcs-size-control-xs);            /* 24px */
+  --pcs-button-icon-size-xs:             var(--pcs-size-control-xs);
 
   /* --- sm --- */
   --pcs-button-size-sm-height:           var(--pcs-size-control-sm);            /* 28px — aligned to control size token, matches input-sm */
-  --pcs-button-size-sm-padding-x:        var(--pcs-space-component-padding-sm); /* 8px  */
-  --pcs-button-size-sm-font-size:        var(--pcs-primitive-font-size-xs);     /* 12px */
-  --pcs-button-size-sm-gap:              var(--pcs-space-component-gap-xs);     /* 4px  */
-  --pcs-button-size-sm-radius:           var(--pcs-radius-md);                  /* 6px  */
-  --pcs-button-size-sm-icon-size:        var(--pcs-size-icon-sm);               /* 12px */
+  --pcs-button-size-sm-padding-x:        var(--pcs-space-component-padding-sm);
+  --pcs-button-size-sm-font-size:        var(--pcs-primitive-font-size-xs);
+  --pcs-button-size-sm-gap:              var(--pcs-space-component-gap-xs);
+  --pcs-button-size-sm-radius:           var(--pcs-radius-md);
+  --pcs-button-size-sm-icon-size:        var(--pcs-size-icon-sm);
 
   /* Icon-only sm — square */
-  --pcs-button-icon-size-sm:             var(--pcs-size-control-sm);            /* 28px */
+  --pcs-button-icon-size-sm:             var(--pcs-size-control-sm);
 
   /* --- md (default) --- */
-  --pcs-button-size-md-height:           var(--pcs-size-control-md);            /* 32px */
-  --pcs-button-size-md-padding-x:        var(--pcs-space-component-padding-md); /* 12px */
-  --pcs-button-size-md-font-size:        var(--pcs-primitive-font-size-sm);     /* 14px */
-  --pcs-button-size-md-gap:              var(--pcs-space-component-gap-sm);     /* 6px  */
-  --pcs-button-size-md-radius:           var(--pcs-radius-md);                  /* 6px  */
-  --pcs-button-size-md-icon-size:        var(--pcs-size-icon-md);               /* 16px */
+  --pcs-button-size-md-height:           var(--pcs-size-control-md);
+  --pcs-button-size-md-padding-x:        var(--pcs-space-component-padding-md);
+  --pcs-button-size-md-font-size:        var(--pcs-primitive-font-size-sm);
+  --pcs-button-size-md-gap:              var(--pcs-space-component-gap-sm);
+  --pcs-button-size-md-radius:           var(--pcs-radius-md);
+  --pcs-button-size-md-icon-size:        var(--pcs-size-icon-md);
 
   /* Icon-only md — square */
-  --pcs-button-icon-size-md:             var(--pcs-size-control-md);            /* 32px */
+  --pcs-button-icon-size-md:             var(--pcs-size-control-md);
 
   /* --- lg --- */
-  --pcs-button-size-lg-height:           var(--pcs-size-control-lg);            /* 40px */
-  --pcs-button-size-lg-padding-x:        var(--pcs-space-component-padding-lg); /* 16px */
-  --pcs-button-size-lg-font-size:        var(--pcs-primitive-font-size-base);   /* 16px */
-  --pcs-button-size-lg-gap:              var(--pcs-space-component-gap-md);     /* 8px  */
-  --pcs-button-size-lg-radius:           var(--pcs-radius-md);                  /* 6px  */
-  --pcs-button-size-lg-icon-size:        var(--pcs-size-icon-lg);               /* 20px */
+  --pcs-button-size-lg-height:           var(--pcs-size-control-lg);
+  --pcs-button-size-lg-padding-x:        var(--pcs-space-component-padding-lg);
+  --pcs-button-size-lg-font-size:        var(--pcs-primitive-font-size-base);
+  --pcs-button-size-lg-gap:              var(--pcs-space-component-gap-md);
+  --pcs-button-size-lg-radius:           var(--pcs-radius-md);
+  --pcs-button-size-lg-icon-size:        var(--pcs-size-icon-lg);
 
   /* Icon-only lg — square */
-  --pcs-button-icon-size-lg:             var(--pcs-size-control-lg);            /* 40px */
+  --pcs-button-icon-size-lg:             var(--pcs-size-control-lg);
 
 
   /* ===========================================================================
@@ -312,12 +312,12 @@
   /* --- ButtonGroupText surface --- */
   --pcs-button-group-text-bg:            var(--pcs-color-surface-muted);
   --pcs-button-group-text-border-color:  var(--pcs-color-border-default);
-  --pcs-button-group-text-border-width:  var(--pcs-primitive-border-width-default);    /* 1px */
+  --pcs-button-group-text-border-width:  var(--pcs-primitive-border-width-default);
   --pcs-button-group-text-padding-x:     var(--pcs-primitive-space-2-5);     /* 10px — matches shadcn px-2.5 */
   --pcs-button-group-text-color:         var(--pcs-color-text-default);
-  --pcs-button-group-text-font-size:     var(--pcs-text-label-lg-size);      /* 14px */
+  --pcs-button-group-text-font-size:     var(--pcs-text-label-lg-size);
   --pcs-button-group-text-font-weight:   var(--pcs-text-label-lg-weight);    /* 500  */
-  --pcs-button-group-text-icon-size:     var(--pcs-size-icon-md);            /* 16px */
+  --pcs-button-group-text-icon-size:     var(--pcs-size-icon-md);
 
   /* --- ButtonGroupSeparator --- */
   --pcs-button-group-separator-color:    var(--pcs-color-border-default);
