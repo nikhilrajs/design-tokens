@@ -62,8 +62,8 @@ function BreadcrumbLink({
           "rounded-[var(--pcs-breadcrumb-item-border-radius)]",
           "hover:text-[color:var(--pcs-breadcrumb-item-color-hover)] hover:underline",
           "focus-visible:outline-none",
-          "focus-visible:ring-[length:var(--pcs-breadcrumb-focus-ring-width)]",
-          "focus-visible:ring-[var(--pcs-breadcrumb-focus-ring-color)]/50",
+          "focus-visible:ring-[length:var(--pcs-focus-ring-width)]",
+          "focus-visible:ring-[var(--pcs-color-focus-ring)]/50",
           "focus-visible:ring-offset-[var(--pcs-breadcrumb-focus-ring-offset)]",
           className
         ),
@@ -85,7 +85,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
       aria-disabled="true"
       aria-current="page"
       className={cn(
-        "cursor-[var(--pcs-breadcrumb-item-cursor-current)]",
+        "cursor-default",
         "font-[number:var(--pcs-breadcrumb-font-weight-current)]",
         "text-[color:var(--pcs-breadcrumb-item-color-current)]",
         className

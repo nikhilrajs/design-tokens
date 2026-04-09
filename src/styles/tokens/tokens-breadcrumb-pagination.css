@@ -29,7 +29,6 @@
   --pcs-breadcrumb-font-family:          var(--pcs-text-font-sans);
   --pcs-breadcrumb-font-size:            var(--pcs-text-body-md-size);
   --pcs-breadcrumb-font-weight:          var(--pcs-text-body-md-weight);        /* 400  */
-  --pcs-breadcrumb-line-height:          var(--pcs-text-body-md-line-height);
 
   /* Current (last) item is slightly heavier to signal position */
   --pcs-breadcrumb-font-weight-current:  var(--pcs-primitive-font-weight-medium); /* 500 */
@@ -39,25 +38,23 @@
 
   /* --- Item — default (ancestor links) --- */
   --pcs-breadcrumb-item-color:           var(--pcs-color-text-muted);           /* neutral-500 */
-  --pcs-breadcrumb-item-bg:              transparent;                           /* unused — links have no bg */
   --pcs-breadcrumb-item-border-radius:   var(--pcs-radius-sm);                  /* 2px — for focus ring */
 
   /* --- Item — hover --- */
   --pcs-breadcrumb-item-color-hover:     var(--pcs-color-text-default);         /* neutral-900 */
-  --pcs-breadcrumb-item-underline-hover: underline;
 
   /* --- Item — current (last, non-interactive) --- */
   --pcs-breadcrumb-item-color-current:   var(--pcs-color-text-default);         /* neutral-900 */
-  --pcs-breadcrumb-item-cursor-current:  default;
 
-  /* --- Item — focus --- */
-  --pcs-breadcrumb-focus-ring-width:     var(--pcs-focus-ring-width);
-  --pcs-breadcrumb-focus-ring-offset:    1px;   /* intentional — tighter offset for inline text links */
-  --pcs-breadcrumb-focus-ring-color:     var(--pcs-color-focus-ring);
+  /* --- Item — focus ---
+     Width and color use global semantic tokens directly (--pcs-focus-ring-width,
+     --pcs-color-focus-ring). Offset is intentionally 1px — tighter than the
+     standard for inline text links. */
+  --pcs-breadcrumb-focus-ring-offset:    1px;
 
   /* --- Separator --- */
   /* Separator is typically a "/" character or a chevron icon */
-  --pcs-breadcrumb-separator-color:      var(--pcs-color-text-muted);          /* neutral-400 */
+  --pcs-breadcrumb-separator-color:      var(--pcs-color-text-muted);           /* neutral-400 */
   --pcs-breadcrumb-separator-size:       var(--pcs-size-icon-sm);               /* 12px — for icon separators */
   --pcs-breadcrumb-separator-gap:        var(--pcs-space-component-gap-xs);     /* 4px — gap between item and separator */
 
@@ -90,98 +87,28 @@
      control     : default | hover | disabled (first/last page)
      ellipsis    : static, no interaction
 
-   Structurally similar to a row of Toggle items — one item is "selected".
+   Item and control visual states (bg, border, text per state) are handled
+   by Button component tokens — pagination.tsx delegates rendering to Button.
+   Only the tokens consumed directly by pagination.tsx are defined here.
    =============================================================================*/
 
 :root {
 
-  /* --- Sizing --- */
-  /* Page items are square buttons */
-  --pcs-pagination-item-size:            var(--pcs-size-control-md);            /* 32px — square */
-  --pcs-pagination-item-min-width:       var(--pcs-size-control-md);
-  --pcs-pagination-item-border-radius:   var(--pcs-radius-md);
-  --pcs-pagination-item-border-width:    var(--pcs-primitive-border-width-default);
-
-  /* Prev/Next controls are slightly wider (icon + optional label) */
-  --pcs-pagination-control-height:       var(--pcs-size-control-md);
-  --pcs-pagination-control-padding-x:    var(--pcs-space-component-padding-md);
-  --pcs-pagination-control-border-radius:var(--pcs-radius-md);
-
-  /* Gap between items */
+  /* --- Gap between items --- */
   --pcs-pagination-gap:                  var(--pcs-space-component-gap-xs);
 
   /* --- Typography --- */
-  --pcs-pagination-font-family:          var(--pcs-text-font-sans);
-  --pcs-pagination-font-size:            var(--pcs-text-body-md-size);
   --pcs-pagination-font-weight:          var(--pcs-primitive-font-weight-medium);/* 500  */
-  --pcs-pagination-line-height:          var(--pcs-primitive-line-height-normal);
 
-  /* --- Item — default --- */
-  --pcs-pagination-item-bg:              transparent;
-  --pcs-pagination-item-border-color:    transparent;
+  /* --- Item — inactive text --- */
   --pcs-pagination-item-text:            var(--pcs-color-text-muted);           /* neutral-500 */
-
-  /* --- Item — hover --- */
-  --pcs-pagination-item-bg-hover:        var(--pcs-color-state-hover);          /* neutral-50  */
-  --pcs-pagination-item-border-color-hover: var(--pcs-color-border-default);    /* neutral-200 */
-  --pcs-pagination-item-text-hover:      var(--pcs-color-text-default);         /* neutral-900 */
-
-  /* --- Item — active (current page) --- */
-  --pcs-pagination-item-bg-active:       var(--pcs-color-primary-emphasis);     /* brand-500 */
-  --pcs-pagination-item-border-color-active: var(--pcs-color-primary-emphasis);
-  --pcs-pagination-item-text-active:     var(--pcs-color-primary-on-emphasis);  /* white     */
-
-  /* --- Item — focus --- */
-  --pcs-pagination-focus-ring-width:     var(--pcs-focus-ring-width);
-  --pcs-pagination-focus-ring-offset:    var(--pcs-focus-ring-offset);
-  --pcs-pagination-focus-ring-color:     var(--pcs-color-focus-ring);
-
-  /* --- Control (Prev / Next) — default --- */
-  --pcs-pagination-control-bg:           transparent;
-  --pcs-pagination-control-border-color: var(--pcs-color-border-default);       /* neutral-200 */
-  --pcs-pagination-control-text:         var(--pcs-color-text-default);
-  --pcs-pagination-control-icon-color:   var(--pcs-color-icon-default);
-
-  /* --- Control — hover --- */
-  --pcs-pagination-control-bg-hover:     var(--pcs-color-state-hover);
-  --pcs-pagination-control-border-color-hover: var(--pcs-color-border-strong);
-  --pcs-pagination-control-text-hover:   var(--pcs-color-text-default);
-
-  /* --- Control — disabled (on first/last page) --- */
-  --pcs-pagination-control-bg-disabled:  transparent;
-  --pcs-pagination-control-border-color-disabled: var(--pcs-color-state-disabled-border);
-  --pcs-pagination-control-text-disabled:var(--pcs-color-text-disabled);
-  --pcs-pagination-control-icon-color-disabled: var(--pcs-color-icon-disabled);
-  --pcs-pagination-control-cursor-disabled: not-allowed;
 
   /* --- Ellipsis --- */
   /* Static placeholder — not interactive */
-  --pcs-pagination-ellipsis-color:       var(--pcs-color-text-muted);          /* neutral-400 */
+  --pcs-pagination-ellipsis-color:       var(--pcs-color-text-muted);           /* neutral-400 */
   --pcs-pagination-ellipsis-size:        var(--pcs-size-control-md);            /* 32px — same as item for alignment */
 
   /* --- Icon sizes within controls --- */
   --pcs-pagination-icon-size:            var(--pcs-size-icon-md);
-  --pcs-pagination-icon-gap:             var(--pcs-space-component-gap-xs);     /* 4px — icon to label */
-
-  /* --- Compact variant ---
-     Some contexts (tables, mobile) need a minimal pagination with no labels.
-     Compact uses icon-only prev/next controls.
-  --------------------------------------------------------------------------- */
-  --pcs-pagination-compact-item-size:    var(--pcs-size-control-sm);            /* 28px — smaller items */
-  --pcs-pagination-compact-font-size:    var(--pcs-primitive-font-size-xs);
-  --pcs-pagination-compact-gap:          var(--pcs-primitive-space-0-5);        /*  2px — tighter gap   */
-
-}
-
-[data-app-color-scheme="dark"] {
-
-  /* Item active — brand color stays but slightly lighter for dark bg contrast */
-  --pcs-pagination-item-bg-active:       var(--pcs-color-primary-emphasis);     /* dark-aware via semantic */
-  --pcs-pagination-item-text-active:     var(--pcs-color-primary-on-emphasis);
-
-  /* Control border is slightly more visible in dark */
-  --pcs-pagination-control-border-color: var(--pcs-color-border-default);       /* neutral-700 — dark-aware */
-
-  /* All other states handled by semantic tokens */
 
 }
