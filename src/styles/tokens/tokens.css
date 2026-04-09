@@ -362,7 +362,7 @@
 
   /* Focus ring */
   --pcs-color-focus-ring:  var(--pcs-primitive-color-brand-400);
-  --pcs-focus-ring-width:  2px;   /* standard width — shared across all interactive components */
+  --pcs-focus-ring-width:  3px;   /* standard width — shared across all interactive components */
   --pcs-focus-ring-offset: 2px;   /* standard offset — components may override (inputs: 0px, inline controls: 1px) */
 
   /* ---------------------------------------------------------------------------

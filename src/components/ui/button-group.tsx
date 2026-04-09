@@ -49,13 +49,13 @@ function ButtonGroupText({
       {
         className: cn(
           "flex items-center gap-2 rounded-md",
-          "border-[length:var(--pcs-button-group-text-border-width)] border-[color:var(--pcs-button-group-text-border-color)]",
+          "border border-[color:var(--pcs-button-group-text-border-color)]",
           "bg-[var(--pcs-button-group-text-bg)]",
-          "px-[var(--pcs-button-group-text-padding-x)]",
-          "text-[length:var(--pcs-button-group-text-font-size)]",
+          "px-2.5",
+          "text-sm",
           "font-[number:var(--pcs-button-group-text-font-weight)]",
           "text-[color:var(--pcs-button-group-text-color)]",
-          "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-[var(--pcs-button-group-text-icon-size)]",
+          "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
           className
         ),
       },

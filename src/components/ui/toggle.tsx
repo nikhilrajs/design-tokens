@@ -10,9 +10,9 @@ const toggleVariants = cva(
     // Typography
     "font-[family-name:var(--pcs-toggle-font-family)] font-[number:var(--pcs-toggle-font-weight)]",
     // Border (base — transparent; outline variant overrides the color)
-    "border-[length:var(--pcs-toggle-border-width)] border-[color:var(--pcs-toggle-border-color)]",
+    "border border-transparent",
     // Default state
-    "bg-[var(--pcs-toggle-bg)] text-[color:var(--pcs-toggle-text)]",
+    "bg-transparent text-[color:var(--pcs-toggle-text)]",
     // Hover
     "hover:bg-[var(--pcs-toggle-bg-hover)] hover:text-[color:var(--pcs-toggle-text-hover)]",
     // Pressed / active state — Base UI sets aria-pressed; data-[state=on] covers Radix compat
@@ -36,22 +36,22 @@ const toggleVariants = cva(
       },
       size: {
         sm: [
-          "h-[var(--pcs-toggle-size-sm-height)] min-w-[var(--pcs-toggle-size-sm-height)]",
-          "gap-[var(--pcs-toggle-size-sm-gap)] px-[var(--pcs-toggle-size-sm-padding-x)]",
+          "h-7 min-w-7",
+          "gap-1 px-2",
           "rounded-[min(var(--pcs-toggle-border-radius),12px)]",
-          "text-[length:var(--pcs-toggle-size-sm-font-size)]",
+          "text-xs",
         ].join(" "),
         default: [
-          "h-[var(--pcs-toggle-size-md-height)] min-w-[var(--pcs-toggle-size-md-height)]",
-          "gap-[var(--pcs-toggle-size-md-gap)] px-[var(--pcs-toggle-size-md-padding-x)]",
+          "h-8 min-w-8",
+          "gap-1.5 px-3",
           "rounded-[var(--pcs-toggle-border-radius)]",
-          "text-[length:var(--pcs-toggle-size-md-font-size)]",
+          "text-sm",
         ].join(" "),
         lg: [
-          "h-[var(--pcs-toggle-size-lg-height)] min-w-[var(--pcs-toggle-size-lg-height)]",
-          "gap-[var(--pcs-toggle-size-lg-gap)] px-[var(--pcs-toggle-size-lg-padding-x)]",
+          "h-10 min-w-10",
+          "gap-2 px-4",
           "rounded-[var(--pcs-toggle-border-radius)]",
-          "text-[length:var(--pcs-toggle-size-lg-font-size)]",
+          "text-base",
         ].join(" "),
       },
     },
