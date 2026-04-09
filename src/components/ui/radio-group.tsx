@@ -43,7 +43,7 @@ function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         // Error (aria-invalid)
         "aria-invalid:border-[color:var(--pcs-color-error-border)]",
-        "aria-invalid:ring-3 aria-invalid:ring-[var(--pcs-color-error-border)]/50",
+        "aria-invalid:ring-[length:var(--pcs-focus-ring-width)] aria-invalid:ring-[var(--pcs-color-error-border)]/50",
         className
       )}
       {...props}
@@ -52,7 +52,7 @@ function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
         data-slot="radio-group-indicator"
         className="flex size-[var(--pcs-radio-size)] items-center justify-center"
       >
-        <span className="absolute top-1/2 left-1/2 size-[var(--pcs-radio-dot-size)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--pcs-radio-dot-color)] [[data-checked]_&]:bg-[var(--pcs-radio-dot-color-selected)] [[data-disabled][data-checked]_&]:bg-[var(--pcs-radio-dot-color-disabled-selected)]" />
+        <span className="absolute top-1/2 left-1/2 size-[var(--pcs-radio-dot-size)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-transparent [[data-checked]_&]:bg-[var(--pcs-radio-dot-color-selected)] [[data-disabled][data-checked]_&]:bg-[var(--pcs-radio-dot-color-disabled-selected)]" />
       </RadioPrimitive.Indicator>
     </RadioPrimitive.Root>
   )

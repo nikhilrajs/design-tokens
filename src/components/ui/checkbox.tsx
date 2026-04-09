@@ -38,7 +38,7 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         // Error (aria-invalid)
         "aria-invalid:border-[color:var(--pcs-color-error-border)]",
-        "aria-invalid:ring-3 aria-invalid:ring-[var(--pcs-color-error-border)]/50",
+        "aria-invalid:ring-[length:var(--pcs-focus-ring-width)] aria-invalid:ring-[var(--pcs-color-error-border)]/50",
         // Field-level disabled — when checkbox sits inside a disabled <FieldGroup>
         "group-has-[[data-disabled]]/field:opacity-50",
         className

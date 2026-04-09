@@ -26,7 +26,7 @@ const inputVariants = cva(
     "disabled:bg-[var(--pcs-input-bg-disabled)] disabled:text-[color:var(--pcs-input-text-disabled)]",
     // Error
     "aria-invalid:border-[color:var(--pcs-input-border-color-error)]",
-    "aria-invalid:ring-3 aria-invalid:ring-[var(--pcs-input-border-color-error)]/50",
+    "aria-invalid:ring-[length:var(--pcs-focus-ring-width)] aria-invalid:ring-[var(--pcs-input-border-color-error)]/50",
     // File input reset
     "file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-[color:var(--pcs-input-text)]",
   ],
