@@ -64,30 +64,18 @@
 	--color-background: var(--pcs-color-background);
 	--color-foreground: var(--pcs-color-text-default);
 
-	/* Text */
-	--color-text-subtle: var(--pcs-color-text-muted);
-	--color-text-disabled: var(--pcs-color-text-disabled);
-	--color-text-inverse: var(--pcs-color-text-inverse);
-
 	/* Border */
 	--color-border-default: var(--pcs-color-border-default);
 	--color-border-muted: var(--pcs-color-border-muted);
-	--color-border-strong: var(--pcs-color-border-strong);
 
 	/* Icon */
 	--color-icon-default: var(--pcs-color-icon-default);
 	--color-icon-muted: var(--pcs-color-icon-muted);
-	--color-icon-disabled: var(--pcs-color-icon-disabled);
 
 	/* Primary */
 	--color-primary: var(--pcs-color-primary-emphasis);
-	--color-primary-hover: var(--pcs-color-primary-emphasis-hover);
-	--color-primary-active: var(--pcs-color-primary-emphasis-active);
 	--color-primary-subtle: var(--pcs-color-primary-subtle);
-	--color-primary-subtle-hover: var(--pcs-color-primary-subtle-hover);
 	--color-primary-text: var(--pcs-color-primary-text);
-	--color-primary-border: var(--pcs-color-primary-border);
-	--color-primary-foreground: var(--pcs-color-primary-on-emphasis);
 
 	/* Success */
 	--color-success: var(--pcs-color-success-emphasis);
@@ -117,27 +105,14 @@
 	--color-info-text: var(--pcs-color-info-text);
 	--color-info-icon: var(--pcs-color-info-icon);
 
-	/* State */
-	--color-state-active: var(--pcs-color-state-active);
-	--color-state-selected: var(--pcs-color-state-selected);
-	--color-state-disabled-bg: var(--pcs-color-state-disabled-bg);
-	--color-state-disabled-text: var(--pcs-color-text-disabled);
-	--color-state-disabled-border: var(--pcs-color-state-disabled-border);
-
 	/* Focus */
 	--color-ring: var(--pcs-color-focus-ring);
 
 	/* shadcn surface utilities — consumed by shadcn components via bg-card, bg-muted, etc. */
 	--color-card: var(--pcs-color-surface-card);
 	--color-card-foreground: var(--pcs-color-text-default);
-	--color-popover: var(--pcs-color-surface-overlay);
-	--color-popover-foreground: var(--pcs-color-text-default);
-	--color-secondary: var(--pcs-color-surface-muted);
-	--color-secondary-foreground: var(--pcs-color-text-default);
 	--color-muted: var(--pcs-color-surface-muted);
 	--color-muted-foreground: var(--pcs-color-text-muted);
-	--color-accent: var(--pcs-color-state-hover);
-	--color-accent-foreground: var(--pcs-color-text-default);
 	--color-destructive: var(--pcs-color-error-emphasis);
 	--color-border: var(--pcs-color-border-default);
 	--color-input: var(--pcs-color-border-default);

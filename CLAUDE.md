@@ -83,10 +83,16 @@ Tier 3 — Component      (scoped: button-primary-bg, input-border-focus) → lo
    `--muted`, etc.) to our semantic tokens so shadcn components render correctly
    without modification.
 
-5. **Not all tokens flow through shadcn or Tailwind.** Extended tokens
-   (role surfaces, interactive states) are consumed directly via `var()`
-   in component CSS or inline styles. Do not force everything through
-   Tailwind utility classes.
+5. **`@theme inline` is the developer-facing utility API.** Only tokens that
+   developers would reach for across multiple components belong here —
+   system-wide surfaces, text colors, borders, radii. If a developer building
+   a new component would naturally think "I need this value" without reading
+   any existing component's code, it belongs in `@theme inline`.
+
+   Tokens consumed by one or very few components, or used in CSS properties
+   Tailwind doesn't map well (complex shadows, gradients, calculations),
+   stay as direct `var()` references in component CSS. These are internal
+   wiring, not shared vocabulary.
 
 ### @theme vs @theme inline — CRITICAL RULE
 
@@ -151,7 +157,7 @@ When adding a new color mode, add a corresponding class block to `shadcn-bridge.
 
 ### Color system
 
-- Neutral primitives use **OKLCH** format (Tailwind-derived slate scale).
+- Neutral primitives use **OKLCH** format (Tailwind-derived zinc scale).
 - Other color ramps (amber, red, yellow, emerald, sky) currently use **hex**.
   This inconsistency is intentional for Phase 1. In Phase 2 (Style Dictionary),
   all primitives will be stored as hex in DTCG JSON and transformed to OKLCH
@@ -159,7 +165,7 @@ When adding a new color mode, add a corresponding class block to `shadcn-bridge.
 - Six primitive color ramps: Neutral, Amber (Primary), Red, Yellow, Emerald, Sky
 - Each ramp spans 10–11 steps
 - Semantic tokens swap values between light and dark modes via
-  `[data-app-color-scheme="dark"]` attribute overrides in each token file.
+  `[data-app-color-scheme="dark"], .dark` attribute/class overrides in each token file.
 
 
 ### Color modes and multi-tenant theming
@@ -211,7 +217,7 @@ names directly. Do not add a two-layer indirection system.
 
 ## Wiring Up a shadcn Component with Tokens
 
-Follow these steps in order when connecting a shadcn component to the token system. Also be mindful that we are using BaseUI for the components. For interactive elements always check BaseUI documentation as well.
+Follow these steps in order when connecting a shadcn component to the token system. Also be mindful that we are using BaseUI for the components.
 
 ### 1. Compare token values against shadcn defaults FIRST
 
@@ -222,7 +228,6 @@ shadcn's default value is more visually correct than what we have defined.
 
 For each token property (color, spacing, radius, shadow, typography):
 - Check what shadcn ships by default
-- Check what our token resolves to in OKLCH → hex
 - If our token produces a visually inferior result (too harsh, too tight,
   wrong contrast ratio), flag it before overriding
 - Prefer adjusting the token value to match intent over forcing shadcn to
@@ -235,7 +240,7 @@ For each token property (color, spacing, radius, shadow, typography):
 
 Work strictly within the component's existing DOM structure and class API.
 Do not restructure or wrap shadcn primitives unless every other option has
-been exhausted.
+been exhausted. For interactive elements always check BaseUI documentation as well.
 
 Acceptable approaches (in order of preference):
 1. CSS custom property override via token file
@@ -300,245 +305,158 @@ Keep comments that:
 - Document a known quirk or workaround
 - Clarify why a token deviates from shadcn's default
 
-### 7. Flag unused and questionable tokens
+### 7. Validate tokens against ownership boundaries
 
-After wiring is complete, review the component's token file for:
-- Tokens defined but not referenced anywhere in the component
-- Tokens that duplicate a semantic token already available in `tokens.css`
-- Tokens whose resolved value does not match their name's intent
-  (e.g., `--badge-border-radius` resolving to `0` when badges clearly
-  have a pill shape in the UI)
-- Tokens that exist only because they were copy-pasted from another
-  component's file and never cleaned up
+Test each token against the authoring gate and boundary rules in
+"Token Ownership & Boundary Rules." Flag uncertain tokens to Nikhil.
 
-Do not silently remove uncertain tokens. Highlight them to Nikhil with a
-brief reason. He decides whether they are removed, corrected, or kept.
+---
 
-### 8. Validate token granularity — avoid over-specification
+## Token Ownership & Boundary Rules
 
-Some component token files were created by reasoning through possibilities
-rather than working from actual implementation. This can lead to over-specified
-token sets where a simple Tailwind utility class or a single semantic token
-would be the more appropriate solution.
+### What is a design decision?
 
-When reviewing a token file, ask for each token:
-> "Is this token doing something a Tailwind utility class or a semantic token
-> could not do on its own?"
+A value choice that:
+1. Expresses brand identity or UX intent (not structural mechanics)
+2. Changes when theme, mode, tenant, or platform context changes —
+   OR would need coordinated cross-component change if it evolved
+3. Cannot be derived from a utility framework's defaults without losing intent
+4. Would create visual inconsistency if developers made independent choices
+   about it (the ambiguity test)
 
-If the answer is no — it is a candidate for simplification.
+### Token authoring gate (run before creating any token)
 
-**Signs of over-specification:**
-- Multiple tokens for what is essentially one visual property
-  (e.g., `--skeleton-bg`, `--skeleton-shimmer-start`, `--skeleton-shimmer-end`,
-  `--skeleton-shimmer-speed` when shadcn/Tailwind handles the animation
-  with a single `animate-pulse` class)
-- Variant tokens for things Tailwind already handles idiomatically
-  (`--skeleton-shape-square`, `--skeleton-shape-circle` when `rounded-full`
-  and `rounded-none` are the idiomatic Tailwind approach)
-- Implementation detail tokens — tokens that encode how something works
-  rather than what it looks like (keyframe stops, animation duration,
-  transform values)
-- Tokens that will always be a constant and will never need to differ
-  between light/dark mode, themes, or component variants
+Three sequential tests — stop at the first YES:
+1. Does Tailwind handle this without a design decision? → NO TOKEN (Tailwind owns it)
+2. Does a semantic token already express the intent? → USE SEMANTIC (no component token)
+3. Is this a genuine component-specific themeable decision? → CREATE COMPONENT TOKEN
 
-**Signs that specificity is justified:**
-- The value genuinely needs to differ between light and dark mode
-- The value is reused across multiple components and benefits from a
-  single source of truth
-- The value is part of the brand/design language (color, radius, typography)
-  that needs to stay consistent under theming
-- The value overrides a shadcn default that conflicts with our design language
+### Boundary rules — Universal (all platforms)
 
-**The balance to find:**
-Do not over-simplify either. Collapsing tokens that genuinely need to be
-independently adjustable creates a different problem — you end up with
-magic numbers scattered in component files that are hard to track and
-impossible to theme.
+B1 — Brand identity tokens (colors, typography values, radii, shadows,
+     elevation, motion) are consumed via semantic tokens. Every platform
+     needs these.
 
-When in doubt, flag the specific tokens to Nikhil with a brief note:
-- What the token currently does
-- What the simpler alternative would be (Tailwind class, semantic token,
-  or inline value)
-- What would be lost by simplifying
+B6 — When removing over-specified component tokens for brand values:
+     replace with semantic-direct reference.
 
-Do not simplify unilaterally. The decision belongs to Nikhil.
+B7 — Semantic-direct pattern: Simple components whose only design
+     decision is a color role consume semantic tokens via the
+     @theme inline → Tailwind utility path. No component token
+     alias layer is created.
+
+B10 — CSS constants (transparent, solid, currentColor, inherit, etc.)
+      don't warrant tokenization. Use CSS keywords directly.
+
+B11 — Mobile component tokens are authored independently from web.
+      Shared design decisions flow through primitives and semantics
+      in the centralized repo; component tokens are platform-native
+      and live in the platform repo.
+
+### Boundary rules — Web-only (Tailwind + shadcn)
+
+B2 — Component structure (padding, width, gap, sizing) is platform-local.
+     On web, Tailwind and shadcn own these. No tokens needed.
+
+B3 — Tailwind owns the application mechanism (utility classes).
+     Our tokens own the values for brand-defining categories.
+     For layout spacing, Tailwind owns both mechanism AND value
+     (our spacing scale matches Tailwind's default — no override needed).
+
+B4 — Border radius, color, typography, shadow values flow through
+     @theme from our tokens into Tailwind utilities.
+
+B5 — When removing over-specified component tokens for structural
+     values: restore shadcn's original utility class, don't create
+     a new token.
+
+B8 — @theme inline rule: Alias tokens referencing other CSS variables
+     require @theme inline to avoid double-var() output in TailwindCSS v4.
+
+B9 — shadcn bridge rule: shadcn's own variables are internal to shadcn,
+     redirected via bridge file, never used directly in our component
+     tokens or JSX.
+
+### Validation tests
+
+**Over-specification test:** If a component defines tokens for a child
+element that is itself a standalone component (e.g., Dialog defining
+close-button tokens), the token is over-specified UNLESS the child's
+appearance is truly coupled to the parent's design.
+
+**Coupled test:** Does the child's appearance need to change when the
+parent's design changes? If no → over-specified, remove.
+
+**A token is justified when** it needs to differ between light/dark mode,
+overrides a shadcn default that conflicts with our design language, or
+encodes a brand decision (color, radius, typography) that must stay
+consistent under theming.
+
+**A token is over-specified when** it encodes implementation details
+(keyframe stops, animation duration, transform values), duplicates what
+Tailwind utilities handle idiomatically, or will never vary across modes
+or themes.
+
+Do not simplify or remove unilaterally. Flag uncertain tokens to Nikhil
+with: what the token does, the simpler alternative, and what would be lost.
+
+## Spacing Scale
+
+Our spacing scale matches Tailwind's default (4px base).
+- Web: Tailwind's built-in scale is used directly. No @theme override.
+- Mobile/Other: Scale is tokenized in centralized repo as primitives,
+  consumed via Style Dictionary transforms.
+- Core sizes (per Uber Base pattern): 4, 8, 16, 24, 32, 48.
+
+## Platform Distribution Model
+
+| Touchpoint         | Dependency | Consumes                                                        | From                                                                    |
+|--------------------|------------|-----------------------------------------------------------------|-------------------------------------------------------------------------|
+| Web apps (AA/CC/PP)| Heavy      | Primitives + semantics + component tokens via @theme + CSS vars | App repo (component tokens) + centralized repo (primitives/semantics)   |
+| React Native mobile| Heavy      | Primitives + semantics as TS constants + mobile component tokens| Centralized repo (Style Dictionary → TS) + mobile app repo              |
+| .NET HTML          | Minimal    | Lightweight CSS file (colors, radii, spacing scale)             | Centralized repo (Style Dictionary → CSS)                               |
+| Identity Server    | Minimal    | Same lightweight CSS file                                       | Centralized repo                                                        |
+| Email templates    | Minimal    | Hardcoded inline values per documented scale                    | Documentation only                                                      |
+
+## Component Validation Classifications
+
+For each `var(--pcs-*)` reference in a `.tsx` file:
+- KEEP — references a surviving token that passes the ownership boundary test
+- REPLACE-TAILWIND — token was removed; restore shadcn's original Tailwind utility
+- REPLACE-SEMANTIC — component token removed; wire directly to semantic token
+- CRITICAL-FIX — references a token that no longer exists (runtime break)
+
+For each hardcoded value or Tailwind utility:
+- CORRECT — Tailwind utility for structural/layout value (B2 confirms this)
+- WIRE-TO-TOKEN — hardcoded brand value that should reference a token
+
+---
 
 ## Token Reuse and File Governance
 
 ### The default position: reuse before create
 
-When wiring a new component, the first question is always:
-> "Does a token file already exist that covers this component's
-> visual properties?"
+When wiring a new component, follow this sequence:
+
+1. Identify which token family the component belongs to (inspect `tokens/`)
+2. If the family file already covers the visual properties → wire directly
+3. If the family file needs new tokens → add to the existing file
+4. If no family fits → flag to Nikhil before creating a new file
 
 You need a reason to CREATE a new token file.
 You do not need a reason to REUSE an existing one.
 
-If a component belongs to an established family (see below), wire
-it to that family's token file. Do not create a new token file for
-it under any circumstances unless it is genuinely a new visual
-category with no overlap with any existing family.
-
-If you believe a new token file is warranted, stop and flag it to
-Nikhil with:
-- Which existing family files you considered
-- Why none of them cover this component's needs
-- What the new file would contain that does not already exist
-
 ---
 
-### Established token families
+## Text Color Hierarchy (two levels + states)
+- text-default:     Primary text. Body copy, headings, labels.
+- text-muted:       Secondary text. Descriptions, captions, metadata,
+                    timestamps, placeholders, helper text.
+- text-disabled:    Non-interactive text. WCAG-exempt. Signals
+                    element cannot be acted upon.
+- text-inverse:     Text on inverted surfaces.
+- text-on-emphasis: Text on colored emphasis backgrounds (brand,
+                    status).
 
-These are the confirmed token families derived from the actual
-codebase. Every new component should be mapped to one of these
-before any token work begins.
-
-**Form inputs** → `tokens-input-field.css`
-input, textarea, input-group, label, field, native-select,
-and any future field-like element (date picker, search input,
-number input, OTP input)
-
-**Selection controls** → `tokens-checkbox-radio-switch-toggle.css`
-checkbox, radio-group, toggle, toggle-group,
-and any future binary or multi-select control
-
-**Overlays** → `tokens-overlays.css`
-dialog, sheet, tooltip, popover, hover-card, alert-dialog,
-and any future floating or modal surface
-
-**Menus** → `tokens-menus.css`
-dropdown-menu, select, context-menu, menubar, combobox,
-and any future trigger-and-panel or command surface
-
-**Feedback** → `tokens-feedback.css`
-alert, toast, empty state,
-and any future inline message, banner, or status pattern
-
-**Navigation** → `tokens-breadcrumb-pagination.css`
-breadcrumb, pagination,
-and any future wayfinding or paging component
-
-**Containment** → `tokens-card-accordion-collapsible-scrollarea-slider.css`
-card, collapsible, scroll-area,
-accordion and slider when their components are built
-
-**Buttons** → `tokens-button.css`
-button, button-group
-
-**Utility group** → `tokens-avatar-skeleton-spinner-separator-kbd.css`
-avatar, skeleton, spinner, separator, kbd
-
-**Standalone files** (justified by complexity or distinct identity)
-- `tokens-badge.css` — badge
-- `tokens-tabs.css` — tabs
-- `tokens-sidebar.css` — sidebar
-
----
-
-### New component wiring checklist
-
-Before writing a single token, answer these in order:
-
-1. Which family does this component belong to?
-   → Identify the family file from the list above
-
-2. Does the family file already have tokens that cover this
-   component's visual properties?
-   → If yes, wire to those tokens directly. Do not add new ones.
-
-3. Does the family file need new tokens to cover this component?
-   → If yes, add them to the existing family file.
-   → Do not create a new file.
-
-4. Is this component genuinely a new visual category with no
-   overlap with any existing family?
-   → If yes, flag to Nikhil before creating anything.
-
----
-
-### Known family mappings for unwired components
-
-The following components are installed and ready to wire. Their
-token homes are already confirmed — no new token files needed:
-
-| Component | Wire to |
-|---|---|
-| alert-dialog | tokens-overlays.css |
-| context-menu | tokens-menus.css |
-| menubar | tokens-menus.css |
-| combobox | tokens-menus.css |
-| pagination | tokens-breadcrumb-pagination.css |
-| native-select | tokens-input-field.css |
-| field | tokens-input-field.css |
-| kbd | tokens-avatar-skeleton-spinner-separator-kbd.css |
-| collapsible | tokens-card-accordion-collapsible-scrollarea-slider.css |
-
----
-
-### Token granularity rules
-
-**Before adding any new token to a family file, ask all three:**
-
-1. Does this value need to change per theme, tenant, or color
-   scheme — or must it stay consistent across multiple components
-   in this family?
-   → If neither: use a Tailwind utility class directly
-
-2. Does a semantic token in tokens.css already express this intent?
-   → If yes: use var(--pcs-semantic-token) directly in the
-   component. Do not create a component token that just aliases it.
-
-3. Does this component token add specific meaning beyond what the
-   semantic token name already communicates?
-   → If no: it is a redundant pass-through. Do not add it.
-
-Only if a token passes at least one of these tests is it worth
-adding to the family file.
-
-**Signs of over-specification (do not add these):**
-- Multiple tokens for what is one visual property
-- Variant tokens for things Tailwind handles idiomatically
-  (e.g., rounded-full vs rounded-none for shape variants)
-- Implementation detail tokens — tokens that encode how something
-  works rather than what it looks like (keyframe stops, animation
-  timing, transform values)
-- Tokens that will always be a constant and never differ between
-  themes, modes, or variants
-
-The skeleton component is the canonical example of over-
-specification in this codebase. Use it as the reference for
-what not to do.
-
-**Signs that a new token is justified:**
-- The value needs to differ between light and dark mode
-- The value is reused across multiple components in the same family
-- The value is part of the brand/design language (color, radius,
-  typography) that must stay consistent under theming
-- The value overrides a shadcn default that conflicts with our
-  design language
-
-When in doubt, flag the candidate token to Nikhil with a one-line
-reason. Do not add it unilaterally.
-
-## Semantic-Direct Components
-
-Components that reference semantic tokens directly in the component file.
-No component token layer exists or is needed.
-
-| Component | Token used | Notes |
-|---|---|---|
-| Separator | `--pcs-color-border-default` | All 7 proposed component tokens audited and removed — every one failed Boundary 1 or Boundary 2 |
-
----
-
-## Deferred Components
-
-### Table — Pending component selection
-
-TanStack Table is under evaluation. Author tokens at implementation time;
-apply ownership boundaries before defining.
-
-Known design decisions to carry forward:
-- Action column width: 80px (content-driven, outside spacing scale)
-- Selected row bg: `--pcs-color-primary-subtle`
-- Header font-weight: semibold (via `--pcs-primitive-font-weight-semibold`)
+Dropped: text-subtle (merged into text-muted). Two hierarchy
+levels match shadcn's model and eliminate muted/subtle ambiguity.
