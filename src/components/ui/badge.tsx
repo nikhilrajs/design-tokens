@@ -9,9 +9,9 @@ const badgeVariants = cva(
     // Layout
     "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-1 truncate transition-colors",
     // Sizing
-    "h-[var(--pcs-badge-height)]",
-    "px-[var(--pcs-badge-padding-x)] py-[var(--pcs-badge-padding-y)]",
-    "max-w-[var(--pcs-badge-max-width)]",
+    "h-5",
+    "px-2 py-0.5",
+    "max-w-[12.5rem]",
     // Shape + border
     "rounded-[var(--pcs-badge-border-radius)]",
     "border-[length:var(--pcs-badge-border-width)] border-[style:var(--pcs-badge-border-style)]",

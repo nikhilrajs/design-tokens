@@ -31,6 +31,7 @@
   /* --- Base / Shared --- */
   --pcs-alert-border-width:              var(--pcs-primitive-border-width-default);
   --pcs-alert-border-style:              solid;
+  --pcs-alert-title-font-size:           var(--pcs-text-body-md-size);             /* 14px — body-md; explicit so title can diverge from container text-sm if needed */
   /* --- VARIANT: Neutral --- */
   --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* neutral-100 */
   --pcs-alert-neutral-border:            var(--pcs-color-border-default);       /* neutral-200 */

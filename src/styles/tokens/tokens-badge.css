@@ -43,19 +43,10 @@
   --pcs-badge-text-transform:            uppercase;
   --pcs-badge-letter-spacing:            0.025em;
 
-  /* Fixed height and padding */
-  --pcs-badge-height:                    var(--pcs-primitive-space-5);
-  --pcs-badge-padding-x:                 var(--pcs-space-component-padding-sm);
-  --pcs-badge-padding-y:                 var(--pcs-primitive-space-0-5);
-
   /* Border */
   --pcs-badge-border-width:              var(--pcs-primitive-border-width-default);
   --pcs-badge-border-style:              solid;
   --pcs-badge-border-radius:             0.25rem;                                /* 4px — between radius-sm(2px) and radius-md(6px) */
-
-  /* Max width — truncate with ellipsis beyond this */
-  --pcs-badge-max-width:                 12.5rem;                            /* 200px — matches Atlassian */
-
 
   /* ===========================================================================
      APPEARANCE — NEUTRAL
