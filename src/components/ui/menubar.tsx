@@ -67,7 +67,7 @@ function MenubarTrigger({
         "bg-[var(--pcs-menubar-trigger-bg)] text-[color:var(--pcs-menubar-trigger-text)]",
         "hover:bg-[var(--pcs-menubar-trigger-bg-hover)] hover:text-[color:var(--pcs-menubar-trigger-text-hover)]",
         "aria-expanded:bg-[var(--pcs-menubar-trigger-bg-open)] aria-expanded:text-[color:var(--pcs-menubar-trigger-text-open)]",
-        "focus-visible:ring-3 focus-visible:ring-[var(--pcs-menubar-trigger-focus-ring-color)]/50 focus-visible:ring-offset-[var(--pcs-menubar-trigger-focus-ring-offset)]",
+        "focus-visible:ring-[length:var(--pcs-menubar-trigger-focus-ring-width)] focus-visible:ring-[var(--pcs-menubar-trigger-focus-ring-color)]/50 focus-visible:ring-offset-[var(--pcs-menubar-trigger-focus-ring-offset)]",
         className
       )}
       {...props}

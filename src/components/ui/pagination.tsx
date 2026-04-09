@@ -52,7 +52,7 @@ function PaginationLink({
         "font-[number:var(--pcs-pagination-font-weight)]",
         // Inactive items use muted text; ghost variant defaults to the full default text color
         !isActive && "text-[color:var(--pcs-pagination-item-text)]",
-        "focus-visible:ring-3 focus-visible:ring-[var(--pcs-pagination-focus-ring-color)]/50",
+        "focus-visible:ring-[length:var(--pcs-pagination-focus-ring-width)] focus-visible:ring-[var(--pcs-pagination-focus-ring-color)]/50",
         className
       )}
       nativeButton={false}

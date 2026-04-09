@@ -18,7 +18,7 @@ const inputVariants = cva(
     "placeholder:text-[color:var(--pcs-input-placeholder)]",
     // Focus
     "focus-visible:border-[color:var(--pcs-input-border-color-focus)]",
-    "focus-visible:ring-3 focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
+    "focus-visible:ring-[length:var(--pcs-input-focus-ring-width)] focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
     // Read-only — Option B: transparent bg, dashed border, default text (user can read + copy, not edit)
     "[&[readonly]]:bg-transparent [&[readonly]]:border-dashed [&[readonly]]:shadow-none [&[readonly]]:cursor-default",
     // Disabled

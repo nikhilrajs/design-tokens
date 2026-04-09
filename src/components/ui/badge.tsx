@@ -22,7 +22,7 @@ const badgeVariants = cva(
     "has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5",
     "[&>svg]:pointer-events-none [&>svg]:size-3!",
     // Focus — only applies when rendered as an interactive element (e.g. <a>)
-    "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[var(--pcs-color-focus-ring)]/50",
+    "focus-visible:outline-none focus-visible:ring-[length:var(--pcs-focus-ring-width)] focus-visible:ring-[var(--pcs-color-focus-ring)]/50",
   ],
   {
     variants: {

@@ -38,7 +38,7 @@ function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
         "data-checked:hover:border-[color:var(--pcs-radio-border-color-selected-hover)]",
         // Focus ring
         "focus-visible:border-[color:var(--pcs-radio-focus-ring-color)]",
-        "focus-visible:ring-3 focus-visible:ring-[var(--pcs-radio-focus-ring-color)]/50",
+        "focus-visible:ring-[length:var(--pcs-radio-focus-ring-width)] focus-visible:ring-[var(--pcs-radio-focus-ring-color)]/50",
         // Disabled — Base UI sets data-disabled, not native :disabled
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         // Error (aria-invalid)

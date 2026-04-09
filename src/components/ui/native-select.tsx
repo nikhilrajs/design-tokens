@@ -40,7 +40,7 @@ function NativeSelect({
           "pr-8",
           // Focus — mirrors Input
           "focus-visible:border-[color:var(--pcs-input-border-color-focus)]",
-          "focus-visible:ring-3 focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
+          "focus-visible:ring-[length:var(--pcs-input-focus-ring-width)] focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
           // Disabled — opacity is applied on the wrapper via has-[select:disabled]
           "disabled:pointer-events-none",
           // Error — mirrors Input

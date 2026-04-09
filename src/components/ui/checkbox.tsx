@@ -33,7 +33,7 @@ function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
         "data-indeterminate:text-[color:var(--pcs-checkbox-indicator-color-indeterminate)]",
         // Focus ring
         "focus-visible:border-[color:var(--pcs-checkbox-focus-ring-color)]",
-        "focus-visible:ring-3 focus-visible:ring-[var(--pcs-checkbox-focus-ring-color)]/50",
+        "focus-visible:ring-[length:var(--pcs-checkbox-focus-ring-width)] focus-visible:ring-[var(--pcs-checkbox-focus-ring-color)]/50",
         // Disabled — Base UI sets data-disabled, not native :disabled
         "data-disabled:pointer-events-none data-disabled:opacity-50",
         // Error (aria-invalid)

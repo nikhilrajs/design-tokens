@@ -70,7 +70,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
         "group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start",
         // Focus ring
         "focus-visible:border-[color:var(--pcs-color-focus-ring)]",
-        "focus-visible:ring-[3px] focus-visible:ring-[color:var(--pcs-color-focus-ring)]/50",
+        "focus-visible:ring-[length:var(--pcs-focus-ring-width)] focus-visible:ring-[color:var(--pcs-color-focus-ring)]/50",
         // Disabled
         "disabled:pointer-events-none disabled:opacity-50",
         "aria-disabled:pointer-events-none aria-disabled:opacity-50",

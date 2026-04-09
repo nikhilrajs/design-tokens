@@ -32,7 +32,7 @@ function Textarea({ className, autoResize = true, ...props }: TextareaProps) {
         "[&[readonly]]:bg-transparent [&[readonly]]:border-dashed [&[readonly]]:shadow-none [&[readonly]]:cursor-default",
         // Focus
         "focus-visible:border-[color:var(--pcs-input-border-color-focus)]",
-        "focus-visible:ring-3 focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
+        "focus-visible:ring-[length:var(--pcs-input-focus-ring-width)] focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
         // Disabled
         "disabled:pointer-events-none",
         "disabled:bg-[var(--pcs-input-bg-disabled)] disabled:text-[color:var(--pcs-input-text-disabled)]",
