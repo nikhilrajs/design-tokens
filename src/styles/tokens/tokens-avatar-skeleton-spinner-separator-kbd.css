@@ -14,40 +14,33 @@
    AVATAR
    =============================================================================
    Sizes defined in semantic sizing tokens (--pcs-size-avatar-*).
-   Additional tokens here: colors, border, status ring, stacked overlap.
-   Shape: circle by default, square variant via --pcs-avatar-border-radius-square.
+   Additional tokens here: colors, border, status ring, overflow count badge.
+   Shape: circle only (--pcs-avatar-border-radius-circle).
    =============================================================================*/
 
 :root {
 
   /* --- Shape --- */
   --pcs-avatar-border-radius-circle:     var(--pcs-radius-full);
-  --pcs-avatar-border-radius-square:     var(--pcs-radius-lg);                  /* 8px — for org/team avatars */
 
   /* --- Background fallback (when no image, no initials color set) --- */
   --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* neutral-100 */
 
   /* --- Initials (text rendered inside avatar when no image) --- */
-  --pcs-avatar-initials-font-family:     var(--pcs-text-font-sans);
   --pcs-avatar-initials-font-weight:     var(--pcs-primitive-font-weight-medium);
   --pcs-avatar-initials-color:           var(--pcs-color-text-muted);           /* neutral-500 */
 
   /* Initials font sizes — relative to avatar size, one per size token */
-  --pcs-avatar-initials-size-xs:         var(--pcs-primitive-font-size-xs);     /* 12px — for 20px avatar */
   --pcs-avatar-initials-size-sm:         var(--pcs-primitive-font-size-xs);     /* 12px — for 24px avatar */
   --pcs-avatar-initials-size-md:         var(--pcs-primitive-font-size-sm);     /* 14px — for 32px avatar */
   --pcs-avatar-initials-size-lg:         var(--pcs-primitive-font-size-base);   /* 16px — for 40px avatar */
-  --pcs-avatar-initials-size-xl:         var(--pcs-primitive-font-size-lg);     /* 18px — for 48px avatar */
 
   /* --- Border (separates avatar from background — used in stacked groups) --- */
   --pcs-avatar-border-width:             var(--pcs-primitive-border-width-medium);
   --pcs-avatar-border-color:             var(--pcs-color-background);           /* matches page bg — creates gap effect */
 
   /* --- Status ring (online / offline / busy / away indicator dot) --- */
-  --pcs-avatar-status-size-sm:           var(--pcs-primitive-space-1-5);        /*  6px — for xs/sm avatars */
-  --pcs-avatar-status-size-md:           var(--pcs-primitive-space-2);          /*  8px — for md avatar    */
-  --pcs-avatar-status-size-lg:           var(--pcs-primitive-space-2-5);        /* 10px — for lg/xl avatars */
-
+  /* Dot sizes are set as Tailwind utilities (size-2/2.5/3) in avatar.tsx */
   --pcs-avatar-status-border-width:      var(--pcs-primitive-border-width-medium);        /* 2px — ring around dot   */
   --pcs-avatar-status-border-color:      var(--pcs-color-background);           /* matches page bg          */
   --pcs-avatar-status-border-radius:     var(--pcs-radius-full);
@@ -57,12 +50,6 @@
   --pcs-avatar-status-offline:           var(--pcs-color-text-muted);          /* neutral-400   */
   --pcs-avatar-status-busy:              var(--pcs-color-error-emphasis);       /* red-600     */
   --pcs-avatar-status-away:              var(--pcs-color-warning-emphasis);     /* yellow-500  */
-
-  /* --- Stacked group overlap --- */
-  /* Negative margin applied to each avatar after the first in a stack */
-  --pcs-avatar-stack-overlap-sm:         calc(var(--pcs-size-avatar-sm) * -0.25);  /* 25% overlap */
-  --pcs-avatar-stack-overlap-md:         calc(var(--pcs-size-avatar-md) * -0.25);
-  --pcs-avatar-stack-overlap-lg:         calc(var(--pcs-size-avatar-lg) * -0.25);
 
   /* Overflow count badge (+3, +5) in stacked groups */
   --pcs-avatar-stack-count-bg:           var(--pcs-color-surface-muted);
@@ -168,27 +155,6 @@
 /* =============================================================================
    SEPARATOR
    =============================================================================
-   A thin line dividing sections. Horizontal or vertical.
-   No interactive states. Color and thickness only.
+   No component tokens. separator.tsx consumes --pcs-color-border-default
+   (semantic) directly — B7 semantic-direct pattern.
    =============================================================================*/
-
-:root {
-
-  /* Color */
-  --pcs-separator-color:                 var(--pcs-color-border-muted);         /* neutral-100 — very subtle */
-  --pcs-separator-color-strong:          var(--pcs-color-border-default);       /* neutral-200 — standard   */
-
-  /* Thickness */
-  --pcs-separator-thickness:             var(--pcs-primitive-border-width-default);
-
-  /* Margin — spacing around a separator when used between sections */
-  --pcs-separator-margin-sm:             var(--pcs-space-layout-gap-sm);
-  --pcs-separator-margin-md:             var(--pcs-space-layout-gap-md);
-
-  /* Decorative separator — slightly more prominent, used in cards/panels */
-  --pcs-separator-decorative-color:      var(--pcs-color-border-default);
-  --pcs-separator-decorative-thickness:  var(--pcs-primitive-border-width-default);
-
-}
-
-/* Separator has no dark mode overrides — fully handled by semantic border tokens */

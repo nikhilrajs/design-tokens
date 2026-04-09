@@ -185,17 +185,7 @@
   /* --- Label --- */
   --pcs-field-label-font-size:           var(--pcs-text-label-lg-size);
   --pcs-field-label-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
-  --pcs-field-label-line-height:         var(--pcs-text-label-lg-line-height);
   --pcs-field-label-color:               var(--pcs-color-text-default);
-  --pcs-field-label-color-disabled:      var(--pcs-color-text-disabled);
-
-  /* Required indicator (*) */
-  --pcs-field-label-required-color:      var(--pcs-color-error-text);
-
-  /* Optional indicator text */
-  --pcs-field-label-optional-color:      var(--pcs-color-text-muted);
-  --pcs-field-label-optional-font-size:  var(--pcs-text-label-sm-size);
-  --pcs-field-label-optional-font-weight:var(--pcs-primitive-font-weight-normal);
 
   /* --- Hint text --- */
   /* Appears below input in default/neutral state */

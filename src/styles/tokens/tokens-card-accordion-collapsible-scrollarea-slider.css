@@ -56,7 +56,6 @@
 
   /* --- Separator (optional divider between header/content/footer) --- */
   --pcs-card-separator-color:            var(--pcs-color-border-muted);         /* neutral-100 */
-  --pcs-card-separator-thickness:        var(--pcs-primitive-border-width-default);
 
 
   /* ===========================================================================
