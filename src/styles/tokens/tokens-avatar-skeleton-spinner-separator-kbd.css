@@ -54,7 +54,7 @@
 
   /* Status dot colors */
   --pcs-avatar-status-online:            var(--pcs-color-success-emphasis);     /* emerald-600 */
-  --pcs-avatar-status-offline:           var(--pcs-color-text-subtle);          /* neutral-400   */
+  --pcs-avatar-status-offline:           var(--pcs-color-text-muted);          /* neutral-400   */
   --pcs-avatar-status-busy:              var(--pcs-color-error-emphasis);       /* red-600     */
   --pcs-avatar-status-away:              var(--pcs-color-warning-emphasis);     /* yellow-500  */
 

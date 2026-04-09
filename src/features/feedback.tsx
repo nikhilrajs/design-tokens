@@ -378,7 +378,7 @@ export const Feedback: React.FC = () => {
             <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With label</p>
             <div className="flex items-center gap-3">
               <Separator className="flex-1" />
-              <span className="text-xs text-[color:var(--pcs-color-text-subtle)]">or continue with</span>
+              <span className="text-xs text-[color:var(--pcs-color-text-muted)]">or continue with</span>
               <Separator className="flex-1" />
             </div>
           </div>
@@ -484,19 +484,19 @@ export const Feedback: React.FC = () => {
             <div className="flex items-center gap-6">
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="sm" variant="primary" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">sm · 12px</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">sm · 12px</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="md" variant="primary" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">md · 16px</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">md · 16px</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="lg" variant="primary" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">lg · 20px</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">lg · 20px</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="xl" variant="primary" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">xl · 32px</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">xl · 32px</span>
               </div>
             </div>
           </div>
@@ -507,21 +507,21 @@ export const Feedback: React.FC = () => {
             <div className="flex items-center gap-6">
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="lg" variant="inherit" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">inherit</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">inherit</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="lg" variant="primary" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">primary</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">primary</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Spinner size="lg" variant="muted" />
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">muted</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">muted</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <div className="flex items-center justify-center rounded-md size-8" style={{ backgroundColor: 'var(--pcs-color-primary-emphasis)' }}>
                   <Spinner size="md" variant="on-emphasis" />
                 </div>
-                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-subtle)]">on-emphasis</span>
+                <span className="text-[10px] font-mono text-[color:var(--pcs-color-text-muted)]">on-emphasis</span>
               </div>
             </div>
           </div>
@@ -540,7 +540,7 @@ export const Feedback: React.FC = () => {
               </Button>
               <div className="flex flex-col items-center justify-center gap-3 rounded-lg border border-[color:var(--pcs-color-border-muted)] p-8 w-48">
                 <Spinner size="xl" variant="muted" />
-                <span className="text-xs text-[color:var(--pcs-color-text-subtle)]">Loading data…</span>
+                <span className="text-xs text-[color:var(--pcs-color-text-muted)]">Loading data…</span>
               </div>
             </div>
           </div>

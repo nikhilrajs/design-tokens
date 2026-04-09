@@ -65,7 +65,7 @@
 	--color-foreground: var(--pcs-color-text-default);
 
 	/* Text */
-	--color-text-subtle: var(--pcs-color-text-subtle);
+	--color-text-subtle: var(--pcs-color-text-muted);
 	--color-text-disabled: var(--pcs-color-text-disabled);
 	--color-text-inverse: var(--pcs-color-text-inverse);
 

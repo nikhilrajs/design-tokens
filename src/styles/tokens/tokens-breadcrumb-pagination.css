@@ -57,7 +57,7 @@
 
   /* --- Separator --- */
   /* Separator is typically a "/" character or a chevron icon */
-  --pcs-breadcrumb-separator-color:      var(--pcs-color-text-subtle);          /* neutral-400 */
+  --pcs-breadcrumb-separator-color:      var(--pcs-color-text-muted);          /* neutral-400 */
   --pcs-breadcrumb-separator-size:       var(--pcs-size-icon-sm);               /* 12px — for icon separators */
   --pcs-breadcrumb-separator-gap:        var(--pcs-space-component-gap-xs);     /* 4px — gap between item and separator */
 
@@ -156,7 +156,7 @@
 
   /* --- Ellipsis --- */
   /* Static placeholder — not interactive */
-  --pcs-pagination-ellipsis-color:       var(--pcs-color-text-subtle);          /* neutral-400 */
+  --pcs-pagination-ellipsis-color:       var(--pcs-color-text-muted);          /* neutral-400 */
   --pcs-pagination-ellipsis-size:        var(--pcs-size-control-md);            /* 32px — same as item for alignment */
 
   /* --- Icon sizes within controls --- */

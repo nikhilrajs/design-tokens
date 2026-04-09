@@ -118,7 +118,7 @@ export const Tokens: React.FC = () => {
         <div className="grid grid-cols-2 gap-x-8 gap-y-3 md:grid-cols-3 lg:grid-cols-4">
           <SemanticSwatch token="--pcs-color-text-default"  name="Text / Default" />
           <SemanticSwatch token="--pcs-color-text-muted"    name="Text / Muted" />
-          <SemanticSwatch token="--pcs-color-text-subtle"   name="Text / Subtle" />
+          <SemanticSwatch token="--pcs-color-text-muted"   name="Text / Subtle" />
           <SemanticSwatch token="--pcs-color-text-disabled" name="Text / Disabled" />
           <SemanticSwatch token="--pcs-color-text-inverse"  name="Text / Inverse" />
           <SemanticSwatch token="--pcs-color-icon-default"  name="Icon / Default" />

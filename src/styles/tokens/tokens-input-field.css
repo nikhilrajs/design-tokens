@@ -90,7 +90,7 @@
   --pcs-input-bg:                        var(--pcs-color-background);
   --pcs-input-border-color:              var(--pcs-color-border-strong);
   --pcs-input-text:                      var(--pcs-color-text-default);
-  --pcs-input-placeholder:               var(--pcs-color-text-subtle);
+  --pcs-input-placeholder:               var(--pcs-color-text-muted);
   --pcs-input-shadow:                    var(--pcs-shadow-sm);
 
   /* ===========================================================================
@@ -147,7 +147,7 @@
   --pcs-input-border-color-readonly:     var(--pcs-color-border-default);
   --pcs-input-border-style-readonly:     dashed;
   --pcs-input-text-readonly:             var(--pcs-color-text-default);
-  --pcs-input-placeholder-readonly:      var(--pcs-color-text-subtle);
+  --pcs-input-placeholder-readonly:      var(--pcs-color-text-muted);
   --pcs-input-cursor-readonly:           default;
   --pcs-input-shadow-readonly:           none;
 
@@ -231,7 +231,7 @@
   /* --- Character count --- */
   /* Shown for Textarea and length-limited inputs (right-aligned below input) */
   --pcs-field-char-count-font-size:      var(--pcs-text-caption-size);
-  --pcs-field-char-count-color:          var(--pcs-color-text-subtle);
+  --pcs-field-char-count-color:          var(--pcs-color-text-muted);
   --pcs-field-char-count-color-warning:  var(--pcs-color-warning-text);         /* approaching limit */
   --pcs-field-char-count-color-error:    var(--pcs-color-error-text);           /* at/over limit */
 

@@ -126,7 +126,7 @@ const GROUPS: Group[] = [
         name: 'Caption',
         shorthand: '--pcs-text-caption-shorthand',
         specs: '12px · Regular · 1.375',
-        color: 'var(--pcs-color-text-subtle)',
+        color: 'var(--pcs-color-text-muted)',
         sample: 'Last updated 2 minutes ago',
         useCase: 'Timestamps, footnotes, helper text beneath form fields, image captions, legal fine print. Lightest color in the hierarchy — purely informational.',
       },
@@ -162,7 +162,7 @@ function TypographyRow({ role }: { role: TypographyRole }) {
         </p>
         <p
           className="text-[10px] font-mono"
-          style={{ color: 'var(--pcs-color-text-subtle)' }}
+          style={{ color: 'var(--pcs-color-text-muted)' }}
           title={role.shorthand}
         >
           {role.shorthand.replace('--pcs-', '')}

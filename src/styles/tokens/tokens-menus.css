@@ -59,7 +59,7 @@
   --pcs-menu-item-bg:                    transparent;
   --pcs-menu-item-text:                  var(--pcs-color-text-default);
   --pcs-menu-item-icon-color:            var(--pcs-color-icon-default);
-  --pcs-menu-item-shortcut-color:        var(--pcs-color-text-subtle);          /* right-aligned kbd hint */
+  --pcs-menu-item-shortcut-color:        var(--pcs-color-text-muted);          /* right-aligned kbd hint */
 
   /* --- Item — hover / focus --- */
   --pcs-menu-item-bg-hover:              var(--pcs-color-state-hover);          /* neutral-50  */
@@ -91,7 +91,7 @@
   /* --- Section label (group header inside menu) --- */
   --pcs-menu-section-label-font-size:    var(--pcs-text-label-sm-size);
   --pcs-menu-section-label-font-weight:  var(--pcs-text-label-sm-weight);       /* 500  */
-  --pcs-menu-section-label-color:        var(--pcs-color-text-subtle);          /* neutral-400 */
+  --pcs-menu-section-label-color:        var(--pcs-color-text-muted);          /* neutral-400 */
   --pcs-menu-section-label-padding-x:    var(--pcs-space-component-padding-sm);
   --pcs-menu-section-label-padding-y:    var(--pcs-primitive-space-1-5);
 
@@ -178,7 +178,7 @@
   --pcs-select-trigger-bg:               var(--pcs-input-bg);              /* mirrors Input bg — tracks dark mode tint automatically */
   --pcs-select-trigger-border-color:     var(--pcs-color-border-strong);
   --pcs-select-trigger-text:             var(--pcs-color-text-default);
-  --pcs-select-trigger-placeholder:      var(--pcs-color-text-subtle);
+  --pcs-select-trigger-placeholder:      var(--pcs-color-text-muted);
   --pcs-select-trigger-shadow:           none;                              /* Input has no shadow; Select appears alongside inputs */
 
   /* --- STATE: Hover --- */
