@@ -172,7 +172,7 @@ function ComboboxLabel({
   return (
     <ComboboxPrimitive.GroupLabel
       data-slot="combobox-label"
-      className={cn("px-[var(--pcs-menu-section-label-padding-x)] py-[var(--pcs-menu-section-label-padding-y)] text-[length:var(--pcs-menu-section-label-font-size)] font-[number:var(--pcs-menu-section-label-font-weight)] text-[color:var(--pcs-menu-section-label-color)]", className)}
+      className={cn("px-[var(--pcs-menu-section-label-padding-x)] py-[var(--pcs-menu-section-label-padding-y)] type-label-sm text-[color:var(--pcs-menu-section-label-color)]", className)}
       {...props}
     />
   )

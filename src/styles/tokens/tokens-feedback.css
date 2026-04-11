@@ -93,8 +93,6 @@
   --pcs-empty-media-icon-color:          var(--pcs-color-text-default);
 
   /* --- Title --- */
-  --pcs-empty-title-font-size:           var(--pcs-text-title-sm-size);         /* 16px — section header scale; use display (36px) for full-page hero empty states */
-  --pcs-empty-title-font-weight:         var(--pcs-text-title-sm-weight);       /* 600  */
   --pcs-empty-title-color:               var(--pcs-color-text-default);
 
   /* --- Description --- */

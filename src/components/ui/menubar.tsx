@@ -63,7 +63,7 @@ function MenubarTrigger({
       className={cn(
         "flex items-center outline-hidden select-none cursor-default transition-colors",
         "rounded-[var(--pcs-menubar-trigger-border-radius)] px-[var(--pcs-menubar-trigger-padding-x)] py-[var(--pcs-menubar-trigger-padding-y)]",
-        "text-[length:var(--pcs-menubar-trigger-font-size)] font-[number:var(--pcs-menubar-trigger-font-weight)]",
+        "type-label-lg",
         "bg-[var(--pcs-menubar-trigger-bg)] text-[color:var(--pcs-menubar-trigger-text)]",
         "hover:bg-[var(--pcs-menubar-trigger-bg-hover)] hover:text-[color:var(--pcs-menubar-trigger-text-hover)]",
         "aria-expanded:bg-[var(--pcs-menubar-trigger-bg-open)] aria-expanded:text-[color:var(--pcs-menubar-trigger-text-open)]",

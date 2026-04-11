@@ -23,9 +23,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
       className={cn(
         "flex flex-wrap items-center wrap-break-word",
         "gap-[var(--pcs-breadcrumb-gap)]",
-        "font-[family-name:var(--pcs-breadcrumb-font-family)]",
-        "text-[length:var(--pcs-breadcrumb-font-size)]",
-        "font-[number:var(--pcs-breadcrumb-font-weight)]",
+        "type-body-md",
         "text-[color:var(--pcs-breadcrumb-item-color)]",
         className
       )}

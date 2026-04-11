@@ -122,8 +122,7 @@ function AvatarGroupCount({
         "relative flex shrink-0 items-center justify-center",
         "rounded-[var(--pcs-avatar-border-radius-circle)]",
         "bg-[var(--pcs-avatar-stack-count-bg)]",
-        "text-[length:var(--pcs-avatar-stack-count-font-size)]",
-        "font-[number:var(--pcs-avatar-stack-count-font-weight)]",
+        "type-label-sm",
         "text-[color:var(--pcs-avatar-stack-count-text)]",
         "ring-[length:var(--pcs-avatar-border-width)] ring-[var(--pcs-avatar-stack-count-border)]",
         // Default size (md)
