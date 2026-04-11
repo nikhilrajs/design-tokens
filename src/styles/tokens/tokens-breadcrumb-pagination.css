@@ -25,6 +25,11 @@
 
 :root {
 
+  /* --- Typography --- */
+  --pcs-breadcrumb-font-family:          var(--pcs-text-font-sans);
+  --pcs-breadcrumb-font-size:            var(--pcs-text-body-md-size);
+  --pcs-breadcrumb-font-weight:          var(--pcs-text-body-md-weight);        /* 400  */
+
   /* Current (last) item is slightly heavier to signal position */
   --pcs-breadcrumb-font-weight-current:  var(--pcs-primitive-font-weight-medium); /* 500 */
 

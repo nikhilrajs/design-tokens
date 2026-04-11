@@ -34,6 +34,11 @@
      BADGE — SHARED / BASE TOKENS
   =========================================================================== */
 
+  --pcs-badge-font-family:               var(--pcs-text-font-sans);
+  --pcs-badge-font-size:                 var(--pcs-text-label-sm-size);
+  --pcs-badge-font-weight:               var(--pcs-text-label-sm-weight);        /* 500  */
+  --pcs-badge-line-height:               var(--pcs-primitive-line-height-normal);
+
   /* Badge is all-caps — matching Atlassian lozenge style */
   --pcs-badge-text-transform:            uppercase;
   --pcs-badge-letter-spacing:            0.025em;

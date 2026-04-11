@@ -183,6 +183,8 @@
   --pcs-field-gap-input-message:         var(--pcs-space-component-gap-xs);     /*  4px — input to hint/error */
 
   /* --- Label --- */
+  --pcs-field-label-font-size:           var(--pcs-text-label-lg-size);
+  --pcs-field-label-font-weight:         var(--pcs-text-label-lg-weight);       /* 500  */
   --pcs-field-label-color:               var(--pcs-color-text-default);
 
   /* --- Hint text --- */

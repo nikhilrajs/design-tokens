@@ -79,7 +79,7 @@ function ContextMenuLabel({
       data-slot="context-menu-label"
       data-inset={inset}
       className={cn(
-        "px-[var(--pcs-menu-section-label-padding-x)] py-[var(--pcs-menu-section-label-padding-y)] type-label-sm text-[color:var(--pcs-menu-section-label-color)] data-inset:pl-7",
+        "px-[var(--pcs-menu-section-label-padding-x)] py-[var(--pcs-menu-section-label-padding-y)] text-[length:var(--pcs-menu-section-label-font-size)] font-[number:var(--pcs-menu-section-label-font-weight)] text-[color:var(--pcs-menu-section-label-color)] data-inset:pl-7",
         className
       )}
       {...props}

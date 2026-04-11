@@ -32,11 +32,15 @@
 
   /* ===========================================================================
      DIALOG / ALERT DIALOG
-     All dialog tokens have been removed — typography wired to type-title-sm
-     shorthand utility; surface, sizing, spacing, close-button tokens failed
-     Boundary 1 or the over-specification test.
+     Only the 2 title tokens below are actively consumed by the component.
+     All other dialog tokens (surface, sizing, spacing, close-button) failed
+     Boundary 1 or the over-specification test and have been removed.
+     Flagged for a future naming-consistency pass — these technically fail
+     Boundary 1 but removal requires code changes in the dialog component.
   =========================================================================== */
 
+  --pcs-dialog-title-font-size:          var(--pcs-primitive-font-size-lg);     /* 18px — between title-sm (16px) and title-md (20px), matches shadcn default */
+  --pcs-dialog-title-line-height:        var(--pcs-text-title-sm-line-height);  /* 1.5  */
 
 
   /* ===========================================================================
@@ -82,6 +86,8 @@
   --pcs-popover-header-gap:              var(--pcs-space-component-gap-sm);
 
   /* --- Typography --- */
+  --pcs-popover-title-font-size:         var(--pcs-text-label-lg-size);
+  --pcs-popover-title-font-weight:       var(--pcs-text-label-lg-weight);       /* 500  */
   --pcs-popover-title-color:             var(--pcs-color-text-default);
 
   --pcs-popover-body-font-size:          var(--pcs-text-body-md-size);
@@ -120,6 +126,10 @@
   --pcs-tooltip-padding-y:               var(--pcs-primitive-space-1-5);
 
   /* --- Typography --- */
+  --pcs-tooltip-font-family:             var(--pcs-text-font-sans);
+  --pcs-tooltip-font-size:               var(--pcs-text-body-sm-size);          /* 12px — smaller than body */
+  --pcs-tooltip-font-weight:             var(--pcs-text-body-sm-weight);        /* 400  */
+  --pcs-tooltip-line-height:             var(--pcs-primitive-line-height-normal);
   --pcs-tooltip-color:                   var(--pcs-primitive-color-white);
 
   /* --- Arrow --- */

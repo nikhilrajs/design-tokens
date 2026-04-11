@@ -89,6 +89,8 @@
   --pcs-menu-item-submenu-icon-size:     var(--pcs-size-icon-sm);
 
   /* --- Section label (group header inside menu) --- */
+  --pcs-menu-section-label-font-size:    var(--pcs-text-label-sm-size);
+  --pcs-menu-section-label-font-weight:  var(--pcs-text-label-sm-weight);       /* 500  */
   --pcs-menu-section-label-color:        var(--pcs-color-text-muted);          /* neutral-400 */
   --pcs-menu-section-label-padding-x:    var(--pcs-space-component-padding-sm);
   --pcs-menu-section-label-padding-y:    var(--pcs-primitive-space-1-5);
@@ -118,6 +120,8 @@
   --pcs-menubar-trigger-padding-x:       var(--pcs-space-component-padding-sm);
   --pcs-menubar-trigger-padding-y:       var(--pcs-primitive-space-1);
   --pcs-menubar-trigger-border-radius:   var(--pcs-radius-sm);                  /*  2px — tighter than standard */
+  --pcs-menubar-trigger-font-size:       var(--pcs-text-body-md-size);
+  --pcs-menubar-trigger-font-weight:     var(--pcs-primitive-font-weight-medium);/* 500  */
 
   /* Trigger — default */
   --pcs-menubar-trigger-bg:              transparent;

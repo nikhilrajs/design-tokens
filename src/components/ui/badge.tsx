@@ -16,7 +16,7 @@ const badgeVariants = cva(
     "rounded-[var(--pcs-badge-border-radius)]",
     "border-[length:var(--pcs-badge-border-width)] border-[style:var(--pcs-badge-border-style)]",
     // Typography
-    "type-label-sm",
+    "text-[length:var(--pcs-badge-font-size)] font-[var(--pcs-badge-font-weight)]",
     "uppercase tracking-[var(--pcs-badge-letter-spacing)]",
     // Icons
     "has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5",

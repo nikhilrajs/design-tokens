@@ -37,6 +37,8 @@
 
   /* --- Shape + typography --- */
   --pcs-tabs-trigger-border-radius:      var(--pcs-radius-md);                  /* 6px — inside the list pill */
+  --pcs-tabs-trigger-font-size:          var(--pcs-text-body-md-size);
+  --pcs-tabs-trigger-font-weight:        var(--pcs-text-label-lg-weight);       /* 500  */
 
   /* --- Text states --- */
   --pcs-tabs-trigger-text:               var(--pcs-color-text-muted);           /* inactive */

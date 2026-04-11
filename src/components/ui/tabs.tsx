@@ -61,7 +61,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
         "rounded-[var(--pcs-tabs-trigger-border-radius)] border border-transparent",
         "px-1.5 py-0.5 whitespace-nowrap transition-all outline-hidden",
         // Typography
-        "type-label-lg",
+        "text-[length:var(--pcs-tabs-trigger-font-size)] font-[number:var(--pcs-tabs-trigger-font-weight)]",
         // Text states
         "text-[color:var(--pcs-tabs-trigger-text)]",
         "hover:text-[color:var(--pcs-tabs-trigger-text-hover)]",

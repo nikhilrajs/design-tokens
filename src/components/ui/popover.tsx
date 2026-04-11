@@ -83,7 +83,7 @@ function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
     <PopoverPrimitive.Title
       data-slot="popover-title"
       className={cn(
-        "type-label-lg text-[color:var(--pcs-popover-title-color)]",
+        "text-[length:var(--pcs-popover-title-font-size)] font-[number:var(--pcs-popover-title-font-weight)] text-[color:var(--pcs-popover-title-color)]",
         className
       )}
       {...props}

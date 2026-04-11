@@ -59,7 +59,10 @@ function TooltipContent({
             // Spacing
             "px-[var(--pcs-tooltip-padding-x)] py-[var(--pcs-tooltip-padding-y)]",
             // Typography
-            "type-caption",
+            "font-[family-name:var(--pcs-tooltip-font-family)]",
+            "text-[length:var(--pcs-tooltip-font-size)]",
+            "font-[number:var(--pcs-tooltip-font-weight)]",
+            "leading-[var(--pcs-tooltip-line-height)]",
             "text-[color:var(--pcs-tooltip-color)]",
             // Animation origin
             "origin-(--transform-origin)",

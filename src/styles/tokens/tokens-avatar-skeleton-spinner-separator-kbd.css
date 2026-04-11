@@ -55,6 +55,8 @@
   --pcs-avatar-stack-count-bg:           var(--pcs-color-surface-muted);
   --pcs-avatar-stack-count-border:       var(--pcs-color-background);
   --pcs-avatar-stack-count-text:         var(--pcs-color-text-muted);
+  --pcs-avatar-stack-count-font-size:    var(--pcs-text-label-sm-size);
+  --pcs-avatar-stack-count-font-weight:  var(--pcs-text-label-sm-weight);       /* 500  */
 
 }
 
