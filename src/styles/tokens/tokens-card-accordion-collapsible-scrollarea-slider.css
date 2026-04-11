@@ -37,15 +37,9 @@
   --pcs-card-header-gap:                 var(--pcs-space-component-gap-xs);     /*  4px — title to description */
 
   /* --- Title --- */
-  --pcs-card-title-font-size:            var(--pcs-text-title-sm-size);
-  --pcs-card-title-font-weight:          var(--pcs-text-title-sm-weight);       /* 600  */
-  --pcs-card-title-line-height:          var(--pcs-text-title-sm-line-height);
   --pcs-card-title-color:                var(--pcs-color-text-default);
 
   /* --- Description --- */
-  --pcs-card-description-font-size:      var(--pcs-text-body-md-size);
-  --pcs-card-description-font-weight:    var(--pcs-text-body-md-weight);        /* 400  */
-  --pcs-card-description-line-height:    var(--pcs-text-body-md-line-height);
   --pcs-card-description-color:          var(--pcs-color-text-muted);
 
   /* --- Content --- */

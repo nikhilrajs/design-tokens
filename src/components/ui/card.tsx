@@ -55,9 +55,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "text-[length:var(--pcs-card-title-font-size)]",
-        "font-[number:var(--pcs-card-title-font-weight)]",
-        "leading-[var(--pcs-card-title-line-height)]",
+        "type-title-sm",
         "text-[color:var(--pcs-card-title-color)]",
         "group-data-[size=sm]/card:text-sm",
         className
@@ -72,9 +70,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-description"
       className={cn(
-        "text-[length:var(--pcs-card-description-font-size)]",
-        "font-[number:var(--pcs-card-description-font-weight)]",
-        "leading-[var(--pcs-card-description-line-height)]",
+        "type-body-md",
         "text-[color:var(--pcs-card-description-color)]",
         className
       )}

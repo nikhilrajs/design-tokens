@@ -182,7 +182,34 @@
 }
 
 /* -----------------------------------------------------------------------------
-   6. COMPONENT ANIMATION UTILITIES
+   6. TYPOGRAPHY UTILITIES
+   Custom @utility definitions that expose the CSS font shorthand tokens as
+   single Tailwind utility classes. Each class sets font-weight, font-size,
+   line-height, and font-family in one declaration via the CSS font shorthand.
+
+   Usage in JSX:  className="type-title-sm"
+   Compiled CSS:  .type-title-sm { font: var(--pcs-text-title-sm-shorthand); }
+
+   Prefix is "type-" not "text-" — tailwind-merge v3 treats all text-{value}
+   classes as potential fontSize/color utilities and will silently drop unknown
+   text-* classes when other text-* classes are present in the same cn() call.
+   The "type-" prefix is not owned by Tailwind so tailwind-merge passes it through.
+----------------------------------------------------------------------------- */
+
+@utility type-display  { font: var(--pcs-text-display-shorthand);  }
+@utility type-title-lg { font: var(--pcs-text-title-lg-shorthand); }
+@utility type-title-md { font: var(--pcs-text-title-md-shorthand); }
+@utility type-title-sm { font: var(--pcs-text-title-sm-shorthand); }
+@utility type-subtitle { font: var(--pcs-text-subtitle-shorthand); }
+@utility type-body-lg  { font: var(--pcs-text-body-lg-shorthand);  }
+@utility type-body-md  { font: var(--pcs-text-body-md-shorthand);  }
+@utility type-body-sm  { font: var(--pcs-text-body-sm-shorthand);  }
+@utility type-label-lg { font: var(--pcs-text-label-lg-shorthand); }
+@utility type-label-sm { font: var(--pcs-text-label-sm-shorthand); }
+@utility type-caption  { font: var(--pcs-text-caption-shorthand);  }
+
+/* -----------------------------------------------------------------------------
+   7. COMPONENT ANIMATION UTILITIES
    Defined outside @layer base so they are available globally.
 ----------------------------------------------------------------------------- */
 
