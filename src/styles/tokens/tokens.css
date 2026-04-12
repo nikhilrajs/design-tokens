@@ -54,14 +54,14 @@
 	--pcs-primitive-color-neutral-alpha-on-light-400: oklch(14.1% 0.005 285.823 / 32%);
 	--pcs-primitive-color-neutral-alpha-on-light-500: oklch(14.1% 0.005 285.823 / 64%);
 
-	--pcs-primitive-color-neutral-alpha-on-dark-100: oklch(98.5% 0 0 / .02);
-	--pcs-primitive-color-neutral-alpha-on-dark-200: oklch(98.5% 0 0 / .04);
-	--pcs-primitive-color-neutral-alpha-on-dark-300: oklch(98.5% 0 0 / .07);
-	--pcs-primitive-color-neutral-alpha-on-dark-400: oklch(98.5% 0 0 / .1);
-	--pcs-primitive-color-neutral-alpha-on-dark-500: oklch(98.5% 0 0 / .12);
-	--pcs-primitive-color-neutral-alpha-on-dark-600: oklch(98.5% 0 0 / .18);
-	--pcs-primitive-color-neutral-alpha-on-dark-700: oklch(98.5% 0 0 / .24);
-	--pcs-primitive-color-neutral-alpha-on-dark-800: oklch(98.5% 0 0 / .36);
+	--pcs-primitive-color-neutral-alpha-on-dark-100: oklch(0.0993 0.0115 195.47 / 46%);
+	--pcs-primitive-color-neutral-alpha-on-dark-200: oklch(0.7984 0 0 / 4%);
+	--pcs-primitive-color-neutral-alpha-on-dark-300: oklch(0.8547 0.0151 286.08 / 7%);
+	--pcs-primitive-color-neutral-alpha-on-dark-400: oklch(0.8915 0.0177 282.51 / 10%);
+	--pcs-primitive-color-neutral-alpha-on-dark-500: oklch(0.9222 0.0189 282.75 / 12%);
+	--pcs-primitive-color-neutral-alpha-on-dark-600: oklch(0.947 0.0222 272.06 / 18%);
+	--pcs-primitive-color-neutral-alpha-on-dark-700: oklch(0.9348 0.0181 272.31 / 25%);
+	--pcs-primitive-color-neutral-alpha-on-dark-800: oklch(0.9531 0.0166 259.42 / 36%);
 
 	/* ---------------------------------------------------------------------------
      1.2 COLOR PRIMITIVES — Brand (Primary)
@@ -784,7 +784,7 @@
 	--pcs-color-state-selected-border: var(--pcs-primitive-color-brand-600);
 	--pcs-color-state-disabled-bg: var(--pcs-primitive-color-neutral-800);
 	--pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-700);
-	--pcs-color-overlay-scrim: var(--pcs-primitive-color-neutral-alpha-on-dark-400);
+	--pcs-color-overlay-scrim: var(--pcs-primitive-color-neutral-alpha-on-dark-100);
 
 	/* ---------------------------------------------------------------------------
      3.11 SHADOWS — Dark

@@ -129,15 +129,9 @@
 
 	/* ===========================================================================
      INPUT — STATE: DISABLED
-     Muted background, muted border, muted text.
-     Cursor signals non-interactivity.
+     Opacity-50 on the element — matches checkbox/radio treatment.
+     No color tokens needed; the dimmed default state is sufficient signal.
   =========================================================================== */
-
-	--pcs-input-bg-disabled: var(--pcs-color-state-disabled-bg);
-	--pcs-input-border-color-disabled: var(--pcs-color-state-disabled-border);
-	--pcs-input-text-disabled: var(--pcs-color-text-disabled);
-	--pcs-input-placeholder-disabled: var(--pcs-color-text-disabled);
-	--pcs-input-shadow-disabled: none;
 
 	/* ===========================================================================
      INPUT — STATE: READ-ONLY
@@ -257,6 +251,5 @@
 	/* Input bg — replicates shadcn's dark:bg-input/30 (neutral-700 at 30% opacity).
      Transparent tint rather than a solid step — avoids clashing with card bg. */
 	--pcs-input-bg: oklch(from var(--pcs-primitive-color-neutral-700) l c h / 30%);
-	--pcs-input-bg-disabled: oklch(from var(--pcs-primitive-color-neutral-700) l c h / 80%);
 
 }
