@@ -441,29 +441,39 @@
 
 	/* Font families */
 	--pcs-text-font-sans: var(--pcs-primitive-font-family-sans);
-	--pcs-text-font-sans-display: var(--pcs-primitive-font-family-sans-display); /* display, title, subtitle */
-	--pcs-text-font-mono: var(--pcs-primitive-font-family-mono); /* code-inline only */
+	--pcs-text-font-sans-display: var(--pcs-primitive-font-family-sans-display);
+	/* display, title, subtitle */
+	--pcs-text-font-mono: var(--pcs-primitive-font-family-mono);
+	/* code-inline only */
 
 	/* --- Display --- */
 	--pcs-text-display-size: var(--pcs-primitive-font-size-4xl);
-	--pcs-text-display-weight: var(--pcs-primitive-font-weight-semibold); /* 600 — bold (700) is too aggressive at this size in product UI */
-	--pcs-text-display-line-height: var(--pcs-primitive-line-height-snug); /* 1.375 */
+	--pcs-text-display-weight: var(--pcs-primitive-font-weight-semibold);
+	/* 600 — bold (700) is too aggressive at this size in product UI */
+	--pcs-text-display-line-height: var(--pcs-primitive-line-height-snug);
+	/* 1.375 */
 
 	/* --- Title ---
      Scale: 24 / 20 / 16 — even 4px steps, all semibold.
      LG is rare (primary page heading). MD and SM are the workhorses.
   --------------------------------------------------------------------------- */
-	--pcs-text-title-lg-size: var(--pcs-primitive-font-size-2xl); /* 24px — page-level heading */
+	--pcs-text-title-lg-size: var(--pcs-primitive-font-size-2xl);
+	/* 24px — page-level heading */
 	--pcs-text-title-lg-weight: var(--pcs-primitive-font-weight-semibold);
-	--pcs-text-title-lg-line-height: var(--pcs-primitive-line-height-normal); /* 1.5 */
+	--pcs-text-title-lg-line-height: var(--pcs-primitive-line-height-normal);
+	/* 1.5 */
 
-	--pcs-text-title-md-size: var(--pcs-primitive-font-size-xl); /* 20px — modal / panel / major card title */
+	--pcs-text-title-md-size: var(--pcs-primitive-font-size-xl);
+	/* 20px — modal / panel / major card title */
 	--pcs-text-title-md-weight: var(--pcs-primitive-font-weight-semibold);
-	--pcs-text-title-md-line-height: var(--pcs-primitive-line-height-relaxed); /* 1.625 */
+	--pcs-text-title-md-line-height: var(--pcs-primitive-line-height-relaxed);
+	/* 1.625 */
 
-	--pcs-text-title-sm-size: var(--pcs-primitive-font-size-base); /* 16px — section headers, form groups */
+	--pcs-text-title-sm-size: var(--pcs-primitive-font-size-base);
+	/* 16px — section headers, form groups */
 	--pcs-text-title-sm-weight: var(--pcs-primitive-font-weight-semibold);
-	--pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-normal); /* 1.5 */
+	--pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-normal);
+	/* 1.5 */
 
 	/* --- Subtitle ---
      Companion to Title LG. Same size as Title SM — regular weight + muted color
@@ -471,7 +481,8 @@
   --------------------------------------------------------------------------- */
 	--pcs-text-subtitle-size: var(--pcs-primitive-font-size-base);
 	--pcs-text-subtitle-weight: var(--pcs-primitive-font-weight-normal);
-	--pcs-text-subtitle-line-height: var(--pcs-primitive-line-height-relaxed); /* 1.625 */
+	--pcs-text-subtitle-line-height: var(--pcs-primitive-line-height-relaxed);
+	/* 1.625 */
 
 	/* --- Body ---
      body-md = 14px — this is the app default.
@@ -483,7 +494,8 @@
 	--pcs-text-body-lg-weight: var(--pcs-primitive-font-weight-normal);
 	--pcs-text-body-lg-line-height: var(--pcs-primitive-line-height-normal);
 
-	--pcs-text-body-md-size: var(--pcs-primitive-font-size-sm); /* 14px — APP DEFAULT */
+	--pcs-text-body-md-size: var(--pcs-primitive-font-size-sm);
+	/* 14px — APP DEFAULT */
 	--pcs-text-body-md-weight: var(--pcs-primitive-font-weight-normal);
 	--pcs-text-body-md-line-height: var(--pcs-primitive-line-height-normal);
 
@@ -579,7 +591,8 @@
 	/* Control heights — buttons, inputs, selects */
 	--pcs-size-control-xs: var(--pcs-primitive-space-6);
 	--pcs-size-control-sm: var(--pcs-primitive-space-7);
-	--pcs-size-control-md: var(--pcs-primitive-space-8); /* 32px  — default */
+	--pcs-size-control-md: var(--pcs-primitive-space-8);
+	/* 32px  — default */
 	--pcs-size-control-lg: var(--pcs-primitive-space-10);
 	--pcs-size-control-xl: var(--pcs-primitive-space-12);
 
@@ -631,14 +644,22 @@
   --------------------------------------------------------------------------- */
 
 	--pcs-z-base: 0;
-	--pcs-z-raised: 10; /* slightly raised cards, sticky headers */
-	--pcs-z-dropdown: 100; /* dropdowns, context menus, popovers */
-	--pcs-z-sticky: 200; /* sticky nav, table headers */
-	--pcs-z-overlay: 300; /* sheets, drawers */
-	--pcs-z-modal: 400; /* dialogs, alert dialogs */
-	--pcs-z-toast: 500; /* toasts, sonner — above modals */
-	--pcs-z-tooltip: 600; /* tooltips — above everything native */
-	--pcs-z-external: 900; /* third-party: TinyMCE, date pickers etc. */
+	--pcs-z-raised: 10;
+	/* slightly raised cards, sticky headers */
+	--pcs-z-dropdown: 100;
+	/* dropdowns, context menus, popovers */
+	--pcs-z-sticky: 200;
+	/* sticky nav, table headers */
+	--pcs-z-overlay: 300;
+	/* sheets, drawers */
+	--pcs-z-modal: 400;
+	/* dialogs, alert dialogs */
+	--pcs-z-toast: 500;
+	/* toasts, sonner — above modals */
+	--pcs-z-tooltip: 600;
+	/* tooltips — above everything native */
+	--pcs-z-external: 900;
+	/* third-party: TinyMCE, date pickers etc. */
 }
 
 /* =============================================================================
@@ -648,8 +669,8 @@
    Strategy: Atlassian symmetry model (light 100 ↔ dark 900, etc.)
    ============================================================================= */
 
-.dark,
-[data-app-color-scheme='dark'] {
+[data-app-color-scheme='dark'],
+.dark {
 	/* ---------------------------------------------------------------------------
      3.1 NEUTRAL SURFACES — Dark
   --------------------------------------------------------------------------- */

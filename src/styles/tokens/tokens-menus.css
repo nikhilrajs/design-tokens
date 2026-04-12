@@ -23,121 +23,141 @@
 
 :root {
 
-  /* ===========================================================================
+	/* ===========================================================================
      MENU — SHARED PANEL AND ITEM TOKENS
      Consumed by: Dropdown Menu, Context Menu, Menubar panels, Select panel
   =========================================================================== */
 
-  /* --- Panel (floating surface) --- */
-  --pcs-menu-bg:                         var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
-  --pcs-menu-border-color:               var(--pcs-color-border-default);
-  --pcs-menu-border-width:               var(--pcs-primitive-border-width-default);
-  --pcs-menu-border-radius:              var(--pcs-radius-lg);
-  --pcs-menu-shadow:                     var(--pcs-shadow-lg);
-  --pcs-menu-z:                          var(--pcs-z-dropdown);                 /* 100 */
-  --pcs-menu-padding:                    var(--pcs-primitive-space-1);          /* 4px — inner padding around item list */
+	/* --- Panel (floating surface) --- */
+	--pcs-menu-bg: var(--pcs-color-surface-overlay);
+	/* white / neutral-900 dark */
+	--pcs-menu-border-color: var(--pcs-color-border-default);
+	--pcs-menu-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-menu-border-radius: var(--pcs-radius-lg);
+	--pcs-menu-shadow: var(--pcs-shadow-lg);
+	--pcs-menu-z: var(--pcs-z-dropdown);
+	/* 100 */
+	--pcs-menu-padding: var(--pcs-primitive-space-1);
+	/* 4px — inner padding around item list */
 
-  /* --- Sizing --- */
-  --pcs-menu-min-width:                  10rem;
-  --pcs-menu-max-width:                  22rem;
-  --pcs-menu-max-height:                 22rem;                             /* 352px — scroll beyond this */
+	/* --- Sizing --- */
+	--pcs-menu-min-width: 10rem;
+	--pcs-menu-max-width: 22rem;
+	--pcs-menu-max-height: 22rem;
+	/* 352px — scroll beyond this */
 
-  /* --- Item --- */
-  --pcs-menu-item-height:                var(--pcs-size-control-md);
-  --pcs-menu-item-padding-x:             var(--pcs-space-component-padding-sm);
-  --pcs-menu-item-padding-y:             var(--pcs-primitive-space-1-5);
-  --pcs-menu-item-border-radius:         var(--pcs-radius-md);                  /*  6px — items round inside panel */
-  --pcs-menu-item-gap:                   var(--pcs-space-component-gap-sm);     /*  6px — icon/check to label */
+	/* --- Item --- */
+	--pcs-menu-item-height: var(--pcs-size-control-md);
+	--pcs-menu-item-padding-x: var(--pcs-space-component-padding-sm);
+	--pcs-menu-item-padding-y: var(--pcs-primitive-space-1-5);
+	--pcs-menu-item-border-radius: var(--pcs-radius-md);
+	/*  6px — items round inside panel */
+	--pcs-menu-item-gap: var(--pcs-space-component-gap-sm);
+	/*  6px — icon/check to label */
 
-  /* --- Item typography --- */
-  --pcs-menu-item-font-family:           var(--pcs-text-font-sans);
-  --pcs-menu-item-font-size:             var(--pcs-text-body-md-size);
-  --pcs-menu-item-font-weight:           var(--pcs-text-body-md-weight);        /* 400  */
-  --pcs-menu-item-line-height:           var(--pcs-text-body-md-line-height);
+	/* --- Item typography --- */
+	--pcs-menu-item-font-family: var(--pcs-text-font-sans);
+	--pcs-menu-item-font-size: var(--pcs-text-body-md-size);
+	--pcs-menu-item-font-weight: var(--pcs-text-body-md-weight);
+	/* 400  */
+	--pcs-menu-item-line-height: var(--pcs-text-body-md-line-height);
 
-  /* --- Item — default --- */
-  --pcs-menu-item-bg:                    transparent;
-  --pcs-menu-item-text:                  var(--pcs-color-text-default);
-  --pcs-menu-item-icon-color:            var(--pcs-color-icon-default);
-  --pcs-menu-item-shortcut-color:        var(--pcs-color-text-muted);          /* right-aligned kbd hint */
+	/* --- Item — default --- */
+	--pcs-menu-item-bg: transparent;
+	--pcs-menu-item-text: var(--pcs-color-text-default);
+	--pcs-menu-item-icon-color: var(--pcs-color-icon-default);
+	--pcs-menu-item-shortcut-color: var(--pcs-color-text-muted);
+	/* right-aligned kbd hint */
 
-  /* --- Item — hover / focus --- */
-  --pcs-menu-item-bg-hover:              var(--pcs-color-state-hover);          /* neutral-50  */
-  --pcs-menu-item-text-hover:            var(--pcs-color-text-default);
-  --pcs-menu-item-icon-color-hover:      var(--pcs-color-icon-default);
+	/* --- Item — hover / focus --- */
+	--pcs-menu-item-bg-hover: var(--pcs-color-state-hover);
+	/* neutral-50  */
+	--pcs-menu-item-text-hover: var(--pcs-color-text-default);
+	--pcs-menu-item-icon-color-hover: var(--pcs-color-icon-default);
 
-  /* --- Item — disabled --- */
-  --pcs-menu-item-bg-disabled:           transparent;
-  --pcs-menu-item-text-disabled:         var(--pcs-color-text-disabled);
-  --pcs-menu-item-icon-color-disabled:   var(--pcs-color-icon-disabled);
+	/* --- Item — disabled --- */
+	--pcs-menu-item-bg-disabled: transparent;
+	--pcs-menu-item-text-disabled: var(--pcs-color-text-disabled);
+	--pcs-menu-item-icon-color-disabled: var(--pcs-color-icon-disabled);
 
-  /* --- Item — destructive ---
+	/* --- Item — destructive ---
      Destructive items (Delete, Remove) have red text in default state.
      On hover the background also picks up a red tint.
   --------------------------------------------------------------------------- */
-  --pcs-menu-item-text-destructive:      var(--pcs-color-error-text);           /* red-800   */
-  --pcs-menu-item-icon-color-destructive:var(--pcs-color-error-icon);           /* red-700   */
-  --pcs-menu-item-bg-destructive-hover:  var(--pcs-color-error-background);     /* red-50    */
-  --pcs-menu-item-text-destructive-hover:var(--pcs-primitive-color-red-700);
+	--pcs-menu-item-text-destructive: var(--pcs-color-error-text);
+	/* red-800   */
+	--pcs-menu-item-icon-color-destructive: var(--pcs-color-error-icon);
+	/* red-700   */
+	--pcs-menu-item-bg-destructive-hover: var(--pcs-color-error-background);
+	/* red-50    */
+	--pcs-menu-item-text-destructive-hover: var(--pcs-primitive-color-red-700);
 
-  /* --- Item — selected (checkmark — used in Select, checked menu items) --- */
-  --pcs-menu-item-check-color:           var(--pcs-color-primary-emphasis);     /* brand-500 */
-  --pcs-menu-item-check-size:            var(--pcs-size-icon-sm);
+	/* --- Item — selected (checkmark — used in Select, checked menu items) --- */
+	--pcs-menu-item-check-color: var(--pcs-color-primary-emphasis);
+	/* brand-500 */
+	--pcs-menu-item-check-size: var(--pcs-size-icon-sm);
 
-  /* --- Item — sub-menu indicator (chevron right) --- */
-  --pcs-menu-item-submenu-icon-color:    var(--pcs-color-icon-muted);
-  --pcs-menu-item-submenu-icon-size:     var(--pcs-size-icon-sm);
+	/* --- Item — sub-menu indicator (chevron right) --- */
+	--pcs-menu-item-submenu-icon-color: var(--pcs-color-icon-muted);
+	--pcs-menu-item-submenu-icon-size: var(--pcs-size-icon-sm);
 
-  /* --- Section label (group header inside menu) --- */
-  --pcs-menu-section-label-color:        var(--pcs-color-text-muted);          /* neutral-400 */
-  --pcs-menu-section-label-padding-x:    var(--pcs-space-component-padding-sm);
-  --pcs-menu-section-label-padding-y:    var(--pcs-primitive-space-1-5);
+	/* --- Section label (group header inside menu) --- */
+	--pcs-menu-section-label-color: var(--pcs-color-text-muted);
+	/* neutral-400 */
+	--pcs-menu-section-label-padding-x: var(--pcs-space-component-padding-sm);
+	--pcs-menu-section-label-padding-y: var(--pcs-primitive-space-1-5);
 
-  /* --- Separator --- */
-  --pcs-menu-separator-color:            var(--pcs-color-border-muted);
-  --pcs-menu-separator-width:            var(--pcs-primitive-border-width-default);
-  --pcs-menu-separator-margin-y:         var(--pcs-primitive-space-1);          /* 4px — top and bottom */
+	/* --- Separator --- */
+	--pcs-menu-separator-color: var(--pcs-color-border-muted);
+	--pcs-menu-separator-width: var(--pcs-primitive-border-width-default);
+	--pcs-menu-separator-margin-y: var(--pcs-primitive-space-1);
+	/* 4px — top and bottom */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      MENUBAR
      Horizontal row of menu triggers at the top of a content area.
      Each trigger opens a dropdown panel (shares menu-* tokens).
      Menubar has its own trigger item tokens for the bar itself.
   =========================================================================== */
 
-  /* --- Bar container --- */
-  --pcs-menubar-bg:                      var(--pcs-color-background);
-  --pcs-menubar-border-color:            var(--pcs-color-border-muted);
-  --pcs-menubar-border-width:            var(--pcs-primitive-border-width-default);
-  --pcs-menubar-height:                  var(--pcs-size-control-md);
-  --pcs-menubar-padding-x:               var(--pcs-primitive-space-1);          /*  4px — outer padding */
-  --pcs-menubar-gap:                     var(--pcs-primitive-space-0-5);        /*  2px — between triggers */
+	/* --- Bar container --- */
+	--pcs-menubar-bg: var(--pcs-color-background);
+	--pcs-menubar-border-color: var(--pcs-color-border-muted);
+	--pcs-menubar-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-menubar-height: var(--pcs-size-control-md);
+	--pcs-menubar-padding-x: var(--pcs-primitive-space-1);
+	/*  4px — outer padding */
+	--pcs-menubar-gap: var(--pcs-primitive-space-0-5);
+	/*  2px — between triggers */
 
-  /* --- Trigger item (button inside the menubar) --- */
-  --pcs-menubar-trigger-padding-x:       var(--pcs-space-component-padding-sm);
-  --pcs-menubar-trigger-padding-y:       var(--pcs-primitive-space-1);
-  --pcs-menubar-trigger-border-radius:   var(--pcs-radius-sm);                  /*  2px — tighter than standard */
+	/* --- Trigger item (button inside the menubar) --- */
+	--pcs-menubar-trigger-padding-x: var(--pcs-space-component-padding-sm);
+	--pcs-menubar-trigger-padding-y: var(--pcs-primitive-space-1);
+	--pcs-menubar-trigger-border-radius: var(--pcs-radius-sm);
+	/*  2px — tighter than standard */
 
-  /* Trigger — default */
-  --pcs-menubar-trigger-bg:              transparent;
-  --pcs-menubar-trigger-text:            var(--pcs-color-text-default);
+	/* Trigger — default */
+	--pcs-menubar-trigger-bg: transparent;
+	--pcs-menubar-trigger-text: var(--pcs-color-text-default);
 
-  /* Trigger — hover */
-  --pcs-menubar-trigger-bg-hover:        var(--pcs-color-state-hover);
-  --pcs-menubar-trigger-text-hover:      var(--pcs-color-text-default);
+	/* Trigger — hover */
+	--pcs-menubar-trigger-bg-hover: var(--pcs-color-state-hover);
+	--pcs-menubar-trigger-text-hover: var(--pcs-color-text-default);
 
-  /* Trigger — open/active (menu is open) */
-  --pcs-menubar-trigger-bg-open:         var(--pcs-color-state-active);         /* neutral-100 */
-  --pcs-menubar-trigger-text-open:       var(--pcs-color-text-default);
+	/* Trigger — open/active (menu is open) */
+	--pcs-menubar-trigger-bg-open: var(--pcs-color-state-active);
+	/* neutral-100 */
+	--pcs-menubar-trigger-text-open: var(--pcs-color-text-default);
 
-  /* Trigger — focus */
-  --pcs-menubar-trigger-focus-ring-width:  var(--pcs-focus-ring-width);
-  --pcs-menubar-trigger-focus-ring-offset: 1px;   /* intentional — tighter offset for controls embedded in a bar (matches breadcrumb treatment) */
-  --pcs-menubar-trigger-focus-ring-color:  var(--pcs-color-focus-ring);
+	/* Trigger — focus */
+	--pcs-menubar-trigger-focus-ring-width: var(--pcs-focus-ring-width);
+	--pcs-menubar-trigger-focus-ring-offset: 1px;
+	/* intentional — tighter offset for controls embedded in a bar (matches breadcrumb treatment) */
+	--pcs-menubar-trigger-focus-ring-color: var(--pcs-color-focus-ring);
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      SELECT TRIGGER
      The visible input-like box that opens the Select panel.
      Panel and items consume menu-* tokens.
@@ -146,57 +166,62 @@
      since Select trigger is functionally an input.
   =========================================================================== */
 
-  /* --- Sizing (mirrors Input sizes) --- */
-  --pcs-select-trigger-sm-height:        var(--pcs-size-control-sm);
-  --pcs-select-trigger-sm-padding-x:     var(--pcs-space-component-padding-sm);
-  --pcs-select-trigger-sm-font-size:     var(--pcs-primitive-font-size-xs);
+	/* --- Sizing (mirrors Input sizes) --- */
+	--pcs-select-trigger-sm-height: var(--pcs-size-control-sm);
+	--pcs-select-trigger-sm-padding-x: var(--pcs-space-component-padding-sm);
+	--pcs-select-trigger-sm-font-size: var(--pcs-primitive-font-size-xs);
 
-  --pcs-select-trigger-md-height:        var(--pcs-size-control-md);            /* 32px — default */
-  --pcs-select-trigger-md-padding-x:     var(--pcs-space-component-padding-md);
-  --pcs-select-trigger-md-font-size:     var(--pcs-primitive-font-size-sm);
+	--pcs-select-trigger-md-height: var(--pcs-size-control-md);
+	/* 32px — default */
+	--pcs-select-trigger-md-padding-x: var(--pcs-space-component-padding-md);
+	--pcs-select-trigger-md-font-size: var(--pcs-primitive-font-size-sm);
 
-  --pcs-select-trigger-lg-height:        var(--pcs-size-control-lg);
-  --pcs-select-trigger-lg-padding-x:     var(--pcs-space-component-padding-lg);
-  --pcs-select-trigger-lg-font-size:     var(--pcs-primitive-font-size-base);
+	--pcs-select-trigger-lg-height: var(--pcs-size-control-lg);
+	--pcs-select-trigger-lg-padding-x: var(--pcs-space-component-padding-lg);
+	--pcs-select-trigger-lg-font-size: var(--pcs-primitive-font-size-base);
 
-  /* --- Shared trigger properties --- */
-  --pcs-select-trigger-border-width:     var(--pcs-primitive-border-width-default);
-  --pcs-select-trigger-border-radius:    var(--pcs-radius-md);
-  --pcs-select-trigger-font-family:      var(--pcs-text-font-sans);
-  --pcs-select-trigger-font-weight:      var(--pcs-text-body-md-weight);
+	/* --- Shared trigger properties --- */
+	--pcs-select-trigger-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-select-trigger-border-radius: var(--pcs-radius-md);
+	--pcs-select-trigger-font-family: var(--pcs-text-font-sans);
+	--pcs-select-trigger-font-weight: var(--pcs-text-body-md-weight);
 
-  /* Chevron icon inside trigger */
-  --pcs-select-trigger-icon-size:        var(--pcs-size-icon-md);
-  --pcs-select-trigger-icon-color:       var(--pcs-color-icon-muted);
-  --pcs-select-trigger-icon-gap:         var(--pcs-space-component-gap-sm);
+	/* Chevron icon inside trigger */
+	--pcs-select-trigger-icon-size: var(--pcs-size-icon-md);
+	--pcs-select-trigger-icon-color: var(--pcs-color-icon-muted);
+	--pcs-select-trigger-icon-gap: var(--pcs-space-component-gap-sm);
 
-  /* --- STATE: Default --- */
-  --pcs-select-trigger-bg:               var(--pcs-input-bg);              /* mirrors Input bg — tracks dark mode tint automatically */
-  --pcs-select-trigger-border-color:     var(--pcs-color-border-strong);
-  --pcs-select-trigger-text:             var(--pcs-color-text-default);
-  --pcs-select-trigger-placeholder:      var(--pcs-color-text-muted);
-  --pcs-select-trigger-shadow:           none;                              /* Input has no shadow; Select appears alongside inputs */
+	/* --- STATE: Default --- */
+	--pcs-select-trigger-bg: var(--pcs-input-bg);
+	/* mirrors Input bg — tracks dark mode tint automatically */
+	--pcs-select-trigger-border-color: var(--pcs-color-border-strong);
+	--pcs-select-trigger-text: var(--pcs-color-text-default);
+	--pcs-select-trigger-placeholder: var(--pcs-color-text-muted);
+	--pcs-select-trigger-shadow: none;
+	/* Input has no shadow; Select appears alongside inputs */
 
-  /* --- STATE: Hover --- */
-  --pcs-select-trigger-bg-hover:         var(--pcs-input-bg);
-  --pcs-select-trigger-border-color-hover: var(--pcs-color-border-strong); /* same as default — no color change on hover */
+	/* --- STATE: Hover --- */
+	--pcs-select-trigger-bg-hover: var(--pcs-input-bg);
+	--pcs-select-trigger-border-color-hover: var(--pcs-color-border-strong);
+	/* same as default — no color change on hover */
 
-  /* --- STATE: Open / Focus --- */
-  --pcs-select-trigger-bg-open:          var(--pcs-input-bg);
-  --pcs-select-trigger-border-color-open:var(--pcs-color-focus-ring);
-  /* --- STATE: Disabled --- */
-  --pcs-select-trigger-bg-disabled:      var(--pcs-input-bg-disabled);     /* mirrors Input disabled bg */
-  --pcs-select-trigger-border-color-disabled: var(--pcs-color-state-disabled-border);
-  --pcs-select-trigger-text-disabled:    var(--pcs-color-text-disabled);
-  --pcs-select-trigger-shadow-disabled:  none;
+	/* --- STATE: Open / Focus --- */
+	--pcs-select-trigger-bg-open: var(--pcs-input-bg);
+	--pcs-select-trigger-border-color-open: var(--pcs-color-focus-ring);
+	/* --- STATE: Disabled --- */
+	--pcs-select-trigger-bg-disabled: var(--pcs-input-bg-disabled);
+	/* mirrors Input disabled bg */
+	--pcs-select-trigger-border-color-disabled: var(--pcs-color-state-disabled-border);
+	--pcs-select-trigger-text-disabled: var(--pcs-color-text-disabled);
+	--pcs-select-trigger-shadow-disabled: none;
 
-  /* --- STATE: Error --- */
-  --pcs-select-trigger-border-color-error: var(--pcs-color-error-border);
-  --pcs-select-trigger-shadow-error-focus:
-    0 0 0 var(--pcs-focus-ring-width) var(--pcs-color-error-border);
+	/* --- STATE: Error --- */
+	--pcs-select-trigger-border-color-error: var(--pcs-color-error-border);
+	--pcs-select-trigger-shadow-error-focus:
+		0 0 0 var(--pcs-focus-ring-width) var(--pcs-color-error-border);
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      NATIVE SELECT
      The browser's <select> element. Only the trigger box is styleable —
      the dropdown panel is rendered by the OS and cannot be themed.
@@ -204,16 +229,17 @@
      Only additions: the native chevron override.
   =========================================================================== */
 
-  /* Native select appearance reset */
-  --pcs-native-select-appearance:        none;
+	/* Native select appearance reset */
+	--pcs-native-select-appearance: none;
 
-  /* Custom chevron via background-image (SVG data URI at component level) */
-  --pcs-native-select-icon-size:         var(--pcs-size-icon-md);
-  --pcs-native-select-icon-color:        var(--pcs-color-icon-muted);
-  --pcs-native-select-icon-padding-right:var(--pcs-space-component-padding-lg); /* 16px — room for icon */
+	/* Custom chevron via background-image (SVG data URI at component level) */
+	--pcs-native-select-icon-size: var(--pcs-size-icon-md);
+	--pcs-native-select-icon-color: var(--pcs-color-icon-muted);
+	--pcs-native-select-icon-padding-right: var(--pcs-space-component-padding-lg);
+	/* 16px — room for icon */
 
-  /* All other visual tokens use select-trigger-* directly */
-  /* States: default/hover/focus/disabled/error match select-trigger states */
+	/* All other visual tokens use select-trigger-* directly */
+	/* States: default/hover/focus/disabled/error match select-trigger states */
 
 }
 
@@ -222,21 +248,26 @@
    DARK MODE OVERRIDES — MENUS
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Menu panel — handled by --pcs-color-surface-overlay dark override */
+	/* Menu panel — handled by --pcs-color-surface-overlay dark override */
 
-  /* Separator — border-muted = neutral-800 = same as panel bg; use border-default (neutral-700) instead */
-  --pcs-menu-separator-color:            var(--pcs-color-border-default);
+	/* Separator — border-muted = neutral-800 = same as panel bg; use border-default (neutral-700) instead */
+	--pcs-menu-separator-color: var(--pcs-color-border-default);
 
-  /* In dark mode, --pcs-color-surface-overlay = neutral-800 AND --pcs-color-state-hover = neutral-800.
+	/* In dark mode, --pcs-color-surface-overlay = neutral-800 AND --pcs-color-state-hover = neutral-800.
      They are the same value, so hover would be invisible. Use state-active (neutral-700) instead
      to ensure one visible step of contrast above the panel background. */
-  --pcs-menu-item-bg-hover:              var(--pcs-color-state-active);         /* neutral-700 — one step above panel (neutral-800) */
+	--pcs-menu-item-bg-hover: var(--pcs-color-state-active);
+	/* neutral-700 — one step above panel (neutral-800) */
 
-  /* Destructive hover in dark mode: bg is red-950, text must stay light (red-200) not drop to red-700 */
-  --pcs-menu-item-bg-destructive-hover:  var(--pcs-color-error-background);     /* red-950 */
-  --pcs-menu-item-text-destructive:      var(--pcs-color-error-text);           /* red-200 — default */
-  --pcs-menu-item-text-destructive-hover: var(--pcs-color-error-text);          /* red-200 — stays light on red-950 bg */
+	/* Destructive hover in dark mode: bg is red-950, text must stay light (red-200) not drop to red-700 */
+	--pcs-menu-item-bg-destructive-hover: var(--pcs-color-error-background);
+	/* red-950 */
+	--pcs-menu-item-text-destructive: var(--pcs-color-error-text);
+	/* red-200 — default */
+	--pcs-menu-item-text-destructive-hover: var(--pcs-color-error-text);
+	/* red-200 — stays light on red-950 bg */
 
 }

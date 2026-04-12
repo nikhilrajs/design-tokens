@@ -17,7 +17,7 @@
 
 :root {
 
-  /* ===========================================================================
+	/* ===========================================================================
      CARD
      Static surface container. Not clickable.
      Shadcn structure: Card > CardHeader > CardTitle + CardDescription
@@ -26,58 +26,74 @@
      Variants: default (bordered) | elevated (shadow, no border)
   =========================================================================== */
 
-  /* --- Base --- */
-  --pcs-card-bg:                         var(--pcs-color-surface-card);         /* white / neutral-950 dark */
-  --pcs-card-border-color:               var(--pcs-color-border-default);       /* neutral-200 */
-  --pcs-card-border-width:               var(--pcs-primitive-border-width-default);
-  --pcs-card-border-radius:              var(--pcs-radius-xl);                  /* 12px — slightly larger than controls */
+	/* --- Base --- */
+	--pcs-card-bg: var(--pcs-color-surface-card);
+	/* white / neutral-950 dark */
+	--pcs-card-border-color: var(--pcs-color-border-default);
+	/* neutral-200 */
+	--pcs-card-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-card-border-radius: var(--pcs-radius-xl);
+	/* 12px — slightly larger than controls */
 
-  /* --- Header --- */
-  --pcs-card-header-padding:             var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
-  --pcs-card-header-gap:                 var(--pcs-space-component-gap-xs);     /*  4px — title to description */
+	/* --- Header --- */
+	--pcs-card-header-padding: var(--pcs-space-inset-md);
+	/* 16px — matches shadcn default */
+	--pcs-card-header-gap: var(--pcs-space-component-gap-xs);
+	/*  4px — title to description */
 
-  /* --- Title --- */
-  --pcs-card-title-color:                var(--pcs-color-text-default);
+	/* --- Title --- */
+	--pcs-card-title-color: var(--pcs-color-text-default);
 
-  /* --- Description --- */
-  --pcs-card-description-color:          var(--pcs-color-text-muted);
+	/* --- Description --- */
+	--pcs-card-description-color: var(--pcs-color-text-muted);
 
-  /* --- Content --- */
-  --pcs-card-content-padding:            var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
+	/* --- Content --- */
+	--pcs-card-content-padding: var(--pcs-space-inset-md);
+	/* 16px — matches shadcn default */
 
-  /* --- Footer --- */
-  --pcs-card-footer-padding:             var(--pcs-space-inset-md);             /* 16px — matches shadcn default */
+	/* --- Footer --- */
+	--pcs-card-footer-padding: var(--pcs-space-inset-md);
+	/* 16px — matches shadcn default */
 
-  /* --- Separator (optional divider between header/content/footer) --- */
-  --pcs-card-separator-color:            var(--pcs-color-border-muted);         /* neutral-100 */
+	/* --- Separator (optional divider between header/content/footer) --- */
+	--pcs-card-separator-color: var(--pcs-color-border-muted);
+	/* neutral-100 */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      SCROLL AREA
      Custom scrollbar overlay. Sits on top of scrollable content.
      Shadcn ScrollArea uses a custom thumb over a transparent track.
      The native scrollbar is hidden; this renders in its place.
   =========================================================================== */
 
-  /* --- Scrollbar dimensions --- */
-  --pcs-scroll-area-scrollbar-size:      6px;                               /* width (vertical) / height (horizontal) */
-  --pcs-scroll-area-scrollbar-size-hover:8px;                               /* expands slightly on hover */
-  --pcs-scroll-area-corner-size:         var(--pcs-scroll-area-scrollbar-size); /* corner where v + h meet */
+	/* --- Scrollbar dimensions --- */
+	--pcs-scroll-area-scrollbar-size: 6px;
+	/* width (vertical) / height (horizontal) */
+	--pcs-scroll-area-scrollbar-size-hover: 8px;
+	/* expands slightly on hover */
+	--pcs-scroll-area-corner-size: var(--pcs-scroll-area-scrollbar-size);
+	/* corner where v + h meet */
 
-  /* --- Track --- */
-  --pcs-scroll-area-track-bg:            transparent;                       /* invisible track */
-  --pcs-scroll-area-track-bg-hover:      var(--pcs-color-surface-muted);        /* neutral-100 — subtle on hover */
-  --pcs-scroll-area-track-border-radius: var(--pcs-radius-full);
+	/* --- Track --- */
+	--pcs-scroll-area-track-bg: transparent;
+	/* invisible track */
+	--pcs-scroll-area-track-bg-hover: var(--pcs-color-surface-muted);
+	/* neutral-100 — subtle on hover */
+	--pcs-scroll-area-track-border-radius: var(--pcs-radius-full);
 
-  /* --- Thumb --- */
-  --pcs-scroll-area-thumb-bg:            var(--pcs-color-border-strong);        /* neutral-300 */
-  --pcs-scroll-area-thumb-bg-hover:      var(--pcs-color-border-default);       /* neutral-400 on hover — slightly darker */
-  --pcs-scroll-area-thumb-bg-active:     var(--pcs-color-icon-muted);           /* neutral-400 while dragging */
-  --pcs-scroll-area-thumb-border-radius: var(--pcs-radius-full);
+	/* --- Thumb --- */
+	--pcs-scroll-area-thumb-bg: var(--pcs-color-border-strong);
+	/* neutral-300 */
+	--pcs-scroll-area-thumb-bg-hover: var(--pcs-color-border-default);
+	/* neutral-400 on hover — slightly darker */
+	--pcs-scroll-area-thumb-bg-active: var(--pcs-color-icon-muted);
+	/* neutral-400 while dragging */
+	--pcs-scroll-area-thumb-border-radius: var(--pcs-radius-full);
 
-  /* --- Transition --- */
-  --pcs-scroll-area-transition:          width 150ms ease, height 150ms ease,
-                                     background-color 150ms ease;
+	/* --- Transition --- */
+	--pcs-scroll-area-transition: width 150ms ease, height 150ms ease,
+		background-color 150ms ease;
 
 }
 
@@ -86,14 +102,18 @@
    DARK MODE OVERRIDES
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Card */
-  /* --pcs-card-bg resolves to --pcs-color-surface-card which is already dark-aware */
+	/* Card */
+	/* --pcs-card-bg resolves to --pcs-color-surface-card which is already dark-aware */
 
-  /* Scroll Area — thumb needs to be more visible on dark backgrounds */
-  --pcs-scroll-area-thumb-bg:            var(--pcs-color-border-default);       /* neutral-700 */
-  --pcs-scroll-area-thumb-bg-hover:      var(--pcs-color-border-strong);        /* neutral-500 */
-  --pcs-scroll-area-track-bg-hover:      var(--pcs-color-surface-muted);        /* neutral-900 */
+	/* Scroll Area — thumb needs to be more visible on dark backgrounds */
+	--pcs-scroll-area-thumb-bg: var(--pcs-color-border-default);
+	/* neutral-700 */
+	--pcs-scroll-area-thumb-bg-hover: var(--pcs-color-border-strong);
+	/* neutral-500 */
+	--pcs-scroll-area-track-bg-hover: var(--pcs-color-surface-muted);
+	/* neutral-900 */
 
 }

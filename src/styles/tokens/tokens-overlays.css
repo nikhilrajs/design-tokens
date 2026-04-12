@@ -21,16 +21,17 @@
 
 :root {
 
-  /* ===========================================================================
+	/* ===========================================================================
      OVERLAY — SHARED SCRIM / BACKDROP
      Used by: Dialog, Alert Dialog
      Not used by: Popover, Tooltip, Hover Card (these have no scrim)
   =========================================================================== */
 
-  --pcs-overlay-scrim-z:                 var(--pcs-z-modal);                    /* 400 */
+	--pcs-overlay-scrim-z: var(--pcs-z-modal);
+	/* 400 */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      DIALOG / ALERT DIALOG
      All dialog tokens have been removed — typography wired to type-title-sm
      shorthand utility; surface, sizing, spacing, close-button tokens failed
@@ -39,95 +40,99 @@
 
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      FLOATING BASE
      Shared foundation for Popover, Tooltip, Hover Card.
      These float above content, have no scrim, and are z-positioned carefully.
      Arrow/caret is optional — each component opts in.
   =========================================================================== */
 
-  --pcs-floating-border-radius:          var(--pcs-radius-lg);
-  --pcs-floating-border-width:           var(--pcs-primitive-border-width-default);
-  --pcs-floating-border-color:           var(--pcs-color-border-default);
-  --pcs-floating-shadow:                 var(--pcs-shadow-md);
-  --pcs-floating-bg:                     var(--pcs-color-surface-overlay);      /* white / neutral-900 dark */
+	--pcs-floating-border-radius: var(--pcs-radius-lg);
+	--pcs-floating-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-floating-border-color: var(--pcs-color-border-default);
+	--pcs-floating-shadow: var(--pcs-shadow-md);
+	--pcs-floating-bg: var(--pcs-color-surface-overlay);
+	/* white / neutral-900 dark */
 
-  /* Arrow / caret */
-  --pcs-floating-arrow-size:             var(--pcs-primitive-space-2);
-  --pcs-floating-arrow-color:            var(--pcs-floating-bg);
-  --pcs-floating-arrow-border-color:     var(--pcs-floating-border-color);
+	/* Arrow / caret */
+	--pcs-floating-arrow-size: var(--pcs-primitive-space-2);
+	--pcs-floating-arrow-color: var(--pcs-floating-bg);
+	--pcs-floating-arrow-border-color: var(--pcs-floating-border-color);
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      POPOVER
      Rich content floating panel. Triggered by click (not hover).
      Can contain forms, lists, complex content.
      User can interact with content inside.
   =========================================================================== */
 
-  /* --- Surface (extends floating base) --- */
-  --pcs-popover-bg:                      var(--pcs-floating-bg);
-  --pcs-popover-border-color:            var(--pcs-floating-border-color);
-  --pcs-popover-border-width:            var(--pcs-floating-border-width);
-  --pcs-popover-border-radius:           var(--pcs-floating-border-radius);
-  --pcs-popover-shadow:                  var(--pcs-floating-shadow);
-  --pcs-popover-z:                       var(--pcs-z-dropdown);                 /* 100 */
+	/* --- Surface (extends floating base) --- */
+	--pcs-popover-bg: var(--pcs-floating-bg);
+	--pcs-popover-border-color: var(--pcs-floating-border-color);
+	--pcs-popover-border-width: var(--pcs-floating-border-width);
+	--pcs-popover-border-radius: var(--pcs-floating-border-radius);
+	--pcs-popover-shadow: var(--pcs-floating-shadow);
+	--pcs-popover-z: var(--pcs-z-dropdown);
+	/* 100 */
 
-  /* --- Sizing --- */
-  --pcs-popover-min-width:               12rem;
-  --pcs-popover-max-width:               22rem;
+	/* --- Sizing --- */
+	--pcs-popover-min-width: 12rem;
+	--pcs-popover-max-width: 22rem;
 
-  /* --- Spacing --- */
-  --pcs-popover-padding:                 var(--pcs-space-inset-md);
-  --pcs-popover-header-gap:              var(--pcs-space-component-gap-sm);
+	/* --- Spacing --- */
+	--pcs-popover-padding: var(--pcs-space-inset-md);
+	--pcs-popover-header-gap: var(--pcs-space-component-gap-sm);
 
-  /* --- Typography --- */
-  --pcs-popover-title-color:             var(--pcs-color-text-default);
+	/* --- Typography --- */
+	--pcs-popover-title-color: var(--pcs-color-text-default);
 
-  --pcs-popover-body-font-size:          var(--pcs-text-body-md-size);
-  --pcs-popover-body-font-weight:        var(--pcs-text-body-md-weight);
-  --pcs-popover-body-color:              var(--pcs-color-text-muted);
+	--pcs-popover-body-font-size: var(--pcs-text-body-md-size);
+	--pcs-popover-body-font-weight: var(--pcs-text-body-md-weight);
+	--pcs-popover-body-color: var(--pcs-color-text-muted);
 
-  /* --- Arrow --- */
-  --pcs-popover-arrow-size:              var(--pcs-floating-arrow-size);
-  --pcs-popover-arrow-color:             var(--pcs-floating-arrow-color);
-  --pcs-popover-arrow-border-color:      var(--pcs-floating-arrow-border-color);
+	/* --- Arrow --- */
+	--pcs-popover-arrow-size: var(--pcs-floating-arrow-size);
+	--pcs-popover-arrow-color: var(--pcs-floating-arrow-color);
+	--pcs-popover-arrow-border-color: var(--pcs-floating-arrow-border-color);
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      TOOLTIP
      Small text-only label. Appears on hover/focus. Not interactive.
      Inverted color scheme (dark bg, light text) for visual distinction
      from the page surface — makes it immediately readable as ephemeral info.
   =========================================================================== */
 
-  /* --- Surface ---
+	/* --- Surface ---
      Tooltips use an inverted (dark) surface in both light and dark mode.
      In light mode: near-black bg, white text.
      In dark mode: slightly lighter dark bg, white text.
      This inversion ensures tooltips always pop above the page surface.
   --------------------------------------------------------------------------- */
-  --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-900);
-  --pcs-tooltip-border-color:            transparent;
-  --pcs-tooltip-border-width:            0px;
-  --pcs-tooltip-border-radius:           var(--pcs-radius-md);                  /* 6px — slightly tighter than popover */
-  --pcs-tooltip-shadow:                  var(--pcs-shadow-md);
-  --pcs-tooltip-z:                       var(--pcs-z-tooltip);                  /* 600 — above everything */
+	--pcs-tooltip-bg: var(--pcs-primitive-color-neutral-900);
+	--pcs-tooltip-border-color: transparent;
+	--pcs-tooltip-border-width: 0px;
+	--pcs-tooltip-border-radius: var(--pcs-radius-md);
+	/* 6px — slightly tighter than popover */
+	--pcs-tooltip-shadow: var(--pcs-shadow-md);
+	--pcs-tooltip-z: var(--pcs-z-tooltip);
+	/* 600 — above everything */
 
-  /* --- Sizing --- */
-  --pcs-tooltip-max-width:               16rem;
-  --pcs-tooltip-padding-x:               var(--pcs-space-component-padding-sm);
-  --pcs-tooltip-padding-y:               var(--pcs-primitive-space-1-5);
+	/* --- Sizing --- */
+	--pcs-tooltip-max-width: 16rem;
+	--pcs-tooltip-padding-x: var(--pcs-space-component-padding-sm);
+	--pcs-tooltip-padding-y: var(--pcs-primitive-space-1-5);
 
-  /* --- Typography --- */
-  --pcs-tooltip-color:                   var(--pcs-primitive-color-white);
+	/* --- Typography --- */
+	--pcs-tooltip-color: var(--pcs-primitive-color-white);
 
-  /* --- Arrow --- */
-  --pcs-tooltip-arrow-size:              var(--pcs-floating-arrow-size);
-  --pcs-tooltip-arrow-color:             var(--pcs-tooltip-bg);
+	/* --- Arrow --- */
+	--pcs-tooltip-arrow-size: var(--pcs-floating-arrow-size);
+	--pcs-tooltip-arrow-color: var(--pcs-tooltip-bg);
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      HOVER CARD
      Larger rich content panel that appears on hover.
      Unlike Tooltip, user can move their mouse into it (it stays open).
@@ -138,14 +143,14 @@
      Only values that genuinely differ from Popover are tokenised here.
   =========================================================================== */
 
-  /* Larger shadow than popover — hover cards appear without user intent and
+	/* Larger shadow than popover — hover cards appear without user intent and
      need more visual lift to read as a floating element immediately */
-  --pcs-hover-card-shadow:               var(--pcs-shadow-lg);
+	--pcs-hover-card-shadow: var(--pcs-shadow-lg);
 
-  /* Wider than popover — hover cards contain richer layout (avatar + meta) */
-  --pcs-hover-card-min-width:            16rem;
+	/* Wider than popover — hover cards contain richer layout (avatar + meta) */
+	--pcs-hover-card-min-width: 16rem;
 
-	--pcs-hover-card-z:                    var(--pcs-z-dropdown);
+	--pcs-hover-card-z: var(--pcs-z-dropdown);
 
 }
 
@@ -154,15 +159,16 @@
    DARK MODE OVERRIDES — OVERLAYS
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Dialog surface — handled by --pcs-color-surface-card dark override */
+	/* Dialog surface — handled by --pcs-color-surface-card dark override */
 
-  /* Floating base — handled by --pcs-color-surface-overlay dark override */
+	/* Floating base — handled by --pcs-color-surface-overlay dark override */
 
-  /* Tooltip fully inverts in dark mode: light bg + dark text against the near-black page */
-  --pcs-tooltip-bg:                      var(--pcs-primitive-color-neutral-100);
-  --pcs-tooltip-color:                   var(--pcs-primitive-color-neutral-900);
-  --pcs-tooltip-arrow-color:             var(--pcs-primitive-color-neutral-100);
+	/* Tooltip fully inverts in dark mode: light bg + dark text against the near-black page */
+	--pcs-tooltip-bg: var(--pcs-primitive-color-neutral-100);
+	--pcs-tooltip-color: var(--pcs-primitive-color-neutral-900);
+	--pcs-tooltip-arrow-color: var(--pcs-primitive-color-neutral-100);
 
 }

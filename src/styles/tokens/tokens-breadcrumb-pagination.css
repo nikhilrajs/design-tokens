@@ -25,47 +25,56 @@
 
 :root {
 
-  /* Current (last) item is slightly heavier to signal position */
-  --pcs-breadcrumb-font-weight-current:  var(--pcs-primitive-font-weight-medium); /* 500 */
+	/* Current (last) item is slightly heavier to signal position */
+	--pcs-breadcrumb-font-weight-current: var(--pcs-primitive-font-weight-medium);
+	/* 500 */
 
-  /* --- Gap between items (including separator) --- */
-  --pcs-breadcrumb-gap:                  var(--pcs-space-component-gap-sm);
+	/* --- Gap between items (including separator) --- */
+	--pcs-breadcrumb-gap: var(--pcs-space-component-gap-sm);
 
-  /* --- Item — default (ancestor links) --- */
-  --pcs-breadcrumb-item-color:           var(--pcs-color-text-muted);           /* neutral-500 */
-  --pcs-breadcrumb-item-border-radius:   var(--pcs-radius-sm);                  /* 2px — for focus ring */
+	/* --- Item — default (ancestor links) --- */
+	--pcs-breadcrumb-item-color: var(--pcs-color-text-muted);
+	/* neutral-500 */
+	--pcs-breadcrumb-item-border-radius: var(--pcs-radius-sm);
+	/* 2px — for focus ring */
 
-  /* --- Item — hover --- */
-  --pcs-breadcrumb-item-color-hover:     var(--pcs-color-text-default);         /* neutral-900 */
+	/* --- Item — hover --- */
+	--pcs-breadcrumb-item-color-hover: var(--pcs-color-text-default);
+	/* neutral-900 */
 
-  /* --- Item — current (last, non-interactive) --- */
-  --pcs-breadcrumb-item-color-current:   var(--pcs-color-text-default);         /* neutral-900 */
+	/* --- Item — current (last, non-interactive) --- */
+	--pcs-breadcrumb-item-color-current: var(--pcs-color-text-default);
+	/* neutral-900 */
 
-  /* --- Item — focus ---
+	/* --- Item — focus ---
      Width and color use global semantic tokens directly (--pcs-focus-ring-width,
      --pcs-color-focus-ring). Offset is intentionally 1px — tighter than the
      standard for inline text links. */
-  --pcs-breadcrumb-focus-ring-offset:    1px;
+	--pcs-breadcrumb-focus-ring-offset: 1px;
 
-  /* --- Separator --- */
-  /* Separator is typically a "/" character or a chevron icon */
-  --pcs-breadcrumb-separator-color:      var(--pcs-color-text-muted);           /* neutral-400 */
-  --pcs-breadcrumb-separator-size:       var(--pcs-size-icon-sm);               /* 12px — for icon separators */
-  --pcs-breadcrumb-separator-gap:        var(--pcs-space-component-gap-xs);     /* 4px — gap between item and separator */
+	/* --- Separator --- */
+	/* Separator is typically a "/" character or a chevron icon */
+	--pcs-breadcrumb-separator-color: var(--pcs-color-text-muted);
+	/* neutral-400 */
+	--pcs-breadcrumb-separator-size: var(--pcs-size-icon-sm);
+	/* 12px — for icon separators */
+	--pcs-breadcrumb-separator-gap: var(--pcs-space-component-gap-xs);
+	/* 4px — gap between item and separator */
 
-  /* --- Icon (optional leading icon per item, e.g. home icon) --- */
-  /* icon-size is also used by BreadcrumbEllipsis for the MoreHorizontal icon */
-  --pcs-breadcrumb-icon-size:            var(--pcs-size-icon-md);
+	/* --- Icon (optional leading icon per item, e.g. home icon) --- */
+	/* icon-size is also used by BreadcrumbEllipsis for the MoreHorizontal icon */
+	--pcs-breadcrumb-icon-size: var(--pcs-size-icon-md);
 
-  /* --- Ellipsis (truncation indicator) --- */
-  --pcs-breadcrumb-ellipsis-color:       var(--pcs-color-text-muted);
+	/* --- Ellipsis (truncation indicator) --- */
+	--pcs-breadcrumb-ellipsis-color: var(--pcs-color-text-muted);
 
 }
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* All handled by semantic color tokens — no additional overrides needed */
-  /* neutral text tokens, border tokens are all dark-aware upstream */
+	/* All handled by semantic color tokens — no additional overrides needed */
+	/* neutral text tokens, border tokens are all dark-aware upstream */
 
 }
 
@@ -89,21 +98,25 @@
 
 :root {
 
-  /* --- Gap between items --- */
-  --pcs-pagination-gap:                  var(--pcs-space-component-gap-xs);
+	/* --- Gap between items --- */
+	--pcs-pagination-gap: var(--pcs-space-component-gap-xs);
 
-  /* --- Typography --- */
-  --pcs-pagination-font-weight:          var(--pcs-primitive-font-weight-medium);/* 500  */
+	/* --- Typography --- */
+	--pcs-pagination-font-weight: var(--pcs-primitive-font-weight-medium);
+	/* 500  */
 
-  /* --- Item — inactive text --- */
-  --pcs-pagination-item-text:            var(--pcs-color-text-muted);           /* neutral-500 */
+	/* --- Item — inactive text --- */
+	--pcs-pagination-item-text: var(--pcs-color-text-muted);
+	/* neutral-500 */
 
-  /* --- Ellipsis --- */
-  /* Static placeholder — not interactive */
-  --pcs-pagination-ellipsis-color:       var(--pcs-color-text-muted);           /* neutral-400 */
-  --pcs-pagination-ellipsis-size:        var(--pcs-size-control-md);            /* 32px — same as item for alignment */
+	/* --- Ellipsis --- */
+	/* Static placeholder — not interactive */
+	--pcs-pagination-ellipsis-color: var(--pcs-color-text-muted);
+	/* neutral-400 */
+	--pcs-pagination-ellipsis-size: var(--pcs-size-control-md);
+	/* 32px — same as item for alignment */
 
-  /* --- Icon sizes within controls --- */
-  --pcs-pagination-icon-size:            var(--pcs-size-icon-md);
+	/* --- Icon sizes within controls --- */
+	--pcs-pagination-icon-size: var(--pcs-size-icon-md);
 
 }

@@ -19,41 +19,50 @@
 
 :root {
 
-  /* ===========================================================================
+	/* ===========================================================================
      TABS LIST — container bar
   =========================================================================== */
 
-  /* --- Default variant --- */
-  --pcs-tabs-list-bg:                    var(--pcs-color-surface-muted);        /* neutral-100 / neutral-900 dark */
-  --pcs-tabs-list-border-radius:         var(--pcs-radius-lg);
-  --pcs-tabs-list-padding:               3px;                                   /* Visual alignment — intentionally outside spacing scale */
-  --pcs-tabs-list-height:                var(--pcs-size-control-md);            /* 32px — horizontal */
-  --pcs-tabs-list-text:                  var(--pcs-color-text-muted);           /* inactive trigger color */
+	/* --- Default variant --- */
+	--pcs-tabs-list-bg: var(--pcs-color-surface-muted);
+	/* neutral-100 / neutral-900 dark */
+	--pcs-tabs-list-border-radius: var(--pcs-radius-lg);
+	--pcs-tabs-list-padding: 3px;
+	/* Visual alignment — intentionally outside spacing scale */
+	--pcs-tabs-list-height: var(--pcs-size-control-md);
+	/* 32px — horizontal */
+	--pcs-tabs-list-text: var(--pcs-color-text-muted);
+	/* inactive trigger color */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      TABS TRIGGER
   =========================================================================== */
 
-  /* --- Shape + typography --- */
-  --pcs-tabs-trigger-border-radius:      var(--pcs-radius-md);                  /* 6px — inside the list pill */
+	/* --- Shape + typography --- */
+	--pcs-tabs-trigger-border-radius: var(--pcs-radius-md);
+	/* 6px — inside the list pill */
 
-  /* --- Text states --- */
-  --pcs-tabs-trigger-text:               var(--pcs-color-text-muted);           /* inactive */
-  --pcs-tabs-trigger-text-hover:         var(--pcs-color-text-default);
-  --pcs-tabs-trigger-text-active:        var(--pcs-color-text-default);
+	/* --- Text states --- */
+	--pcs-tabs-trigger-text: var(--pcs-color-text-muted);
+	/* inactive */
+	--pcs-tabs-trigger-text-hover: var(--pcs-color-text-default);
+	--pcs-tabs-trigger-text-active: var(--pcs-color-text-default);
 
-  /* --- Default variant — active tab surface ---
+	/* --- Default variant — active tab surface ---
      Uses --pcs-input-bg so the active tab matches the Input bg in both
      light mode (solid white) and dark mode (neutral-700 @ 30% tint).
   --------------------------------------------------------------------------- */
-  --pcs-tabs-trigger-active-bg:          var(--pcs-input-bg);
-  --pcs-tabs-trigger-active-border-color: transparent;                          /* dark mode: border-default */
-  --pcs-tabs-trigger-active-shadow:      var(--pcs-shadow-sm);
+	--pcs-tabs-trigger-active-bg: var(--pcs-input-bg);
+	--pcs-tabs-trigger-active-border-color: transparent;
+	/* dark mode: border-default */
+	--pcs-tabs-trigger-active-shadow: var(--pcs-shadow-sm);
 
-  /* --- Line variant — active indicator (::after pseudo-element) --- */
-  --pcs-tabs-trigger-indicator-color:    var(--pcs-color-primary-emphasis);     /* brand-500 — matches primary interactive color */
-  --pcs-tabs-trigger-indicator-size:     2px;                                   /* h-0.5 / w-0.5 */
+	/* --- Line variant — active indicator (::after pseudo-element) --- */
+	--pcs-tabs-trigger-indicator-color: var(--pcs-color-primary-emphasis);
+	/* brand-500 — matches primary interactive color */
+	--pcs-tabs-trigger-indicator-size: 2px;
+	/* h-0.5 / w-0.5 */
 
 }
 
@@ -62,10 +71,12 @@
    DARK MODE OVERRIDES — TABS
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Active tab border in default variant — adds delineation in dark since
+	/* Active tab border in default variant — adds delineation in dark since
      the translucent bg alone doesn't separate from the list clearly enough */
-  --pcs-tabs-trigger-active-border-color: var(--pcs-color-border-default);     /* neutral-700 */
+	--pcs-tabs-trigger-active-border-color: var(--pcs-color-border-default);
+	/* neutral-700 */
 
 }

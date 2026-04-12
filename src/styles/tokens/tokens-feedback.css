@@ -21,86 +21,111 @@
 
 :root {
 
-  /* ===========================================================================
+	/* ===========================================================================
      ALERT
      Inline static message. Lives in page flow.
      Shadcn structure: filled background + left border accent + icon + text.
      Non-interactive by default. Optional action link/button inside.
   =========================================================================== */
 
-  /* --- Base / Shared --- */
-  --pcs-alert-border-width:              var(--pcs-primitive-border-width-default);
-  --pcs-alert-border-style:              solid;
-  --pcs-alert-title-font-size:           var(--pcs-text-body-md-size);             /* 14px — body-md; explicit so title can diverge from container text-sm if needed */
-  /* --- VARIANT: Neutral --- */
-  --pcs-alert-neutral-bg:                var(--pcs-color-surface-muted);        /* neutral-100 */
-  --pcs-alert-neutral-border:            var(--pcs-color-border-default);       /* neutral-200 */
-  --pcs-alert-neutral-accent:            var(--pcs-color-border-strong);        /* neutral-300 */
-  --pcs-alert-neutral-title:             var(--pcs-color-text-default);
-  --pcs-alert-neutral-description:       var(--pcs-color-text-muted);
-  --pcs-alert-neutral-icon:              var(--pcs-color-icon-default);
+	/* --- Base / Shared --- */
+	--pcs-alert-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-alert-border-style: solid;
+	--pcs-alert-title-font-size: var(--pcs-text-body-md-size);
+	/* 14px — body-md; explicit so title can diverge from container text-sm if needed */
+	/* --- VARIANT: Neutral --- */
+	--pcs-alert-neutral-bg: var(--pcs-color-surface-muted);
+	/* neutral-100 */
+	--pcs-alert-neutral-border: var(--pcs-color-border-default);
+	/* neutral-200 */
+	--pcs-alert-neutral-accent: var(--pcs-color-border-strong);
+	/* neutral-300 */
+	--pcs-alert-neutral-title: var(--pcs-color-text-default);
+	--pcs-alert-neutral-description: var(--pcs-color-text-muted);
+	--pcs-alert-neutral-icon: var(--pcs-color-icon-default);
 
-  /* --- VARIANT: Success --- */
-  --pcs-alert-success-bg:                var(--pcs-color-success-background);   /* emerald-50  */
-  --pcs-alert-success-border:            var(--pcs-color-success-border);       /* emerald-300 */
-  --pcs-alert-success-accent:            var(--pcs-color-success-emphasis);     /* emerald-600 */
-  --pcs-alert-success-title:             var(--pcs-color-success-text);         /* emerald-800 */
-  --pcs-alert-success-description:       var(--pcs-color-success-text);
-  --pcs-alert-success-icon:              var(--pcs-color-success-icon);         /* emerald-700 */
+	/* --- VARIANT: Success --- */
+	--pcs-alert-success-bg: var(--pcs-color-success-background);
+	/* emerald-50  */
+	--pcs-alert-success-border: var(--pcs-color-success-border);
+	/* emerald-300 */
+	--pcs-alert-success-accent: var(--pcs-color-success-emphasis);
+	/* emerald-600 */
+	--pcs-alert-success-title: var(--pcs-color-success-text);
+	/* emerald-800 */
+	--pcs-alert-success-description: var(--pcs-color-success-text);
+	--pcs-alert-success-icon: var(--pcs-color-success-icon);
+	/* emerald-700 */
 
-  /* --- VARIANT: Error --- */
-  --pcs-alert-error-bg:                  var(--pcs-color-error-background);     /* red-50  */
-  --pcs-alert-error-border:              var(--pcs-color-error-border);         /* red-300 */
-  --pcs-alert-error-accent:              var(--pcs-color-error-emphasis);       /* red-600 */
-  --pcs-alert-error-title:               var(--pcs-color-error-text);           /* red-800 */
-  --pcs-alert-error-description:         var(--pcs-color-error-text);
-  --pcs-alert-error-icon:                var(--pcs-color-error-icon);           /* red-700 */
+	/* --- VARIANT: Error --- */
+	--pcs-alert-error-bg: var(--pcs-color-error-background);
+	/* red-50  */
+	--pcs-alert-error-border: var(--pcs-color-error-border);
+	/* red-300 */
+	--pcs-alert-error-accent: var(--pcs-color-error-emphasis);
+	/* red-600 */
+	--pcs-alert-error-title: var(--pcs-color-error-text);
+	/* red-800 */
+	--pcs-alert-error-description: var(--pcs-color-error-text);
+	--pcs-alert-error-icon: var(--pcs-color-error-icon);
+	/* red-700 */
 
-  /* --- VARIANT: Warning --- */
-  --pcs-alert-warning-bg:                var(--pcs-color-warning-background);   /* yellow-50  */
-  --pcs-alert-warning-border:            var(--pcs-color-warning-border);       /* yellow-300 */
-  --pcs-alert-warning-accent:            var(--pcs-color-warning-emphasis);     /* yellow-500 */
-  --pcs-alert-warning-title:             var(--pcs-color-warning-text);         /* yellow-800 */
-  --pcs-alert-warning-description:       var(--pcs-color-warning-text);
-  --pcs-alert-warning-icon:              var(--pcs-color-warning-icon);         /* yellow-700 */
+	/* --- VARIANT: Warning --- */
+	--pcs-alert-warning-bg: var(--pcs-color-warning-background);
+	/* yellow-50  */
+	--pcs-alert-warning-border: var(--pcs-color-warning-border);
+	/* yellow-300 */
+	--pcs-alert-warning-accent: var(--pcs-color-warning-emphasis);
+	/* yellow-500 */
+	--pcs-alert-warning-title: var(--pcs-color-warning-text);
+	/* yellow-800 */
+	--pcs-alert-warning-description: var(--pcs-color-warning-text);
+	--pcs-alert-warning-icon: var(--pcs-color-warning-icon);
+	/* yellow-700 */
 
-  /* --- VARIANT: Info --- */
-  --pcs-alert-info-bg:                   var(--pcs-color-info-background);      /* sky-50  */
-  --pcs-alert-info-border:               var(--pcs-color-info-border);          /* sky-300 */
-  --pcs-alert-info-accent:               var(--pcs-color-info-emphasis);        /* sky-600 */
-  --pcs-alert-info-title:                var(--pcs-color-info-text);            /* sky-800 */
-  --pcs-alert-info-description:          var(--pcs-color-info-text);
-  --pcs-alert-info-icon:                 var(--pcs-color-info-icon);            /* sky-700 */
+	/* --- VARIANT: Info --- */
+	--pcs-alert-info-bg: var(--pcs-color-info-background);
+	/* sky-50  */
+	--pcs-alert-info-border: var(--pcs-color-info-border);
+	/* sky-300 */
+	--pcs-alert-info-accent: var(--pcs-color-info-emphasis);
+	/* sky-600 */
+	--pcs-alert-info-title: var(--pcs-color-info-text);
+	/* sky-800 */
+	--pcs-alert-info-description: var(--pcs-color-info-text);
+	--pcs-alert-info-icon: var(--pcs-color-info-icon);
+	/* sky-700 */
 
 
-  /* ── Empty State ──────────────────────────────────────────────────────────
+	/* ── Empty State ──────────────────────────────────────────────────────────
      No-data feedback pattern. Shown when a list, table, or section has no items.
      NOT an error — neutral styling only. Guides the user toward next action.
      Component: empty.tsx
   ──────────────────────────────────────────────────────────────────────────*/
 
-  /* --- Container --- */
-  --pcs-empty-bg:                        transparent;
-  --pcs-empty-border-color:              var(--pcs-color-border-default);
-  --pcs-empty-border-width:              var(--pcs-primitive-border-width-default);
-  --pcs-empty-border-radius:             var(--pcs-radius-xl);
-  --pcs-empty-padding:                   var(--pcs-space-inset-lg);
+	/* --- Container --- */
+	--pcs-empty-bg: transparent;
+	--pcs-empty-border-color: var(--pcs-color-border-default);
+	--pcs-empty-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-empty-border-radius: var(--pcs-radius-xl);
+	--pcs-empty-padding: var(--pcs-space-inset-lg);
 
-  /* --- Media — icon variant (small rounded icon box) --- */
-  --pcs-empty-media-icon-size:           2rem;                                  /* 32px — container */
-  --pcs-empty-media-icon-border-radius:  var(--pcs-radius-md);
-  --pcs-empty-media-icon-bg:             var(--pcs-color-surface-muted);
-  --pcs-empty-media-icon-color:          var(--pcs-color-text-default);
+	/* --- Media — icon variant (small rounded icon box) --- */
+	--pcs-empty-media-icon-size: 2rem;
+	/* 32px — container */
+	--pcs-empty-media-icon-border-radius: var(--pcs-radius-md);
+	--pcs-empty-media-icon-bg: var(--pcs-color-surface-muted);
+	--pcs-empty-media-icon-color: var(--pcs-color-text-default);
 
-  /* --- Title --- */
-  --pcs-empty-title-color:               var(--pcs-color-text-default);
+	/* --- Title --- */
+	--pcs-empty-title-color: var(--pcs-color-text-default);
 
-  /* --- Description --- */
-  --pcs-empty-description-font-size:     var(--pcs-text-body-md-size);
-  --pcs-empty-description-color:         var(--pcs-color-text-muted);
-  /* Links inside description */
-  --pcs-empty-description-link-color:    var(--pcs-color-text-muted);
-  --pcs-empty-description-link-color-hover: var(--pcs-color-primary-emphasis);
+	/* --- Description --- */
+	--pcs-empty-description-font-size: var(--pcs-text-body-md-size);
+	--pcs-empty-description-color: var(--pcs-color-text-muted);
+	/* Links inside description */
+	--pcs-empty-description-link-color: var(--pcs-color-text-muted);
+	--pcs-empty-description-link-color-hover: var(--pcs-color-primary-emphasis);
 
 }
 
@@ -109,11 +134,12 @@
    DARK MODE OVERRIDES — FEEDBACK
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Alert — border tokens cascade to --pcs-color-*-border which resolves to 700-step in dark */
+	/* Alert — border tokens cascade to --pcs-color-*-border which resolves to 700-step in dark */
 
-  /* Empty state — all handled by semantic tokens; --pcs-empty-border-color resolves via
+	/* Empty state — all handled by semantic tokens; --pcs-empty-border-color resolves via
      --pcs-color-border-default which is already dark-aware upstream */
 
 }

@@ -30,124 +30,150 @@
 
 :root {
 
-  /* ===========================================================================
+	/* ===========================================================================
      BADGE — SHARED / BASE TOKENS
   =========================================================================== */
 
-  /* Badge is all-caps — matching Atlassian lozenge style */
-  --pcs-badge-text-transform:            uppercase;
-  --pcs-badge-letter-spacing:            0.025em;
+	/* Badge is all-caps — matching Atlassian lozenge style */
+	--pcs-badge-text-transform: uppercase;
+	--pcs-badge-letter-spacing: 0.025em;
 
-  /* Border */
-  --pcs-badge-border-width:              var(--pcs-primitive-border-width-default);
-  --pcs-badge-border-style:              solid;
-  --pcs-badge-border-radius:             0.25rem;                                /* 4px — between radius-sm(2px) and radius-md(6px) */
+	/* Border */
+	--pcs-badge-border-width: var(--pcs-primitive-border-width-default);
+	--pcs-badge-border-style: solid;
+	--pcs-badge-border-radius: 0.25rem;
+	/* 4px — between radius-sm(2px) and radius-md(6px) */
 
-  /* ===========================================================================
+	/* ===========================================================================
      APPEARANCE — NEUTRAL
      Default: neutral tint surface, neutral text.
      Emphasis: neutral-700 fill, white text.
   =========================================================================== */
 
-  /* Default weight */
-  --pcs-badge-neutral-bg:                var(--pcs-color-surface-muted);         /* neutral-100 */
-  --pcs-badge-neutral-border:            var(--pcs-color-border-default);        /* neutral-200 */
-  --pcs-badge-neutral-text:              var(--pcs-primitive-color-neutral-700); /* neutral-700 ~9:1 on neutral-100, text-muted(neutral-500) fails AA */
+	/* Default weight */
+	--pcs-badge-neutral-bg: var(--pcs-color-surface-muted);
+	/* neutral-100 */
+	--pcs-badge-neutral-border: var(--pcs-color-border-default);
+	/* neutral-200 */
+	--pcs-badge-neutral-text: var(--pcs-primitive-color-neutral-700);
+	/* neutral-700 ~9:1 on neutral-100, text-muted(neutral-500) fails AA */
 
-  /* Emphasis weight */
-  --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-600);
-  --pcs-badge-neutral-emphasis-border:   var(--pcs-primitive-color-neutral-600);
-  --pcs-badge-neutral-emphasis-text:     var(--pcs-primitive-color-white);
+	/* Emphasis weight */
+	--pcs-badge-neutral-emphasis-bg: var(--pcs-primitive-color-neutral-600);
+	--pcs-badge-neutral-emphasis-border: var(--pcs-primitive-color-neutral-600);
+	--pcs-badge-neutral-emphasis-text: var(--pcs-primitive-color-white);
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      APPEARANCE — PRIMARY
      Default: brand subtle surface, brand text.
      Emphasis: brand fill, on-emphasis text.
      Used for active states, selected filters, current tab indicators.
   =========================================================================== */
 
-  /* Default weight */
-  --pcs-badge-primary-bg:                var(--pcs-color-primary-subtle);        /* brand-50  */
-  --pcs-badge-primary-border:            var(--pcs-color-primary-border);        /* brand-300 */
-  --pcs-badge-primary-text:              var(--pcs-color-primary-text);          /* brand-700 */
+	/* Default weight */
+	--pcs-badge-primary-bg: var(--pcs-color-primary-subtle);
+	/* brand-50  */
+	--pcs-badge-primary-border: var(--pcs-color-primary-border);
+	/* brand-300 */
+	--pcs-badge-primary-text: var(--pcs-color-primary-text);
+	/* brand-700 */
 
-  /* Emphasis weight — brand-600 too light for white text; brand-700 (~4.4:1 with white, borderline AA) */
-  --pcs-badge-primary-emphasis-bg:       var(--pcs-primitive-color-brand-700);
-  --pcs-badge-primary-emphasis-border:   var(--pcs-primitive-color-brand-700);
-  --pcs-badge-primary-emphasis-text:     var(--pcs-color-primary-on-emphasis);   /* white */
+	/* Emphasis weight — brand-600 too light for white text; brand-700 (~4.4:1 with white, borderline AA) */
+	--pcs-badge-primary-emphasis-bg: var(--pcs-primitive-color-brand-700);
+	--pcs-badge-primary-emphasis-border: var(--pcs-primitive-color-brand-700);
+	--pcs-badge-primary-emphasis-text: var(--pcs-color-primary-on-emphasis);
+	/* white */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      APPEARANCE — SUCCESS
      Default: emerald subtle surface, emerald text.
      Emphasis: emerald fill, white text.
      Use for: "Active", "Completed", "Resolved", "Approved".
   =========================================================================== */
 
-  /* Default weight */
-  --pcs-badge-success-bg:                var(--pcs-color-success-background);    /* emerald-50  */
-  --pcs-badge-success-border:            var(--pcs-color-success-border);        /* emerald-300 */
-  --pcs-badge-success-text:              var(--pcs-color-success-text);          /* emerald-800 */
+	/* Default weight */
+	--pcs-badge-success-bg: var(--pcs-color-success-background);
+	/* emerald-50  */
+	--pcs-badge-success-border: var(--pcs-color-success-border);
+	/* emerald-300 */
+	--pcs-badge-success-text: var(--pcs-color-success-text);
+	/* emerald-800 */
 
-  /* Emphasis weight — emerald-600 fails AA (~3.5:1 with white) → step up to emerald-700 (~5.1:1) ✓ */
-  --pcs-badge-success-emphasis-bg:       var(--pcs-primitive-color-emerald-700);
-  --pcs-badge-success-emphasis-border:   var(--pcs-primitive-color-emerald-700);
-  --pcs-badge-success-emphasis-text:     var(--pcs-color-success-on-emphasis);   /* white       */
+	/* Emphasis weight — emerald-600 fails AA (~3.5:1 with white) → step up to emerald-700 (~5.1:1) ✓ */
+	--pcs-badge-success-emphasis-bg: var(--pcs-primitive-color-emerald-700);
+	--pcs-badge-success-emphasis-border: var(--pcs-primitive-color-emerald-700);
+	--pcs-badge-success-emphasis-text: var(--pcs-color-success-on-emphasis);
+	/* white       */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      APPEARANCE — ERROR
      Default: red subtle surface, red text.
      Emphasis: red fill, white text.
      Use for: "Failed", "Declined", "Deleted", "Error", "Removed".
   =========================================================================== */
 
-  /* Default weight */
-  --pcs-badge-error-bg:                  var(--pcs-color-error-background);      /* red-50  */
-  --pcs-badge-error-border:              var(--pcs-color-error-border);          /* red-300 */
-  --pcs-badge-error-text:                var(--pcs-color-error-text);            /* red-800 */
+	/* Default weight */
+	--pcs-badge-error-bg: var(--pcs-color-error-background);
+	/* red-50  */
+	--pcs-badge-error-border: var(--pcs-color-error-border);
+	/* red-300 */
+	--pcs-badge-error-text: var(--pcs-color-error-text);
+	/* red-800 */
 
-  /* Emphasis weight */
-  --pcs-badge-error-emphasis-bg:         var(--pcs-color-error-emphasis);        /* red-600 */
-  --pcs-badge-error-emphasis-border:     var(--pcs-color-error-emphasis);
-  --pcs-badge-error-emphasis-text:       var(--pcs-color-error-on-emphasis);     /* white   */
+	/* Emphasis weight */
+	--pcs-badge-error-emphasis-bg: var(--pcs-color-error-emphasis);
+	/* red-600 */
+	--pcs-badge-error-emphasis-border: var(--pcs-color-error-emphasis);
+	--pcs-badge-error-emphasis-text: var(--pcs-color-error-on-emphasis);
+	/* white   */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      APPEARANCE — WARNING
      Default: yellow subtle surface, yellow text.
      Emphasis: yellow fill, dark text (yellow on white is poor contrast).
      Use for: "In Progress", "Pending", "Moved", "Needs Review".
   =========================================================================== */
 
-  /* Default weight */
-  --pcs-badge-warning-bg:                var(--pcs-color-warning-background);    /* yellow-50  */
-  --pcs-badge-warning-border:            var(--pcs-color-warning-border);        /* yellow-300 */
-  --pcs-badge-warning-text:              var(--pcs-color-warning-text);          /* yellow-800 */
+	/* Default weight */
+	--pcs-badge-warning-bg: var(--pcs-color-warning-background);
+	/* yellow-50  */
+	--pcs-badge-warning-border: var(--pcs-color-warning-border);
+	/* yellow-300 */
+	--pcs-badge-warning-text: var(--pcs-color-warning-text);
+	/* yellow-800 */
 
-  /* Emphasis weight — dark text on yellow fill for contrast */
-  --pcs-badge-warning-emphasis-bg:       var(--pcs-color-warning-emphasis);      /* yellow-500 */
-  --pcs-badge-warning-emphasis-border:   var(--pcs-color-warning-emphasis);
-  --pcs-badge-warning-emphasis-text:     var(--pcs-primitive-color-yellow-950);  /* near-black  */
+	/* Emphasis weight — dark text on yellow fill for contrast */
+	--pcs-badge-warning-emphasis-bg: var(--pcs-color-warning-emphasis);
+	/* yellow-500 */
+	--pcs-badge-warning-emphasis-border: var(--pcs-color-warning-emphasis);
+	--pcs-badge-warning-emphasis-text: var(--pcs-primitive-color-yellow-950);
+	/* near-black  */
 
 
-  /* ===========================================================================
+	/* ===========================================================================
      APPEARANCE — INFO
      Default: sky subtle surface, sky text.
      Emphasis: sky fill, white text.
      Use for: "In Progress", "New", "Open", "Draft".
   =========================================================================== */
 
-  /* Default weight */
-  --pcs-badge-info-bg:                   var(--pcs-color-info-background);       /* sky-50  */
-  --pcs-badge-info-border:               var(--pcs-color-info-border);           /* sky-300 */
-  --pcs-badge-info-text:                 var(--pcs-color-info-text);             /* sky-800 */
+	/* Default weight */
+	--pcs-badge-info-bg: var(--pcs-color-info-background);
+	/* sky-50  */
+	--pcs-badge-info-border: var(--pcs-color-info-border);
+	/* sky-300 */
+	--pcs-badge-info-text: var(--pcs-color-info-text);
+	/* sky-800 */
 
-  /* Emphasis weight — sky-600 fails AA (~3.8:1 with white) → step up to sky-700 (~5.7:1) ✓ */
-  --pcs-badge-info-emphasis-bg:          var(--pcs-primitive-color-sky-700);
-  --pcs-badge-info-emphasis-border:      var(--pcs-primitive-color-sky-700);
-  --pcs-badge-info-emphasis-text:        var(--pcs-color-info-on-emphasis);      /* white   */
+	/* Emphasis weight — sky-600 fails AA (~3.8:1 with white) → step up to sky-700 (~5.7:1) ✓ */
+	--pcs-badge-info-emphasis-bg: var(--pcs-primitive-color-sky-700);
+	--pcs-badge-info-emphasis-border: var(--pcs-primitive-color-sky-700);
+	--pcs-badge-info-emphasis-text: var(--pcs-color-info-on-emphasis);
+	/* white   */
 
 }
 
@@ -158,38 +184,40 @@
    Emphasis weights need explicit overrides where fills change in dark mode.
    =============================================================================*/
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Neutral default — text-muted/neutral-700 is near-invisible on dark surface-muted/neutral-800 */
-  --pcs-badge-neutral-text:              var(--pcs-primitive-color-neutral-200); /* light text on neutral-800 bg */
+	/* Neutral default — text-muted/neutral-700 is near-invisible on dark surface-muted/neutral-800 */
+	--pcs-badge-neutral-text: var(--pcs-primitive-color-neutral-200);
+	/* light text on neutral-800 bg */
 
-  /* Neutral emphasis — neutral-500 (~4.3:1 with white) borderline for 12px text; step to neutral-600 (~5.5:1) */
-  --pcs-badge-neutral-emphasis-bg:       var(--pcs-primitive-color-neutral-600);
-  --pcs-badge-neutral-emphasis-border:   var(--pcs-primitive-color-neutral-600);
+	/* Neutral emphasis — neutral-500 (~4.3:1 with white) borderline for 12px text; step to neutral-600 (~5.5:1) */
+	--pcs-badge-neutral-emphasis-bg: var(--pcs-primitive-color-neutral-600);
+	--pcs-badge-neutral-emphasis-border: var(--pcs-primitive-color-neutral-600);
 
-  /* Primary emphasis — brand-400 in dark is too light for white text; use brand-950 text on brand-400 bg */
-  --pcs-badge-primary-emphasis-bg:       var(--pcs-primitive-color-brand-400);
-  --pcs-badge-primary-emphasis-border:   var(--pcs-primitive-color-brand-400);
-  --pcs-badge-primary-emphasis-text:     var(--pcs-primitive-color-brand-950);
+	/* Primary emphasis — brand-400 in dark is too light for white text; use brand-950 text on brand-400 bg */
+	--pcs-badge-primary-emphasis-bg: var(--pcs-primitive-color-brand-400);
+	--pcs-badge-primary-emphasis-border: var(--pcs-primitive-color-brand-400);
+	--pcs-badge-primary-emphasis-text: var(--pcs-primitive-color-brand-950);
 
-  /* Warning emphasis — dark text stays dark on yellow, no change needed */
-  /* But yellow-500 in dark mode may look harsh — soften slightly */
-  --pcs-badge-warning-emphasis-bg:       var(--pcs-primitive-color-yellow-400);
-  --pcs-badge-warning-emphasis-border:   var(--pcs-primitive-color-yellow-400);
-  --pcs-badge-warning-emphasis-text:     var(--pcs-primitive-color-yellow-950);
+	/* Warning emphasis — dark text stays dark on yellow, no change needed */
+	/* But yellow-500 in dark mode may look harsh — soften slightly */
+	--pcs-badge-warning-emphasis-bg: var(--pcs-primitive-color-yellow-400);
+	--pcs-badge-warning-emphasis-border: var(--pcs-primitive-color-yellow-400);
+	--pcs-badge-warning-emphasis-text: var(--pcs-primitive-color-yellow-950);
 
-  /* Success emphasis — emerald-500 (~2.3:1 with white, fails AA) → emerald-700 (~5.1:1) ✓ */
-  --pcs-badge-success-emphasis-bg:      var(--pcs-primitive-color-emerald-700);
-  --pcs-badge-success-emphasis-border:  var(--pcs-primitive-color-emerald-700);
+	/* Success emphasis — emerald-500 (~2.3:1 with white, fails AA) → emerald-700 (~5.1:1) ✓ */
+	--pcs-badge-success-emphasis-bg: var(--pcs-primitive-color-emerald-700);
+	--pcs-badge-success-emphasis-border: var(--pcs-primitive-color-emerald-700);
 
-  /* Error emphasis — red-500 (~3.0:1 with white, fails AA) → red-700 (~6.6:1) ✓ */
-  --pcs-badge-error-emphasis-bg:        var(--pcs-primitive-color-red-700);
-  --pcs-badge-error-emphasis-border:    var(--pcs-primitive-color-red-700);
+	/* Error emphasis — red-500 (~3.0:1 with white, fails AA) → red-700 (~6.6:1) ✓ */
+	--pcs-badge-error-emphasis-bg: var(--pcs-primitive-color-red-700);
+	--pcs-badge-error-emphasis-border: var(--pcs-primitive-color-red-700);
 
-  /* Info emphasis — sky-500 (~2.8:1 with white, fails AA) → sky-700 (~5.7:1) ✓ */
-  --pcs-badge-info-emphasis-bg:         var(--pcs-primitive-color-sky-700);
-  --pcs-badge-info-emphasis-border:     var(--pcs-primitive-color-sky-700);
+	/* Info emphasis — sky-500 (~2.8:1 with white, fails AA) → sky-700 (~5.7:1) ✓ */
+	--pcs-badge-info-emphasis-bg: var(--pcs-primitive-color-sky-700);
+	--pcs-badge-info-emphasis-border: var(--pcs-primitive-color-sky-700);
 
-  /* All default weights handled by semantic color tokens */
+	/* All default weights handled by semantic color tokens */
 
 }

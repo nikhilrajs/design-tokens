@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 
@@ -148,20 +149,21 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
-  className,
-  variant = "default",
-  size = "default",
-  rounded,
-  ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+// forwardRef lets Base UI primitives (Menu.Trigger, Tooltip.Trigger, etc.) attach
+// a ref to Button in React 18. In React 19 refs are plain props, so this is a no-op
+// but safe to keep for cross-version compatibility.
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  ButtonPrimitive.Props & VariantProps<typeof buttonVariants>
+>(function Button({ className, variant = "default", size = "default", rounded, ...props }, ref) {
   return (
     <ButtonPrimitive
+      ref={ref}
       data-slot="button"
       className={cn(buttonVariants({ variant, size, rounded, className }))}
       {...props}
     />
   )
-}
+})
 
 export { Button, buttonVariants }

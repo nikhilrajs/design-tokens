@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip"
 
 import { cn } from "../../lib/utils"
@@ -20,10 +21,22 @@ function Tooltip({ ...props }: TooltipPrimitive.Root.Props) {
 }
 
 function TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
+  return (
+    <TooltipPrimitive.Trigger
+      data-slot="tooltip-trigger"
+      {...props}
+    />
+  )
 }
 
-function TooltipContent({
+const TooltipContent = React.forwardRef<
+  React.ComponentRef<typeof TooltipPrimitive.Popup>,
+  TooltipPrimitive.Popup.Props &
+    Pick<
+      TooltipPrimitive.Positioner.Props,
+      "align" | "alignOffset" | "side" | "sideOffset"
+    >
+>(({
   className,
   side = "top",
   sideOffset = 4,
@@ -31,23 +44,19 @@ function TooltipContent({
   alignOffset = 0,
   children,
   ...props
-}: TooltipPrimitive.Popup.Props &
-  Pick<
-    TooltipPrimitive.Positioner.Props,
-    "align" | "alignOffset" | "side" | "sideOffset"
-  >) {
-  return (
-    <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Positioner
-        align={align}
-        alignOffset={alignOffset}
-        side={side}
-        sideOffset={sideOffset}
-        className="isolate z-[var(--pcs-tooltip-z)]"
-      >
-        <TooltipPrimitive.Popup
-          data-slot="tooltip-content"
-          className={cn(
+}, ref) => (
+  <TooltipPrimitive.Portal>
+    <TooltipPrimitive.Positioner
+      align={align}
+      alignOffset={alignOffset}
+      side={side}
+      sideOffset={sideOffset}
+      className="isolate z-[var(--pcs-tooltip-z)]"
+    >
+      <TooltipPrimitive.Popup
+        ref={ref}
+        data-slot="tooltip-content"
+        className={cn(
             // Layout
             "inline-flex w-fit items-center gap-1.5",
             // Sizing
@@ -96,7 +105,7 @@ function TooltipContent({
         </TooltipPrimitive.Popup>
       </TooltipPrimitive.Positioner>
     </TooltipPrimitive.Portal>
-  )
-}
+))
+TooltipContent.displayName = "TooltipContent"
 
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }

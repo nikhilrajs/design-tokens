@@ -20,53 +20,67 @@
 
 :root {
 
-  /* --- Shape --- */
-  --pcs-avatar-border-radius-circle:     var(--pcs-radius-full);
+	/* --- Shape --- */
+	--pcs-avatar-border-radius-circle: var(--pcs-radius-full);
 
-  /* --- Background fallback (when no image, no initials color set) --- */
-  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* neutral-100 */
+	/* --- Background fallback (when no image, no initials color set) --- */
+	--pcs-avatar-bg-fallback: var(--pcs-color-surface-muted);
+	/* neutral-100 */
 
-  /* --- Initials (text rendered inside avatar when no image) --- */
-  --pcs-avatar-initials-font-weight:     var(--pcs-primitive-font-weight-medium);
-  --pcs-avatar-initials-color:           var(--pcs-color-text-muted);           /* neutral-500 */
+	/* --- Initials (text rendered inside avatar when no image) --- */
+	--pcs-avatar-initials-font-weight: var(--pcs-primitive-font-weight-medium);
+	--pcs-avatar-initials-color: var(--pcs-color-text-muted);
+	/* neutral-500 */
 
-  /* Initials font sizes — relative to avatar size, one per size token */
-  --pcs-avatar-initials-size-sm:         var(--pcs-primitive-font-size-xs);     /* 12px — for 24px avatar */
-  --pcs-avatar-initials-size-md:         var(--pcs-primitive-font-size-sm);     /* 14px — for 32px avatar */
-  --pcs-avatar-initials-size-lg:         var(--pcs-primitive-font-size-base);   /* 16px — for 40px avatar */
+	/* Initials font sizes — relative to avatar size, one per size token */
+	--pcs-avatar-initials-size-sm: var(--pcs-primitive-font-size-xs);
+	/* 12px — for 24px avatar */
+	--pcs-avatar-initials-size-md: var(--pcs-primitive-font-size-sm);
+	/* 14px — for 32px avatar */
+	--pcs-avatar-initials-size-lg: var(--pcs-primitive-font-size-base);
+	/* 16px — for 40px avatar */
 
-  /* --- Border (separates avatar from background — used in stacked groups) --- */
-  --pcs-avatar-border-width:             var(--pcs-primitive-border-width-medium);
-  --pcs-avatar-border-color:             var(--pcs-color-background);           /* matches page bg — creates gap effect */
+	/* --- Border (separates avatar from background — used in stacked groups) --- */
+	--pcs-avatar-border-width: var(--pcs-primitive-border-width-medium);
+	--pcs-avatar-border-color: var(--pcs-color-background);
+	/* matches page bg — creates gap effect */
 
-  /* --- Status ring (online / offline / busy / away indicator dot) --- */
-  /* Dot sizes are set as Tailwind utilities (size-2/2.5/3) in avatar.tsx */
-  --pcs-avatar-status-border-width:      var(--pcs-primitive-border-width-medium);        /* 2px — ring around dot   */
-  --pcs-avatar-status-border-color:      var(--pcs-color-background);           /* matches page bg          */
-  --pcs-avatar-status-border-radius:     var(--pcs-radius-full);
+	/* --- Status ring (online / offline / busy / away indicator dot) --- */
+	/* Dot sizes are set as Tailwind utilities (size-2/2.5/3) in avatar.tsx */
+	--pcs-avatar-status-border-width: var(--pcs-primitive-border-width-medium);
+	/* 2px — ring around dot   */
+	--pcs-avatar-status-border-color: var(--pcs-color-background);
+	/* matches page bg          */
+	--pcs-avatar-status-border-radius: var(--pcs-radius-full);
 
-  /* Status dot colors */
-  --pcs-avatar-status-online:            var(--pcs-color-success-emphasis);     /* emerald-600 */
-  --pcs-avatar-status-offline:           var(--pcs-color-text-muted);          /* neutral-400   */
-  --pcs-avatar-status-busy:              var(--pcs-color-error-emphasis);       /* red-600     */
-  --pcs-avatar-status-away:              var(--pcs-color-warning-emphasis);     /* yellow-500  */
+	/* Status dot colors */
+	--pcs-avatar-status-online: var(--pcs-color-success-emphasis);
+	/* emerald-600 */
+	--pcs-avatar-status-offline: var(--pcs-color-text-muted);
+	/* neutral-400   */
+	--pcs-avatar-status-busy: var(--pcs-color-error-emphasis);
+	/* red-600     */
+	--pcs-avatar-status-away: var(--pcs-color-warning-emphasis);
+	/* yellow-500  */
 
-  /* Overflow count badge (+3, +5) in stacked groups */
-  --pcs-avatar-stack-count-bg:           var(--pcs-color-surface-muted);
-  --pcs-avatar-stack-count-border:       var(--pcs-color-background);
-  --pcs-avatar-stack-count-text:         var(--pcs-color-text-muted);
+	/* Overflow count badge (+3, +5) in stacked groups */
+	--pcs-avatar-stack-count-bg: var(--pcs-color-surface-muted);
+	--pcs-avatar-stack-count-border: var(--pcs-color-background);
+	--pcs-avatar-stack-count-text: var(--pcs-color-text-muted);
 
 }
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  /* Border color matches dark page background */
-  --pcs-avatar-border-color:             var(--pcs-color-background);
-  --pcs-avatar-status-border-color:      var(--pcs-color-background);
-  --pcs-avatar-stack-count-border:       var(--pcs-color-background);
+	/* Border color matches dark page background */
+	--pcs-avatar-border-color: var(--pcs-color-background);
+	--pcs-avatar-status-border-color: var(--pcs-color-background);
+	--pcs-avatar-stack-count-border: var(--pcs-color-background);
 
-  /* Fallback bg slightly lighter on dark surfaces */
-  --pcs-avatar-bg-fallback:              var(--pcs-color-surface-muted);        /* neutral-800 — already dark-aware */
+	/* Fallback bg slightly lighter on dark surfaces */
+	--pcs-avatar-bg-fallback: var(--pcs-color-surface-muted);
+	/* neutral-800 — already dark-aware */
 
 }
 
@@ -81,15 +95,17 @@
 
 :root {
 
-  --pcs-skeleton-bg:            var(--pcs-primitive-color-neutral-200);
-  --pcs-skeleton-shimmer-color: var(--pcs-primitive-color-neutral-100); /* lighter highlight band */
+	--pcs-skeleton-bg: var(--pcs-primitive-color-neutral-200);
+	--pcs-skeleton-shimmer-color: var(--pcs-primitive-color-neutral-100);
+	/* lighter highlight band */
 
 }
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  --pcs-skeleton-bg:            var(--pcs-primitive-color-neutral-700);
-  --pcs-skeleton-shimmer-color: var(--pcs-primitive-color-neutral-600);
+	--pcs-skeleton-bg: var(--pcs-primitive-color-neutral-700);
+	--pcs-skeleton-shimmer-color: var(--pcs-primitive-color-neutral-600);
 
 }
 
@@ -104,48 +120,51 @@
 
 :root {
 
-  /* --- Sizes --- */
-  --pcs-spinner-size-sm:                 var(--pcs-size-icon-sm);
-  --pcs-spinner-size-md:                 var(--pcs-size-icon-md);
-  --pcs-spinner-size-lg:                 var(--pcs-size-icon-lg);
-  --pcs-spinner-size-xl:                 var(--pcs-primitive-space-8);          /* 32px — page-level loading */
+	/* --- Sizes --- */
+	--pcs-spinner-size-sm: var(--pcs-size-icon-sm);
+	--pcs-spinner-size-md: var(--pcs-size-icon-md);
+	--pcs-spinner-size-lg: var(--pcs-size-icon-lg);
+	--pcs-spinner-size-xl: var(--pcs-primitive-space-8);
+	/* 32px — page-level loading */
 
-  /* Track width (the stroke of the spinning arc) */
-  --pcs-spinner-track-width-sm:          1.5px;
-  --pcs-spinner-track-width-md:          2px;
-  --pcs-spinner-track-width-lg:          2px;
-  --pcs-spinner-track-width-xl:          3px;
+	/* Track width (the stroke of the spinning arc) */
+	--pcs-spinner-track-width-sm: 1.5px;
+	--pcs-spinner-track-width-md: 2px;
+	--pcs-spinner-track-width-lg: 2px;
+	--pcs-spinner-track-width-xl: 3px;
 
-  /* --- Color variants --- */
+	/* --- Color variants --- */
 
-  /* inherit — takes color from parent text color, works in any context */
-  --pcs-spinner-color-inherit:           currentColor;
+	/* inherit — takes color from parent text color, works in any context */
+	--pcs-spinner-color-inherit: currentColor;
 
-  /* primary — brand color, used in loading buttons and primary contexts */
-  --pcs-spinner-color-primary:           var(--pcs-color-primary-emphasis);
+	/* primary — brand color, used in loading buttons and primary contexts */
+	--pcs-spinner-color-primary: var(--pcs-color-primary-emphasis);
 
-  /* muted — for subtle loading states on cards, empty states */
-  --pcs-spinner-color-muted:             var(--pcs-color-icon-muted);
+	/* muted — for subtle loading states on cards, empty states */
+	--pcs-spinner-color-muted: var(--pcs-color-icon-muted);
 
-  /* on-emphasis — white, for spinners inside filled (primary/destructive) buttons */
-  --pcs-spinner-color-on-emphasis:       var(--pcs-primitive-color-white);
+	/* on-emphasis — white, for spinners inside filled (primary/destructive) buttons */
+	--pcs-spinner-color-on-emphasis: var(--pcs-primitive-color-white);
 
-  /* Track background color (the faint full-circle behind the spinning arc) */
-  --pcs-spinner-track-bg-inherit:        transparent;
-  --pcs-spinner-track-bg-primary:        var(--pcs-color-primary-subtle);
-  --pcs-spinner-track-bg-muted:          var(--pcs-primitive-color-neutral-200);
-  --pcs-spinner-track-bg-on-emphasis:    rgb(255 255 255 / 0.25);
+	/* Track background color (the faint full-circle behind the spinning arc) */
+	--pcs-spinner-track-bg-inherit: transparent;
+	--pcs-spinner-track-bg-primary: var(--pcs-color-primary-subtle);
+	--pcs-spinner-track-bg-muted: var(--pcs-primitive-color-neutral-200);
+	--pcs-spinner-track-bg-on-emphasis: rgb(255 255 255 / 0.25);
 
-  /* --- Animation --- */
-  --pcs-spinner-animation-duration:      0.75s;
-  --pcs-spinner-animation-easing:        linear;
+	/* --- Animation --- */
+	--pcs-spinner-animation-duration: 0.75s;
+	--pcs-spinner-animation-easing: linear;
 
 }
 
-[data-app-color-scheme="dark"] {
+[data-app-color-scheme="dark"],
+.dark {
 
-  --pcs-spinner-track-bg-muted:          var(--pcs-primitive-color-neutral-700);
-  --pcs-spinner-track-bg-primary:        var(--pcs-color-primary-subtle);       /* dark-aware via semantic */
+	--pcs-spinner-track-bg-muted: var(--pcs-primitive-color-neutral-700);
+	--pcs-spinner-track-bg-primary: var(--pcs-color-primary-subtle);
+	/* dark-aware via semantic */
 
 }
 
