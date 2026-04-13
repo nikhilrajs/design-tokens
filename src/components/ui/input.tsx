@@ -57,15 +57,20 @@ interface InputProps
   extends Omit<React.ComponentProps<"input">, "size">,
     VariantProps<typeof inputVariants> {}
 
-function Input({ className, type, size, ...props }: InputProps) {
-  return (
-    <InputPrimitive
-      type={type}
-      data-slot="input"
-      className={cn(inputVariants({ size }), className)}
-      {...props}
-    />
-  )
-}
+// forwardRef required for React 18: InputGroupInput passes a ref down to Input,
+// and Base UI's Combobox.Input passes a ref to InputGroupInput via render prop.
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  function Input({ className, type, size, ...props }, ref) {
+    return (
+      <InputPrimitive
+        ref={ref}
+        type={type}
+        data-slot="input"
+        className={cn(inputVariants({ size }), className)}
+        {...props}
+      />
+    )
+  }
+)
 
 export { Input, inputVariants }

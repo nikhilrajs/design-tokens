@@ -6,9 +6,11 @@ interface TextareaProps extends React.ComponentProps<"textarea"> {
   autoResize?: boolean
 }
 
-function Textarea({ className, autoResize = true, ...props }: TextareaProps) {
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+function Textarea({ className, autoResize = true, ...props }, ref) {
   return (
     <textarea
+      ref={ref}
       data-slot="textarea"
       className={cn(
         // Layout
@@ -43,6 +45,6 @@ function Textarea({ className, autoResize = true, ...props }: TextareaProps) {
       {...props}
     />
   )
-}
+})
 
 export { Textarea }

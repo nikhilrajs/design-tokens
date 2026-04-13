@@ -17,13 +17,15 @@ function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />
 }
 
-function ComboboxTrigger({
-  className,
-  children,
-  ...props
-}: ComboboxPrimitive.Trigger.Props) {
+// forwardRef required for React 18: ButtonPrimitive's useRender clones this element
+// and merges a ref into it. Without forwardRef, React 18 warns at runtime.
+const ComboboxTrigger = React.forwardRef<
+  HTMLButtonElement,
+  ComboboxPrimitive.Trigger.Props
+>(function ComboboxTrigger({ className, children, ...props }, ref) {
   return (
     <ComboboxPrimitive.Trigger
+      ref={ref}
       data-slot="combobox-trigger"
       className={cn("[&_svg:not([class*='size-'])]:size-4", className)}
       {...props}
@@ -32,7 +34,7 @@ function ComboboxTrigger({
       <ChevronDownIcon className="pointer-events-none size-4 text-muted-foreground" />
     </ComboboxPrimitive.Trigger>
   )
-}
+})
 
 function ComboboxClear({ className, ...props }: ComboboxPrimitive.Clear.Props) {
   return (
@@ -210,13 +212,15 @@ function ComboboxSeparator({
   )
 }
 
-function ComboboxChips({
-  className,
-  ...props
-}: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
-  ComboboxPrimitive.Chips.Props) {
+// forwardRef required for React 18: Base UI's AriaCombobox attaches a ref to this
+// element directly. Without forwardRef, React 18 warns at runtime.
+const ComboboxChips = React.forwardRef<
+  HTMLDivElement,
+  ComboboxPrimitive.Chips.Props
+>(function ComboboxChips({ className, ...props }, ref) {
   return (
     <ComboboxPrimitive.Chips
+      ref={ref}
       data-slot="combobox-chips"
       className={cn(
         "flex min-h-8 flex-wrap items-center gap-1 rounded-[var(--pcs-select-trigger-border-radius)] border-[length:var(--pcs-select-trigger-border-width)] border-[color:var(--pcs-select-trigger-border-color)] bg-[var(--pcs-select-trigger-bg)] px-2.5 py-1 text-[length:var(--pcs-select-trigger-md-font-size)] transition-colors focus-within:border-[color:var(--pcs-select-trigger-border-color-open)] focus-within:ring-[length:var(--pcs-focus-ring-width)] focus-within:ring-[var(--pcs-color-focus-ring)]/50 has-aria-invalid:border-[color:var(--pcs-select-trigger-border-color-error)] has-aria-invalid:[box-shadow:var(--pcs-select-trigger-shadow-error-focus)] has-data-[slot=combobox-chip]:px-1",
@@ -225,7 +229,7 @@ function ComboboxChips({
       {...props}
     />
   )
-}
+})
 
 function ComboboxChip({
   className,
