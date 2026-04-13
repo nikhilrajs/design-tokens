@@ -39,6 +39,7 @@
 @import './tokens/tokens-card-accordion-collapsible-scrollarea-slider.css';
 @import './tokens/tokens-sidebar.css';
 @import './tokens/tokens-tabs.css';
+@import './tokens/tokens-table.css';
 
 /* -----------------------------------------------------------------------------
    2B. TOKEN IMPORTS — PHASE 2 (from @proteus2/shared-ui)
@@ -104,6 +105,9 @@
 	--color-info-border: var(--pcs-color-info-border);
 	--color-info-text: var(--pcs-color-info-text);
 	--color-info-icon: var(--pcs-color-info-icon);
+
+	/* State */
+	--color-state-selected: var(--pcs-color-state-selected);
 
 	/* Focus */
 	--color-ring: var(--pcs-color-focus-ring);

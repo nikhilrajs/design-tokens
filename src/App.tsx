@@ -32,6 +32,7 @@ import {
 import { Button } from "./components/ui/button"
 
 import { Buttons } from './features/buttons'
+import { DataGrid } from './features/data-table'
 import { Feedback } from './features/feedback'
 import { Inputs } from './features/inputs'
 import { Menus } from './features/menus'
@@ -94,7 +95,7 @@ function App() {
 								<TabsTrigger value="inputs">Inputs</TabsTrigger>
 								<TabsTrigger value="overlays">Overlays</TabsTrigger>
 								<TabsTrigger value="menus">Menus</TabsTrigger>
-								<TabsTrigger value="reports">Reports</TabsTrigger>
+								<TabsTrigger value="data-grid">Data Grid</TabsTrigger>
 								<TabsTrigger value="settings">Settings</TabsTrigger>
 							</TabsList>
 							<TabsContent value="tokens" className="space-y-6">
@@ -132,19 +133,8 @@ function App() {
 									</CardContent>
 								</Card>
 							</TabsContent>
-							<TabsContent value="reports">
-								<Card>
-									<CardHeader>
-										<CardTitle>Reports</CardTitle>
-										<CardDescription>
-											Generate and download your detailed reports. Export data in
-											multiple formats for analysis.
-										</CardDescription>
-									</CardHeader>
-									<CardContent className="text-sm text-muted-foreground">
-										You have 5 reports ready and available to export.
-									</CardContent>
-								</Card>
+							<TabsContent value="data-grid">
+								<DataGrid />
 							</TabsContent>
 							<TabsContent value="settings">
 								<Card>

@@ -1,0 +1,248 @@
+/* =============================================================================
+   COMPONENT TOKENS — TABLE
+   =============================================================================
+
+   Architecture:
+     table-*   — all table tokens
+
+   Shadcn structure:
+     Table
+       TableCaption
+       TableHeader
+         TableRow
+           TableHead        (th — column header cell)
+       TableBody
+         TableRow
+           TableCell        (td — data cell)
+       TableFooter
+         TableRow
+           TableCell
+
+   Variants:
+     density   — compact | default
+     row state — default | hover | selected
+
+   Column types (no separate token namespace — handled via modifier):
+     standard  — default left-aligned text
+     numeric   — right-aligned numbers (font-variant: tabular-nums)
+     action    — hosts row-level icon buttons, right-aligned, fixed width
+
+   Sticky header:
+     Header row becomes position: sticky when table scrolls vertically.
+     A shadow token appears underneath it to signal scroll depth.
+
+   Row selection:
+     Checkbox-driven. Selected row gets a distinct background tint.
+     Uses --pcs-color-state-selected — consistent with other selected
+     states (Toggle Group, Select, etc.)
+
+   CSS constants (transparent, pointer, none, right, center, etc.) are
+   used directly in the component — not tokenized (B10).
+   Structural mechanics (overflow, width) are Tailwind utilities (B2).
+   Row height reference: default ≈ 48px, compact ≈ 36px (set via padding).
+   =============================================================================*/
+
+
+:root {
+
+	/* ===========================================================================
+     TABLE — BASE
+  =========================================================================== */
+
+	/* --- Container --- */
+	--pcs-table-bg: var(--pcs-color-surface-card);
+	--pcs-table-border-color: var(--pcs-color-border-default);
+	--pcs-table-border-width: var(--pcs-primitive-border-width-default);
+	/* 1px  */
+	--pcs-table-border-radius: var(--pcs-radius-lg);
+	/* 8px  */
+
+	/* --- Caption --- */
+	--pcs-table-caption-font-size: var(--pcs-text-body-sm-size);
+	--pcs-table-caption-font-weight: var(--pcs-text-body-sm-weight);
+	--pcs-table-caption-color: var(--pcs-color-text-muted);
+	--pcs-table-caption-padding: var(--pcs-space-component-gap-md);
+	/* 8px  */
+
+
+	/* ===========================================================================
+     TABLE HEAD (th)
+     Column header cells. Sticky when table scrolls.
+  =========================================================================== */
+
+	--pcs-table-head-bg: var(--pcs-color-surface-muted);
+	/* neutral-50 — must be opaque; used for both default and sticky states */
+	--pcs-table-head-bg-sticky: var(--pcs-color-surface-muted);
+	/* explicit sticky value — same today, may diverge under theming */
+	--pcs-table-head-border-bottom-color: var(--pcs-color-border-default);
+	--pcs-table-head-border-bottom-width: var(--pcs-primitive-border-width-default);
+
+	/* Shadow under sticky header when content scrolls beneath it.
+	   Not using --pcs-shadow-* — those tokens model elevation, not
+	   scroll-depth indication. Revisit in Phase 2. */
+	--pcs-table-head-sticky-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+	--pcs-table-head-font-size: var(--pcs-text-label-sm-size);
+	--pcs-table-head-font-weight: 600;
+	/* heavier than body — signals header */
+	--pcs-table-head-line-height: var(--pcs-text-label-sm-line-height);
+	--pcs-table-head-color: var(--pcs-color-text-muted);
+	/* subdued, not default — hierarchy below cell content */
+	--pcs-table-head-text-transform: uppercase;
+	--pcs-table-head-letter-spacing: 0.04em;
+
+	/* Sort indicator icon */
+	--pcs-table-head-sort-icon-size: var(--pcs-size-icon-sm);
+	/* 12px */
+	--pcs-table-head-sort-icon-color: var(--pcs-color-icon-muted);
+	--pcs-table-head-sort-icon-color-active: var(--pcs-color-primary-emphasis);
+	--pcs-table-head-sort-gap: var(--pcs-space-component-gap-xs);
+	/* 4px — between label and icon */
+
+	/* Sortable header hover */
+	--pcs-table-head-bg-hover: var(--pcs-color-state-hover);
+	--pcs-table-head-color-hover: var(--pcs-color-text-default);
+
+	/* --- Density: padding for th --- */
+	--pcs-table-head-padding-x-default: var(--pcs-space-inset-md);
+	/* 16px */
+	--pcs-table-head-padding-y-default: var(--pcs-primitive-space-3);
+	/* 12px */
+
+	--pcs-table-head-padding-x-compact: var(--pcs-space-inset-sm);
+	/* 12px */
+	--pcs-table-head-padding-y-compact: var(--pcs-primitive-space-2);
+	/*  8px */
+
+
+	/* ===========================================================================
+     TABLE ROW (tr)
+  =========================================================================== */
+
+	--pcs-table-row-border-bottom-color: var(--pcs-color-border-muted);
+	/* neutral-100 — lighter than default; rows are denser than panel borders */
+	--pcs-table-row-border-bottom-width: var(--pcs-primitive-border-width-default);
+
+	/* --- Hover --- */
+	--pcs-table-row-bg-hover: var(--pcs-color-state-hover);
+
+	/* --- Selected (checkbox row selection) --- */
+	--pcs-table-row-bg-selected: var(--pcs-color-state-selected);
+	/* brand-50 — consistent with Toggle Group, Select, nav selected states */
+	--pcs-table-row-border-selected-color: var(--pcs-color-primary-border);
+	/* brand-300 */
+
+	/* --- Disabled row (read-only, locked) --- */
+	--pcs-table-row-color-disabled: var(--pcs-color-text-disabled);
+
+
+	/* ===========================================================================
+     TABLE CELL (td)
+  =========================================================================== */
+
+	--pcs-table-cell-font-size: var(--pcs-text-body-md-size);
+	--pcs-table-cell-font-weight: var(--pcs-text-body-md-weight);
+	--pcs-table-cell-line-height: var(--pcs-text-body-md-line-height);
+	--pcs-table-cell-color: var(--pcs-color-text-default);
+
+	/* --- Density: padding for td --- */
+	--pcs-table-cell-padding-x-default: var(--pcs-space-inset-md);
+	/* 16px */
+	--pcs-table-cell-padding-y-default: var(--pcs-primitive-space-3-5);
+	/* 14px */
+
+	--pcs-table-cell-padding-x-compact: var(--pcs-space-inset-sm);
+	/* 12px */
+	--pcs-table-cell-padding-y-compact: var(--pcs-primitive-space-2-5);
+	/* 10px */
+
+	/* --- Column type: Numeric --- */
+	/* Right-aligned. font-variant ensures digits stack in fixed-width columns. */
+	--pcs-table-cell-numeric-font-variant: tabular-nums;
+
+	/* --- Column type: Action --- */
+	/* Fixed width column hosting icon buttons. */
+	--pcs-table-cell-action-width: 80px;
+	/* fits 2–3 icon buttons */
+	--pcs-table-cell-action-gap: var(--pcs-space-component-gap-xs);
+	/* 4px between action buttons */
+
+
+	/* ===========================================================================
+     TABLE FOOTER (tfoot)
+     Used for summary rows or pagination controls.
+  =========================================================================== */
+
+	--pcs-table-footer-bg: var(--pcs-color-surface-muted);
+	/* mirrors header */
+	--pcs-table-footer-border-top-color: var(--pcs-color-border-default);
+	--pcs-table-footer-border-top-width: var(--pcs-primitive-border-width-default);
+	--pcs-table-footer-font-size: var(--pcs-text-body-sm-size);
+	--pcs-table-footer-color: var(--pcs-color-text-muted);
+
+
+	/* ===========================================================================
+     TABLE — CHECKBOX COLUMN
+     First column. Fixed narrow width. Centers the checkbox.
+  =========================================================================== */
+
+	--pcs-table-checkbox-col-width: var(--pcs-primitive-space-12);
+	/* 48px */
+	--pcs-table-checkbox-col-padding-x: var(--pcs-space-inset-md);
+	/* 16px */
+
+	/* Select-all checkbox in header */
+	--pcs-table-head-checkbox-color: var(--pcs-color-icon-muted);
+	--pcs-table-head-checkbox-color-checked: var(--pcs-color-primary-emphasis);
+
+
+	/* ===========================================================================
+     TABLE — EMPTY STATE (inline)
+     When table has no rows. Rendered as a single full-width cell.
+  =========================================================================== */
+
+	--pcs-table-empty-padding: var(--pcs-space-inset-xl);
+	/* 32px */
+	--pcs-table-empty-color: var(--pcs-color-text-muted);
+	--pcs-table-empty-font-size: var(--pcs-text-body-md-size);
+
+
+	/* ===========================================================================
+     TABLE — LOADING STATE
+     Skeleton rows while data loads.
+  =========================================================================== */
+
+	--pcs-table-skeleton-cell-height: var(--pcs-primitive-space-4);
+	/* 16px — skeleton bar height */
+	--pcs-table-skeleton-cell-border-radius: var(--pcs-radius-sm);
+	--pcs-table-skeleton-bg: var(--pcs-skeleton-bg);
+	--pcs-table-skeleton-shimmer: var(--pcs-skeleton-shimmer-color);
+
+}
+
+
+/* =============================================================================
+   DARK MODE OVERRIDES — TABLE
+   =============================================================================*/
+
+[data-app-color-scheme="dark"],
+.dark {
+
+	/* Header and footer backgrounds */
+	--pcs-table-head-bg: var(--pcs-color-surface-muted);
+	--pcs-table-head-bg-sticky: var(--pcs-color-surface-muted);
+	--pcs-table-footer-bg: var(--pcs-color-surface-muted);
+
+	/* Sticky shadow more visible on dark */
+	--pcs-table-head-sticky-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+
+	/* Row borders slightly more subtle in dark */
+	--pcs-table-row-border-bottom-color: var(--pcs-color-border-muted);
+
+	/* Selected row — primary surface in dark */
+	--pcs-table-row-bg-selected: var(--pcs-color-state-selected);
+	/* brand-950 in dark */
+	--pcs-table-row-border-selected-color: var(--pcs-color-primary-border);
+	/* brand-700 in dark */
+
+}
