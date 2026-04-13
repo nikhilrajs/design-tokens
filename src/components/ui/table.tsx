@@ -71,9 +71,13 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   )
 }
 
-function TableHead({ className, ...props }: React.ComponentProps<"th">) {
+const TableHead = React.forwardRef<
+  HTMLTableCellElement,
+  React.ComponentProps<"th">
+>(function TableHead({ className, ...props }, ref) {
   return (
     <th
+      ref={ref}
       data-slot="table-head"
       className={cn(
         "text-left align-middle whitespace-nowrap",
@@ -88,11 +92,15 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
       {...props}
     />
   )
-}
+})
 
-function TableCell({ className, ...props }: React.ComponentProps<"td">) {
+const TableCell = React.forwardRef<
+  HTMLTableCellElement,
+  React.ComponentProps<"td">
+>(function TableCell({ className, ...props }, ref) {
   return (
     <td
+      ref={ref}
       data-slot="table-cell"
       className={cn(
         "align-middle whitespace-nowrap",
@@ -105,7 +113,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
       {...props}
     />
   )
-}
+})
 
 function TableCaption({
   className,
