@@ -493,7 +493,16 @@ const sidebarMenuButtonVariants = cva(
   }
 )
 
-function SidebarMenuButton({
+// forwardRef required for React 18: DropdownMenuTrigger (MenuPrimitive.Trigger)
+// clones this element and merges a ref into it for popup positioning.
+const SidebarMenuButton = React.forwardRef<
+  HTMLButtonElement,
+  useRender.ComponentProps<"button"> &
+    React.ComponentProps<"button"> & {
+      isActive?: boolean
+      tooltip?: string | React.ComponentProps<typeof TooltipContent>
+    } & VariantProps<typeof sidebarMenuButtonVariants>
+>(function SidebarMenuButton({
   render,
   isActive = false,
   variant = "default",
@@ -501,16 +510,13 @@ function SidebarMenuButton({
   tooltip,
   className,
   ...props
-}: useRender.ComponentProps<"button"> &
-  React.ComponentProps<"button"> & {
-    isActive?: boolean
-    tooltip?: string | React.ComponentProps<typeof TooltipContent>
-  } & VariantProps<typeof sidebarMenuButtonVariants>) {
+}, ref) {
   const { isMobile, state } = useSidebar()
   const comp = useRender({
     defaultTagName: "button",
     props: mergeProps<"button">(
       {
+        ref,
         className: cn(sidebarMenuButtonVariants({ variant, size }), className),
       },
       props
@@ -545,21 +551,27 @@ function SidebarMenuButton({
       />
     </Tooltip>
   )
-}
+})
 
-function SidebarMenuAction({
+// forwardRef required for React 18: DropdownMenuTrigger (MenuPrimitive.Trigger)
+// clones this element and merges a ref into it for popup positioning.
+const SidebarMenuAction = React.forwardRef<
+  HTMLButtonElement,
+  useRender.ComponentProps<"button"> &
+    React.ComponentProps<"button"> & {
+      showOnHover?: boolean
+    }
+>(function SidebarMenuAction({
   className,
   render,
   showOnHover = false,
   ...props
-}: useRender.ComponentProps<"button"> &
-  React.ComponentProps<"button"> & {
-    showOnHover?: boolean
-  }) {
+}, ref) {
   return useRender({
     defaultTagName: "button",
     props: mergeProps<"button">(
       {
+        ref,
         className: cn(
           "absolute top-1.5 right-1 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground ring-sidebar-ring outline-hidden transition-transform group-data-[collapsible=icon]:hidden peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[size=default]/menu-button:top-1.5 peer-data-[size=lg]/menu-button:top-2.5 peer-data-[size=sm]/menu-button:top-1 after:absolute after:-inset-2 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 md:after:hidden [&>svg]:size-4 [&>svg]:shrink-0",
           showOnHover &&
@@ -575,7 +587,7 @@ function SidebarMenuAction({
       sidebar: "menu-action",
     },
   })
-}
+})
 
 function SidebarMenuBadge({
   className,

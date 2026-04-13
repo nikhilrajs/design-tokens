@@ -20,14 +20,20 @@ function Tooltip({ ...props }: TooltipPrimitive.Root.Props) {
   return <TooltipPrimitive.Root data-slot="tooltip" {...props} />
 }
 
-function TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {
+// forwardRef required for React 18: Base UI's useRender clones this element
+// and merges a ref into it (e.g. when used as render prop inside SidebarMenuButton).
+const TooltipTrigger = React.forwardRef<
+  HTMLButtonElement,
+  TooltipPrimitive.Trigger.Props
+>(function TooltipTrigger({ ...props }, ref) {
   return (
     <TooltipPrimitive.Trigger
+      ref={ref}
       data-slot="tooltip-trigger"
       {...props}
     />
   )
-}
+})
 
 const TooltipContent = React.forwardRef<
   React.ComponentRef<typeof TooltipPrimitive.Popup>,
