@@ -105,13 +105,13 @@ const badgeVariants = cva(
   }
 )
 
-function Badge({
+const Badge = ({
   className,
   appearance = "neutral",
   weight = "default",
   render,
   ...props
-}: useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>) {
+}: useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>) => {
   return useRender({
     defaultTagName: "span",
     props: mergeProps<"span">(

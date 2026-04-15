@@ -12,13 +12,13 @@ interface SpinnerProps extends React.SVGAttributes<SVGSVGElement> {
    Showing ~75% as the spinning arc (47.12) with a ~25% gap (15.71). */
 const ARC_DASHARRAY = '47.12 15.71'
 
-function Spinner({
+const Spinner = ({
   size    = 'md',
   variant = 'inherit',
   className,
   style,
   ...props
-}: SpinnerProps) {
+}: SpinnerProps) => {
   return (
     <svg
       viewBox="0 0 24 24"

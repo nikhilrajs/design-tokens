@@ -83,10 +83,11 @@ function App() {
             </div>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="flex flex-1 min-w-0 flex-col gap-4 p-4 pt-0">
 
 					<div>
 						<Tabs defaultValue="tokens" >
+							<div className="overflow-x-auto">
 							<TabsList variant="line">
 								<TabsTrigger value="tokens">Tokens</TabsTrigger>
 								<TabsTrigger value="typography">Typography</TabsTrigger>
@@ -98,6 +99,7 @@ function App() {
 								<TabsTrigger value="data-grid">Data Grid</TabsTrigger>
 								<TabsTrigger value="settings">Settings</TabsTrigger>
 							</TabsList>
+							</div>
 							<TabsContent value="tokens" className="space-y-6">
 								<Tokens />
 							</TabsContent>

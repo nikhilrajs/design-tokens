@@ -31,7 +31,7 @@ interface DataTableProps<TData, TValue> {
   pageSize?: number
 }
 
-function SortIcon({ direction }: { direction: "asc" | "desc" | false }) {
+const SortIcon = ({ direction }: { direction: "asc" | "desc" | false }) => {
   const activeClass = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color-active)]"
   const idleClass   = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color)]"
 
@@ -40,11 +40,11 @@ function SortIcon({ direction }: { direction: "asc" | "desc" | false }) {
   return                           <ChevronsUpDownIcon className={idleClass} />
 }
 
-export function DataTable<TData, TValue>({
+export const DataTable = <TData, TValue>({
   columns: userColumns,
   data,
   pageSize = 5,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, TValue>) => {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})

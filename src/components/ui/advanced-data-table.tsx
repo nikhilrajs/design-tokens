@@ -69,7 +69,7 @@ import {
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function getColId<TData, TValue>(col: ColumnDef<TData, TValue>): string {
+const getColId = <TData, TValue>(col: ColumnDef<TData, TValue>): string => {
   if (col.id) return col.id
   const key = (col as { accessorKey?: unknown }).accessorKey
   return typeof key === "string" ? key : ""
@@ -77,7 +77,7 @@ function getColId<TData, TValue>(col: ColumnDef<TData, TValue>): string {
 
 // ─── SortIcon ─────────────────────────────────────────────────────────────────
 
-function SortIcon({ direction }: { direction: "asc" | "desc" | false }) {
+const SortIcon = ({ direction }: { direction: "asc" | "desc" | false }) => {
   const active = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color-active)]"
   const idle   = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color)]"
   if (direction === "asc")  return <ChevronUpIcon    className={active} />
@@ -87,7 +87,7 @@ function SortIcon({ direction }: { direction: "asc" | "desc" | false }) {
 
 // ─── ColumnFilter ─────────────────────────────────────────────────────────────
 
-function ColumnFilter({ column }: { column: Column<unknown, unknown> }) {
+const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
   const value = (column.getFilterValue() ?? "") as string
   return (
     <Input
@@ -104,11 +104,11 @@ function ColumnFilter({ column }: { column: Column<unknown, unknown> }) {
 
 // ─── DraggableTableHead ───────────────────────────────────────────────────────
 
-function DraggableTableHead<TData>({
+const DraggableTableHead = <TData,>({
   header,
 }: {
   header: Header<TData, unknown>
-}) {
+}) => {
   const { column } = header
   const isPinned = column.getIsPinned()
   const isSelect = column.id === "select"
@@ -222,11 +222,11 @@ interface AdvancedDataTableProps<TData, TValue> {
   pageSize?: number
 }
 
-export function AdvancedDataTable<TData, TValue>({
+export const AdvancedDataTable = <TData, TValue>({
   columns: userColumns,
   data,
   pageSize = 5,
-}: AdvancedDataTableProps<TData, TValue>) {
+}: AdvancedDataTableProps<TData, TValue>) => {
   const [sorting,          setSorting]          = React.useState<SortingState>([])
   const [columnFilters,    setColumnFilters]    = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
