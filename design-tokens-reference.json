@@ -1,0 +1,832 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$metadata": {
+    "name": "Proteus2 Design Tokens",
+    "description": "Tier 1 primitives and Tier 2 semantic tokens. Component tokens (tokens-*.css) are intentionally excluded. Sourced from src/styles/tokens/tokens.css.",
+    "version": "1.0.0",
+    "colorFormats": {
+      "neutral": "OKLCH",
+      "brand": "OKLCH",
+      "red": "hex",
+      "yellow": "hex",
+      "emerald": "hex",
+      "sky": "hex"
+    },
+    "modes": {
+      "dark": "Values under $extensions.modes.dark override the default $value in dark mode. Set via [data-app-color-scheme='dark'] or .dark on <html>."
+    }
+  },
+
+  "primitive": {
+
+    "color": {
+
+      "neutral": {
+        "$description": "Zinc scale, OKLCH. Tier 1 — do not use in components directly.",
+        "50":  { "$value": "oklch(98.5% 0 0)",              "$type": "color" },
+        "100": { "$value": "oklch(96.7% 0.001 286.375)",    "$type": "color" },
+        "200": { "$value": "oklch(92% 0.004 286.32)",       "$type": "color" },
+        "300": { "$value": "oklch(87.1% 0.006 286.286)",    "$type": "color" },
+        "400": { "$value": "oklch(70.5% 0.015 286.067)",    "$type": "color" },
+        "500": { "$value": "oklch(55.2% 0.016 285.938)",    "$type": "color" },
+        "600": { "$value": "oklch(44.2% 0.017 285.786)",    "$type": "color" },
+        "700": { "$value": "oklch(37% 0.013 285.805)",      "$type": "color" },
+        "800": { "$value": "oklch(27.4% 0.006 286.033)",    "$type": "color" },
+        "900": { "$value": "oklch(21% 0.006 285.885)",      "$type": "color" },
+        "950": { "$value": "oklch(14.1% 0.005 285.823)",    "$type": "color" }
+      },
+
+      "neutralAlpha": {
+        "$description": "Transparent overlays for hover/active/scrim tinting. Two series: onLight (dark base) and onDark (light base).",
+        "onLight": {
+          "100": { "$value": "oklch(14.1% 0.005 285.823 / 4%)",  "$type": "color" },
+          "200": { "$value": "oklch(14.1% 0.005 285.823 / 8%)",  "$type": "color" },
+          "300": { "$value": "oklch(14.1% 0.005 285.823 / 16%)", "$type": "color" },
+          "400": { "$value": "oklch(14.1% 0.005 285.823 / 32%)", "$type": "color" },
+          "500": { "$value": "oklch(14.1% 0.005 285.823 / 64%)", "$type": "color" }
+        },
+        "onDark": {
+          "100": { "$value": "oklch(0.0993 0.0115 195.47 / 46%)", "$type": "color" },
+          "200": { "$value": "oklch(0.7984 0 0 / 4%)",            "$type": "color" },
+          "300": { "$value": "oklch(0.8547 0.0151 286.08 / 7%)",  "$type": "color" },
+          "400": { "$value": "oklch(0.8915 0.0177 282.51 / 10%)", "$type": "color" },
+          "500": { "$value": "oklch(0.9222 0.0189 282.75 / 12%)", "$type": "color" },
+          "600": { "$value": "oklch(0.947 0.0222 272.06 / 18%)",  "$type": "color" },
+          "700": { "$value": "oklch(0.9348 0.0181 272.31 / 25%)", "$type": "color" },
+          "800": { "$value": "oklch(0.9531 0.0166 259.42 / 36%)", "$type": "color" }
+        }
+      },
+
+      "brand": {
+        "$description": "Brand/primary color ramp, OKLCH hue 43.7. These are the ONLY primitives that change per tenant — Style Dictionary outputs the same variable names with different values for each tenant.",
+        "50":  { "$value": "oklch(97.93% 0.006 43.7)",  "$type": "color" },
+        "100": { "$value": "oklch(95.05% 0.017 43.7)",  "$type": "color" },
+        "200": { "$value": "oklch(90.24% 0.042 43.7)",  "$type": "color" },
+        "300": { "$value": "oklch(83.66% 0.081 43.7)",  "$type": "color" },
+        "400": { "$value": "oklch(73.91% 0.1497 43.7)", "$type": "color" },
+        "500": { "$value": "oklch(64.7% 0.169 43.7)",   "$type": "color" },
+        "600": { "$value": "oklch(59.17% 0.155 43.7)",  "$type": "color" },
+        "700": { "$value": "oklch(50.81% 0.133 43.7)",  "$type": "color" },
+        "800": { "$value": "oklch(44.37% 0.116 43.7)",  "$type": "color" },
+        "900": { "$value": "oklch(39.25% 0.102 43.7)",  "$type": "color" },
+        "950": { "$value": "oklch(27.91% 0.073 43.7)",  "$type": "color" }
+      },
+
+      "red": {
+        "$description": "Error/destructive ramp, hex (Phase 1). Will be converted to OKLCH via Style Dictionary in Phase 2.",
+        "50":  { "$value": "#fef2f2", "$type": "color" },
+        "100": { "$value": "#fee2e2", "$type": "color" },
+        "200": { "$value": "#fecaca", "$type": "color" },
+        "300": { "$value": "#fca5a5", "$type": "color" },
+        "400": { "$value": "#f87171", "$type": "color" },
+        "500": { "$value": "#ef4444", "$type": "color" },
+        "600": { "$value": "#dc2626", "$type": "color" },
+        "700": { "$value": "#b91c1c", "$type": "color" },
+        "800": { "$value": "#991b1b", "$type": "color" },
+        "900": { "$value": "#7f1d1d", "$type": "color" },
+        "950": { "$value": "#450a0a", "$type": "color" }
+      },
+
+      "yellow": {
+        "$description": "Warning ramp, hex (Phase 1).",
+        "50":  { "$value": "#fefce8", "$type": "color" },
+        "100": { "$value": "#fef9c3", "$type": "color" },
+        "200": { "$value": "#fef08a", "$type": "color" },
+        "300": { "$value": "#fde047", "$type": "color" },
+        "400": { "$value": "#facc15", "$type": "color" },
+        "500": { "$value": "#eab308", "$type": "color" },
+        "600": { "$value": "#ca8a04", "$type": "color" },
+        "700": { "$value": "#a16207", "$type": "color" },
+        "800": { "$value": "#854d0e", "$type": "color" },
+        "900": { "$value": "#713f12", "$type": "color" },
+        "950": { "$value": "#422006", "$type": "color" }
+      },
+
+      "emerald": {
+        "$description": "Success ramp, hex (Phase 1).",
+        "50":  { "$value": "#ecfdf5", "$type": "color" },
+        "100": { "$value": "#d1fae5", "$type": "color" },
+        "200": { "$value": "#a7f3d0", "$type": "color" },
+        "300": { "$value": "#6ee7b7", "$type": "color" },
+        "400": { "$value": "#34d399", "$type": "color" },
+        "500": { "$value": "#10b981", "$type": "color" },
+        "600": { "$value": "#059669", "$type": "color" },
+        "700": { "$value": "#047857", "$type": "color" },
+        "800": { "$value": "#065f46", "$type": "color" },
+        "900": { "$value": "#064e3b", "$type": "color" },
+        "950": { "$value": "#022c22", "$type": "color" }
+      },
+
+      "sky": {
+        "$description": "Info ramp, hex (Phase 1).",
+        "50":  { "$value": "#f0f9ff", "$type": "color" },
+        "100": { "$value": "#e0f2fe", "$type": "color" },
+        "200": { "$value": "#bae6fd", "$type": "color" },
+        "300": { "$value": "#7dd3fc", "$type": "color" },
+        "400": { "$value": "#38bdf8", "$type": "color" },
+        "500": { "$value": "#0ea5e9", "$type": "color" },
+        "600": { "$value": "#0284c7", "$type": "color" },
+        "700": { "$value": "#0369a1", "$type": "color" },
+        "800": { "$value": "#075985", "$type": "color" },
+        "900": { "$value": "#0c4a6e", "$type": "color" },
+        "950": { "$value": "#082f49", "$type": "color" }
+      },
+
+      "white": { "$value": "#ffffff", "$type": "color" },
+      "black": { "$value": "#000000", "$type": "color" }
+
+    },
+
+    "typography": {
+
+      "fontFamily": {
+        "sans": {
+          "$value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'",
+          "$type": "fontFamily"
+        },
+        "sansDisplay": {
+          "$description": "Same stack as sans today — split out so a dedicated display typeface can be swapped in without touching every display/title/subtitle token.",
+          "$value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'",
+          "$type": "fontFamily"
+        },
+        "mono": {
+          "$value": "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace",
+          "$type": "fontFamily"
+        }
+      },
+
+      "fontSize": {
+        "$description": "Tailwind CSS xs–4xl scale. Base: 16px (1rem).",
+        "xs":   { "$value": "0.75rem",  "$type": "dimension" },
+        "sm":   { "$value": "0.875rem", "$type": "dimension" },
+        "base": { "$value": "1rem",     "$type": "dimension" },
+        "lg":   { "$value": "1.125rem", "$type": "dimension" },
+        "xl":   { "$value": "1.25rem",  "$type": "dimension" },
+        "2xl":  { "$value": "1.5rem",   "$type": "dimension" },
+        "3xl":  { "$value": "1.875rem", "$type": "dimension" },
+        "4xl":  { "$value": "2.25rem",  "$type": "dimension" }
+      },
+
+      "fontWeight": {
+        "normal":   { "$value": 400, "$type": "number" },
+        "medium":   { "$value": 500, "$type": "number" },
+        "semibold": { "$value": 600, "$type": "number" },
+        "bold":     { "$value": 700, "$type": "number" }
+      },
+
+      "lineHeight": {
+        "$description": "GitHub Primer line height scale.",
+        "tight":   { "$value": 1.25,  "$type": "number" },
+        "snug":    { "$value": 1.375, "$type": "number" },
+        "normal":  { "$value": 1.5,   "$type": "number" },
+        "relaxed": { "$value": 1.625, "$type": "number" },
+        "loose":   { "$value": 1.75,  "$type": "number" }
+      }
+
+    },
+
+    "spacing": {
+      "$description": "Tailwind CSS spacing scale, 4px base unit.",
+      "0":   { "$value": "0px",      "$type": "dimension" },
+      "px":  { "$value": "1px",      "$type": "dimension" },
+      "0-5": { "$value": "0.125rem", "$type": "dimension" },
+      "1":   { "$value": "0.25rem",  "$type": "dimension" },
+      "1-5": { "$value": "0.375rem", "$type": "dimension" },
+      "2":   { "$value": "0.5rem",   "$type": "dimension" },
+      "2-5": { "$value": "0.625rem", "$type": "dimension" },
+      "3":   { "$value": "0.75rem",  "$type": "dimension" },
+      "3-5": { "$value": "0.875rem", "$type": "dimension" },
+      "4":   { "$value": "1rem",     "$type": "dimension" },
+      "5":   { "$value": "1.25rem",  "$type": "dimension" },
+      "6":   { "$value": "1.5rem",   "$type": "dimension" },
+      "7":   { "$value": "1.75rem",  "$type": "dimension" },
+      "8":   { "$value": "2rem",     "$type": "dimension" },
+      "10":  { "$value": "2.5rem",   "$type": "dimension" },
+      "12":  { "$value": "3rem",     "$type": "dimension" },
+      "14":  { "$value": "3.5rem",   "$type": "dimension" },
+      "16":  { "$value": "4rem",     "$type": "dimension" }
+    },
+
+    "radius": {
+      "none": { "$value": "0px",      "$type": "dimension" },
+      "sm":   { "$value": "0.125rem", "$type": "dimension" },
+      "md":   { "$value": "0.375rem", "$type": "dimension" },
+      "lg":   { "$value": "0.5rem",   "$type": "dimension" },
+      "xl":   { "$value": "0.75rem",  "$type": "dimension" },
+      "2xl":  { "$value": "1rem",     "$type": "dimension" },
+      "full": { "$value": "9999px",   "$type": "dimension" }
+    },
+
+    "shadow": {
+      "$description": "Tailwind shadow scale. Dark mode counterparts are on semantic.shadow.*.",
+      "sm": {
+        "$value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "$type": "shadow"
+      },
+      "md": {
+        "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "$type": "shadow"
+      },
+      "lg": {
+        "$value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "$type": "shadow"
+      },
+      "xl": {
+        "$value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+        "$type": "shadow"
+      }
+    },
+
+    "borderWidth": {
+      "default": { "$value": "1px", "$type": "dimension" },
+      "medium":  { "$value": "2px", "$type": "dimension" },
+      "thick":   { "$value": "4px", "$type": "dimension" }
+    }
+
+  },
+
+  "semantic": {
+
+    "color": {
+
+      "background": {
+        "$type": "color",
+        "$value": "{primitive.color.white}",
+        "$extensions": { "modes": { "dark": "{primitive.color.neutral.950}" } }
+      },
+
+      "surface": {
+        "card": {
+          "$type": "color",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.900}" } }
+        },
+        "muted": {
+          "$type": "color",
+          "$description": "Inputs, table rows, code blocks.",
+          "$value": "{primitive.color.neutral.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.800}" } }
+        },
+        "overlay": {
+          "$type": "color",
+          "$description": "Dropdowns, tooltips, popovers, modals. In dark mode, one step lighter than card so overlays have visible elevation.",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.800}" } }
+        },
+        "sidebar": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.900}" } }
+        }
+      },
+
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.200}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.700}" } }
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.800}" } }
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.600}" } }
+        }
+      },
+
+      "text": {
+        "default": {
+          "$type": "color",
+          "$description": "Primary text — body copy, headings, labels.",
+          "$value": "{primitive.color.neutral.900}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.50}" } }
+        },
+        "muted": {
+          "$type": "color",
+          "$description": "Secondary text — descriptions, captions, metadata, placeholders, helper text.",
+          "$value": "{primitive.color.neutral.500}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.400}" } }
+        },
+        "disabled": {
+          "$type": "color",
+          "$description": "Non-interactive text. WCAG-exempt. Signals element cannot be acted upon.",
+          "$value": "{primitive.color.neutral.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.600}" } }
+        },
+        "inverse": {
+          "$type": "color",
+          "$description": "Text on inverted surfaces.",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.950}" } }
+        },
+        "onEmphasis": {
+          "$type": "color",
+          "$description": "Text on colored emphasis backgrounds (brand, status).",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.white}" } }
+        }
+      },
+
+      "icon": {
+        "default": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.600}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.400}" } }
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.400}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.500}" } }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.600}" } }
+        }
+      },
+
+      "primary": {
+        "$description": "Brand/primary tokens. Only this group changes per tenant.",
+        "emphasis": {
+          "$type": "color",
+          "$description": "Solid fills — buttons, active indicators.",
+          "$value": "{primitive.color.brand.600}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.400}" } }
+        },
+        "emphasisHover": {
+          "$type": "color",
+          "$value": "{primitive.color.brand.700}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.300}" } }
+        },
+        "emphasisActive": {
+          "$type": "color",
+          "$value": "{primitive.color.brand.800}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.200}" } }
+        },
+        "subtle": {
+          "$type": "color",
+          "$description": "Subtle fills — selected rows, hover states, badges.",
+          "$value": "{primitive.color.brand.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.950}" } }
+        },
+        "subtleHover": {
+          "$type": "color",
+          "$value": "{primitive.color.brand.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.900}" } }
+        },
+        "text": {
+          "$type": "color",
+          "$description": "Text on subtle fills. Uses 800 (light) / 300 (dark) for WCAG AA on brand-tinted backgrounds.",
+          "$value": "{primitive.color.brand.800}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.300}" } }
+        },
+        "border": {
+          "$type": "color",
+          "$description": "Borders on primary-tinted surfaces.",
+          "$value": "{primitive.color.brand.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.700}" } }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{primitive.color.brand.600}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.400}" } }
+        },
+        "onEmphasis": {
+          "$type": "color",
+          "$description": "Text on emphasis fills. Dark: brand-400 is L=73.91% so dark text needed.",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.950}" } }
+        }
+      },
+
+      "focusRing": {
+        "$type": "color",
+        "$value": "{primitive.color.brand.400}",
+        "$extensions": { "modes": { "dark": "{primitive.color.brand.500}" } }
+      },
+
+      "success": {
+        "background": {
+          "$type": "color",
+          "$value": "{primitive.color.emerald.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.emerald.950}" } }
+        },
+        "backgroundHover": {
+          "$type": "color",
+          "$value": "{primitive.color.emerald.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.emerald.900}" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{primitive.color.emerald.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.emerald.700}" } }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{primitive.color.emerald.800}",
+          "$extensions": { "modes": { "dark": "{primitive.color.emerald.200}" } }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{primitive.color.emerald.700}",
+          "$extensions": { "modes": { "dark": "{primitive.color.emerald.400}" } }
+        },
+        "emphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.emerald.600}",
+          "$extensions": { "modes": { "dark": "{primitive.color.emerald.500}" } }
+        },
+        "onEmphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.white}" } }
+        }
+      },
+
+      "error": {
+        "background": {
+          "$type": "color",
+          "$value": "{primitive.color.red.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.red.950}" } }
+        },
+        "backgroundHover": {
+          "$type": "color",
+          "$value": "{primitive.color.red.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.red.900}" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{primitive.color.red.400}",
+          "$extensions": { "modes": { "dark": "{primitive.color.red.700}" } }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{primitive.color.red.700}",
+          "$extensions": { "modes": { "dark": "{primitive.color.red.200}" } }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{primitive.color.red.700}",
+          "$extensions": { "modes": { "dark": "{primitive.color.red.400}" } }
+        },
+        "emphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.red.600}",
+          "$extensions": { "modes": { "dark": "{primitive.color.red.500}" } }
+        },
+        "onEmphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.white}" } }
+        }
+      },
+
+      "warning": {
+        "background": {
+          "$type": "color",
+          "$value": "{primitive.color.yellow.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.yellow.950}" } }
+        },
+        "backgroundHover": {
+          "$type": "color",
+          "$value": "{primitive.color.yellow.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.yellow.900}" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{primitive.color.yellow.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.yellow.700}" } }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{primitive.color.yellow.800}",
+          "$extensions": { "modes": { "dark": "{primitive.color.yellow.100}" } }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{primitive.color.yellow.700}",
+          "$extensions": { "modes": { "dark": "{primitive.color.yellow.100}" } }
+        },
+        "emphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.yellow.500}",
+          "$extensions": { "modes": { "dark": "{primitive.color.yellow.500}" } }
+        },
+        "onEmphasis": {
+          "$type": "color",
+          "$description": "Yellow-500 is too bright for white text (~1.8:1 contrast) — dark text in both modes.",
+          "$value": "{primitive.color.neutral.950}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.950}" } }
+        }
+      },
+
+      "info": {
+        "background": {
+          "$type": "color",
+          "$value": "{primitive.color.sky.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.sky.950}" } }
+        },
+        "backgroundHover": {
+          "$type": "color",
+          "$value": "{primitive.color.sky.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.sky.900}" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{primitive.color.sky.300}",
+          "$extensions": { "modes": { "dark": "{primitive.color.sky.700}" } }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{primitive.color.sky.800}",
+          "$extensions": { "modes": { "dark": "{primitive.color.sky.200}" } }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{primitive.color.sky.700}",
+          "$extensions": { "modes": { "dark": "{primitive.color.sky.400}" } }
+        },
+        "emphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.sky.600}",
+          "$extensions": { "modes": { "dark": "{primitive.color.sky.500}" } }
+        },
+        "onEmphasis": {
+          "$type": "color",
+          "$value": "{primitive.color.white}",
+          "$extensions": { "modes": { "dark": "{primitive.color.white}" } }
+        }
+      },
+
+      "state": {
+        "hover": {
+          "$type": "color",
+          "$description": "Neutral hover tint applied on top of existing backgrounds.",
+          "$value": "{primitive.color.neutral.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.800}" } }
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.200}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.700}" } }
+        },
+        "selected": {
+          "$type": "color",
+          "$value": "{primitive.color.brand.50}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.950}" } }
+        },
+        "selectedBorder": {
+          "$type": "color",
+          "$value": "{primitive.color.brand.400}",
+          "$extensions": { "modes": { "dark": "{primitive.color.brand.600}" } }
+        },
+        "disabledBg": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.100}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.800}" } }
+        },
+        "disabledBorder": {
+          "$type": "color",
+          "$value": "{primitive.color.neutral.200}",
+          "$extensions": { "modes": { "dark": "{primitive.color.neutral.700}" } }
+        }
+      },
+
+      "overlayScrim": {
+        "$type": "color",
+        "$description": "Behind modals, sheets, dialogs. Light: dark-base alpha. Dark: light-base alpha.",
+        "$value": "{primitive.color.neutralAlpha.onLight.500}",
+        "$extensions": { "modes": { "dark": "{primitive.color.neutralAlpha.onDark.100}" } }
+      }
+
+    },
+
+    "focusRing": {
+      "width": {
+        "$value": "3px",
+        "$type": "dimension",
+        "$description": "Standard focus ring width shared across all interactive components."
+      },
+      "offset": {
+        "$value": "2px",
+        "$type": "dimension",
+        "$description": "Standard offset. Components may override (inputs: 0px, inline controls: 1px)."
+      }
+    },
+
+    "typography": {
+
+      "fontFamily": {
+        "sans":        { "$value": "{primitive.typography.fontFamily.sans}",        "$type": "fontFamily" },
+        "sansDisplay": { "$value": "{primitive.typography.fontFamily.sansDisplay}",  "$type": "fontFamily" },
+        "mono":        { "$value": "{primitive.typography.fontFamily.mono}",         "$type": "fontFamily" }
+      },
+
+      "text": {
+        "$description": "Scale for dense B2B product UI. Body default: 14px (body.md).",
+
+        "display": {
+          "size":       { "$value": "{primitive.typography.fontSize.4xl}",        "$type": "dimension" },
+          "weight":     { "$value": "{primitive.typography.fontWeight.semibold}",  "$type": "number"    },
+          "lineHeight": { "$value": "{primitive.typography.lineHeight.snug}",      "$type": "number"    }
+        },
+
+        "title": {
+          "lg": {
+            "$description": "24px — page-level heading.",
+            "size":       { "$value": "{primitive.typography.fontSize.2xl}",       "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.semibold}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.normal}",   "$type": "number"    }
+          },
+          "md": {
+            "$description": "20px — modal/panel/major card title.",
+            "size":       { "$value": "{primitive.typography.fontSize.xl}",        "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.semibold}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.relaxed}",  "$type": "number"    }
+          },
+          "sm": {
+            "$description": "16px — section headers, form groups.",
+            "size":       { "$value": "{primitive.typography.fontSize.base}",      "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.semibold}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.normal}",   "$type": "number"    }
+          }
+        },
+
+        "subtitle": {
+          "$description": "16px / regular — companion to Title LG. Regular weight + muted color provide the distinction.",
+          "size":       { "$value": "{primitive.typography.fontSize.base}",     "$type": "dimension" },
+          "weight":     { "$value": "{primitive.typography.fontWeight.normal}",  "$type": "number"    },
+          "lineHeight": { "$value": "{primitive.typography.lineHeight.relaxed}", "$type": "number"    }
+        },
+
+        "body": {
+          "lg": {
+            "size":       { "$value": "{primitive.typography.fontSize.base}",    "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.normal}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.normal}", "$type": "number"    }
+          },
+          "md": {
+            "$description": "14px — app default.",
+            "size":       { "$value": "{primitive.typography.fontSize.sm}",      "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.normal}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.normal}", "$type": "number"    }
+          },
+          "sm": {
+            "size":       { "$value": "{primitive.typography.fontSize.xs}",      "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.normal}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.relaxed}", "$type": "number"   }
+          }
+        },
+
+        "label": {
+          "$description": "Distinct from body via weight — medium (500) vs regular (400).",
+          "lg": {
+            "size":       { "$value": "{primitive.typography.fontSize.sm}",      "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.medium}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.normal}", "$type": "number"    }
+          },
+          "sm": {
+            "size":       { "$value": "{primitive.typography.fontSize.xs}",      "$type": "dimension" },
+            "weight":     { "$value": "{primitive.typography.fontWeight.medium}", "$type": "number"    },
+            "lineHeight": { "$value": "{primitive.typography.lineHeight.normal}", "$type": "number"    }
+          }
+        },
+
+        "caption": {
+          "size":       { "$value": "{primitive.typography.fontSize.xs}",     "$type": "dimension" },
+          "weight":     { "$value": "{primitive.typography.fontWeight.normal}", "$type": "number"   },
+          "lineHeight": { "$value": "{primitive.typography.lineHeight.snug}",   "$type": "number"   }
+        },
+
+        "codeInline": {
+          "$description": "Relative size (em-based). No line-height token — set font-family and font-size separately.",
+          "size":   { "$value": "0.9285em", "$type": "dimension" },
+          "weight": { "$value": "{primitive.typography.fontWeight.normal}", "$type": "number" }
+        }
+      }
+
+    },
+
+    "spacing": {
+
+      "component": {
+        "padding": {
+          "$description": "Internal padding inside buttons, inputs, badges, etc.",
+          "xs": { "$value": "{primitive.spacing.1}", "$type": "dimension" },
+          "sm": { "$value": "{primitive.spacing.2}", "$type": "dimension" },
+          "md": { "$value": "{primitive.spacing.3}", "$type": "dimension" },
+          "lg": { "$value": "{primitive.spacing.4}", "$type": "dimension" },
+          "xl": { "$value": "{primitive.spacing.6}", "$type": "dimension" }
+        },
+        "gap": {
+          "$description": "Gaps between elements within a component (icon + label, etc.).",
+          "xs": { "$value": "{primitive.spacing.1}",   "$type": "dimension" },
+          "sm": { "$value": "{primitive.spacing.1-5}", "$type": "dimension" },
+          "md": { "$value": "{primitive.spacing.2}",   "$type": "dimension" },
+          "lg": { "$value": "{primitive.spacing.3}",   "$type": "dimension" }
+        }
+      },
+
+      "layout": {
+        "gap": {
+          "$description": "Gaps between components on a page or panel.",
+          "sm": { "$value": "{primitive.spacing.4}",  "$type": "dimension" },
+          "md": { "$value": "{primitive.spacing.6}",  "$type": "dimension" },
+          "lg": { "$value": "{primitive.spacing.8}",  "$type": "dimension" },
+          "xl": { "$value": "{primitive.spacing.10}", "$type": "dimension" }
+        }
+      },
+
+      "inset": {
+        "$description": "Padding for panels, cards, page sections.",
+        "sm": { "$value": "{primitive.spacing.3}", "$type": "dimension" },
+        "md": { "$value": "{primitive.spacing.4}", "$type": "dimension" },
+        "lg": { "$value": "{primitive.spacing.6}", "$type": "dimension" },
+        "xl": { "$value": "{primitive.spacing.8}", "$type": "dimension" }
+      }
+
+    },
+
+    "sizing": {
+
+      "control": {
+        "$description": "Heights for buttons, inputs, selects.",
+        "xs": { "$value": "{primitive.spacing.6}",  "$type": "dimension" },
+        "sm": { "$value": "{primitive.spacing.7}",  "$type": "dimension" },
+        "md": { "$value": "{primitive.spacing.8}",  "$type": "dimension", "$description": "32px — default control height." },
+        "lg": { "$value": "{primitive.spacing.10}", "$type": "dimension" },
+        "xl": { "$value": "{primitive.spacing.12}", "$type": "dimension" }
+      },
+
+      "avatar": {
+        "xs": { "$value": "{primitive.spacing.5}",  "$type": "dimension" },
+        "sm": { "$value": "{primitive.spacing.6}",  "$type": "dimension" },
+        "md": { "$value": "{primitive.spacing.8}",  "$type": "dimension" },
+        "lg": { "$value": "{primitive.spacing.10}", "$type": "dimension" },
+        "xl": { "$value": "{primitive.spacing.12}", "$type": "dimension" }
+      },
+
+      "icon": {
+        "sm": { "$value": "{primitive.spacing.3}", "$type": "dimension" },
+        "md": { "$value": "{primitive.spacing.4}", "$type": "dimension" },
+        "lg": { "$value": "{primitive.spacing.5}", "$type": "dimension" }
+      }
+
+    },
+
+    "radius": {
+      "none": { "$value": "{primitive.radius.none}", "$type": "dimension" },
+      "sm":   { "$value": "{primitive.radius.sm}",   "$type": "dimension" },
+      "md":   { "$value": "{primitive.radius.md}",   "$type": "dimension" },
+      "lg":   { "$value": "{primitive.radius.lg}",   "$type": "dimension" },
+      "xl":   { "$value": "{primitive.radius.xl}",   "$type": "dimension" },
+      "2xl":  { "$value": "{primitive.radius.2xl}",  "$type": "dimension" },
+      "full": { "$value": "{primitive.radius.full}", "$type": "dimension" }
+    },
+
+    "shadow": {
+      "$description": "Named by elevation role. Dark mode overrides use higher opacity; borders carry elevation instead of shadow in dark UIs.",
+      "sm": {
+        "$type": "shadow",
+        "$value": "{primitive.shadow.sm}",
+        "$description": "Subtle lift — hovered cards, inline menus.",
+        "$extensions": { "modes": { "dark": "0 1px 2px 0 rgb(0 0 0 / 0.3)" } }
+      },
+      "md": {
+        "$type": "shadow",
+        "$value": "{primitive.shadow.md}",
+        "$description": "Default elevation — cards, dropdowns.",
+        "$extensions": { "modes": { "dark": "0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4)" } }
+      },
+      "lg": {
+        "$type": "shadow",
+        "$value": "{primitive.shadow.lg}",
+        "$description": "Higher elevation — modals, dialogs, sheets.",
+        "$extensions": { "modes": { "dark": "0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5)" } }
+      },
+      "xl": {
+        "$type": "shadow",
+        "$value": "{primitive.shadow.xl}",
+        "$description": "Maximum elevation — tooltips over modals.",
+        "$extensions": { "modes": { "dark": "0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6)" } }
+      }
+    },
+
+    "zIndex": {
+      "base":     { "$value": 0,   "$type": "number" },
+      "raised":   { "$value": 10,  "$type": "number", "$description": "Slightly raised cards, sticky headers." },
+      "dropdown": { "$value": 100, "$type": "number", "$description": "Dropdowns, context menus, popovers." },
+      "sticky":   { "$value": 200, "$type": "number", "$description": "Sticky nav, table headers." },
+      "overlay":  { "$value": 300, "$type": "number", "$description": "Sheets, drawers." },
+      "modal":    { "$value": 400, "$type": "number", "$description": "Dialogs, alert dialogs." },
+      "toast":    { "$value": 500, "$type": "number", "$description": "Toasts — above modals." },
+      "tooltip":  { "$value": 600, "$type": "number", "$description": "Tooltips — above all native layers." },
+      "external": { "$value": 900, "$type": "number", "$description": "Third-party tools: TinyMCE, date pickers, etc." }
+    }
+
+  }
+}

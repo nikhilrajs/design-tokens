@@ -1,0 +1,691 @@
+/* =============================================================================
+   PROTEUS2 DESIGN TOKENS — CSS REFERENCE SNAPSHOT
+   =============================================================================
+
+   Source: src/styles/tokens/tokens.css
+   Scope:  Tier 1 primitives + Tier 2 semantic tokens only.
+           Component tokens (tokens-*.css) are intentionally excluded.
+
+   This file is a human-readable snapshot for documentation, auditing, and
+   onboarding. It is NOT imported by the application. The authoritative source
+   is tokens.css.
+
+   Structure:
+     :root            — Tier 1 primitives + Tier 2 semantic tokens (light mode)
+     .dark / [data-app-color-scheme="dark"]
+                      — Tier 2 semantic overrides for dark mode
+                        (primitives never change between modes)
+   ============================================================================= */
+
+
+/* =============================================================================
+   :root — TIER 1 PRIMITIVES + TIER 2 SEMANTICS (LIGHT MODE)
+   ============================================================================= */
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Neutral (Zinc scale, OKLCH)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-neutral-50:  oklch(98.5% 0 0);
+  --pcs-primitive-color-neutral-100: oklch(96.7% 0.001 286.375);
+  --pcs-primitive-color-neutral-200: oklch(92% 0.004 286.32);
+  --pcs-primitive-color-neutral-300: oklch(87.1% 0.006 286.286);
+  --pcs-primitive-color-neutral-400: oklch(70.5% 0.015 286.067);
+  --pcs-primitive-color-neutral-500: oklch(55.2% 0.016 285.938);
+  --pcs-primitive-color-neutral-600: oklch(44.2% 0.017 285.786);
+  --pcs-primitive-color-neutral-700: oklch(37% 0.013 285.805);
+  --pcs-primitive-color-neutral-800: oklch(27.4% 0.006 286.033);
+  --pcs-primitive-color-neutral-900: oklch(21% 0.006 285.885);
+  --pcs-primitive-color-neutral-950: oklch(14.1% 0.005 285.823);
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Neutral Alpha — On Light (dark base, 5 steps)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-neutral-alpha-on-light-100: oklch(14.1% 0.005 285.823 / 4%);
+  --pcs-primitive-color-neutral-alpha-on-light-200: oklch(14.1% 0.005 285.823 / 8%);
+  --pcs-primitive-color-neutral-alpha-on-light-300: oklch(14.1% 0.005 285.823 / 16%);
+  --pcs-primitive-color-neutral-alpha-on-light-400: oklch(14.1% 0.005 285.823 / 32%);
+  --pcs-primitive-color-neutral-alpha-on-light-500: oklch(14.1% 0.005 285.823 / 64%);
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Neutral Alpha — On Dark (light base, 8 steps)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-neutral-alpha-on-dark-100: oklch(0.0993 0.0115 195.47 / 46%);
+  --pcs-primitive-color-neutral-alpha-on-dark-200: oklch(0.7984 0 0 / 4%);
+  --pcs-primitive-color-neutral-alpha-on-dark-300: oklch(0.8547 0.0151 286.08 / 7%);
+  --pcs-primitive-color-neutral-alpha-on-dark-400: oklch(0.8915 0.0177 282.51 / 10%);
+  --pcs-primitive-color-neutral-alpha-on-dark-500: oklch(0.9222 0.0189 282.75 / 12%);
+  --pcs-primitive-color-neutral-alpha-on-dark-600: oklch(0.947 0.0222 272.06 / 18%);
+  --pcs-primitive-color-neutral-alpha-on-dark-700: oklch(0.9348 0.0181 272.31 / 25%);
+  --pcs-primitive-color-neutral-alpha-on-dark-800: oklch(0.9531 0.0166 259.42 / 36%);
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Brand (OKLCH, hue 43.7 — tenant-swappable)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-brand-50:  oklch(97.93% 0.006 43.7);
+  --pcs-primitive-color-brand-100: oklch(95.05% 0.017 43.7);
+  --pcs-primitive-color-brand-200: oklch(90.24% 0.042 43.7);
+  --pcs-primitive-color-brand-300: oklch(83.66% 0.081 43.7);
+  --pcs-primitive-color-brand-400: oklch(73.91% 0.1497 43.7);
+  --pcs-primitive-color-brand-500: oklch(64.7% 0.169 43.7);
+  --pcs-primitive-color-brand-600: oklch(59.17% 0.155 43.7);
+  --pcs-primitive-color-brand-700: oklch(50.81% 0.133 43.7);
+  --pcs-primitive-color-brand-800: oklch(44.37% 0.116 43.7);
+  --pcs-primitive-color-brand-900: oklch(39.25% 0.102 43.7);
+  --pcs-primitive-color-brand-950: oklch(27.91% 0.073 43.7);
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Red (hex)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-red-50:  #fef2f2;
+  --pcs-primitive-color-red-100: #fee2e2;
+  --pcs-primitive-color-red-200: #fecaca;
+  --pcs-primitive-color-red-300: #fca5a5;
+  --pcs-primitive-color-red-400: #f87171;
+  --pcs-primitive-color-red-500: #ef4444;
+  --pcs-primitive-color-red-600: #dc2626;
+  --pcs-primitive-color-red-700: #b91c1c;
+  --pcs-primitive-color-red-800: #991b1b;
+  --pcs-primitive-color-red-900: #7f1d1d;
+  --pcs-primitive-color-red-950: #450a0a;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Yellow (hex)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-yellow-50:  #fefce8;
+  --pcs-primitive-color-yellow-100: #fef9c3;
+  --pcs-primitive-color-yellow-200: #fef08a;
+  --pcs-primitive-color-yellow-300: #fde047;
+  --pcs-primitive-color-yellow-400: #facc15;
+  --pcs-primitive-color-yellow-500: #eab308;
+  --pcs-primitive-color-yellow-600: #ca8a04;
+  --pcs-primitive-color-yellow-700: #a16207;
+  --pcs-primitive-color-yellow-800: #854d0e;
+  --pcs-primitive-color-yellow-900: #713f12;
+  --pcs-primitive-color-yellow-950: #422006;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Emerald (hex)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-emerald-50:  #ecfdf5;
+  --pcs-primitive-color-emerald-100: #d1fae5;
+  --pcs-primitive-color-emerald-200: #a7f3d0;
+  --pcs-primitive-color-emerald-300: #6ee7b7;
+  --pcs-primitive-color-emerald-400: #34d399;
+  --pcs-primitive-color-emerald-500: #10b981;
+  --pcs-primitive-color-emerald-600: #059669;
+  --pcs-primitive-color-emerald-700: #047857;
+  --pcs-primitive-color-emerald-800: #065f46;
+  --pcs-primitive-color-emerald-900: #064e3b;
+  --pcs-primitive-color-emerald-950: #022c22;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Sky (hex)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-sky-50:  #f0f9ff;
+  --pcs-primitive-color-sky-100: #e0f2fe;
+  --pcs-primitive-color-sky-200: #bae6fd;
+  --pcs-primitive-color-sky-300: #7dd3fc;
+  --pcs-primitive-color-sky-400: #38bdf8;
+  --pcs-primitive-color-sky-500: #0ea5e9;
+  --pcs-primitive-color-sky-600: #0284c7;
+  --pcs-primitive-color-sky-700: #0369a1;
+  --pcs-primitive-color-sky-800: #075985;
+  --pcs-primitive-color-sky-900: #0c4a6e;
+  --pcs-primitive-color-sky-950: #082f49;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — COLOR PRIMITIVES: Absolute
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-color-white: #ffffff;
+  --pcs-primitive-color-black: #000000;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — TYPOGRAPHY PRIMITIVES: Font Family
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-font-family-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  --pcs-primitive-font-family-sans-display:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  --pcs-primitive-font-family-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
+    monospace;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — TYPOGRAPHY PRIMITIVES: Font Size (Tailwind xs–4xl, 16px base)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-font-size-xs:   0.75rem;    /* 12px */
+  --pcs-primitive-font-size-sm:   0.875rem;   /* 14px */
+  --pcs-primitive-font-size-base: 1rem;       /* 16px */
+  --pcs-primitive-font-size-lg:   1.125rem;   /* 18px */
+  --pcs-primitive-font-size-xl:   1.25rem;    /* 20px */
+  --pcs-primitive-font-size-2xl:  1.5rem;     /* 24px */
+  --pcs-primitive-font-size-3xl:  1.875rem;   /* 30px */
+  --pcs-primitive-font-size-4xl:  2.25rem;    /* 36px */
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — TYPOGRAPHY PRIMITIVES: Font Weight
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-font-weight-normal:   400;
+  --pcs-primitive-font-weight-medium:   500;
+  --pcs-primitive-font-weight-semibold: 600;
+  --pcs-primitive-font-weight-bold:     700;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — TYPOGRAPHY PRIMITIVES: Line Height (GitHub Primer scale)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-line-height-tight:   1.25;
+  --pcs-primitive-line-height-snug:    1.375;
+  --pcs-primitive-line-height-normal:  1.5;
+  --pcs-primitive-line-height-relaxed: 1.625;
+  --pcs-primitive-line-height-loose:   1.75;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — SPACING PRIMITIVES (Tailwind 4px base)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-space-0:   0px;
+  --pcs-primitive-space-px:  1px;
+  --pcs-primitive-space-0-5: 0.125rem;   /* 2px  */
+  --pcs-primitive-space-1:   0.25rem;    /* 4px  */
+  --pcs-primitive-space-1-5: 0.375rem;   /* 6px  */
+  --pcs-primitive-space-2:   0.5rem;     /* 8px  */
+  --pcs-primitive-space-2-5: 0.625rem;   /* 10px */
+  --pcs-primitive-space-3:   0.75rem;    /* 12px */
+  --pcs-primitive-space-3-5: 0.875rem;   /* 14px */
+  --pcs-primitive-space-4:   1rem;       /* 16px */
+  --pcs-primitive-space-5:   1.25rem;    /* 20px */
+  --pcs-primitive-space-6:   1.5rem;     /* 24px */
+  --pcs-primitive-space-7:   1.75rem;    /* 28px */
+  --pcs-primitive-space-8:   2rem;       /* 32px */
+  --pcs-primitive-space-10:  2.5rem;     /* 40px */
+  --pcs-primitive-space-12:  3rem;       /* 48px */
+  --pcs-primitive-space-14:  3.5rem;     /* 56px */
+  --pcs-primitive-space-16:  4rem;       /* 64px */
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — BORDER RADIUS PRIMITIVES
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-radius-none: 0px;
+  --pcs-primitive-radius-sm:   0.125rem;   /* 2px  */
+  --pcs-primitive-radius-md:   0.375rem;   /* 6px  */
+  --pcs-primitive-radius-lg:   0.5rem;     /* 8px  */
+  --pcs-primitive-radius-xl:   0.75rem;    /* 12px */
+  --pcs-primitive-radius-2xl:  1rem;       /* 16px */
+  --pcs-primitive-radius-full: 9999px;
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — SHADOW PRIMITIVES (Tailwind scale)
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-shadow-sm:
+    0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  --pcs-primitive-shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  --pcs-primitive-shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --pcs-primitive-shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* ---------------------------------------------------------------------------
+     TIER 1 — BORDER WIDTH PRIMITIVES
+  --------------------------------------------------------------------------- */
+
+  --pcs-primitive-border-width-default: 1px;
+  --pcs-primitive-border-width-medium:  2px;
+  --pcs-primitive-border-width-thick:   4px;
+
+
+  /* ===========================================================================
+     TIER 2 — SEMANTIC TOKENS (Light Mode)
+     Components consume these. Named by intent, not by visual appearance.
+     =========================================================================== */
+
+  /* ---------------------------------------------------------------------------
+     2.1 NEUTRAL SURFACES
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-background:     var(--pcs-primitive-color-white);       /* Page/app canvas */
+  --pcs-color-surface-card:   var(--pcs-primitive-color-white);       /* Cards, panels, sheets */
+  --pcs-color-surface-muted:  var(--pcs-primitive-color-neutral-100); /* Inputs, table rows */
+  --pcs-color-surface-overlay: var(--pcs-primitive-color-white);      /* Dropdowns, tooltips, modals */
+  --pcs-color-surface-sidebar: var(--pcs-primitive-color-neutral-50); /* Secondary navigation */
+
+  /* ---------------------------------------------------------------------------
+     2.2 NEUTRAL BORDERS
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-border-default: var(--pcs-primitive-color-neutral-200);
+  --pcs-color-border-muted:   var(--pcs-primitive-color-neutral-100);
+  --pcs-color-border-strong:  var(--pcs-primitive-color-neutral-300);
+
+  /* ---------------------------------------------------------------------------
+     2.3 NEUTRAL TEXT
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-text-default:     var(--pcs-primitive-color-neutral-900);
+  --pcs-color-text-muted:       var(--pcs-primitive-color-neutral-500);
+  --pcs-color-text-disabled:    var(--pcs-primitive-color-neutral-300);
+  --pcs-color-text-inverse:     var(--pcs-primitive-color-white);
+  --pcs-color-text-on-emphasis: var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     2.4 NEUTRAL ICONS
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-icon-default:  var(--pcs-primitive-color-neutral-600);
+  --pcs-color-icon-muted:    var(--pcs-primitive-color-neutral-400);
+  --pcs-color-icon-disabled: var(--pcs-primitive-color-neutral-300);
+
+  /* ---------------------------------------------------------------------------
+     2.5 PRIMARY / BRAND
+     Only this group changes per tenant — via [data-app-tenant="x"] overrides.
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-primary-emphasis:        var(--pcs-primitive-color-brand-600);
+  --pcs-color-primary-emphasis-hover:  var(--pcs-primitive-color-brand-700);
+  --pcs-color-primary-emphasis-active: var(--pcs-primitive-color-brand-800);
+  --pcs-color-primary-subtle:          var(--pcs-primitive-color-brand-50);
+  --pcs-color-primary-subtle-hover:    var(--pcs-primitive-color-brand-100);
+  --pcs-color-primary-text:            var(--pcs-primitive-color-brand-800);
+  --pcs-color-primary-border:          var(--pcs-primitive-color-brand-300);
+  --pcs-color-primary-icon:            var(--pcs-primitive-color-brand-600);
+  --pcs-color-primary-on-emphasis:     var(--pcs-primitive-color-white);
+
+  --pcs-color-focus-ring:  var(--pcs-primitive-color-brand-400);
+  --pcs-focus-ring-width:  3px;
+  --pcs-focus-ring-offset: 2px;
+
+  /* ---------------------------------------------------------------------------
+     2.6 STATUS: Success
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-success-background:       var(--pcs-primitive-color-emerald-50);
+  --pcs-color-success-background-hover: var(--pcs-primitive-color-emerald-100);
+  --pcs-color-success-border:           var(--pcs-primitive-color-emerald-300);
+  --pcs-color-success-text:             var(--pcs-primitive-color-emerald-800);
+  --pcs-color-success-icon:             var(--pcs-primitive-color-emerald-700);
+  --pcs-color-success-emphasis:         var(--pcs-primitive-color-emerald-600);
+  --pcs-color-success-on-emphasis:      var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     2.7 STATUS: Error
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-error-background:       var(--pcs-primitive-color-red-50);
+  --pcs-color-error-background-hover: var(--pcs-primitive-color-red-100);
+  --pcs-color-error-border:           var(--pcs-primitive-color-red-400);
+  --pcs-color-error-text:             var(--pcs-primitive-color-red-700);
+  --pcs-color-error-icon:             var(--pcs-primitive-color-red-700);
+  --pcs-color-error-emphasis:         var(--pcs-primitive-color-red-600);
+  --pcs-color-error-on-emphasis:      var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     2.8 STATUS: Warning
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-warning-background:       var(--pcs-primitive-color-yellow-50);
+  --pcs-color-warning-background-hover: var(--pcs-primitive-color-yellow-100);
+  --pcs-color-warning-border:           var(--pcs-primitive-color-yellow-300);
+  --pcs-color-warning-text:             var(--pcs-primitive-color-yellow-800);
+  --pcs-color-warning-icon:             var(--pcs-primitive-color-yellow-700);
+  --pcs-color-warning-emphasis:         var(--pcs-primitive-color-yellow-500);
+  --pcs-color-warning-on-emphasis:      var(--pcs-primitive-color-neutral-950); /* yellow too bright for white text */
+
+  /* ---------------------------------------------------------------------------
+     2.9 STATUS: Info
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-info-background:       var(--pcs-primitive-color-sky-50);
+  --pcs-color-info-background-hover: var(--pcs-primitive-color-sky-100);
+  --pcs-color-info-border:           var(--pcs-primitive-color-sky-300);
+  --pcs-color-info-text:             var(--pcs-primitive-color-sky-800);
+  --pcs-color-info-icon:             var(--pcs-primitive-color-sky-700);
+  --pcs-color-info-emphasis:         var(--pcs-primitive-color-sky-600);
+  --pcs-color-info-on-emphasis:      var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     2.10 INTERACTIVE STATE OVERLAYS
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-state-hover:            var(--pcs-primitive-color-neutral-100);
+  --pcs-color-state-active:           var(--pcs-primitive-color-neutral-200);
+  --pcs-color-state-selected:         var(--pcs-primitive-color-brand-50);
+  --pcs-color-state-selected-border:  var(--pcs-primitive-color-brand-400);
+  --pcs-color-state-disabled-bg:      var(--pcs-primitive-color-neutral-100);
+  --pcs-color-state-disabled-border:  var(--pcs-primitive-color-neutral-200);
+  --pcs-color-overlay-scrim:          var(--pcs-primitive-color-neutral-alpha-on-light-500);
+
+  /* ---------------------------------------------------------------------------
+     2.11 TYPOGRAPHY SEMANTICS: Font roles
+  --------------------------------------------------------------------------- */
+
+  --pcs-text-font-sans:         var(--pcs-primitive-font-family-sans);
+  --pcs-text-font-sans-display: var(--pcs-primitive-font-family-sans-display);
+  --pcs-text-font-mono:         var(--pcs-primitive-font-family-mono);
+
+  /* --- Display (36px / semibold / snug) --- */
+  --pcs-text-display-size:        var(--pcs-primitive-font-size-4xl);
+  --pcs-text-display-weight:      var(--pcs-primitive-font-weight-semibold);
+  --pcs-text-display-line-height: var(--pcs-primitive-line-height-snug);
+
+  /* --- Title LG (24px / semibold / normal) — page-level heading --- */
+  --pcs-text-title-lg-size:        var(--pcs-primitive-font-size-2xl);
+  --pcs-text-title-lg-weight:      var(--pcs-primitive-font-weight-semibold);
+  --pcs-text-title-lg-line-height: var(--pcs-primitive-line-height-normal);
+
+  /* --- Title MD (20px / semibold / relaxed) — modal/panel title --- */
+  --pcs-text-title-md-size:        var(--pcs-primitive-font-size-xl);
+  --pcs-text-title-md-weight:      var(--pcs-primitive-font-weight-semibold);
+  --pcs-text-title-md-line-height: var(--pcs-primitive-line-height-relaxed);
+
+  /* --- Title SM (16px / semibold / normal) — section headers --- */
+  --pcs-text-title-sm-size:        var(--pcs-primitive-font-size-base);
+  --pcs-text-title-sm-weight:      var(--pcs-primitive-font-weight-semibold);
+  --pcs-text-title-sm-line-height: var(--pcs-primitive-line-height-normal);
+
+  /* --- Subtitle (16px / regular / relaxed) — companion to Title LG --- */
+  --pcs-text-subtitle-size:        var(--pcs-primitive-font-size-base);
+  --pcs-text-subtitle-weight:      var(--pcs-primitive-font-weight-normal);
+  --pcs-text-subtitle-line-height: var(--pcs-primitive-line-height-relaxed);
+
+  /* --- Body LG (16px / regular / normal) --- */
+  --pcs-text-body-lg-size:        var(--pcs-primitive-font-size-base);
+  --pcs-text-body-lg-weight:      var(--pcs-primitive-font-weight-normal);
+  --pcs-text-body-lg-line-height: var(--pcs-primitive-line-height-normal);
+
+  /* --- Body MD (14px / regular / normal) — APP DEFAULT --- */
+  --pcs-text-body-md-size:        var(--pcs-primitive-font-size-sm);
+  --pcs-text-body-md-weight:      var(--pcs-primitive-font-weight-normal);
+  --pcs-text-body-md-line-height: var(--pcs-primitive-line-height-normal);
+
+  /* --- Body SM (12px / regular / relaxed) --- */
+  --pcs-text-body-sm-size:        var(--pcs-primitive-font-size-xs);
+  --pcs-text-body-sm-weight:      var(--pcs-primitive-font-weight-normal);
+  --pcs-text-body-sm-line-height: var(--pcs-primitive-line-height-relaxed);
+
+  /* --- Label LG (14px / medium / normal) — form labels, button text --- */
+  --pcs-text-label-lg-size:        var(--pcs-primitive-font-size-sm);
+  --pcs-text-label-lg-weight:      var(--pcs-primitive-font-weight-medium);
+  --pcs-text-label-lg-line-height: var(--pcs-primitive-line-height-normal);
+
+  /* --- Label SM (12px / medium / normal) --- */
+  --pcs-text-label-sm-size:        var(--pcs-primitive-font-size-xs);
+  --pcs-text-label-sm-weight:      var(--pcs-primitive-font-weight-medium);
+  --pcs-text-label-sm-line-height: var(--pcs-primitive-line-height-normal);
+
+  /* --- Caption (12px / regular / snug) --- */
+  --pcs-text-caption-size:        var(--pcs-primitive-font-size-xs);
+  --pcs-text-caption-weight:      var(--pcs-primitive-font-weight-normal);
+  --pcs-text-caption-line-height: var(--pcs-primitive-line-height-snug);
+
+  /* --- Code Inline (relative size, no line-height) --- */
+  --pcs-text-code-inline-size:   0.9285em;
+  --pcs-text-code-inline-weight: var(--pcs-primitive-font-weight-normal);
+
+  /* --- Font Shorthands (weight size/line-height family) --- */
+  --pcs-text-display-shorthand:  var(--pcs-text-display-weight)  var(--pcs-text-display-size)  / var(--pcs-text-display-line-height)  var(--pcs-text-font-sans-display);
+  --pcs-text-title-lg-shorthand: var(--pcs-text-title-lg-weight) var(--pcs-text-title-lg-size) / var(--pcs-text-title-lg-line-height) var(--pcs-text-font-sans-display);
+  --pcs-text-title-md-shorthand: var(--pcs-text-title-md-weight) var(--pcs-text-title-md-size) / var(--pcs-text-title-md-line-height) var(--pcs-text-font-sans-display);
+  --pcs-text-title-sm-shorthand: var(--pcs-text-title-sm-weight) var(--pcs-text-title-sm-size) / var(--pcs-text-title-sm-line-height) var(--pcs-text-font-sans-display);
+  --pcs-text-subtitle-shorthand: var(--pcs-text-subtitle-weight) var(--pcs-text-subtitle-size) / var(--pcs-text-subtitle-line-height) var(--pcs-text-font-sans-display);
+  --pcs-text-body-lg-shorthand:  var(--pcs-text-body-lg-weight)  var(--pcs-text-body-lg-size)  / var(--pcs-text-body-lg-line-height)  var(--pcs-text-font-sans);
+  --pcs-text-body-md-shorthand:  var(--pcs-text-body-md-weight)  var(--pcs-text-body-md-size)  / var(--pcs-text-body-md-line-height)  var(--pcs-text-font-sans);
+  --pcs-text-body-sm-shorthand:  var(--pcs-text-body-sm-weight)  var(--pcs-text-body-sm-size)  / var(--pcs-text-body-sm-line-height)  var(--pcs-text-font-sans);
+  --pcs-text-label-lg-shorthand: var(--pcs-text-label-lg-weight) var(--pcs-text-label-lg-size) / var(--pcs-text-label-lg-line-height) var(--pcs-text-font-sans);
+  --pcs-text-label-sm-shorthand: var(--pcs-text-label-sm-weight) var(--pcs-text-label-sm-size) / var(--pcs-text-label-sm-line-height) var(--pcs-text-font-sans);
+  --pcs-text-caption-shorthand:  var(--pcs-text-caption-weight)  var(--pcs-text-caption-size)  / var(--pcs-text-caption-line-height)  var(--pcs-text-font-sans);
+
+  /* ---------------------------------------------------------------------------
+     2.12 SEMANTIC SPACING
+  --------------------------------------------------------------------------- */
+
+  /* Component internal padding */
+  --pcs-space-component-padding-xs: var(--pcs-primitive-space-1);    /* 4px  */
+  --pcs-space-component-padding-sm: var(--pcs-primitive-space-2);    /* 8px  */
+  --pcs-space-component-padding-md: var(--pcs-primitive-space-3);    /* 12px */
+  --pcs-space-component-padding-lg: var(--pcs-primitive-space-4);    /* 16px */
+  --pcs-space-component-padding-xl: var(--pcs-primitive-space-6);    /* 24px */
+
+  /* Gaps between elements within a component */
+  --pcs-space-component-gap-xs: var(--pcs-primitive-space-1);        /* 4px  */
+  --pcs-space-component-gap-sm: var(--pcs-primitive-space-1-5);      /* 6px  */
+  --pcs-space-component-gap-md: var(--pcs-primitive-space-2);        /* 8px  */
+  --pcs-space-component-gap-lg: var(--pcs-primitive-space-3);        /* 12px */
+
+  /* Layout gaps between components */
+  --pcs-space-layout-gap-sm: var(--pcs-primitive-space-4);           /* 16px */
+  --pcs-space-layout-gap-md: var(--pcs-primitive-space-6);           /* 24px */
+  --pcs-space-layout-gap-lg: var(--pcs-primitive-space-8);           /* 32px */
+  --pcs-space-layout-gap-xl: var(--pcs-primitive-space-10);          /* 40px */
+
+  /* Inset padding for panels, cards, page sections */
+  --pcs-space-inset-sm: var(--pcs-primitive-space-3);                /* 12px */
+  --pcs-space-inset-md: var(--pcs-primitive-space-4);                /* 16px */
+  --pcs-space-inset-lg: var(--pcs-primitive-space-6);                /* 24px */
+  --pcs-space-inset-xl: var(--pcs-primitive-space-8);                /* 32px */
+
+  /* ---------------------------------------------------------------------------
+     2.13 SEMANTIC SIZING: Control heights, avatars, icons
+  --------------------------------------------------------------------------- */
+
+  --pcs-size-control-xs: var(--pcs-primitive-space-6);    /* 24px */
+  --pcs-size-control-sm: var(--pcs-primitive-space-7);    /* 28px */
+  --pcs-size-control-md: var(--pcs-primitive-space-8);    /* 32px — default */
+  --pcs-size-control-lg: var(--pcs-primitive-space-10);   /* 40px */
+  --pcs-size-control-xl: var(--pcs-primitive-space-12);   /* 48px */
+
+  --pcs-size-avatar-xs: var(--pcs-primitive-space-5);     /* 20px */
+  --pcs-size-avatar-sm: var(--pcs-primitive-space-6);     /* 24px */
+  --pcs-size-avatar-md: var(--pcs-primitive-space-8);     /* 32px */
+  --pcs-size-avatar-lg: var(--pcs-primitive-space-10);    /* 40px */
+  --pcs-size-avatar-xl: var(--pcs-primitive-space-12);    /* 48px */
+
+  --pcs-size-icon-sm: var(--pcs-primitive-space-3);       /* 12px */
+  --pcs-size-icon-md: var(--pcs-primitive-space-4);       /* 16px */
+  --pcs-size-icon-lg: var(--pcs-primitive-space-5);       /* 20px */
+
+  /* ---------------------------------------------------------------------------
+     2.15 SEMANTIC RADIUS
+  --------------------------------------------------------------------------- */
+
+  --pcs-radius-none: var(--pcs-primitive-radius-none);    /* 0px    */
+  --pcs-radius-sm:   var(--pcs-primitive-radius-sm);      /* 2px    */
+  --pcs-radius-md:   var(--pcs-primitive-radius-md);      /* 6px    */
+  --pcs-radius-lg:   var(--pcs-primitive-radius-lg);      /* 8px    */
+  --pcs-radius-xl:   var(--pcs-primitive-radius-xl);      /* 12px   */
+  --pcs-radius-2xl:  var(--pcs-primitive-radius-2xl);     /* 16px   */
+  --pcs-radius-full: var(--pcs-primitive-radius-full);    /* 9999px */
+
+  /* ---------------------------------------------------------------------------
+     2.16 SEMANTIC SHADOWS (Light mode)
+  --------------------------------------------------------------------------- */
+
+  --pcs-shadow-sm: var(--pcs-primitive-shadow-sm);   /* subtle lift — hovered cards */
+  --pcs-shadow-md: var(--pcs-primitive-shadow-md);   /* cards, dropdowns */
+  --pcs-shadow-lg: var(--pcs-primitive-shadow-lg);   /* modals, dialogs, sheets */
+  --pcs-shadow-xl: var(--pcs-primitive-shadow-xl);   /* tooltips over modals */
+
+  /* ---------------------------------------------------------------------------
+     2.17 Z-INDEX TOKENS
+  --------------------------------------------------------------------------- */
+
+  --pcs-z-base:     0;
+  --pcs-z-raised:   10;    /* sticky headers, slightly raised cards */
+  --pcs-z-dropdown: 100;   /* dropdowns, context menus, popovers */
+  --pcs-z-sticky:   200;   /* sticky nav, table headers */
+  --pcs-z-overlay:  300;   /* sheets, drawers */
+  --pcs-z-modal:    400;   /* dialogs, alert dialogs */
+  --pcs-z-toast:    500;   /* toasts — above modals */
+  --pcs-z-tooltip:  600;   /* tooltips — above everything native */
+  --pcs-z-external: 900;   /* third-party: TinyMCE, date pickers, etc. */
+
+}
+
+
+/* =============================================================================
+   DARK MODE — TIER 2 SEMANTIC OVERRIDES
+   Primitives do not change. Only the semantic mapping changes.
+   Strategy: Atlassian symmetry model (light-100 ↔ dark-900, etc.)
+   ============================================================================= */
+
+[data-app-color-scheme='dark'],
+.dark {
+
+  /* ---------------------------------------------------------------------------
+     3.1 NEUTRAL SURFACES
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-background:      var(--pcs-primitive-color-neutral-950);
+  --pcs-color-surface-card:    var(--pcs-primitive-color-neutral-900);
+  --pcs-color-surface-muted:   var(--pcs-primitive-color-neutral-800);
+  --pcs-color-surface-overlay: var(--pcs-primitive-color-neutral-800); /* one step lighter than card for elevation */
+  --pcs-color-surface-sidebar: var(--pcs-primitive-color-neutral-900);
+
+  /* ---------------------------------------------------------------------------
+     3.2 NEUTRAL BORDERS
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-border-default: var(--pcs-primitive-color-neutral-700);
+  --pcs-color-border-muted:   var(--pcs-primitive-color-neutral-800);
+  --pcs-color-border-strong:  var(--pcs-primitive-color-neutral-600);
+
+  /* ---------------------------------------------------------------------------
+     3.3 NEUTRAL TEXT
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-text-default:     var(--pcs-primitive-color-neutral-50);
+  --pcs-color-text-muted:       var(--pcs-primitive-color-neutral-400);
+  --pcs-color-text-disabled:    var(--pcs-primitive-color-neutral-600);
+  --pcs-color-text-inverse:     var(--pcs-primitive-color-neutral-950);
+  --pcs-color-text-on-emphasis: var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     3.4 NEUTRAL ICONS
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-icon-default:  var(--pcs-primitive-color-neutral-400);
+  --pcs-color-icon-muted:    var(--pcs-primitive-color-neutral-500);
+  --pcs-color-icon-disabled: var(--pcs-primitive-color-neutral-600);
+
+  /* ---------------------------------------------------------------------------
+     3.5 PRIMARY / BRAND (light 600/700/800 → dark 400/300/200)
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-primary-emphasis:        var(--pcs-primitive-color-brand-400);
+  --pcs-color-primary-emphasis-hover:  var(--pcs-primitive-color-brand-300);
+  --pcs-color-primary-emphasis-active: var(--pcs-primitive-color-brand-200);
+  --pcs-color-primary-subtle:          var(--pcs-primitive-color-brand-950);
+  --pcs-color-primary-subtle-hover:    var(--pcs-primitive-color-brand-900);
+  --pcs-color-primary-text:            var(--pcs-primitive-color-brand-300);
+  --pcs-color-primary-border:          var(--pcs-primitive-color-brand-700);
+  --pcs-color-primary-icon:            var(--pcs-primitive-color-brand-400);
+  --pcs-color-primary-on-emphasis:     var(--pcs-primitive-color-neutral-950); /* brand-400 is L=73.91% — dark text needed */
+
+  --pcs-color-focus-ring: var(--pcs-primitive-color-brand-500);
+
+  /* ---------------------------------------------------------------------------
+     3.6 STATUS: Success (light 50/300/800 → dark 950/700/200)
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-success-background:       var(--pcs-primitive-color-emerald-950);
+  --pcs-color-success-background-hover: var(--pcs-primitive-color-emerald-900);
+  --pcs-color-success-border:           var(--pcs-primitive-color-emerald-700);
+  --pcs-color-success-text:             var(--pcs-primitive-color-emerald-200);
+  --pcs-color-success-icon:             var(--pcs-primitive-color-emerald-400);
+  --pcs-color-success-emphasis:         var(--pcs-primitive-color-emerald-500);
+  --pcs-color-success-on-emphasis:      var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     3.7 STATUS: Error
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-error-background:       var(--pcs-primitive-color-red-950);
+  --pcs-color-error-background-hover: var(--pcs-primitive-color-red-900);
+  --pcs-color-error-border:           var(--pcs-primitive-color-red-700);
+  --pcs-color-error-text:             var(--pcs-primitive-color-red-200);
+  --pcs-color-error-icon:             var(--pcs-primitive-color-red-400);
+  --pcs-color-error-emphasis:         var(--pcs-primitive-color-red-500);
+  --pcs-color-error-on-emphasis:      var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     3.8 STATUS: Warning
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-warning-background:       var(--pcs-primitive-color-yellow-950);
+  --pcs-color-warning-background-hover: var(--pcs-primitive-color-yellow-900);
+  --pcs-color-warning-border:           var(--pcs-primitive-color-yellow-700);
+  --pcs-color-warning-text:             var(--pcs-primitive-color-yellow-100);
+  --pcs-color-warning-icon:             var(--pcs-primitive-color-yellow-100);
+  --pcs-color-warning-emphasis:         var(--pcs-primitive-color-yellow-500);
+  --pcs-color-warning-on-emphasis:      var(--pcs-primitive-color-neutral-950);
+
+  /* ---------------------------------------------------------------------------
+     3.9 STATUS: Info
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-info-background:       var(--pcs-primitive-color-sky-950);
+  --pcs-color-info-background-hover: var(--pcs-primitive-color-sky-900);
+  --pcs-color-info-border:           var(--pcs-primitive-color-sky-700);
+  --pcs-color-info-text:             var(--pcs-primitive-color-sky-200);
+  --pcs-color-info-icon:             var(--pcs-primitive-color-sky-400);
+  --pcs-color-info-emphasis:         var(--pcs-primitive-color-sky-500);
+  --pcs-color-info-on-emphasis:      var(--pcs-primitive-color-white);
+
+  /* ---------------------------------------------------------------------------
+     3.10 INTERACTIVE STATES
+  --------------------------------------------------------------------------- */
+
+  --pcs-color-state-hover:           var(--pcs-primitive-color-neutral-800);
+  --pcs-color-state-active:          var(--pcs-primitive-color-neutral-700);
+  --pcs-color-state-selected:        var(--pcs-primitive-color-brand-950);
+  --pcs-color-state-selected-border: var(--pcs-primitive-color-brand-600);
+  --pcs-color-state-disabled-bg:     var(--pcs-primitive-color-neutral-800);
+  --pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-700);
+  --pcs-color-overlay-scrim:         var(--pcs-primitive-color-neutral-alpha-on-dark-100);
+
+  /* ---------------------------------------------------------------------------
+     3.11 SHADOWS (dark mode — higher opacity, rely on borders for elevation)
+  --------------------------------------------------------------------------- */
+
+  --pcs-shadow-sm:
+    0 1px 2px 0 rgb(0 0 0 / 0.3);
+
+  --pcs-shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.4),
+    0 2px 4px -2px rgb(0 0 0 / 0.4);
+
+  --pcs-shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.5),
+    0 4px 6px -4px rgb(0 0 0 / 0.5);
+
+  --pcs-shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.6),
+    0 8px 10px -6px rgb(0 0 0 / 0.6);
+
+}
