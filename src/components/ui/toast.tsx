@@ -295,7 +295,7 @@ const ToastAction = React.forwardRef<
     ref={ref}
     data-slot="toast-action"
     className={cn(
-      "mt-2 inline-flex h-8 shrink-0 items-center rounded-md border px-3 text-sm font-medium",
+      "mt-2 inline-flex self-start h-8 shrink-0 items-center rounded-md border px-3 text-sm font-medium",
       "transition-colors border-current/30 bg-transparent hover:bg-black/5",
       "focus-visible:outline-2 focus-visible:outline-offset-2",
       "focus-visible:outline-[var(--pcs-color-focus-ring)]",
@@ -341,7 +341,7 @@ const Toaster = () => {
               {toast.description && (
                 <ToastDescription>{toast.description}</ToastDescription>
               )}
-              {toast.actionProps && <ToastAction {...toast.actionProps} />}
+              {toast.actionProps && <ToastAction />}
             </ToastContent>
             <ToastClose />
           </Toast>
