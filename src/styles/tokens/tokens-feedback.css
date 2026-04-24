@@ -144,7 +144,7 @@
 	/* --- Base / Surface --- */
 	--pcs-toast-z: var(--pcs-z-toast);
 	/* 500 — floats above modal */
-	--pcs-toast-shadow: var(--pcs-shadow-lg);
+	--pcs-toast-shadow: var(--pcs-shadow-md);
 	--pcs-toast-border-radius: var(--pcs-radius-lg);
 
 	/* --- Typography --- */
