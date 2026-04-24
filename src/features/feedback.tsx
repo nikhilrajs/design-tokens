@@ -1,4 +1,5 @@
 import React from 'react';
+import { useToast } from '../components/ui/toast'
 
 import {
   Card,
@@ -55,6 +56,154 @@ import {
   UploadIcon,
   UsersIcon,
 } from "lucide-react"
+
+function ToastShowcase() {
+  const { add } = useToast()
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Toast</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+
+        {/* Variants */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Variants</p>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({ title: "Heads up", description: "Your changes have been saved successfully." })
+              }
+            >
+              Neutral
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({ title: "Changes saved", description: "Your profile has been updated.", type: "success" })
+              }
+            >
+              Success
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({ title: "Submission failed", description: "There was a problem processing your request.", type: "error" })
+              }
+            >
+              Error
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({ title: "Unsaved changes", description: "Leave the page and your changes will be lost.", type: "warning" })
+              }
+            >
+              Warning
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({ title: "New version available", description: "Version 2.4.0 includes the latest fixes.", type: "info" })
+              }
+            >
+              Info
+            </Button>
+          </div>
+        </div>
+
+        {/* Title only */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Title only</p>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => add({ title: "Copied to clipboard", type: "success" })}
+            >
+              Success (no description)
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => add({ title: "Connection lost", type: "error" })}
+            >
+              Error (no description)
+            </Button>
+          </div>
+        </div>
+
+        {/* With action */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">With action</p>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({
+                  title: "File deleted",
+                  description: "report-q4.pdf has been moved to trash.",
+                  actionProps: {
+                    children: "Undo",
+                    onClick: () => add({ title: "Undo successful", type: "success" }),
+                  },
+                })
+              }
+            >
+              With undo action
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() =>
+                add({
+                  title: "Update available",
+                  description: "Version 3.0 is ready to install.",
+                  type: "info",
+                  actionProps: {
+                    children: "Update now",
+                    onClick: () => add({ title: "Updating…", type: "neutral" }),
+                  },
+                })
+              }
+            >
+              With action (info)
+            </Button>
+          </div>
+        </div>
+
+        {/* Persistent (no auto-dismiss) */}
+        <div>
+          <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-4">Persistent</p>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              add({
+                title: "Action required",
+                description: "Please review and accept the new terms of service.",
+                type: "warning",
+                timeout: 0,
+                actionProps: { children: "Review" },
+              })
+            }
+          >
+            No auto-dismiss
+          </Button>
+        </div>
+
+      </CardContent>
+    </Card>
+  )
+}
 import {
   Empty,
   EmptyContent,
@@ -721,6 +870,8 @@ export const Feedback: React.FC = () => {
 
         </CardContent>
       </Card>
+
+      <ToastShowcase />
 
     </div>
   );

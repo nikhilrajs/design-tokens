@@ -31,6 +31,8 @@ import {
 } from "./components/ui/tabs"
 import { Button } from "./components/ui/button"
 
+import { ToastProvider, Toaster } from "./components/ui/toast"
+
 import { Buttons } from './features/buttons'
 import { DataGrid } from './features/data-table'
 import { Feedback } from './features/feedback'
@@ -52,7 +54,7 @@ function App() {
   }
 
   return (
-    <>
+    <ToastProvider>
       <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
@@ -163,8 +165,9 @@ function App() {
           <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" /> */}
         </div>
       </SidebarInset>
-    </SidebarProvider>
-    </>
+      </SidebarProvider>
+      <Toaster />
+    </ToastProvider>
   )
 }
 

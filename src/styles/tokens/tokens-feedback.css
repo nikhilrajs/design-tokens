@@ -1,12 +1,13 @@
 /* =============================================================================
-   COMPONENT TOKENS — ALERT / EMPTY STATE
+   COMPONENT TOKENS — ALERT / TOAST / EMPTY STATE
    =============================================================================
 
    Architecture:
      alert-*       — inline static feedback message (shadcn Alert structure)
+     toast-*       — transient floating notification (Base UI Toast)
      empty-state-* — no-data feedback pattern
 
-   Role variants (alert):
+   Role variants (alert + toast):
      neutral | success | error | warning | info
 
    shadcn Alert structure:
@@ -14,8 +15,9 @@
              [Description]
      Full role-colored background. Left border accent for extra role signal.
 
-   Toast tokens are deferred — no Toast/Sonner component exists.
-   Author at implementation time; apply ownership boundaries before defining.
+   Toast structure (Base UI):
+     ToastProvider > ToastViewport > ToastRoot > ToastContent
+     Fixed-position viewport (bottom-right). Stacked, auto-dismissing.
    =============================================================================*/
 
 
@@ -126,6 +128,62 @@
 	/* Links inside description */
 	--pcs-empty-description-link-color: var(--pcs-color-text-muted);
 	--pcs-empty-description-link-color-hover: var(--pcs-color-primary-emphasis);
+
+
+	/* ===========================================================================
+     TOAST
+     Transient floating notification. Appears/dismisses automatically or on
+     user action. Fixed-position viewport, stacked vertically.
+     Variants mirror Alert role colors — same semantic intent, separate namespace.
+
+     Base UI structure:
+       ToastProvider > ToastViewport > ToastRoot > ToastContent
+         > [Icon] [ToastTitle / ToastDescription] [ToastAction] [ToastClose]
+  =========================================================================== */
+
+	/* --- Base / Surface --- */
+	--pcs-toast-z: var(--pcs-z-toast);
+	/* 500 — floats above modal */
+	--pcs-toast-shadow: var(--pcs-shadow-lg);
+	--pcs-toast-border-radius: var(--pcs-radius-lg);
+
+	/* --- Typography --- */
+	--pcs-toast-title-font-size: var(--pcs-text-body-md-size);
+
+	/* --- VARIANT: Neutral --- */
+	--pcs-toast-neutral-bg: var(--pcs-color-surface-overlay);
+	--pcs-toast-neutral-border: var(--pcs-color-border-default);
+	--pcs-toast-neutral-title: var(--pcs-color-text-default);
+	--pcs-toast-neutral-description: var(--pcs-color-text-muted);
+	--pcs-toast-neutral-icon: var(--pcs-color-icon-default);
+
+	/* --- VARIANT: Success --- */
+	--pcs-toast-success-bg: var(--pcs-color-success-background);
+	--pcs-toast-success-border: var(--pcs-color-success-border);
+	--pcs-toast-success-title: var(--pcs-color-success-text);
+	--pcs-toast-success-description: var(--pcs-color-success-text);
+	--pcs-toast-success-icon: var(--pcs-color-success-icon);
+
+	/* --- VARIANT: Error --- */
+	--pcs-toast-error-bg: var(--pcs-color-error-background);
+	--pcs-toast-error-border: var(--pcs-color-error-border);
+	--pcs-toast-error-title: var(--pcs-color-error-text);
+	--pcs-toast-error-description: var(--pcs-color-error-text);
+	--pcs-toast-error-icon: var(--pcs-color-error-icon);
+
+	/* --- VARIANT: Warning --- */
+	--pcs-toast-warning-bg: var(--pcs-color-warning-background);
+	--pcs-toast-warning-border: var(--pcs-color-warning-border);
+	--pcs-toast-warning-title: var(--pcs-color-warning-text);
+	--pcs-toast-warning-description: var(--pcs-color-warning-text);
+	--pcs-toast-warning-icon: var(--pcs-color-warning-icon);
+
+	/* --- VARIANT: Info --- */
+	--pcs-toast-info-bg: var(--pcs-color-info-background);
+	--pcs-toast-info-border: var(--pcs-color-info-border);
+	--pcs-toast-info-title: var(--pcs-color-info-text);
+	--pcs-toast-info-description: var(--pcs-color-info-text);
+	--pcs-toast-info-icon: var(--pcs-color-info-icon);
 
 }
 

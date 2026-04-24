@@ -87,72 +87,72 @@
      1.3 COLOR PRIMITIVES — Red (Error)
   --------------------------------------------------------------------------- */
 
-	--pcs-primitive-color-red-50: #fef2f2;
-	--pcs-primitive-color-red-100: #fee2e2;
-	--pcs-primitive-color-red-200: #fecaca;
-	--pcs-primitive-color-red-300: #fca5a5;
-	--pcs-primitive-color-red-400: #f87171;
-	--pcs-primitive-color-red-500: #ef4444;
-	--pcs-primitive-color-red-600: #dc2626;
-	--pcs-primitive-color-red-700: #b91c1c;
-	--pcs-primitive-color-red-800: #991b1b;
-	--pcs-primitive-color-red-900: #7f1d1d;
-	--pcs-primitive-color-red-950: #450a0a;
+	--pcs-primitive-color-red-50: oklch(97.1% 0.013 17.38);
+	--pcs-primitive-color-red-100: oklch(93.6% 0.032 17.717);
+	--pcs-primitive-color-red-200: oklch(88.5% 0.062 18.334);
+	--pcs-primitive-color-red-300: oklch(80.8% 0.114 19.571);
+	--pcs-primitive-color-red-400: oklch(70.4% 0.191 22.216);
+	--pcs-primitive-color-red-500: oklch(63.7% 0.237 25.331);
+	--pcs-primitive-color-red-600: oklch(57.7% 0.245 27.325);
+	--pcs-primitive-color-red-700: oklch(50.5% 0.213 27.518);
+	--pcs-primitive-color-red-800: oklch(44.4% 0.177 26.899);
+	--pcs-primitive-color-red-900: oklch(39.6% 0.141 25.723);
+	--pcs-primitive-color-red-950: oklch(25.8% 0.092 26.042);
 
 	/* ---------------------------------------------------------------------------
      1.4 COLOR PRIMITIVES — Yellow (Warning)
   --------------------------------------------------------------------------- */
 
-	--pcs-primitive-color-yellow-50: #fefce8;
-	--pcs-primitive-color-yellow-100: #fef9c3;
-	--pcs-primitive-color-yellow-200: #fef08a;
-	--pcs-primitive-color-yellow-300: #fde047;
-	--pcs-primitive-color-yellow-400: #facc15;
-	--pcs-primitive-color-yellow-500: #eab308;
-	--pcs-primitive-color-yellow-600: #ca8a04;
-	--pcs-primitive-color-yellow-700: #a16207;
-	--pcs-primitive-color-yellow-800: #854d0e;
-	--pcs-primitive-color-yellow-900: #713f12;
-	--pcs-primitive-color-yellow-950: #422006;
+	--pcs-primitive-color-yellow-50: oklch(98.7% 0.026 102.212);
+	--pcs-primitive-color-yellow-100: oklch(97.3% 0.071 103.193);
+	--pcs-primitive-color-yellow-200: oklch(94.5% 0.129 101.54);
+	--pcs-primitive-color-yellow-300: oklch(90.5% 0.182 98.111);
+	--pcs-primitive-color-yellow-400: oklch(85.2% 0.199 91.936);
+	--pcs-primitive-color-yellow-500: oklch(79.5% 0.184 86.047);
+	--pcs-primitive-color-yellow-600: oklch(68.1% 0.162 75.834);
+	--pcs-primitive-color-yellow-700: oklch(55.4% 0.135 66.442);
+	--pcs-primitive-color-yellow-800: oklch(47.6% 0.114 61.907);
+	--pcs-primitive-color-yellow-900: oklch(42.1% 0.095 57.708);
+	--pcs-primitive-color-yellow-950: oklch(28.6% 0.066 53.813);
 
 	/* ---------------------------------------------------------------------------
      1.5 COLOR PRIMITIVES — Emerald (Success)
   --------------------------------------------------------------------------- */
 
-	--pcs-primitive-color-emerald-50: #ecfdf5;
-	--pcs-primitive-color-emerald-100: #d1fae5;
-	--pcs-primitive-color-emerald-200: #a7f3d0;
-	--pcs-primitive-color-emerald-300: #6ee7b7;
-	--pcs-primitive-color-emerald-400: #34d399;
-	--pcs-primitive-color-emerald-500: #10b981;
-	--pcs-primitive-color-emerald-600: #059669;
-	--pcs-primitive-color-emerald-700: #047857;
-	--pcs-primitive-color-emerald-800: #065f46;
-	--pcs-primitive-color-emerald-900: #064e3b;
-	--pcs-primitive-color-emerald-950: #022c22;
+	--pcs-primitive-color-emerald-50: oklch(97.9% 0.021 166.113);
+	--pcs-primitive-color-emerald-100: oklch(95% 0.052 163.051);
+	--pcs-primitive-color-emerald-200: oklch(90.5% 0.093 164.15);
+	--pcs-primitive-color-emerald-300: oklch(84.5% 0.143 164.978);
+	--pcs-primitive-color-emerald-400: oklch(76.5% 0.177 163.223);
+	--pcs-primitive-color-emerald-500: oklch(69.6% 0.17 162.48);
+	--pcs-primitive-color-emerald-600: oklch(59.6% 0.145 163.225);
+	--pcs-primitive-color-emerald-700: oklch(50.8% 0.118 165.612);
+	--pcs-primitive-color-emerald-800: oklch(43.2% 0.095 166.913);
+	--pcs-primitive-color-emerald-900: oklch(37.8% 0.077 168.94);
+	--pcs-primitive-color-emerald-950: oklch(26.2% 0.051 172.552);
 
 	/* ---------------------------------------------------------------------------
      1.6 COLOR PRIMITIVES — Sky (Info)
   --------------------------------------------------------------------------- */
 
-	--pcs-primitive-color-sky-50: #f0f9ff;
-	--pcs-primitive-color-sky-100: #e0f2fe;
-	--pcs-primitive-color-sky-200: #bae6fd;
-	--pcs-primitive-color-sky-300: #7dd3fc;
-	--pcs-primitive-color-sky-400: #38bdf8;
-	--pcs-primitive-color-sky-500: #0ea5e9;
-	--pcs-primitive-color-sky-600: #0284c7;
-	--pcs-primitive-color-sky-700: #0369a1;
-	--pcs-primitive-color-sky-800: #075985;
-	--pcs-primitive-color-sky-900: #0c4a6e;
-	--pcs-primitive-color-sky-950: #082f49;
+	--pcs-primitive-color-sky-50: oklch(97.7% 0.013 236.62);
+	--pcs-primitive-color-sky-100: oklch(95.1% 0.026 236.824);
+	--pcs-primitive-color-sky-200: oklch(90.1% 0.058 230.902);
+	--pcs-primitive-color-sky-300: oklch(82.8% 0.111 230.318);
+	--pcs-primitive-color-sky-400: oklch(74.6% 0.16 232.661);
+	--pcs-primitive-color-sky-500: oklch(68.5% 0.169 237.323);
+	--pcs-primitive-color-sky-600: oklch(58.8% 0.158 241.966);
+	--pcs-primitive-color-sky-700: oklch(50% 0.134 242.749);
+	--pcs-primitive-color-sky-800: oklch(44.3% 0.11 240.79);
+	--pcs-primitive-color-sky-900: oklch(39.1% 0.09 240.876);
+	--pcs-primitive-color-sky-950: oklch(29.3% 0.066 243.157);
 
 	/* ---------------------------------------------------------------------------
      1.7 ABSOLUTE PRIMITIVES
   --------------------------------------------------------------------------- */
 
-	--pcs-primitive-color-white: #ffffff;
-	--pcs-primitive-color-black: #000000;
+	--pcs-primitive-color-white: oklch(1 0 0);
+	--pcs-primitive-color-black: oklch(0 0 0);
 	--pcs-primitive-color-transparent: transparent;
 
 	/* ---------------------------------------------------------------------------
@@ -176,7 +176,6 @@
 
 	/* ---------------------------------------------------------------------------
      1.9 TYPOGRAPHY PRIMITIVES — Font Size
-     Source: Tailwind CSS, xs through 4xl
      Base: 16px (1rem = 16px)
   --------------------------------------------------------------------------- */
 
@@ -200,7 +199,6 @@
 
 	/* ---------------------------------------------------------------------------
      1.11 TYPOGRAPHY PRIMITIVES — Line Height
-     Source: GitHub Primer line height scale
   --------------------------------------------------------------------------- */
 
 	--pcs-primitive-line-height-tight: 1.25;
@@ -211,31 +209,46 @@
 
 	/* ---------------------------------------------------------------------------
      1.12 SPACING PRIMITIVES
-     Source: Tailwind CSS spacing scale (4px base unit)
+     (4px base unit)
   --------------------------------------------------------------------------- */
 
 	--pcs-primitive-space-0: 0px;
 	--pcs-primitive-space-px: 1px;
 	--pcs-primitive-space-0-5: 0.125rem;
+	/* 2px */
 	--pcs-primitive-space-1: 0.25rem;
+	/* 4px */
 	--pcs-primitive-space-1-5: 0.375rem;
+	/* 6px */
 	--pcs-primitive-space-2: 0.5rem;
+	/* 8px */
 	--pcs-primitive-space-2-5: 0.625rem;
+	/* 10px */
 	--pcs-primitive-space-3: 0.75rem;
+	/* 12px */
 	--pcs-primitive-space-3-5: 0.875rem;
+	/* 14px */
 	--pcs-primitive-space-4: 1rem;
+	/* 16px */
 	--pcs-primitive-space-5: 1.25rem;
+	/* 20px */
 	--pcs-primitive-space-6: 1.5rem;
+	/* 24px */
 	--pcs-primitive-space-7: 1.75rem;
+	/* 28px */
 	--pcs-primitive-space-8: 2rem;
+	/* 32px */
 	--pcs-primitive-space-10: 2.5rem;
+	/* 40px */
 	--pcs-primitive-space-12: 3rem;
+	/* 48px */
 	--pcs-primitive-space-14: 3.5rem;
+	/* 56px */
 	--pcs-primitive-space-16: 4rem;
+	/* 64px */
 
 	/* ---------------------------------------------------------------------------
      1.13 BORDER RADIUS PRIMITIVES
-     Source: Tailwind CSS, fixed scale
   --------------------------------------------------------------------------- */
 
 	--pcs-primitive-radius-none: 0px;
@@ -248,7 +261,6 @@
 
 	/* ---------------------------------------------------------------------------
      1.14 SHADOW PRIMITIVES
-     Source: Tailwind CSS shadow scale
   --------------------------------------------------------------------------- */
 
 	--pcs-primitive-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -429,14 +441,12 @@
 	--pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-200);
 
 	/* Overlay scrim — behind modals, sheets, dialogs
-     Uses on-light-500 (dark navy base, 64% alpha) — same hue as Atlassian's ds-blanket */
+     Uses on-light-500 (dark navy base, 64% alpha) */
 	--pcs-color-overlay-scrim: var(--pcs-primitive-color-neutral-alpha-on-light-500);
 
 	/* ---------------------------------------------------------------------------
      2.11 SEMANTIC TYPOGRAPHY TOKENS
-     Scale designed for dense B2B product UI (similar usage patterns to GitHub).
      Headings: 36 / 24 / 20 / 16. Body default: 14px (body-md).
-     Reference: Primer typography, Atlassian design system.
   --------------------------------------------------------------------------- */
 
 	/* Font families */
@@ -666,7 +676,6 @@
    SECTION 3 — DARK MODE SEMANTIC OVERRIDES
    Only semantic tokens are overridden here.
    Primitives never change — only the mapping changes.
-   Strategy: Atlassian symmetry model (light 100 ↔ dark 900, etc.)
    ============================================================================= */
 
 [data-app-color-scheme='dark'],
