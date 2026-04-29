@@ -1,5 +1,6 @@
 import * as React from "react"
 import {
+  type Column,
   type ColumnDef,
   type ColumnFiltersState,
   type SortingState,
@@ -16,6 +17,7 @@ import { ChevronUpIcon, ChevronDownIcon, ChevronsUpDownIcon, ChevronLeftIcon, Ch
 import { cn } from "../../lib/utils"
 import { Button } from "./button"
 import { Checkbox } from "./checkbox"
+import { Input } from "./input"
 import {
   Table,
   TableBody,
@@ -29,6 +31,20 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   pageSize?: number
+}
+
+const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
+  const value = (column.getFilterValue() ?? "") as string
+  return (
+    <Input
+      size="sm"
+      placeholder="Search…"
+      value={value}
+      onChange={e => column.setFilterValue(e.target.value || undefined)}
+      onClick={e => e.stopPropagation()}
+      className="normal-case font-normal tracking-normal"
+    />
+  )
 }
 
 const SortIcon = ({ direction }: { direction: "asc" | "desc" | false }) => {
@@ -69,6 +85,7 @@ export const DataTable = <TData, TValue>({
     ),
     enableSorting: false,
     enableHiding: false,
+    enableColumnFilter: false,
   }
 
   const columns = [selectionColumn, ...userColumns]
@@ -102,24 +119,35 @@ export const DataTable = <TData, TValue>({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
-                  const canSort = header.column.getCanSort()
-                  const sorted = header.column.getIsSorted()
+                  const canSort   = header.column.getCanSort()
+                  const canFilter = header.column.getCanFilter()
+                  const sorted    = header.column.getIsSorted()
+                  const isSelect  = header.id === "select"
                   return (
                     <TableHead
                       key={header.id}
-                      className={cn(header.id === "select" && "w-12")}
+                      className={cn(isSelect && "w-12")}
                     >
-                      {header.isPlaceholder ? null : canSort ? (
-                        <button
-                          onClick={header.column.getToggleSortingHandler()}
-                          className="flex items-center gap-[var(--pcs-table-head-sort-gap)] cursor-pointer select-none w-full hover:text-[color:var(--pcs-table-head-color-hover)]"
-                          aria-label={`Sort by ${header.column.id}`}
-                        >
-                          {flexRender(header.column.columnDef.header, header.getContext())}
-                          <SortIcon direction={sorted} />
-                        </button>
-                      ) : (
+                      {header.isPlaceholder ? null : isSelect ? (
                         flexRender(header.column.columnDef.header, header.getContext())
+                      ) : (
+                        <div className="flex flex-col gap-1.5">
+                          {canSort ? (
+                            <button
+                              onClick={header.column.getToggleSortingHandler()}
+                              className="flex items-center gap-[var(--pcs-table-head-sort-gap)] cursor-pointer select-none w-full hover:text-[color:var(--pcs-table-head-color-hover)]"
+                              aria-label={`Sort by ${header.column.id}`}
+                            >
+                              {flexRender(header.column.columnDef.header, header.getContext())}
+                              <SortIcon direction={sorted} />
+                            </button>
+                          ) : (
+                            flexRender(header.column.columnDef.header, header.getContext())
+                          )}
+                          {canFilter && (
+                            <ColumnFilter column={header.column as Column<unknown, unknown>} />
+                          )}
+                        </div>
                       )}
                     </TableHead>
                   )
