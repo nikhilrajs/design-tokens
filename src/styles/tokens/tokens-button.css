@@ -109,7 +109,7 @@
   --pcs-button-primary-bg:               var(--pcs-color-primary-emphasis);
   --pcs-button-primary-bg-hover:         var(--pcs-color-primary-emphasis-hover);
   --pcs-button-primary-bg-active:        var(--pcs-color-primary-emphasis-active);
-  --pcs-button-primary-bg-disabled:      var(--pcs-color-state-disabled-bg);
+  --pcs-button-primary-bg-disabled:      var(--pcs-color-surface-disabled);
 
   --pcs-button-primary-text:             var(--pcs-color-primary-on-emphasis);
   --pcs-button-primary-text-hover:       var(--pcs-color-primary-on-emphasis);
@@ -119,7 +119,7 @@
   --pcs-button-primary-border:           var(--pcs-color-primary-emphasis);
   --pcs-button-primary-border-hover:     var(--pcs-color-primary-emphasis-hover);
   --pcs-button-primary-border-active:    var(--pcs-color-primary-emphasis-active);
-  --pcs-button-primary-border-disabled:  var(--pcs-color-state-disabled-border);
+  --pcs-button-primary-border-disabled:  var(--pcs-color-border-disabled);
 
   --pcs-button-primary-icon:             var(--pcs-color-primary-on-emphasis);
   --pcs-button-primary-icon-disabled:    var(--pcs-color-text-disabled);
@@ -135,9 +135,9 @@
   =========================================================================== */
 
   --pcs-button-secondary-bg:             var(--pcs-color-background);
-  --pcs-button-secondary-bg-hover:       var(--pcs-color-state-hover);
-  --pcs-button-secondary-bg-active:      var(--pcs-color-state-active);
-  --pcs-button-secondary-bg-disabled:    var(--pcs-color-state-disabled-bg);
+  --pcs-button-secondary-bg-hover:       var(--pcs-color-surface-neutral-hover);
+  --pcs-button-secondary-bg-active:      var(--pcs-color-surface-neutral-active);
+  --pcs-button-secondary-bg-disabled:    var(--pcs-color-surface-disabled);
 
   --pcs-button-secondary-text:           var(--pcs-color-text-default);
   --pcs-button-secondary-text-hover:     var(--pcs-color-text-default);
@@ -147,7 +147,7 @@
   --pcs-button-secondary-border:         var(--pcs-color-border-default);
   --pcs-button-secondary-border-hover:   var(--pcs-color-border-strong);
   --pcs-button-secondary-border-active:  var(--pcs-color-border-strong);
-  --pcs-button-secondary-border-disabled:var(--pcs-color-state-disabled-border);
+  --pcs-button-secondary-border-disabled:var(--pcs-color-border-disabled);
 
   --pcs-button-secondary-icon:           var(--pcs-color-icon-default);
   --pcs-button-secondary-icon-disabled:  var(--pcs-color-icon-disabled);
@@ -163,8 +163,8 @@
   =========================================================================== */
 
   --pcs-button-ghost-bg:                 transparent;
-  --pcs-button-ghost-bg-hover:           var(--pcs-color-state-hover);
-  --pcs-button-ghost-bg-active:          var(--pcs-color-state-active);
+  --pcs-button-ghost-bg-hover:           var(--pcs-color-surface-neutral-hover);
+  --pcs-button-ghost-bg-active:          var(--pcs-color-surface-neutral-active);
   --pcs-button-ghost-bg-disabled:        transparent;
 
   --pcs-button-ghost-text:               var(--pcs-color-text-default);
@@ -198,7 +198,7 @@
   --pcs-button-destructive-bg:               var(--pcs-color-error-emphasis);
   --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-700);
   --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-800);
-  --pcs-button-destructive-bg-disabled:      var(--pcs-color-state-disabled-bg);
+  --pcs-button-destructive-bg-disabled:      var(--pcs-color-surface-disabled);
 
   --pcs-button-destructive-text:             var(--pcs-color-error-on-emphasis);
   --pcs-button-destructive-text-hover:       var(--pcs-color-error-on-emphasis);
@@ -208,7 +208,7 @@
   --pcs-button-destructive-border:           var(--pcs-color-error-emphasis);
   --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-700);
   --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-800);
-  --pcs-button-destructive-border-disabled:  var(--pcs-color-state-disabled-border);
+  --pcs-button-destructive-border-disabled:  var(--pcs-color-border-disabled);
 
   --pcs-button-destructive-icon:             var(--pcs-color-error-on-emphasis);
   --pcs-button-destructive-icon-disabled:    var(--pcs-color-text-disabled);

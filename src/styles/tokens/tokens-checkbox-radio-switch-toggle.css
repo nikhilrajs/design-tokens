@@ -47,7 +47,7 @@
 	--pcs-checkbox-bg: var(--pcs-color-background);
 	--pcs-checkbox-border-color: var(--pcs-color-border-strong);
 
-	--pcs-checkbox-bg-hover: var(--pcs-color-state-hover);
+	--pcs-checkbox-bg-hover: var(--pcs-color-surface-neutral-hover);
 	--pcs-checkbox-border-color-hover: var(--pcs-color-primary-emphasis);
 
 	--pcs-checkbox-bg-checked: var(--pcs-color-primary-emphasis);
@@ -65,12 +65,12 @@
 	--pcs-checkbox-focus-ring-offset: var(--pcs-focus-ring-offset);
 	--pcs-checkbox-focus-ring-color: var(--pcs-color-focus-ring);
 
-	--pcs-checkbox-bg-disabled: var(--pcs-color-state-disabled-bg);
-	--pcs-checkbox-border-color-disabled: var(--pcs-color-state-disabled-border);
+	--pcs-checkbox-bg-disabled: var(--pcs-color-surface-disabled);
+	--pcs-checkbox-border-color-disabled: var(--pcs-color-border-disabled);
 	--pcs-checkbox-indicator-color-disabled: transparent;
 
-	--pcs-checkbox-bg-disabled-checked: var(--pcs-color-state-disabled-bg);
-	--pcs-checkbox-border-color-disabled-checked: var(--pcs-color-state-disabled-border);
+	--pcs-checkbox-bg-disabled-checked: var(--pcs-color-surface-disabled);
+	--pcs-checkbox-border-color-disabled-checked: var(--pcs-color-border-disabled);
 	--pcs-checkbox-indicator-color-disabled-checked: var(--pcs-color-text-disabled);
 
 
@@ -96,7 +96,7 @@
 	--pcs-radio-border-color: var(--pcs-color-border-strong);
 	--pcs-radio-dot-color: transparent;
 
-	--pcs-radio-bg-hover: var(--pcs-color-state-hover);
+	--pcs-radio-bg-hover: var(--pcs-color-surface-neutral-hover);
 	--pcs-radio-border-color-hover: var(--pcs-color-primary-emphasis);
 
 	--pcs-radio-bg-selected: var(--pcs-color-primary-emphasis);
@@ -110,11 +110,11 @@
 	--pcs-radio-focus-ring-offset: var(--pcs-focus-ring-offset);
 	--pcs-radio-focus-ring-color: var(--pcs-color-focus-ring);
 
-	--pcs-radio-bg-disabled: var(--pcs-color-state-disabled-bg);
-	--pcs-radio-border-color-disabled: var(--pcs-color-state-disabled-border);
+	--pcs-radio-bg-disabled: var(--pcs-color-surface-disabled);
+	--pcs-radio-border-color-disabled: var(--pcs-color-border-disabled);
 
-	--pcs-radio-bg-disabled-selected: var(--pcs-color-state-disabled-bg);
-	--pcs-radio-border-color-disabled-selected: var(--pcs-color-state-disabled-border);
+	--pcs-radio-bg-disabled-selected: var(--pcs-color-surface-disabled);
+	--pcs-radio-border-color-disabled-selected: var(--pcs-color-border-disabled);
 	--pcs-radio-dot-color-disabled-selected: var(--pcs-color-text-disabled);
 
 
@@ -158,11 +158,11 @@
 	--pcs-switch-focus-ring-offset: var(--pcs-focus-ring-offset);
 	--pcs-switch-focus-ring-color: var(--pcs-color-focus-ring);
 
-	--pcs-switch-track-bg-disabled: var(--pcs-color-state-disabled-bg);
-	--pcs-switch-track-border-color-disabled: var(--pcs-color-state-disabled-border);
+	--pcs-switch-track-bg-disabled: var(--pcs-color-surface-disabled);
+	--pcs-switch-track-border-color-disabled: var(--pcs-color-border-disabled);
 	--pcs-switch-thumb-bg-disabled: var(--pcs-color-text-disabled);
 
-	--pcs-switch-track-bg-disabled-on: var(--pcs-color-state-disabled-bg);
+	--pcs-switch-track-bg-disabled-on: var(--pcs-color-surface-disabled);
 	--pcs-switch-thumb-bg-disabled-on: var(--pcs-color-text-disabled);
 
 
@@ -200,7 +200,7 @@
 	--pcs-toggle-icon-color: var(--pcs-color-icon-default);
 
 	/* Hover */
-	--pcs-toggle-bg-hover: var(--pcs-color-state-hover);
+	--pcs-toggle-bg-hover: var(--pcs-color-surface-neutral-hover);
 	--pcs-toggle-border-color-hover: transparent;
 	--pcs-toggle-text-hover: var(--pcs-color-text-default);
 
@@ -211,7 +211,7 @@
 	--pcs-toggle-icon-color-active: var(--pcs-primitive-color-neutral-700);
 
 	/* Active + Hover */
-	--pcs-toggle-bg-active-hover: var(--pcs-color-state-active);
+	--pcs-toggle-bg-active-hover: var(--pcs-color-surface-neutral-active);
 	--pcs-toggle-border-color-active-hover: var(--pcs-color-border-strong);
 
 	/* Focus */

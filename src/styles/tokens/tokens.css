@@ -413,16 +413,16 @@
      These are intentionally subtle — applied on top of existing backgrounds.
   --------------------------------------------------------------------------- */
 
-	--pcs-color-state-hover: var(--pcs-primitive-color-neutral-100);
+	--pcs-color-surface-neutral-hover: var(--pcs-primitive-color-neutral-100);
 	/* neutral-50 (98.5%) is invisible on white — neutral-100 (96.7%) is the minimum perceptible hover */
-	--pcs-color-state-active: var(--pcs-primitive-color-neutral-200);
+	--pcs-color-surface-neutral-active: var(--pcs-primitive-color-neutral-200);
 	/* shifted one step to maintain contrast above hover */
-	--pcs-color-state-selected: var(--pcs-primitive-color-brand-50);
-	--pcs-color-state-selected-border: var(--pcs-primitive-color-brand-400);
+	--pcs-color-surface-neutral-selected: var(--pcs-primitive-color-brand-50);
+	--pcs-color-surface-neutral-selected-border: var(--pcs-primitive-color-brand-400);
 
 	/* Disabled state — applies to backgrounds of disabled controls */
-	--pcs-color-state-disabled-bg: var(--pcs-primitive-color-neutral-100);
-	--pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-200);
+	--pcs-color-surface-disabled: var(--pcs-primitive-color-neutral-100);
+	--pcs-color-border-disabled: var(--pcs-primitive-color-neutral-200);
 
 	/* Overlay scrim — behind modals, sheets, dialogs
      Uses on-light-500 (dark navy base, 64% alpha) */
@@ -738,7 +738,8 @@
 	--pcs-color-error-background: var(--pcs-primitive-color-red-950);
 	--pcs-color-error-background-hover: var(--pcs-primitive-color-red-900);
 	--pcs-color-error-border: var(--pcs-primitive-color-red-900);
-	--pcs-color-error-text: var(--pcs-primitive-color-red-200);
+	--pcs-color-error-text: var(--pcs-primitive-color-red-300);
+	/* red-300 (C=0.114) over red-200 (C=0.062) — higher chroma reads clearly as red on dark surfaces */
 	--pcs-color-error-icon: var(--pcs-primitive-color-red-400);
 	--pcs-color-error-emphasis: var(--pcs-primitive-color-red-500);
 	--pcs-color-error-on-emphasis: var(--pcs-primitive-color-white);
@@ -771,12 +772,12 @@
      3.10 INTERACTIVE STATES — Dark
   --------------------------------------------------------------------------- */
 
-	--pcs-color-state-hover: var(--pcs-primitive-color-neutral-800);
-	--pcs-color-state-active: var(--pcs-primitive-color-neutral-700);
-	--pcs-color-state-selected: var(--pcs-primitive-color-brand-950);
-	--pcs-color-state-selected-border: var(--pcs-primitive-color-brand-600);
-	--pcs-color-state-disabled-bg: var(--pcs-primitive-color-neutral-800);
-	--pcs-color-state-disabled-border: var(--pcs-primitive-color-neutral-700);
+	--pcs-color-surface-neutral-hover: var(--pcs-primitive-color-neutral-800);
+	--pcs-color-surface-neutral-active: var(--pcs-primitive-color-neutral-700);
+	--pcs-color-surface-neutral-selected: var(--pcs-primitive-color-brand-950);
+	--pcs-color-surface-neutral-selected-border: var(--pcs-primitive-color-brand-600);
+	--pcs-color-surface-disabled: var(--pcs-primitive-color-neutral-800);
+	--pcs-color-border-disabled: var(--pcs-primitive-color-neutral-700);
 	--pcs-color-overlay-scrim: var(--pcs-primitive-color-neutral-alpha-on-dark-100);
 
 	/* ---------------------------------------------------------------------------

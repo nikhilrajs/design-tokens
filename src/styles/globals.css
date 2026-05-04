@@ -64,6 +64,9 @@
 	/* --- Colors --- */
 	--color-background: var(--pcs-color-background);
 	--color-foreground: var(--pcs-color-text-default);
+	--color-disabled-foreground: var(--pcs-color-text-disabled);
+	--color-inverse-foreground: var(--pcs-color-text-inverse);
+	--color-on-emphasis: var(--pcs-color-text-on-emphasis);
 
 	/* Border */
 	--color-border-default: var(--pcs-color-border-default);
@@ -107,7 +110,9 @@
 	--color-info-icon: var(--pcs-color-info-icon);
 
 	/* State */
-	--color-state-selected: var(--pcs-color-state-selected);
+	--color-surface-hover: var(--pcs-color-surface-neutral-hover);
+	--color-surface-active: var(--pcs-color-surface-neutral-active);
+	--color-surface-selected: var(--pcs-color-surface-neutral-selected);
 
 	/* Focus */
 	--color-ring: var(--pcs-color-focus-ring);
@@ -126,7 +131,7 @@
 	--color-sidebar-foreground: var(--pcs-color-text-default);
 	--color-sidebar-primary: var(--pcs-color-primary-emphasis);
 	--color-sidebar-primary-foreground: var(--pcs-color-primary-on-emphasis);
-	--color-sidebar-accent: var(--pcs-color-state-hover);
+	--color-sidebar-accent: var(--pcs-color-surface-neutral-hover);
 	--color-sidebar-accent-foreground: var(--pcs-color-text-default);
 	--color-sidebar-border: var(--pcs-color-border-default);
 	--color-sidebar-ring: var(--pcs-color-focus-ring);

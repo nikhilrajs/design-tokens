@@ -62,8 +62,8 @@
 
   /* --- Accent (hover/focus highlight backgrounds) --- */
   /* shadcn uses --accent for dropdown/menu item hover (bg-accent). Maps to
-     --pcs-color-state-hover — the canonical interactive hover surface token. */
-  --accent:                        var(--pcs-color-state-hover);
+     --pcs-color-surface-neutral-hover — the canonical interactive hover surface token. */
+  --accent:                        var(--pcs-color-surface-neutral-hover);
   --accent-foreground:             var(--pcs-color-text-default);
 
   /* --- Destructive (delete, remove, irreversible actions) --- */
@@ -94,7 +94,7 @@
   --sidebar-foreground:            var(--pcs-color-text-default);
   --sidebar-primary:               var(--pcs-color-primary-emphasis);
   --sidebar-primary-foreground:    var(--pcs-color-primary-on-emphasis);
-  --sidebar-accent:                var(--pcs-color-state-hover);
+  --sidebar-accent:                var(--pcs-color-surface-neutral-hover);
   --sidebar-accent-foreground:     var(--pcs-color-text-default);
   --sidebar-border:                var(--pcs-color-border-default);
   --sidebar-ring:                  var(--pcs-color-focus-ring);
@@ -133,7 +133,7 @@
   --secondary-foreground:          var(--pcs-color-text-default);
   --muted:                         var(--pcs-color-surface-muted);
   --muted-foreground:              var(--pcs-color-text-muted);
-  --accent:                        var(--pcs-color-state-hover);
+  --accent:                        var(--pcs-color-surface-neutral-hover);
   --accent-foreground:             var(--pcs-color-text-default);
   --destructive:                   var(--pcs-color-error-emphasis);
   --destructive-foreground:        var(--pcs-color-error-on-emphasis);
@@ -144,7 +144,7 @@
   --sidebar-foreground:            var(--pcs-color-text-default);
   --sidebar-primary:               var(--pcs-color-primary-emphasis);
   --sidebar-primary-foreground:    var(--pcs-color-primary-on-emphasis);
-  --sidebar-accent:                var(--pcs-color-state-hover);
+  --sidebar-accent:                var(--pcs-color-surface-neutral-hover);
   --sidebar-accent-foreground:     var(--pcs-color-text-default);
   --sidebar-border:                var(--pcs-color-border-default);
   --sidebar-ring:                  var(--pcs-color-focus-ring);

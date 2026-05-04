@@ -170,13 +170,13 @@ export const Tokens: React.FC = () => {
       {/* ------------------------------------------------------------------ */}
       <Section title="Semantic — Interactive States">
         <div className="grid grid-cols-2 gap-x-8 gap-y-3 md:grid-cols-3 lg:grid-cols-4">
-          <SemanticSwatch token="--pcs-color-state-hover"           name="State / Hover" />
-          <SemanticSwatch token="--pcs-color-state-active"          name="State / Active" />
-          <SemanticSwatch token="--pcs-color-state-selected"        name="State / Selected" />
-          <SemanticSwatch token="--pcs-color-state-selected-border" name="State / Selected Border" />
-          <SemanticSwatch token="--pcs-color-state-disabled-bg"     name="Disabled / BG" />
-          <SemanticSwatch token="--pcs-color-text-disabled"   name="Disabled / Text" />
-          <SemanticSwatch token="--pcs-color-state-disabled-border" name="Disabled / Border" />
+          <SemanticSwatch token="--pcs-color-surface-neutral-hover"           name="Surface Neutral / Hover" />
+          <SemanticSwatch token="--pcs-color-surface-neutral-active"          name="Surface Neutral / Active" />
+          <SemanticSwatch token="--pcs-color-surface-neutral-selected"        name="Surface Neutral / Selected" />
+          <SemanticSwatch token="--pcs-color-surface-neutral-selected-border" name="Surface Neutral / Selected Border" />
+          <SemanticSwatch token="--pcs-color-surface-disabled"  name="Surface / Disabled" />
+          <SemanticSwatch token="--pcs-color-text-disabled"    name="Disabled / Text" />
+          <SemanticSwatch token="--pcs-color-border-disabled"  name="Border / Disabled" />
         </div>
       </Section>
 

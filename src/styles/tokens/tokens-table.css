@@ -33,7 +33,7 @@
 
    Row selection:
      Checkbox-driven. Selected row gets a distinct background tint.
-     Uses --pcs-color-state-selected — consistent with other selected
+     Uses --pcs-color-surface-neutral-selected — consistent with other selected
      states (Toggle Group, Select, etc.)
 
    CSS constants (transparent, pointer, none, right, center, etc.) are
@@ -105,7 +105,7 @@
 	/* 4px — between label and icon */
 
 	/* Sortable header hover */
-	--pcs-table-head-bg-hover: var(--pcs-color-state-hover);
+	--pcs-table-head-bg-hover: var(--pcs-color-surface-neutral-hover);
 	--pcs-table-head-color-hover: var(--pcs-color-text-default);
 
 	/* --- Density: padding for th --- */
@@ -129,10 +129,10 @@
 	--pcs-table-row-border-bottom-width: var(--pcs-primitive-border-width-default);
 
 	/* --- Hover --- */
-	--pcs-table-row-bg-hover: var(--pcs-color-state-hover);
+	--pcs-table-row-bg-hover: var(--pcs-color-surface-neutral-hover);
 
 	/* --- Selected (checkbox row selection) --- */
-	--pcs-table-row-bg-selected: var(--pcs-color-state-selected);
+	--pcs-table-row-bg-selected: var(--pcs-color-surface-neutral-selected);
 	/* brand-50 — consistent with Toggle Group, Select, nav selected states */
 	--pcs-table-row-border-selected-color: var(--pcs-color-primary-border);
 	/* brand-300 */
@@ -249,7 +249,7 @@
 	--pcs-table-row-border-bottom-color: var(--pcs-color-border-muted);
 
 	/* Selected row — primary surface in dark */
-	--pcs-table-row-bg-selected: var(--pcs-color-state-selected);
+	--pcs-table-row-bg-selected: var(--pcs-color-surface-neutral-selected);
 	/* brand-950 in dark */
 	--pcs-table-row-border-selected-color: var(--pcs-color-primary-border);
 	/* brand-700 in dark */
