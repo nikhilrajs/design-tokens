@@ -5,6 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 // Types
 // ---------------------------------------------------------------------------
 
+type TextColorEntry = {
+  name: string
+  tokenVar: string     // CSS var name shown in the metadata column
+  textClass: string    // Tailwind utility for text color
+  bgClass?: string     // Tailwind utility for background (tokens shown on a tinted surface)
+  sample: string
+  useCase: string
+}
+
 type TypographyRole = {
   name: string
   shorthand: string
@@ -18,6 +27,93 @@ type Group = {
   label: string
   roles: TypographyRole[]
 }
+
+// ---------------------------------------------------------------------------
+// Data — text color entries
+// ---------------------------------------------------------------------------
+
+const NEUTRAL_TEXT_COLORS: TextColorEntry[] = [
+  {
+    name: 'text-default',
+    tokenVar: '--pcs-color-text-default',
+    textClass: 'text-foreground',
+    sample: 'Invoice #1042 — Acme Corp, $4,280.00',
+    useCase: 'Primary text. Body copy, headings, labels, data values.',
+  },
+  {
+    name: 'text-muted',
+    tokenVar: '--pcs-color-text-muted',
+    textClass: 'text-muted-foreground',
+    sample: 'Last updated 3 minutes ago · 4 comments',
+    useCase: 'Secondary text. Descriptions, captions, metadata, timestamps, placeholders.',
+  },
+  {
+    name: 'text-disabled',
+    tokenVar: '--pcs-color-text-disabled',
+    textClass: 'text-disabled-foreground',
+    sample: 'This field is currently unavailable',
+    useCase: 'Non-interactive text. WCAG-exempt. Signals the element cannot be acted upon.',
+  },
+  {
+    name: 'text-inverse',
+    tokenVar: '--pcs-color-text-inverse',
+    textClass: 'text-inverse-foreground',
+    bgClass: 'bg-foreground',
+    sample: 'Tooltip: changes are auto-saved',
+    useCase: 'Text on inverted surfaces. Tooltips, dark banners, reversed badges.',
+  },
+  {
+    name: 'text-on-emphasis',
+    tokenVar: '--pcs-color-text-on-emphasis',
+    textClass: 'text-on-emphasis',
+    bgClass: 'bg-primary',
+    sample: 'Save and continue',
+    useCase: 'Text on colored emphasis fills. Solid primary buttons, status emphasis surfaces.',
+  },
+]
+
+const SEMANTIC_TEXT_COLORS: TextColorEntry[] = [
+  {
+    name: 'primary-text',
+    tokenVar: '--pcs-color-primary-text',
+    textClass: 'text-primary-text',
+    bgClass: 'bg-primary-subtle',
+    sample: 'View full report →',
+    useCase: 'Brand-colored text. Links, selected states, active indicators on tinted surfaces.',
+  },
+  {
+    name: 'error-text',
+    tokenVar: '--pcs-color-error-text',
+    textClass: 'text-error-text',
+    bgClass: 'bg-error-bg',
+    sample: 'Failed to save changes. Please try again.',
+    useCase: 'Destructive actions, validation errors, critical alerts.',
+  },
+  {
+    name: 'success-text',
+    tokenVar: '--pcs-color-success-text',
+    textClass: 'text-success-text',
+    bgClass: 'bg-success-bg',
+    sample: 'Payment of $4,280 processed successfully',
+    useCase: 'Confirmations, completed states, positive outcomes.',
+  },
+  {
+    name: 'warning-text',
+    tokenVar: '--pcs-color-warning-text',
+    textClass: 'text-warning-text',
+    bgClass: 'bg-warning-bg',
+    sample: 'Storage 92% full — consider archiving old files',
+    useCase: 'Caution states, approaching limits, soft failures.',
+  },
+  {
+    name: 'info-text',
+    tokenVar: '--pcs-color-info-text',
+    textClass: 'text-info-text',
+    bgClass: 'bg-info-bg',
+    sample: 'Scheduled maintenance window: Friday 10–11 pm',
+    useCase: 'Informational messages, system notices, neutral status.',
+  },
+]
 
 // ---------------------------------------------------------------------------
 // Data — one entry per role
@@ -174,6 +270,43 @@ function TypographyRow({ role }: { role: TypographyRole }) {
 }
 
 // ---------------------------------------------------------------------------
+// TextColorRow component
+// ---------------------------------------------------------------------------
+
+function TextColorRow({ entry }: { entry: TextColorEntry }) {
+  return (
+    <div className="grid grid-cols-[1fr_220px] gap-x-8 py-5 border-b border-border-muted last:border-0">
+
+      {/* Left — live sample + use case */}
+      <div className="min-w-0 space-y-2">
+        {entry.bgClass ? (
+          <div className={`inline-block rounded-md px-3 py-2 ${entry.bgClass}`}>
+            <p className={`text-sm ${entry.textClass}`}>{entry.sample}</p>
+          </div>
+        ) : (
+          <p className={`text-sm ${entry.textClass}`}>{entry.sample}</p>
+        )}
+        <p className="text-[11px] leading-snug text-muted-foreground">
+          {entry.useCase}
+        </p>
+      </div>
+
+      {/* Right — token metadata */}
+      <div className="shrink-0 text-right space-y-1 pt-0.5">
+        <p className="text-xs font-semibold text-foreground">{entry.name}</p>
+        <p
+          className="text-[10px] font-mono text-muted-foreground"
+          title={entry.tokenVar}
+        >
+          {entry.tokenVar.replace('--pcs-', '')}
+        </p>
+      </div>
+
+    </div>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Main page
 // ---------------------------------------------------------------------------
 
@@ -192,6 +325,28 @@ export const Typography: React.FC = () => {
           </CardContent>
         </Card>
       ))}
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Neutral Text Colors</CardTitle>
+        </CardHeader>
+        <CardContent className="px-6 pb-2">
+          {NEUTRAL_TEXT_COLORS.map((entry) => (
+            <TextColorRow key={entry.name} entry={entry} />
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Semantic Text Colors</CardTitle>
+        </CardHeader>
+        <CardContent className="px-6 pb-2">
+          {SEMANTIC_TEXT_COLORS.map((entry) => (
+            <TextColorRow key={entry.name} entry={entry} />
+          ))}
+        </CardContent>
+      </Card>
     </div>
   )
 }
