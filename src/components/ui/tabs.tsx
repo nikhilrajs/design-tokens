@@ -72,8 +72,8 @@ const TabsTrigger = ({ className, ...props }: TabsPrimitive.Tab.Props) => {
         "focus-visible:border-[color:var(--pcs-color-focus-ring)]",
         "focus-visible:ring-[length:var(--pcs-focus-ring-width)] focus-visible:ring-[color:var(--pcs-color-focus-ring)]/50",
         // Disabled
-        "disabled:pointer-events-none disabled:opacity-50",
-        "aria-disabled:pointer-events-none aria-disabled:opacity-50",
+        "disabled:pointer-events-none disabled:opacity-disabled",
+        "aria-disabled:pointer-events-none aria-disabled:opacity-disabled",
         // Default variant — active tab surface
         "group-data-[variant=default]/tabs-list:data-active:bg-[var(--pcs-tabs-trigger-active-bg)]",
         "group-data-[variant=default]/tabs-list:data-active:border-[color:var(--pcs-tabs-trigger-active-border-color)]",

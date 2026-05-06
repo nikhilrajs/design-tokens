@@ -35,12 +35,15 @@ const Checkbox = ({ className, ...props }: CheckboxPrimitive.Root.Props) => {
         "focus-visible:border-[color:var(--pcs-checkbox-focus-ring-color)]",
         "focus-visible:ring-[length:var(--pcs-checkbox-focus-ring-width)] focus-visible:ring-[var(--pcs-checkbox-focus-ring-color)]/50",
         // Disabled — Base UI sets data-disabled, not native :disabled
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
+        "data-disabled:pointer-events-none",
+        "data-disabled:bg-[var(--pcs-checkbox-bg-disabled)] data-disabled:border-[color:var(--pcs-checkbox-border-color-disabled)]",
+        // Checked + disabled — override checked colours; indicator inherits text colour via text-current
+        "data-checked:data-disabled:bg-[var(--pcs-checkbox-bg-disabled-checked)] data-checked:data-disabled:border-[color:var(--pcs-checkbox-border-color-disabled-checked)] data-checked:data-disabled:text-[color:var(--pcs-checkbox-indicator-color-disabled-checked)]",
         // Error (aria-invalid)
         "aria-invalid:border-[color:var(--pcs-color-error-border)]",
         "aria-invalid:ring-[length:var(--pcs-focus-ring-width)] aria-invalid:ring-[var(--pcs-color-error-border)]/50",
         // Field-level disabled — when checkbox sits inside a disabled <FieldGroup>
-        "group-has-[[data-disabled]]/field:opacity-50",
+        "group-has-[[data-disabled]]/field:opacity-disabled",
         className
       )}
       {...props}

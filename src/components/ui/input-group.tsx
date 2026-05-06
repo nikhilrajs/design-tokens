@@ -27,7 +27,7 @@ const InputGroup = ({ className, ...props }: React.ComponentProps<"div">) => {
         // Background — the group provides the surface; inner control is transparent
         "bg-[var(--pcs-input-bg)]",
         // Disabled state
-        "has-disabled:bg-[var(--pcs-input-bg-disabled)] has-disabled:opacity-50",
+        "has-disabled:opacity-disabled",
         // Focus — bubble up from the inner control
         "has-[[data-slot=input-group-control]:focus-visible]:border-[color:var(--pcs-input-border-color-focus)]",
         "has-[[data-slot=input-group-control]:focus-visible]:ring-3",
@@ -51,7 +51,7 @@ const InputGroup = ({ className, ...props }: React.ComponentProps<"div">) => {
 }
 
 const inputGroupAddonVariants = cva(
-  "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-[color:var(--pcs-color-text-muted)] select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
+  "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-[color:var(--pcs-color-text-muted)] select-none group-data-[disabled=true]/input-group:opacity-disabled [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
   {
     variants: {
       // inline-* = horizontal placement (left / right of the input, same row)

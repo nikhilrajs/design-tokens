@@ -209,8 +209,7 @@
 	--pcs-select-trigger-bg-open: var(--pcs-input-bg);
 	--pcs-select-trigger-border-color-open: var(--pcs-color-focus-ring);
 	/* --- STATE: Disabled --- */
-	--pcs-select-trigger-bg-disabled: var(--pcs-input-bg-disabled);
-	/* mirrors Input disabled bg */
+	--pcs-select-trigger-bg-disabled: var(--pcs-color-surface-disabled);
 	--pcs-select-trigger-border-color-disabled: var(--pcs-color-border-disabled);
 	--pcs-select-trigger-text-disabled: var(--pcs-color-text-disabled);
 	--pcs-select-trigger-shadow-disabled: none;

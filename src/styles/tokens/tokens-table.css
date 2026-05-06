@@ -93,7 +93,7 @@
 
 	/* Pinned column separator — directional shadow on the inner edge of a pinned column.
 	   Not using --pcs-shadow-* — those model elevation; this signals scroll-depth boundary. */
-	--pcs-table-col-pin-shadow-left:  2px 0 6px -2px rgba(0, 0, 0, 0.08);
+	--pcs-table-col-pin-shadow-left: 2px 0 6px -2px rgba(0, 0, 0, 0.08);
 	--pcs-table-col-pin-shadow-right: -2px 0 6px -2px rgba(0, 0, 0, 0.08);
 
 	/* Sort indicator icon */
@@ -129,7 +129,9 @@
 	--pcs-table-row-border-bottom-width: var(--pcs-primitive-border-width-default);
 
 	/* --- Hover --- */
-	--pcs-table-row-bg-hover: var(--pcs-color-surface-neutral-hover);
+	/* neutral-50 — one step below the header (neutral-100/surface-muted).
+	   Using surface-neutral-hover directly would collide with the header bg. */
+	--pcs-table-row-bg-hover: var(--pcs-primitive-color-neutral-50);
 
 	/* --- Selected (checkbox row selection) --- */
 	--pcs-table-row-bg-selected: var(--pcs-color-surface-neutral-selected);
@@ -242,8 +244,12 @@
 	--pcs-table-head-sticky-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
 
 	/* Pinned column separator shadows — more prominent on dark */
-	--pcs-table-col-pin-shadow-left:  2px 0 6px -2px rgba(0, 0, 0, 0.25);
+	--pcs-table-col-pin-shadow-left: 2px 0 6px -2px rgba(0, 0, 0, 0.25);
 	--pcs-table-col-pin-shadow-right: -2px 0 6px -2px rgba(0, 0, 0, 0.25);
+
+	/* Row hover — relative color from neutral-700 at 30% alpha.
+	   Avoids picking a fixed solid step and stays within the neutral palette. */
+	--pcs-table-row-bg-hover: oklch(from var(--pcs-primitive-color-neutral-700) l c h / 20%);
 
 	/* Row borders slightly more subtle in dark */
 	--pcs-table-row-border-bottom-color: var(--pcs-color-border-muted);

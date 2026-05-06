@@ -40,7 +40,7 @@ const RadioGroupItem = ({ className, ...props }: RadioPrimitive.Root.Props) => {
         "focus-visible:border-[color:var(--pcs-radio-focus-ring-color)]",
         "focus-visible:ring-[length:var(--pcs-radio-focus-ring-width)] focus-visible:ring-[var(--pcs-radio-focus-ring-color)]/50",
         // Disabled — Base UI sets data-disabled, not native :disabled
-        "data-disabled:pointer-events-none data-disabled:opacity-50",
+        "data-disabled:pointer-events-none data-disabled:opacity-disabled",
         // Error (aria-invalid)
         "aria-invalid:border-[color:var(--pcs-color-error-border)]",
         "aria-invalid:ring-[length:var(--pcs-focus-ring-width)] aria-invalid:ring-[var(--pcs-color-error-border)]/50",

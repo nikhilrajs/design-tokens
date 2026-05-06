@@ -157,6 +157,9 @@
 	--shadow-md: var(--pcs-shadow-md);
 	--shadow-lg: var(--pcs-shadow-lg);
 	--shadow-xl: var(--pcs-shadow-xl);
+
+	/* --- Opacity --- */
+	--opacity-disabled: var(--pcs-primitive-opacity-disabled);
 }
 
 /* -----------------------------------------------------------------------------

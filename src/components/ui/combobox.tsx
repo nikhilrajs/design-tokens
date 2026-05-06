@@ -140,7 +140,7 @@ const ComboboxItem = ({
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] pr-8 pl-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none data-highlighted:bg-[var(--pcs-menu-item-bg-hover)] data-highlighted:text-[color:var(--pcs-menu-item-text-hover)] not-data-[variant=destructive]:data-highlighted:**:text-[color:var(--pcs-menu-item-text-hover)] data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex w-full cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] pr-8 pl-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none data-highlighted:bg-[var(--pcs-menu-item-bg-hover)] data-highlighted:text-[color:var(--pcs-menu-item-text-hover)] not-data-[variant=destructive]:data-highlighted:**:text-[color:var(--pcs-menu-item-text-hover)] data-disabled:pointer-events-none data-disabled:opacity-disabled [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
@@ -243,7 +243,7 @@ const ComboboxChip = ({
     <ComboboxPrimitive.Chip
       data-slot="combobox-chip"
       className={cn(
-        "flex h-[calc(--spacing(5.25))] w-fit items-center justify-center gap-1 rounded-sm bg-[var(--pcs-color-surface-neutral-active)] px-1.5 text-xs font-medium whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 has-data-[slot=combobox-chip-remove]:pr-0",
+        "flex h-[calc(--spacing(5.25))] w-fit items-center justify-center gap-1 rounded-sm bg-[var(--pcs-color-surface-neutral-active)] px-1.5 text-xs font-medium whitespace-nowrap text-foreground has-disabled:pointer-events-none has-disabled:opacity-disabled has-data-[slot=combobox-chip-remove]:pr-0",
         className
       )}
       {...props}

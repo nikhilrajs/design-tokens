@@ -16,7 +16,7 @@ const buttonVariants = cva(
     // SVG icon defaults
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     // Interaction
-    "cursor-pointer active:translate-y-px disabled:pointer-events-none disabled:opacity-50",
+    "cursor-pointer active:translate-y-px disabled:pointer-events-none",
     // Focus ring — no offset; ring at 50% opacity matches input focus pattern
     "focus-visible:ring-[length:var(--pcs-focus-ring-width)] focus-visible:ring-[var(--pcs-button-focus-ring-color)]/50 focus-visible:border-[color:var(--pcs-button-focus-ring-color)]",
     // aria-invalid (form validation error state)
@@ -31,6 +31,7 @@ const buttonVariants = cva(
           "bg-[var(--pcs-button-primary-bg)] text-[color:var(--pcs-button-primary-text)] border-[color:var(--pcs-button-primary-border)] shadow-[var(--pcs-button-primary-shadow)]",
           "hover:bg-[var(--pcs-button-primary-bg-hover)] hover:border-[color:var(--pcs-button-primary-border-hover)] hover:shadow-[var(--pcs-button-primary-shadow-hover)]",
           "active:bg-[var(--pcs-button-primary-bg-active)] active:border-[color:var(--pcs-button-primary-border-active)]",
+          "disabled:bg-[var(--pcs-button-primary-bg-disabled)] disabled:text-[color:var(--pcs-button-primary-text-disabled)] disabled:border-[color:var(--pcs-button-primary-border-disabled)] disabled:shadow-none",
         ],
 
         // Outline / Secondary — visible border, neutral background.
@@ -39,6 +40,7 @@ const buttonVariants = cva(
           "hover:bg-[var(--pcs-button-secondary-bg-hover)] hover:border-[color:var(--pcs-button-secondary-border-hover)] hover:shadow-[var(--pcs-button-secondary-shadow-hover)]",
           "active:bg-[var(--pcs-button-secondary-bg-active)] active:border-[color:var(--pcs-button-secondary-border-active)]",
           "aria-expanded:bg-[var(--pcs-button-secondary-bg-active)] aria-expanded:border-[color:var(--pcs-button-secondary-border-active)]",
+          "disabled:bg-[var(--pcs-button-secondary-bg-disabled)] disabled:text-[color:var(--pcs-button-secondary-text-disabled)] disabled:border-[color:var(--pcs-button-secondary-border-disabled)] disabled:shadow-none",
         ],
 
         // Ghost — no border, no fill. Tertiary / low-emphasis.
@@ -46,6 +48,7 @@ const buttonVariants = cva(
           "bg-transparent text-[color:var(--pcs-button-ghost-text)] border-transparent",
           "hover:bg-[var(--pcs-button-ghost-bg-hover)]",
           "active:bg-[var(--pcs-button-ghost-bg-active)] aria-expanded:bg-[var(--pcs-button-ghost-bg-active)]",
+          "disabled:bg-transparent disabled:text-[color:var(--pcs-button-ghost-text-disabled)] disabled:border-transparent",
         ],
 
         // Destructive — filled red. Dangerous actions.
@@ -53,6 +56,7 @@ const buttonVariants = cva(
           "bg-[var(--pcs-button-destructive-bg)] text-[color:var(--pcs-button-destructive-text)] border-[color:var(--pcs-button-destructive-border)] shadow-[var(--pcs-button-destructive-shadow)]",
           "hover:bg-[var(--pcs-button-destructive-bg-hover)] hover:border-[color:var(--pcs-button-destructive-border-hover)] hover:shadow-[var(--pcs-button-destructive-shadow-hover)]",
           "active:bg-[var(--pcs-button-destructive-bg-active)] active:border-[color:var(--pcs-button-destructive-border-active)]",
+          "disabled:bg-[var(--pcs-button-destructive-bg-disabled)] disabled:text-[color:var(--pcs-button-destructive-text-disabled)] disabled:border-[color:var(--pcs-button-destructive-border-disabled)] disabled:shadow-none",
         ],
 
         // Destructive Outline — red border + text, transparent bg.
@@ -60,6 +64,7 @@ const buttonVariants = cva(
           "bg-transparent text-[color:var(--pcs-button-destructive-outline-text)] border-[color:var(--pcs-button-destructive-outline-border)] shadow-[var(--pcs-button-destructive-outline-shadow)]",
           "hover:bg-[var(--pcs-button-destructive-outline-bg-hover)] hover:border-[color:var(--pcs-button-destructive-outline-border-hover)] hover:shadow-[var(--pcs-button-destructive-outline-shadow-hover)]",
           "active:bg-[var(--pcs-button-destructive-outline-bg-active)] active:border-[color:var(--pcs-button-destructive-outline-border-active)]",
+          "disabled:bg-transparent disabled:text-[color:var(--pcs-color-text-disabled)] disabled:border-[color:var(--pcs-color-border-disabled)] disabled:shadow-none",
         ],
 
         // Destructive Ghost — no fill, red text. Soft destructive for icon buttons and low-density contexts.
@@ -67,6 +72,7 @@ const buttonVariants = cva(
           "bg-transparent text-[color:var(--pcs-button-destructive-ghost-text)] border-transparent",
           "hover:bg-[var(--pcs-button-destructive-ghost-bg-hover)] hover:text-[color:var(--pcs-button-destructive-ghost-text-hover)]",
           "active:bg-[var(--pcs-button-destructive-ghost-bg-active)] active:text-[color:var(--pcs-button-destructive-ghost-text-active)]",
+          "disabled:bg-transparent disabled:text-[color:var(--pcs-button-destructive-ghost-text-disabled)] disabled:border-transparent",
         ],
 
         // Link — text link with button semantics. Zero chrome.
@@ -74,6 +80,7 @@ const buttonVariants = cva(
           "bg-transparent text-[color:var(--pcs-button-link-text)] border-transparent underline-offset-4",
           "hover:text-[color:var(--pcs-button-link-text-hover)] hover:underline",
           "active:text-[color:var(--pcs-button-link-text-active)]",
+          "disabled:bg-transparent disabled:text-[color:var(--pcs-button-link-text-disabled)] disabled:border-transparent disabled:no-underline",
         ],
       },
 

@@ -195,9 +195,9 @@
      scale to express interaction depth without creating one-off semantic tokens.
   =========================================================================== */
 
-  --pcs-button-destructive-bg:               var(--pcs-color-error-emphasis);
-  --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-700);
-  --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-bg:               var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-900);
   --pcs-button-destructive-bg-disabled:      var(--pcs-color-surface-disabled);
 
   --pcs-button-destructive-text:             var(--pcs-color-error-on-emphasis);
@@ -205,9 +205,9 @@
   --pcs-button-destructive-text-active:      var(--pcs-color-error-on-emphasis);
   --pcs-button-destructive-text-disabled:    var(--pcs-color-text-disabled);
 
-  --pcs-button-destructive-border:           var(--pcs-color-error-emphasis);
-  --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-700);
-  --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-border:           var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-900);
   --pcs-button-destructive-border-disabled:  var(--pcs-color-border-disabled);
 
   --pcs-button-destructive-icon:             var(--pcs-color-error-on-emphasis);
@@ -354,25 +354,23 @@
   /* Fully handled by semantic state tokens */
 
   /* --- Destructive ---
-     In dark mode, filled red needs to stay readable.
-     red-500 base (slightly lighter than light-mode red-600) for better contrast
-     on dark backgrounds. Hover/active step UP the ramp (lighter = brighter on
-     dark) — same primitive-ramp approach as light mode, inverted direction.
+     Darker base than light mode (red-800) — high-chroma reds read as heavy on
+     dark surfaces. Hover/active step up the ramp (lighter = more elevated on dark).
   --------------------------------------------------------------------------- */
-  --pcs-button-destructive-bg:               var(--pcs-primitive-color-red-600);
-  --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-500);
-  --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-400);
-  --pcs-button-destructive-border:           var(--pcs-primitive-color-red-600);
-  --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-500);
-  --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-400);
+  --pcs-button-destructive-bg:               var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-bg-hover:         var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-bg-active:        var(--pcs-primitive-color-red-600);
+  --pcs-button-destructive-border:           var(--pcs-primitive-color-red-800);
+  --pcs-button-destructive-border-hover:     var(--pcs-primitive-color-red-700);
+  --pcs-button-destructive-border-active:    var(--pcs-primitive-color-red-600);
 
   /* --- Destructive Outline ---
-     red-700 (#b91c1c) is nearly invisible on dark bg — use red-500 (emphasis)
-     for the border so it reads clearly. Text stays at red-200 via error-text.
+     red-400 aligns with input error border (red-400) and error text (red-300)
+     for visual coherence in dark mode. Hover steps to red-500 for feedback.
   --------------------------------------------------------------------------- */
-  --pcs-button-destructive-outline-border:          var(--pcs-color-error-emphasis);
-  --pcs-button-destructive-outline-border-hover:    var(--pcs-color-error-icon);
-  --pcs-button-destructive-outline-border-active:   var(--pcs-color-error-emphasis);
+  --pcs-button-destructive-outline-border:          var(--pcs-primitive-color-red-400);
+  --pcs-button-destructive-outline-border-hover:    var(--pcs-primitive-color-red-500);
+  --pcs-button-destructive-outline-border-active:   var(--pcs-primitive-color-red-400);
   --pcs-button-destructive-outline-text:            var(--pcs-color-error-text);
 
   /* --- Destructive Ghost ---

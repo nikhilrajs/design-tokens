@@ -265,6 +265,8 @@
 	--pcs-primitive-border-width-default: 1px;
 	--pcs-primitive-border-width-medium: 2px;
 	--pcs-primitive-border-width-thick: 4px;
+
+	--pcs-primitive-opacity-disabled: 0.4;
 }
 
 /* =============================================================================
@@ -376,7 +378,7 @@
 
 	--pcs-color-error-background: var(--pcs-primitive-color-red-50);
 	--pcs-color-error-background-hover: var(--pcs-primitive-color-red-100);
-	--pcs-color-error-border: var(--pcs-primitive-color-red-200);
+	--pcs-color-error-border: var(--pcs-primitive-color-red-300);
 	--pcs-color-error-text: var(--pcs-primitive-color-red-700);
 	--pcs-color-error-icon: var(--pcs-primitive-color-red-700);
 	--pcs-color-error-emphasis: var(--pcs-primitive-color-red-600);

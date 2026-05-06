@@ -22,7 +22,7 @@ const toggleVariants = cva(
     // Focus ring
     "focus-visible:border-[color:var(--pcs-toggle-focus-ring-color)] focus-visible:ring-[length:var(--pcs-toggle-focus-ring-width)] focus-visible:ring-[var(--pcs-toggle-focus-ring-color)]/50",
     // Disabled
-    "disabled:pointer-events-none disabled:opacity-50",
+    "disabled:pointer-events-none disabled:opacity-disabled",
     // Error
     "aria-invalid:border-[color:var(--pcs-color-error-border)] aria-invalid:ring-[var(--pcs-color-error-border)]/20",
     // SVG icons

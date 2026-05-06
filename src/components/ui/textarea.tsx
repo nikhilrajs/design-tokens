@@ -36,7 +36,8 @@ function Textarea({ className, autoResize = true, ...props }, ref) {
         "focus-visible:border-[color:var(--pcs-input-border-color-focus)]",
         "focus-visible:ring-[length:var(--pcs-input-focus-ring-width)] focus-visible:ring-[var(--pcs-input-focus-ring-color)]/50",
         // Disabled
-        "disabled:pointer-events-none disabled:opacity-50",
+        "disabled:pointer-events-none disabled:opacity-disabled",
+        "disabled:bg-[var(--pcs-color-surface-disabled)] disabled:border-[color:var(--pcs-color-border-disabled)] disabled:text-[color:var(--pcs-color-text-disabled)]",
         // Error
         "aria-invalid:border-[color:var(--pcs-input-border-color-error)]",
         "aria-invalid:ring-[length:var(--pcs-focus-ring-width)] aria-invalid:ring-[var(--pcs-input-border-color-error)]/50",

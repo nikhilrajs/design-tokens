@@ -67,7 +67,7 @@
   --accent-foreground:             var(--pcs-color-text-default);
 
   /* --- Destructive (delete, remove, irreversible actions) --- */
-  --destructive:                   var(--pcs-color-error-emphasis);
+  --destructive:                   var(--pcs-color-error-text);
   --destructive-foreground:        var(--pcs-color-error-on-emphasis);
 
   /* --- Border (default border color) --- */
@@ -135,7 +135,7 @@
   --muted-foreground:              var(--pcs-color-text-muted);
   --accent:                        var(--pcs-color-surface-neutral-hover);
   --accent-foreground:             var(--pcs-color-text-default);
-  --destructive:                   var(--pcs-color-error-emphasis);
+  --destructive:                   var(--pcs-color-error-text);
   --destructive-foreground:        var(--pcs-color-error-on-emphasis);
   --border:                        var(--pcs-color-border-default);
   --input:                         var(--pcs-color-border-strong);

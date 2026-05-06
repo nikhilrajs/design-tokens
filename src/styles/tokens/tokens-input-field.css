@@ -122,15 +122,17 @@
   =========================================================================== */
 
 	--pcs-input-bg-error: var(--pcs-color-background);
-	--pcs-input-border-color-error: var(--pcs-color-error-border);
+	--pcs-input-border-color-error: var(--pcs-primitive-color-red-500);
+	/* red-500 — stronger than semantic red-300; border is the primary error signal on an input */
 	--pcs-input-shadow-error: none;
 	--pcs-input-shadow-error-focus:
-		0 0 0 var(--pcs-input-focus-ring-width) var(--pcs-color-error-border);
+		0 0 0 var(--pcs-input-focus-ring-width) var(--pcs-primitive-color-red-500);
 
 	/* ===========================================================================
      INPUT — STATE: DISABLED
-     Opacity-50 on the element — matches checkbox/radio treatment.
-     No color tokens needed; the dimmed default state is sufficient signal.
+     Handled via opacity-disabled utility on the element. No color tokens
+     needed — opacity degrades all visual properties proportionally and keeps
+     disabled appearance consistent across input, textarea, select, etc.
   =========================================================================== */
 
 	/* ===========================================================================
@@ -251,5 +253,12 @@
 	/* Input bg — replicates shadcn's dark:bg-input/30 (neutral-700 at 30% opacity).
      Transparent tint rather than a solid step — avoids clashing with card bg. */
 	--pcs-input-bg: oklch(from var(--pcs-primitive-color-neutral-700) l c h / 30%);
+
+	/* Error border/ring — red-400 stays in the same range as error-text (red-300),
+	   keeping border and help text visually coherent in dark mode */
+	--pcs-input-border-color-error: var(--pcs-primitive-color-red-400);
+	--pcs-input-shadow-error-focus:
+		0 0 0 var(--pcs-input-focus-ring-width) var(--pcs-primitive-color-red-400);
+
 
 }

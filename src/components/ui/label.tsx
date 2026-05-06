@@ -11,8 +11,8 @@ const Label = ({ className, ...props }: React.ComponentProps<"label">) => {
         "type-label-lg",
         "leading-none",
         "text-[color:var(--pcs-field-label-color)]",
-        "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50",
-        "peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-disabled",
+        "peer-disabled:opacity-disabled",
         className
       )}
       {...props}

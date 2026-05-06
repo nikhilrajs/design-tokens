@@ -62,8 +62,7 @@
 	/* --- VARIANT: Error --- */
 	--pcs-alert-error-bg: var(--pcs-color-error-background);
 	/* red-50  */
-	--pcs-alert-error-border: var(--pcs-color-error-border);
-	/* red-300 */
+	--pcs-alert-error-border: var(--pcs-primitive-color-red-200); /* one step softer than semantic red-300 — alert is a passive surface, not an interactive field */
 	--pcs-alert-error-accent: var(--pcs-color-error-emphasis);
 	/* red-600 */
 	--pcs-alert-error-title: var(--pcs-color-error-text);
@@ -195,7 +194,8 @@
 [data-app-color-scheme="dark"],
 .dark {
 
-	/* Alert — border tokens cascade to --pcs-color-*-border which resolves to 700-step in dark */
+	/* Alert error border: light mode breaks the semantic alias (red-200 vs red-300), so dark must be explicit */
+	--pcs-alert-error-border: var(--pcs-primitive-color-red-900);
 
 	/* Empty state — all handled by semantic tokens; --pcs-empty-border-color resolves via
      --pcs-color-border-default which is already dark-aware upstream */

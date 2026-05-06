@@ -91,7 +91,7 @@ const DropdownMenuItem = ({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "group/dropdown-menu-item relative flex cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] px-[var(--pcs-menu-item-padding-x)] py-[var(--pcs-menu-item-padding-y)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none focus:bg-[var(--pcs-menu-item-bg-hover)] focus:text-[color:var(--pcs-menu-item-text-hover)] not-data-[variant=destructive]:focus:**:text-[color:var(--pcs-menu-item-text-hover)] data-inset:pl-7 data-[variant=destructive]:text-[color:var(--pcs-menu-item-text-destructive)] data-[variant=destructive]:focus:bg-[var(--pcs-menu-item-bg-destructive-hover)] data-[variant=destructive]:focus:text-[color:var(--pcs-menu-item-text-destructive-hover)] data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-[color:var(--pcs-menu-item-icon-color-destructive)]",
+        "group/dropdown-menu-item relative flex cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] px-[var(--pcs-menu-item-padding-x)] py-[var(--pcs-menu-item-padding-y)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none focus:bg-[var(--pcs-menu-item-bg-hover)] focus:text-[color:var(--pcs-menu-item-text-hover)] not-data-[variant=destructive]:focus:**:text-[color:var(--pcs-menu-item-text-hover)] data-inset:pl-7 data-[variant=destructive]:text-[color:var(--pcs-menu-item-text-destructive)] data-[variant=destructive]:focus:bg-[var(--pcs-menu-item-bg-destructive-hover)] data-[variant=destructive]:focus:text-[color:var(--pcs-menu-item-text-destructive-hover)] data-disabled:pointer-events-none data-disabled:opacity-disabled [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[variant=destructive]:*:[svg]:text-[color:var(--pcs-menu-item-icon-color-destructive)]",
         className
       )}
       {...props}
@@ -162,7 +162,7 @@ const DropdownMenuCheckboxItem = ({
       data-slot="dropdown-menu-checkbox-item"
       data-inset={inset}
       className={cn(
-        "relative flex cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] pr-8 pl-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none focus:bg-[var(--pcs-menu-item-bg-hover)] focus:text-[color:var(--pcs-menu-item-text-hover)] focus:**:text-[color:var(--pcs-menu-item-text-hover)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] pr-8 pl-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none focus:bg-[var(--pcs-menu-item-bg-hover)] focus:text-[color:var(--pcs-menu-item-text-hover)] focus:**:text-[color:var(--pcs-menu-item-text-hover)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-disabled [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       checked={checked}
@@ -204,7 +204,7 @@ const DropdownMenuRadioItem = ({
       data-slot="dropdown-menu-radio-item"
       data-inset={inset}
       className={cn(
-        "relative flex cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] pr-8 pl-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none focus:bg-[var(--pcs-menu-item-bg-hover)] focus:text-[color:var(--pcs-menu-item-text-hover)] focus:**:text-[color:var(--pcs-menu-item-text-hover)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex cursor-default items-center gap-[var(--pcs-menu-item-gap)] rounded-[var(--pcs-menu-item-border-radius)] py-[var(--pcs-menu-item-padding-y)] pr-8 pl-[var(--pcs-menu-item-padding-x)] text-[length:var(--pcs-menu-item-font-size)] outline-hidden select-none focus:bg-[var(--pcs-menu-item-bg-hover)] focus:text-[color:var(--pcs-menu-item-text-hover)] focus:**:text-[color:var(--pcs-menu-item-text-hover)] data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-disabled [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
