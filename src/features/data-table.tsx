@@ -99,6 +99,76 @@ const simpleColumns: ColumnDef<Invoice>[] = [
   },
 ]
 
+// ─── Tables List (highlighted row) ───────────────────────────────────────────
+// Demonstrates the provider-row highlight. One row is designated as the
+// "Provider Table" and receives data-variant="highlighted".
+
+interface DatabaseTable {
+  name: string
+  schema: string
+  rows: number
+  size: string
+  lastModified: string
+  isProvider: boolean
+}
+
+const databaseTables: DatabaseTable[] = [
+  { name: "users",          schema: "public",   rows: 84320,  size: "42 MB",   lastModified: "2025-05-01", isProvider: false },
+  { name: "provider_table", schema: "public",   rows: 12800,  size: "18 MB",   lastModified: "2025-05-06", isProvider: true  },
+  { name: "orders",         schema: "public",   rows: 230100, size: "310 MB",  lastModified: "2025-05-05", isProvider: false },
+  { name: "products",       schema: "catalog",  rows: 4500,   size: "9 MB",    lastModified: "2025-04-28", isProvider: false },
+  { name: "sessions",       schema: "auth",     rows: 99200,  size: "120 MB",  lastModified: "2025-05-06", isProvider: false },
+  { name: "audit_log",      schema: "internal", rows: 512000, size: "1.2 GB",  lastModified: "2025-05-07", isProvider: false },
+]
+
+const tableListColumns: ColumnDef<DatabaseTable>[] = [
+  {
+    accessorKey: "name",
+    header: "Table Name",
+    cell: ({ row }) => (
+      <span className="font-mono text-[color:var(--pcs-color-text-default)]">
+        {row.getValue("name")}
+      </span>
+    ),
+  },
+  {
+    accessorKey: "schema",
+    header: "Schema",
+    cell: ({ row }) => (
+      <span className="text-[color:var(--pcs-color-text-muted)]">
+        {row.getValue("schema")}
+      </span>
+    ),
+  },
+  {
+    accessorKey: "rows",
+    header: "Rows",
+    cell: ({ row }) => (
+      <span className="block text-right tabular-nums text-[color:var(--pcs-color-text-muted)]">
+        {(row.getValue("rows") as number).toLocaleString()}
+      </span>
+    ),
+  },
+  {
+    accessorKey: "size",
+    header: "Size",
+    cell: ({ row }) => (
+      <span className="block text-right tabular-nums text-[color:var(--pcs-color-text-muted)]">
+        {row.getValue("size")}
+      </span>
+    ),
+  },
+  {
+    accessorKey: "lastModified",
+    header: "Last Modified",
+    cell: ({ row }) => (
+      <span className="text-[color:var(--pcs-color-text-muted)]">
+        {new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(row.getValue("lastModified") as string))}
+      </span>
+    ),
+  },
+]
+
 // ─── Advanced DataTable ───────────────────────────────────────────────────────
 // Wider dataset — enough columns to trigger horizontal scroll and make
 // column pinning meaningful.
@@ -252,6 +322,34 @@ export function DataGrid() {
         </CardHeader>
         <CardContent>
           <AdvancedDataTable columns={advancedColumns} data={invoicesExtended} pageSize={5} />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Tables List — highlighted row</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <DataTable
+            columns={tableListColumns}
+            data={databaseTables}
+            pageSize={6}
+            getRowVariant={(row) => row.isProvider ? "highlighted" : undefined}
+          />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Tables List — advanced grid with highlighted row</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <AdvancedDataTable
+            columns={tableListColumns}
+            data={databaseTables}
+            pageSize={6}
+            getRowVariant={(row) => row.isProvider ? "highlighted" : undefined}
+          />
         </CardContent>
       </Card>
 

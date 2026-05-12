@@ -31,6 +31,7 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   pageSize?: number
+  getRowVariant?: (row: TData) => string | undefined
 }
 
 const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
@@ -60,6 +61,7 @@ export const DataTable = <TData, TValue>({
   columns: userColumns,
   data,
   pageSize = 5,
+  getRowVariant,
 }: DataTableProps<TData, TValue>) => {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
@@ -161,6 +163,7 @@ export const DataTable = <TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() ? "selected" : undefined}
+                  data-variant={getRowVariant?.(row.original)}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>

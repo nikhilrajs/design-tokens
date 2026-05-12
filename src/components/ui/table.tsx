@@ -64,6 +64,11 @@ const TableRow = ({ className, ...props }: React.ComponentProps<"tr">) => {
         "border-b border-[color:var(--pcs-table-row-border-bottom-color)] transition-colors",
         "hover:bg-[var(--pcs-table-row-bg-hover)]",
         "data-[state=selected]:bg-[var(--pcs-table-row-bg-selected)]",
+        "data-[variant=highlighted]:bg-[var(--pcs-table-row-bg-highlighted)]",
+        // Set --row-accent on the tr so it cascades into td:first-child.
+        // The accent is drawn there via box-shadow, not here, so it always
+        // aligns flush with the cell edge regardless of first-column content.
+        "data-[variant=highlighted]:[--row-accent:var(--pcs-table-row-border-highlighted-color)]",
         className
       )}
       {...props}
@@ -108,6 +113,9 @@ const TableCell = React.forwardRef<
         "text-[length:var(--pcs-table-cell-font-size)] text-[color:var(--pcs-table-cell-color)]",
         "font-[var(--pcs-table-cell-font-weight)] leading-[var(--pcs-table-cell-line-height)]",
         "[&:has([role=checkbox])]:pr-0",
+        // Consumes --row-accent set by the parent tr when data-variant="highlighted".
+        // Fallback transparent means no shadow on normal rows.
+        "first:[box-shadow:inset_3px_0_0_var(--row-accent,transparent)]",
         className
       )}
       {...props}

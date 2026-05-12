@@ -1,5 +1,6 @@
 import * as React from "react"
 import {
+  type Cell,
   type Column,
   type ColumnDef,
   type ColumnFiltersState,
@@ -40,7 +41,7 @@ import {
   ChevronRightIcon,
   ChevronUpIcon,
   ChevronsUpDownIcon,
-  GripHorizontalIcon,
+  GripVerticalIcon,
   PinIcon,
   PinOffIcon,
   SlidersHorizontalIcon,
@@ -106,14 +107,18 @@ const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
 
 const DraggableTableHead = <TData,>({
   header,
+  isLastLeftPinned,
+  isFirstRightPinned,
 }: {
   header: Header<TData, unknown>
+  isLastLeftPinned: boolean
+  isFirstRightPinned: boolean
 }) => {
   const { column } = header
   const isPinned = column.getIsPinned()
   const isSelect = column.id === "select"
 
-  const { attributes, isDragging, listeners, setNodeRef, transform, transition } =
+  const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({
       id: column.id,
       // Pinned columns and the selection column are not draggable
@@ -125,14 +130,24 @@ const DraggableTableHead = <TData,>({
     // Sticky positioning for pinned columns — left/right values are dynamic pixel
     // offsets from TanStack Table. Inline style is required here (not Tailwind)
     // because the values change at runtime based on neighbour column widths.
-    ...(isPinned === "left"  && { position: "sticky", left:  column.getStart("left"),  zIndex: 3 }),
-    ...(isPinned === "right" && { position: "sticky", right: column.getAfter("right"), zIndex: 3 }),
-    // DnD transform only applies to non-pinned columns
+    // Math.round prevents sub-pixel gaps/overlaps between adjacent sticky columns at high DPR.
+    ...(isPinned === "left"  && { position: "sticky", left:  Math.round(column.getStart("left")),  zIndex: 3 }),
+    ...(isPinned === "right" && { position: "sticky", right: Math.round(column.getAfter("right")), zIndex: 3 }),
+    // CSS.Translate (not Transform) moves without squishing the cell.
+    // Non-pinned only — pinned columns are sticky and must not be translated.
+    // zIndex only set when dragging — an explicit z-index:0 at rest creates a stacking context
+    // that can paint over sticky cells in some browser rendering paths.
     ...(!isPinned && {
-      transform: CSS.Transform.toString(transform),
-      transition: transition ?? undefined,
+      position: "relative",
+      transform: CSS.Translate.toString(transform),
+      transition: "width transform 0.2s ease-in-out",
+      ...(isDragging && { zIndex: 1 }),
     }),
-    opacity: isDragging ? 0.5 : undefined,
+    opacity: isDragging ? 0.8 : 1,
+    // Inline border — avoids Tailwind v4 type-hint class generation issues for
+    // directional border-width + border-color combinations.
+    ...(isLastLeftPinned   && { borderRight: `var(--pcs-table-col-pin-border-width) solid var(--pcs-table-col-pin-border-color)` }),
+    ...(isFirstRightPinned && { borderLeft:  `var(--pcs-table-col-pin-border-width) solid var(--pcs-table-col-pin-border-color)` }),
   }
 
   return (
@@ -141,8 +156,6 @@ const DraggableTableHead = <TData,>({
       style={style}
       className={cn(
         isSelect && "w-12",
-        isPinned === "left"  && "[box-shadow:var(--pcs-table-col-pin-shadow-left)]",
-        isPinned === "right" && "[box-shadow:var(--pcs-table-col-pin-shadow-right)]",
       )}
       {...attributes}
     >
@@ -163,7 +176,7 @@ const DraggableTableHead = <TData,>({
                 aria-label="Drag to reorder column"
                 tabIndex={-1}
               >
-                <GripHorizontalIcon className="size-3" />
+                <GripVerticalIcon className="size-4" />
               </button>
             )}
 
@@ -197,8 +210,8 @@ const DraggableTableHead = <TData,>({
               aria-label={isPinned ? "Unpin column" : "Pin column left"}
             >
               {isPinned
-                ? <PinOffIcon className="size-3" />
-                : <PinIcon    className="size-3" />
+                ? <PinOffIcon className="size-4" />
+                : <PinIcon    className="size-4" />
               }
             </button>
           </div>
@@ -214,29 +227,76 @@ const DraggableTableHead = <TData,>({
   )
 }
 
+// ─── DragAlongCell ────────────────────────────────────────────────────────────
+// Mirrors DraggableTableHead for body cells: each td registers with useSortable
+// using its column id so dnd-kit applies the same CSS.Translate transform to the
+// entire column (header + every cell) simultaneously during drag.
+
+const DragAlongCell = <TData,>({
+  cell,
+  className,
+  style: externalStyle,
+  children,
+}: {
+  cell: Cell<TData, unknown>
+  className?: string
+  style?: React.CSSProperties
+  children: React.ReactNode
+}) => {
+  const isPinned = cell.column.getIsPinned()
+
+  const { isDragging, setNodeRef, transform } = useSortable({
+    id: cell.column.id,
+  })
+
+  const style: React.CSSProperties = {
+    // Drag transform — non-pinned only; sticky cells must not be translated.
+    // zIndex only set when dragging — explicit z-index:0 at rest creates a stacking context
+    // that can paint over sticky cells in some browser rendering paths.
+    ...(!isPinned && {
+      position: "relative",
+      transform: CSS.Translate.toString(transform),
+      transition: "width transform 0.2s ease-in-out",
+      ...(isDragging && { zIndex: 1 }),
+    }),
+    opacity: isDragging ? 0.8 : 1,
+    // Caller-provided style (width + sticky pin offsets) applied last so it wins.
+    ...externalStyle,
+  }
+
+  return (
+    <TableCell ref={setNodeRef} style={style} className={className}>
+      {children}
+    </TableCell>
+  )
+}
+
 // ─── AdvancedDataTable ────────────────────────────────────────────────────────
 
 interface AdvancedDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
   pageSize?: number
+  getRowVariant?: (row: TData) => string | undefined
 }
 
 export const AdvancedDataTable = <TData, TValue>({
   columns: userColumns,
   data,
   pageSize = 5,
+  getRowVariant,
 }: AdvancedDataTableProps<TData, TValue>) => {
   const [sorting,          setSorting]          = React.useState<SortingState>([])
   const [columnFilters,    setColumnFilters]    = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [rowSelection,     setRowSelection]     = React.useState({})
-  const [columnPinning,    setColumnPinning]    = React.useState<ColumnPinningState>({})
+  const [columnPinning,    setColumnPinning]    = React.useState<ColumnPinningState>({ left: ["select"] })
 
   // Selection column — prepended internally, not part of the user-supplied columns
   const selectionColumn: ColumnDef<TData, TValue> = {
     id: "select",
     size: 48,
+    minSize: 48,
     header: ({ table }) => (
       <Checkbox
         checked={table.getIsAllPageRowsSelected()}
@@ -298,7 +358,6 @@ export const AdvancedDataTable = <TData, TValue>({
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   )
 
-  // When a drag ends, reorder the column in the full columnOrder array
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event
     if (active && over && active.id !== over.id) {
@@ -363,8 +422,11 @@ export const AdvancedDataTable = <TData, TValue>({
             Table renders its own overflow-x-auto scroll container.
             min-w-max forces the table to be at least as wide as its content,
             triggering horizontal scroll when columns exceed the container width.
+            border-separate + border-spacing-0: overrides Tailwind's default
+            border-collapse:collapse so sticky cell borders move with the sticky
+            element instead of staying at the original shared boundary position.
           */}
-          <Table className="min-w-max">
+          <Table className="min-w-max border-separate border-spacing-0">
             <TableHeader>
               {table.getHeaderGroups().map(headerGroup => (
                 <SortableContext
@@ -373,12 +435,26 @@ export const AdvancedDataTable = <TData, TValue>({
                   strategy={horizontalListSortingStrategy}
                 >
                   <TableRow>
-                    {headerGroup.headers.map(header => (
-                      <DraggableTableHead
-                        key={header.id}
-                        header={header as Header<TData, unknown>}
-                      />
-                    ))}
+                    {(() => {
+                      const headers = headerGroup.headers
+                      // 2px border on the last left-pinned content column and first right-pinned
+                      // column — anchored to the pinned cell so it stays fixed during scroll.
+                      // Exclude "select" (always pinned structurally) so no border shows until
+                      // the user explicitly pins a content column.
+                      const lastLeftPinnedId = [...headers]
+                        .reverse()
+                        .find(h => h.column.getIsPinned() === "left" && h.column.id !== "select")
+                        ?.column.id
+                      const firstRightPinnedId = headers.find(h => h.column.getIsPinned() === "right")?.column.id
+                      return headers.map(header => (
+                        <DraggableTableHead
+                          key={header.id}
+                          header={header as Header<TData, unknown>}
+                          isLastLeftPinned={header.column.id === lastLeftPinnedId}
+                          isFirstRightPinned={header.column.id === firstRightPinnedId}
+                        />
+                      ))
+                    })()}
                   </TableRow>
                 </SortableContext>
               ))}
@@ -386,40 +462,63 @@ export const AdvancedDataTable = <TData, TValue>({
 
             <TableBody>
               {table.getRowModel().rows.length ? (
-                table.getRowModel().rows.map(row => (
-                  <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() ? "selected" : undefined}
-                  >
-                    {row.getVisibleCells().map(cell => {
-                      const pinned = cell.column.getIsPinned()
+                table.getRowModel().rows.map(row => {
+                  const rowVariant = getRowVariant?.(row.original)
+                  return (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() ? "selected" : undefined}
+                      data-variant={rowVariant}
+                    >
+                      {/* Each body row needs its own SortableContext so dnd-kit
+                          can apply the same CSS.Translate to every td in the
+                          dragged column — this is what makes the whole column move. */}
+                      <SortableContext items={columnOrder} strategy={horizontalListSortingStrategy}>
+                        {(() => {
+                          const cells = row.getVisibleCells()
+                          const lastLeftPinnedId = [...cells]
+                            .reverse()
+                            .find(c => c.column.getIsPinned() === "left" && c.column.id !== "select")
+                            ?.column.id
+                          const firstRightPinnedId = cells.find(c => c.column.getIsPinned() === "right")?.column.id
+                          return cells.map(cell => {
+                            const pinned = cell.column.getIsPinned()
 
-                      // Dynamic pixel offsets for sticky cells — must be inline style
-                      const pinStyle: React.CSSProperties = pinned === "left"
-                        ? { position: "sticky", left:  cell.column.getStart("left"),  zIndex: 1 }
-                        : pinned === "right"
-                        ? { position: "sticky", right: cell.column.getAfter("right"), zIndex: 1 }
-                        : {}
+                            const borderStyle = cell.column.id === lastLeftPinnedId
+                              ? { borderRight: `var(--pcs-table-col-pin-border-width) solid var(--pcs-table-col-pin-border-color)` }
+                              : cell.column.id === firstRightPinnedId
+                              ? { borderLeft: `var(--pcs-table-col-pin-border-width) solid var(--pcs-table-col-pin-border-color)` }
+                              : {}
 
-                      return (
-                        <TableCell
-                          key={cell.id}
-                          style={{ width: cell.column.getSize(), ...pinStyle }}
-                          className={cn(
-                            // Pinned cells need an opaque background for sticky to cover scrolling content.
-                            // Mirrors the row selection state so pinned cells aren't visually detached.
-                            pinned && !row.getIsSelected() && "bg-[var(--pcs-table-bg)]",
-                            pinned && row.getIsSelected()  && "bg-[var(--pcs-table-row-bg-selected)]",
-                            pinned === "left"  && "[box-shadow:var(--pcs-table-col-pin-shadow-left)]",
-                            pinned === "right" && "[box-shadow:var(--pcs-table-col-pin-shadow-right)]",
-                          )}
-                        >
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </TableCell>
-                      )
-                    })}
-                  </TableRow>
-                ))
+                            // Dynamic pixel offsets for sticky cells — must be inline style
+                            const pinStyle: React.CSSProperties = pinned === "left"
+                              ? { position: "sticky", left:  Math.round(cell.column.getStart("left")),  zIndex: 1 }
+                              : pinned === "right"
+                              ? { position: "sticky", right: Math.round(cell.column.getAfter("right")), zIndex: 1 }
+                              : {}
+
+                            return (
+                              <DragAlongCell
+                                key={cell.id}
+                                cell={cell}
+                                style={{ width: cell.column.getSize(), ...pinStyle, ...borderStyle }}
+                                className={cn(
+                                  // Pinned cells need an opaque background for sticky to cover scrolling content.
+                                  // Mirrors the row state so pinned cells aren't visually detached.
+                                  pinned && !row.getIsSelected() && rowVariant !== "highlighted" && "bg-[var(--pcs-table-bg)]",
+                                  pinned && row.getIsSelected()  && "bg-[var(--pcs-table-row-bg-selected)]",
+                                  pinned && rowVariant === "highlighted" && !row.getIsSelected() && "bg-[var(--pcs-table-row-bg-highlighted)]",
+                                )}
+                              >
+                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                              </DragAlongCell>
+                            )
+                          })
+                        })()}
+                      </SortableContext>
+                    </TableRow>
+                  )
+                })
               ) : (
                 <TableRow>
                   <TableCell

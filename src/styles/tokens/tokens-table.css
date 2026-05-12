@@ -82,24 +82,26 @@
 	   scroll-depth indication. Revisit in Phase 2. */
 	--pcs-table-head-sticky-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 
-	--pcs-table-head-font-size: var(--pcs-text-label-sm-size);
+	--pcs-table-head-font-size: var(--pcs-text-label-md-size);
 	--pcs-table-head-font-weight: 600;
 	/* heavier than body — signals header */
-	--pcs-table-head-line-height: var(--pcs-text-label-sm-line-height);
-	--pcs-table-head-color: var(--pcs-color-text-muted);
-	/* subdued, not default — hierarchy below cell content */
+	--pcs-table-head-line-height: var(--pcs-text-label-md-line-height);
+	--pcs-table-head-color: var(--pcs-color-icon-default);
+	/* neutral-600 in light (7.3:1 vs neutral-100 bg) — text-muted was 4.4:1, just under AA */
 	--pcs-table-head-text-transform: uppercase;
 	--pcs-table-head-letter-spacing: 0.04em;
 
-	/* Pinned column separator — directional shadow on the inner edge of a pinned column.
-	   Not using --pcs-shadow-* — those model elevation; this signals scroll-depth boundary. */
-	--pcs-table-col-pin-shadow-left: 2px 0 6px -2px rgba(0, 0, 0, 0.08);
-	--pcs-table-col-pin-shadow-right: -2px 0 6px -2px rgba(0, 0, 0, 0.08);
+	/* Pinned column separator — 2px border on the boundary edge of the last left-pinned
+	   (or first right-pinned) column. A border is anchored to the pinned cell so it
+	   stays fixed during horizontal scroll, unlike a shadow on the adjacent non-pinned cell. */
+	--pcs-table-col-pin-border-color: var(--pcs-color-border-default);
+	--pcs-table-col-pin-border-width: 2px;
 
 	/* Sort indicator icon */
 	--pcs-table-head-sort-icon-size: var(--pcs-size-icon-sm);
 	/* 12px */
-	--pcs-table-head-sort-icon-color: var(--pcs-color-icon-muted);
+	--pcs-table-head-sort-icon-color: var(--pcs-color-text-muted);
+	/* neutral-500 in light (4.4:1) — icon-muted was neutral-400 (2.2:1), failed 3:1 UI component threshold */
 	--pcs-table-head-sort-icon-color-active: var(--pcs-color-primary-emphasis);
 	--pcs-table-head-sort-gap: var(--pcs-space-component-gap-xs);
 	/* 4px — between label and icon */
@@ -138,6 +140,12 @@
 	/* brand-50 — consistent with Toggle Group, Select, nav selected states */
 	--pcs-table-row-border-selected-color: var(--pcs-color-primary-border);
 	/* brand-300 */
+
+	/* --- Highlighted row (e.g. provider table — visually distinct, non-interactive) --- */
+	--pcs-table-row-bg-highlighted: var(--pcs-color-info-background);
+	/* sky-50 — distinct from neutral hover and amber selection */
+	--pcs-table-row-border-highlighted-color: var(--pcs-primitive-color-sky-300);
+	/* stronger than info-border (sky-200) to read as a deliberate accent */
 
 	/* --- Disabled row (read-only, locked) --- */
 	--pcs-table-row-color-disabled: var(--pcs-color-text-disabled);
@@ -243,9 +251,7 @@
 	/* Sticky shadow more visible on dark */
 	--pcs-table-head-sticky-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
 
-	/* Pinned column separator shadows — more prominent on dark */
-	--pcs-table-col-pin-shadow-left: 2px 0 6px -2px rgba(0, 0, 0, 0.25);
-	--pcs-table-col-pin-shadow-right: -2px 0 6px -2px rgba(0, 0, 0, 0.25);
+	/* Pinned column separator — border color inherits from semantic token; no separate dark override needed */
 
 	/* Row hover — relative color from neutral-700 at 30% alpha.
 	   Avoids picking a fixed solid step and stays within the neutral palette. */
@@ -253,6 +259,13 @@
 
 	/* Row borders slightly more subtle in dark */
 	--pcs-table-row-border-bottom-color: var(--pcs-color-border-muted);
+
+	/* Sort icon — restore icon-muted (neutral-500, 3.2:1) so it stays dimmer than the title
+	   (icon-default = neutral-400 in dark). Preserves idle vs active hierarchy. */
+	--pcs-table-head-sort-icon-color: var(--pcs-color-icon-muted);
+
+	/* Highlighted row — bg handled by --pcs-color-info-background semantic token */
+	--pcs-table-row-border-highlighted-color: var(--pcs-primitive-color-sky-700);
 
 	/* Selected row — primary surface in dark */
 	--pcs-table-row-bg-selected: var(--pcs-color-surface-neutral-selected);
