@@ -73,8 +73,8 @@
 	--pcs-popover-border-width: var(--pcs-floating-border-width);
 	--pcs-popover-border-radius: var(--pcs-floating-border-radius);
 	--pcs-popover-shadow: var(--pcs-floating-shadow);
-	--pcs-popover-z: var(--pcs-z-dropdown);
-	/* 100 */
+	--pcs-popover-z: var(--pcs-z-tooltip);
+	/* 600 — must exceed --pcs-z-modal (400) so popovers work inside dialogs/sheets */
 
 	/* --- Sizing --- */
 	--pcs-popover-min-width: 12rem;
@@ -150,7 +150,8 @@
 	/* Wider than popover — hover cards contain richer layout (avatar + meta) */
 	--pcs-hover-card-min-width: 16rem;
 
-	--pcs-hover-card-z: var(--pcs-z-dropdown);
+	--pcs-hover-card-z: var(--pcs-z-tooltip);
+	/* 600 — must exceed --pcs-z-modal (400) so hover cards work inside dialogs/sheets */
 
 }
 

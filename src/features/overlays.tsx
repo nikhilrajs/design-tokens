@@ -39,12 +39,18 @@ import {
 } from '../components/ui/popover'
 import { Label } from '../components/ui/label'
 import { Input } from '../components/ui/input'
-import { AlertTriangleIcon, CalendarIcon, InfoIcon, LinkIcon, Settings2Icon, Trash2Icon, UserIcon } from 'lucide-react'
+import { AlertTriangleIcon, CalendarIcon, InfoIcon, LinkIcon, MessageSquareIcon, Settings2Icon, Trash2Icon, UserIcon } from 'lucide-react'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from '../components/ui/hover-card'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '../components/ui/tooltip'
 
 // ---------------------------------------------------------------------------
 // Sheet showcase
@@ -501,6 +507,219 @@ function HoverCardShowcase() {
 }
 
 // ---------------------------------------------------------------------------
+// Floating UIs inside overlay context
+// Tooltip, Popover, and HoverCard must render above the modal/sheet scrim
+// (z-tooltip: 600 > z-modal: 400). This showcase surfaces any z-index
+// regression visually.
+// ---------------------------------------------------------------------------
+
+function FloatingInOverlayShowcase() {
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [sheetOpen, setSheetOpen] = useState(false)
+
+  const floatingContent = (
+    <div className="flex flex-col gap-6">
+      {/* Tooltip */}
+      <div>
+        <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">
+          Tooltip
+        </p>
+        <TooltipProvider>
+          <div className="flex flex-wrap gap-2">
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <Button variant="outline" size="sm">
+                    <InfoIcon />
+                    Hover me
+                  </Button>
+                }
+              />
+              <TooltipContent>Should appear above the overlay</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <Button variant="outline" size="sm">
+                    <MessageSquareIcon />
+                    Another tip
+                  </Button>
+                }
+              />
+              <TooltipContent side="right">Tooltip to the right</TooltipContent>
+            </Tooltip>
+          </div>
+        </TooltipProvider>
+      </div>
+
+      {/* Popover */}
+      <div>
+        <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">
+          Popover
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <Popover>
+            <PopoverTrigger
+              render={
+                <Button variant="outline" size="sm">
+                  <Settings2Icon />
+                  Open popover
+                </Button>
+              }
+            />
+            <PopoverContent side="bottom">
+              <PopoverHeader>
+                <PopoverTitle>Popover inside overlay</PopoverTitle>
+                <PopoverDescription>
+                  This should float above the modal/sheet scrim.
+                </PopoverDescription>
+              </PopoverHeader>
+              <div className="pt-1 space-y-1">
+                <Label htmlFor="floating-pop-w" className="text-xs">Width</Label>
+                <Input id="floating-pop-w" defaultValue="100%" />
+              </div>
+            </PopoverContent>
+          </Popover>
+
+          <Popover>
+            <PopoverTrigger
+              render={
+                <Button variant="outline" size="sm">
+                  <UserIcon />
+                  Account
+                </Button>
+              }
+            />
+            <PopoverContent side="top">
+              <PopoverHeader>
+                <PopoverTitle>Alex Chen</PopoverTitle>
+                <PopoverDescription>alex.chen@example.com · Admin</PopoverDescription>
+              </PopoverHeader>
+              <div className="flex gap-2 pt-1">
+                <Button size="sm" variant="outline" className="flex-1">Profile</Button>
+                <Button size="sm" variant="outline" className="flex-1">Sign out</Button>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
+      </div>
+
+      {/* Hover Card */}
+      <div>
+        <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">
+          Hover Card
+        </p>
+        <div className="flex flex-wrap gap-4 text-sm">
+          <HoverCard>
+            <HoverCardTrigger
+              render={
+                <span className="cursor-pointer font-medium underline underline-offset-4 text-[color:var(--pcs-color-primary-emphasis)]">
+                  @alex_chen
+                </span>
+              }
+            />
+            <HoverCardContent side="bottom">
+              <div className="flex gap-3">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[var(--pcs-color-surface-muted)]">
+                  <UserIcon className="size-4 text-[color:var(--pcs-color-icon-muted)]" />
+                </div>
+                <div className="space-y-1 min-w-0">
+                  <p className="font-semibold text-[color:var(--pcs-color-text-default)]">Alex Chen</p>
+                  <p className="text-xs text-[color:var(--pcs-color-text-muted)]">Design systems engineer. Building Proteus2.</p>
+                  <div className="flex gap-3 pt-0.5 text-xs text-[color:var(--pcs-color-text-muted)]">
+                    <span><strong className="text-[color:var(--pcs-color-text-default)]">142</strong> Following</span>
+                    <span><strong className="text-[color:var(--pcs-color-text-default)]">3.4k</strong> Followers</span>
+                  </div>
+                </div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+
+          <HoverCard>
+            <HoverCardTrigger
+              render={
+                <span className="inline-flex items-center gap-1.5 cursor-pointer text-sm font-medium underline underline-offset-4 text-[color:var(--pcs-color-primary-emphasis)]">
+                  <LinkIcon className="size-3.5" />
+                  Proteus2 Design System
+                </span>
+              }
+            />
+            <HoverCardContent side="top">
+              <div className="space-y-1.5">
+                <p className="font-semibold text-[color:var(--pcs-color-text-default)]">Proteus2 Design System</p>
+                <p className="text-xs text-[color:var(--pcs-color-text-muted)]">
+                  Shared token and component library for all web products.
+                </p>
+                <div className="flex items-center gap-1.5 text-xs text-[color:var(--pcs-color-text-muted)]">
+                  <CalendarIcon className="size-3.5" />
+                  Last updated March 2025
+                </div>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        </div>
+      </div>
+    </div>
+  )
+
+  return (
+    <>
+      {/* Dialog */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Floating UIs inside a Dialog</DialogTitle>
+            <DialogDescription>
+              Tooltip, Popover, and HoverCard should each render above this
+              modal overlay (z-tooltip 600 &gt; z-modal 400).
+            </DialogDescription>
+          </DialogHeader>
+          {floatingContent}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Close</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Sheet */}
+      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Floating UIs inside a Sheet</SheetTitle>
+            <SheetDescription>
+              Same z-index test as the dialog — each floating element must
+              appear above the sheet scrim.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="px-4 pb-4">{floatingContent}</div>
+        </SheetContent>
+      </Sheet>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Floating UIs in overlay context</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-[color:var(--pcs-color-text-muted)] mb-4">
+            Open either overlay and interact with the Tooltip, Popover, and
+            HoverCard inside it. Each should appear above the scrim — if any
+            float beneath it, the z-index token needs raising.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Button variant="outline" onClick={() => setDialogOpen(true)}>
+              Open Dialog
+            </Button>
+            <Button variant="outline" onClick={() => setSheetOpen(true)}>
+              Open Sheet
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Main page
 // ---------------------------------------------------------------------------
 
@@ -512,6 +731,7 @@ export const Overlays: React.FC = () => {
       <SheetShowcase />
       <PopoverShowcase />
       <HoverCardShowcase />
+      <FloatingInOverlayShowcase />
     </div>
   )
 }
