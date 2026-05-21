@@ -647,9 +647,9 @@
 	--pcs-z-sticky: 200;
 	/* sticky nav, table headers */
 	--pcs-z-overlay: 300;
-	/* sheets, drawers */
+	/* sheets, drawers (panel + scrim) */
 	--pcs-z-modal: 400;
-	/* dialogs, alert dialogs */
+	/* dialogs, alert dialogs — sits above sheets so a confirmation dialog can layer over an open sheet */
 	--pcs-z-toast: 500;
 	/* toasts, sonner — above modals */
 	--pcs-z-tooltip: 600;

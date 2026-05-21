@@ -27,8 +27,8 @@
      Not used by: Popover, Tooltip, Hover Card (these have no scrim)
   =========================================================================== */
 
-	--pcs-overlay-scrim-z: var(--pcs-z-modal);
-	/* 400 */
+	--pcs-overlay-scrim-z: var(--pcs-z-overlay);
+	/* 300 — sheet/drawer scrim; dialog scrim sits at --pcs-z-modal (400) */
 
 
 	/* ===========================================================================

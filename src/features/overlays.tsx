@@ -516,6 +516,7 @@ function HoverCardShowcase() {
 function FloatingInOverlayShowcase() {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [sheetOpen, setSheetOpen] = useState(false)
+  const [deleteAlertOpen, setDeleteAlertOpen] = useState(false)
 
   const floatingContent = (
     <div className="flex flex-col gap-6">
@@ -692,8 +693,40 @@ function FloatingInOverlayShowcase() {
             </SheetDescription>
           </SheetHeader>
           <div className="px-4 pb-4">{floatingContent}</div>
+          <div className="px-4 pb-4 mt-2 border-t pt-4">
+            <p className="text-xs font-medium text-[color:var(--pcs-color-text-muted)] uppercase tracking-wide mb-3">
+              Alert Dialog
+            </p>
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={() => setDeleteAlertOpen(true)}
+            >
+              <Trash2Icon />
+              Delete item
+            </Button>
+          </div>
         </SheetContent>
       </Sheet>
+
+      {/* Alert dialog rendered outside the sheet so it layers above it (z-modal 400 > z-overlay 300) */}
+      <AlertDialog open={deleteAlertOpen} onOpenChange={setDeleteAlertOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogMedia>
+              <Trash2Icon className="text-[color:var(--pcs-color-error-icon)]" />
+            </AlertDialogMedia>
+            <AlertDialogTitle>Delete item?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. The item will be permanently removed.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <Card>
         <CardHeader>
