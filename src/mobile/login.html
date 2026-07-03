@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)" />
+    <title>Log in — Proteus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+
+    <!--
+      Runs before first paint to prevent a flash of wrong color mode.
+      Reads OS preference and writes data-app-color-scheme so
+      tokens.css dark overrides take effect immediately.
+    -->
+    <script>
+      (function () {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        function apply(e) {
+          document.documentElement.setAttribute(
+            'data-app-color-scheme',
+            e.matches ? 'dark' : 'light'
+          );
+        }
+        apply(mq);
+        mq.addEventListener('change', apply);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="pcs-login-screen">
+
+      <!-- ── Header: wordmark ──────────────────────────────────────── -->
+      <header class="pcs-login-header">
+        <div class="pcs-login-logo" aria-label="Proteus">
+          <!--
+            P lettermark in a rounded square.
+            currentColor on the rect fill means dark mode is handled
+            automatically by the CSS token on .pcs-login-logo.
+            Replace with actual logo asset path when available.
+          -->
+          <svg
+            class="pcs-login-logo__mark"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect width="36" height="36" rx="10" fill="currentColor" />
+            <text
+              x="18"
+              y="27"
+              text-anchor="middle"
+              font-family="'Atkinson Hyperlegible Next', sans-serif"
+              font-weight="700"
+              font-size="23"
+              fill="white"
+            >P</text>
+          </svg>
+          <span class="pcs-login-logo__name">Proteus</span>
+        </div>
+      </header>
+
+      <!-- ── Main: heading + form ───────────────────────────────────── -->
+      <main class="pcs-login-main">
+
+        <h1 class="pcs-login-heading">Welcome</h1>
+        <p class="pcs-login-subheading">Log in to continue</p>
+
+        <form class="pcs-login-form" id="login-form" novalidate>
+
+          <!-- Email -->
+          <div class="pcs-field" id="field-email">
+            <label class="pcs-field__label" for="email">Email</label>
+            <input
+              class="pcs-field__input"
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="username"
+              inputmode="email"
+              autocapitalize="none"
+              autocorrect="off"
+              spellcheck="false"
+              aria-describedby="email-error"
+              aria-invalid="false"
+            />
+            <span
+              class="pcs-field__error"
+              id="email-error"
+              role="alert"
+              aria-live="polite"
+            >
+              <svg
+                class="pcs-field__error-icon"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span class="pcs-field__error-text"></span>
+            </span>
+          </div>
+
+          <!-- Password -->
+          <div class="pcs-field" id="field-password">
+            <label class="pcs-field__label" for="password">Password</label>
+            <div class="pcs-field__input-row">
+              <input
+                class="pcs-field__input"
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                aria-describedby="password-error"
+                aria-invalid="false"
+              />
+              <!--
+                Toggle icon convention: the icon shown = action clicking will perform.
+                Default (password hidden) → eye icon     = "click to show"
+                Active  (password visible) → eye-off icon = "click to hide"
+              -->
+              <button
+                class="pcs-field__toggle"
+                type="button"
+                id="toggle-password"
+                aria-label="Show password"
+                aria-pressed="false"
+              >
+                <!-- Eye: click to show -->
+                <svg
+                  class="pcs-icon--eye"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <!-- Eye-off: click to hide -->
+                <svg
+                  class="pcs-icon--eye-off"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                  <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                  <line x1="1" y1="1" x2="23" y2="23" />
+                </svg>
+              </button>
+            </div>
+            <span
+              class="pcs-field__error"
+              id="password-error"
+              role="alert"
+              aria-live="polite"
+            >
+              <svg
+                class="pcs-field__error-icon"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span class="pcs-field__error-text"></span>
+            </span>
+          </div>
+
+          <!-- Forgot password -->
+          <a href="#" class="pcs-link pcs-link--brand">Forgot password?</a>
+
+          <!-- Credentials error banner (wrong email/password after a submit attempt) -->
+          <div
+            class="pcs-form-error"
+            id="credentials-error"
+            role="alert"
+            aria-live="assertive"
+            aria-hidden="true"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            <span>Incorrect email or password. Please try again.</span>
+          </div>
+
+        </form>
+      </main>
+
+      <!-- ── Footer: CTA + help ─────────────────────────────────────── -->
+      <footer class="pcs-login-footer">
+        <button
+          class="pcs-btn-primary"
+          type="submit"
+          form="login-form"
+          id="submit-btn"
+        >
+          <span class="pcs-btn-primary__label">Log in</span>
+          <!-- Spinner replaces label during loading state -->
+          <svg
+            class="pcs-btn-primary__spinner"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="9"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-dasharray="28.3 56.5"
+            />
+          </svg>
+        </button>
+
+        <p class="pcs-help-text">
+          Having trouble?
+          <a href="#" class="pcs-link pcs-link--subtle">Contact support</a>
+        </p>
+      </footer>
+
+    </div>
+
+    <script>
+      'use strict';
+
+      // ── Password visibility toggle ──────────────────────────────────
+      var toggleBtn     = document.getElementById('toggle-password');
+      var passwordInput = document.getElementById('password');
+
+      toggleBtn.addEventListener('click', function () {
+        var isHidden = passwordInput.type === 'password';
+        passwordInput.type = isHidden ? 'text' : 'password';
+        this.setAttribute('aria-label',   isHidden ? 'Hide password' : 'Show password');
+        this.setAttribute('aria-pressed', String(isHidden));
+      });
+
+      // ── Validation helpers ──────────────────────────────────────────
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+      }
+
+      function setError(fieldId, errorId, inputId, message) {
+        var field = document.getElementById(fieldId);
+        var error = document.getElementById(errorId);
+        var input = document.getElementById(inputId);
+        field.classList.add('pcs-is-error');
+        error.querySelector('.pcs-field__error-text').textContent = message;
+        input.setAttribute('aria-invalid', 'true');
+      }
+
+      function clearError(fieldId, errorId, inputId) {
+        var field = document.getElementById(fieldId);
+        var error = document.getElementById(errorId);
+        var input = document.getElementById(inputId);
+        field.classList.remove('pcs-is-error');
+        error.querySelector('.pcs-field__error-text').textContent = '';
+        input.setAttribute('aria-invalid', 'false');
+      }
+
+      // ── Live validation (blur + correction-on-input) ────────────────
+      var emailInput = document.getElementById('email');
+
+      // Flag bad format after the user leaves the field
+      emailInput.addEventListener('blur', function () {
+        if (!this.value) return; // empty — flag only on submit, not on blur
+        if (!isValidEmail(this.value)) {
+          setError('field-email', 'email-error', 'email', 'Enter a valid email address.');
+        } else {
+          clearError('field-email', 'email-error', 'email');
+        }
+      });
+
+      // Clear email error as soon as the format becomes valid while typing
+      emailInput.addEventListener('input', function () {
+        var hasError = document.getElementById('field-email').classList.contains('pcs-is-error');
+        if (hasError && isValidEmail(this.value)) {
+          clearError('field-email', 'email-error', 'email');
+        }
+      });
+
+      // Clear password error as soon as the user types anything
+      passwordInput.addEventListener('input', function () {
+        if (this.value) {
+          clearError('field-password', 'password-error', 'password');
+        }
+      });
+
+      // ── Credentials error banner ────────────────────────────────────
+      var credentialsError = document.getElementById('credentials-error');
+
+      function showCredentialsError() {
+        credentialsError.classList.add('pcs-is-visible');
+        credentialsError.setAttribute('aria-hidden', 'false');
+      }
+
+      function hideCredentialsError() {
+        credentialsError.classList.remove('pcs-is-visible');
+        credentialsError.setAttribute('aria-hidden', 'true');
+      }
+
+      // Dismiss credentials error when the user edits either field
+      [emailInput, passwordInput].forEach(function (input) {
+        input.addEventListener('input', hideCredentialsError);
+      });
+
+      // ── Form submission ─────────────────────────────────────────────
+      var form      = document.getElementById('login-form');
+      var submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideCredentialsError();
+
+        var valid = true;
+
+        if (!emailInput.value.trim()) {
+          setError('field-email', 'email-error', 'email', 'Email is required.');
+          valid = false;
+        } else if (!isValidEmail(emailInput.value)) {
+          setError('field-email', 'email-error', 'email', 'Enter a valid email address.');
+          valid = false;
+        } else {
+          clearError('field-email', 'email-error', 'email');
+        }
+
+        if (!passwordInput.value) {
+          setError('field-password', 'password-error', 'password', 'Password is required.');
+          valid = false;
+        } else {
+          clearError('field-password', 'password-error', 'password');
+        }
+
+        if (!valid) {
+          // Move focus to the first invalid field for accessibility
+          var firstInvalid = form.querySelector('[aria-invalid="true"]');
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        // ── Loading state ─────────────────────────────────────────────
+        submitBtn.classList.add('pcs-is-loading');
+        submitBtn.disabled = true;
+
+        /*
+         * Replace this setTimeout with your actual auth call.
+         * On success: window.location.href = '/app'
+         *             or postMessage to the native shell.
+         * On failure: call showCredentialsError().
+         */
+        setTimeout(function () {
+          submitBtn.classList.remove('pcs-is-loading');
+          submitBtn.disabled = false;
+
+          // Demo: simulates a failed auth to show the error banner state.
+          // Remove this block and wire up real auth above.
+          showCredentialsError();
+        }, 1800);
+      });
+    </script>
+  </body>
+</html>
