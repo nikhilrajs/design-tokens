@@ -20,6 +20,13 @@
    L2 — --pcs-color-*       (tokens.css)
    L3 — --pcs-mob-*         (this file — mobile-specific aliases)
    Components reference --pcs-mob-* or --pcs-color-* only.
+
+   Class naming (BEM):
+   block, block__element, block--modifier — e.g. .pcs-link--brand.
+   JS-driven state uses block-agnostic .pcs-is-* hooks (pcs-is-error,
+   pcs-is-visible, pcs-is-loading) instead of a per-block modifier
+   (e.g. pcs-form-error--is-visible). This is intentional: state hooks
+   stay reusable across any block and decoupled from styling modifiers.
    ==================================================================== */
 
 @import url('../styles/tokens/tokens.css');
@@ -27,6 +34,8 @@
 /* ── Layer 3: mobile-scoped aliases ─────────────────────────────────── */
 
 :root {
+  color-scheme: light dark;
+
   /* Font */
   --pcs-mob-font: 'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -129,7 +138,7 @@
  * Error colors: adjust for dark surface contrast.
  */
 [data-app-color-scheme='dark'] {
-  --pcs-mob-input-bg-focus:     var(--pcs-primitive-color-neutral-800);
+  --pcs-mob-input-bg-focus:     var(--pcs-primitive-color-neutral-950);
   --pcs-mob-color-error-text:   var(--pcs-primitive-color-red-400);
   --pcs-mob-color-error-border: var(--pcs-primitive-color-red-600);
   --pcs-mob-focus-color:        var(--pcs-primitive-color-neutral-200);
@@ -226,6 +235,7 @@ body {
   letter-spacing: -0.02em;
   color:          var(--pcs-color-text-default);
   margin-bottom:  0.25rem; /* 4px — tight pairing with subheading */
+  text-wrap:      balance;
 }
 
 .pcs-login-subheading {
@@ -234,6 +244,7 @@ body {
   line-height:   var(--pcs-mob-type-body-lh);
   color:         var(--pcs-color-text-muted);
   margin-bottom: var(--pcs-mob-subhead-gap);
+  text-wrap:     pretty;
 }
 
 /* ── Form ────────────────────────────────────────────────────────────── */
@@ -323,12 +334,20 @@ body {
   color:         var(--pcs-color-icon-default);
   border-radius: 0 var(--pcs-mob-input-radius) var(--pcs-mob-input-radius) 0;
 
-  transition: color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    scale  0.15s ease-out;
   -webkit-tap-highlight-color: transparent;
 }
 
-.pcs-field__toggle:hover {
-  color: var(--pcs-color-text-default);
+.pcs-field__toggle:active {
+  scale: 0.96;
+}
+
+.pcs-field__toggle-icons {
+  position: relative;
+  width:    20px;
+  height:   20px;
 }
 
 .pcs-field__toggle:focus-visible {
@@ -341,12 +360,46 @@ body {
  * Icon convention: the icon shown = action clicking will perform.
  * Password hidden (default) → eye icon     = "click to show"
  * Password visible          → eye-off icon = "click to hide"
+ *
+ * Both icons stay in the DOM and cross-fade via opacity/scale/blur so the
+ * swap animates in both directions (no motion library on this page).
+ * pcs-icon--eye defines the layout box; pcs-icon--eye-off overlays it.
  */
-.pcs-field__toggle .pcs-icon--eye     { display: block; }
-.pcs-field__toggle .pcs-icon--eye-off { display: none;  }
+.pcs-icon--eye,
+.pcs-icon--eye-off {
+  transition-property:        opacity, scale, filter;
+  transition-duration:        300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
 
-.pcs-field__toggle[aria-pressed='true'] .pcs-icon--eye     { display: none;  }
-.pcs-field__toggle[aria-pressed='true'] .pcs-icon--eye-off { display: block; }
+.pcs-icon--eye-off {
+  position: absolute;
+  inset:    0;
+}
+
+.pcs-field__toggle .pcs-icon--eye {
+  opacity: 1;
+  scale:   1;
+  filter:  blur(0px);
+}
+
+.pcs-field__toggle .pcs-icon--eye-off {
+  opacity: 0;
+  scale:   0.25;
+  filter:  blur(4px);
+}
+
+.pcs-field__toggle[aria-pressed='true'] .pcs-icon--eye {
+  opacity: 0;
+  scale:   0.25;
+  filter:  blur(4px);
+}
+
+.pcs-field__toggle[aria-pressed='true'] .pcs-icon--eye-off {
+  opacity: 1;
+  scale:   1;
+  filter:  blur(0px);
+}
 
 /* ── Inline field error ──────────────────────────────────────────────── */
 
@@ -364,11 +417,28 @@ body {
 
 .pcs-field__error-icon {
   flex-shrink: 0;
-  display:     none; /* revealed only when parent field has .pcs-is-error */
+  display:     none;
+  opacity:     0;
+  scale:       0.9;
+  transition:
+    opacity 150ms ease-out,
+    scale   150ms ease-out,
+    display 150ms allow-discrete;
+}
+
+.pcs-field__error-text {
+  text-wrap: pretty;
 }
 
 .pcs-field.pcs-is-error .pcs-field__error-icon {
   display: block;
+  opacity: 1;
+  scale:   1;
+
+  @starting-style {
+    opacity: 0;
+    scale:   0.9;
+  }
 }
 
 /* Error state: red border + ring only. No background tint. */
@@ -387,6 +457,7 @@ body {
 /* ── Link variants ───────────────────────────────────────────────────── */
 
 .pcs-link {
+  position:        relative;
   font-size:       var(--pcs-mob-type-small-size);
   font-weight:     var(--pcs-mob-type-small-weight);
   line-height:     var(--pcs-mob-type-small-lh);
@@ -394,12 +465,30 @@ body {
   cursor:          pointer;
 }
 
+/* Expands the tap target to the 40px minimum without changing visual size */
+.pcs-link::after {
+  content:   '';
+  position:  absolute;
+  top:       50%;
+  left:      50%;
+  width:     40px;
+  height:    40px;
+  transform: translate(-50%, -50%);
+}
+
+/* Reset for <button> elements used as links */
+button.pcs-link {
+  background: none;
+  border:     none;
+  padding:    0;
+  font-family: var(--pcs-mob-font);
+}
+
 /* Brand link — amber/orange accent (primary emphasis color) */
 .pcs-link--brand {
   color: var(--pcs-color-primary-emphasis);
 }
 
-.pcs-link--brand:hover,
 .pcs-link--brand:focus-visible {
   text-decoration:       underline;
   text-underline-offset: 2px;
@@ -412,15 +501,12 @@ body {
   text-underline-offset: 2px;
 }
 
-.pcs-link--subtle:hover {
-  color: var(--pcs-color-text-default);
-}
-
 /* ── Credentials error banner ────────────────────────────────────────── */
 
 /*
- * Not using [hidden] — display:none prevents CSS transitions.
- * JS toggles .pcs-is-visible to show the banner.
+ * JS only toggles .pcs-is-visible. transition-behavior: allow-discrete +
+ * @starting-style animate display:none <-> flex natively — enter and exit
+ * are both plain (interruptible) transitions, no keyframes or JS timing.
  */
 .pcs-form-error {
   display:     none;
@@ -436,11 +522,26 @@ body {
   font-weight: var(--pcs-mob-type-caption-weight);
   line-height: var(--pcs-mob-type-caption-lh);
   color:       var(--pcs-mob-color-error-text);
+
+  opacity:   0;
+  transform: translateY(-4px);
+  transition:
+    opacity   150ms ease-out,
+    transform 150ms ease-out,
+    display   150ms allow-discrete;
 }
 
+/* Enter is slightly slower than exit (200ms vs 150ms) */
 .pcs-form-error.pcs-is-visible {
-  display:   flex;
-  animation: pcs-error-in 0.2s ease forwards;
+  display:             flex;
+  opacity:             1;
+  transform:           translateY(0);
+  transition-duration: 200ms;
+
+  @starting-style {
+    opacity:   0;
+    transform: translateY(-4px);
+  }
 }
 
 .pcs-form-error svg {
@@ -448,15 +549,8 @@ body {
   margin-top:  0.1em; /* optical alignment with first text line */
 }
 
-@keyframes pcs-error-in {
-  from {
-    opacity:   0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity:   1;
-    transform: translateY(0);
-  }
+.pcs-form-error span {
+  text-wrap: pretty;
 }
 
 /* ── Footer ──────────────────────────────────────────────────────────── */
@@ -493,17 +587,13 @@ body {
 
   transition:
     background-color 0.15s ease,
-    transform        0.1s  ease;
+    scale             0.1s  ease-out;
 
   -webkit-tap-highlight-color: transparent;
 }
 
-.pcs-btn-primary:hover:not(:disabled) {
-  background-color: var(--pcs-mob-btn-bg-active);
-}
-
 .pcs-btn-primary:active:not(:disabled) {
-  transform: scale(0.98);
+  scale: 0.96;
 }
 
 .pcs-btn-primary:focus-visible {
@@ -519,18 +609,34 @@ body {
 
 /* ── Loading state ───────────────────────────────────────────────────── */
 
+.pcs-btn-primary__label {
+  transition-property:        opacity, scale, filter;
+  transition-duration:        300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
 .pcs-btn-primary__spinner {
-  display:   none;
-  position:  absolute; /* overlays the hidden label in-place */
+  position: absolute; /* overlays the label in-place, doesn't affect layout */
+  opacity:  0;
+  scale:    0.25;
+  filter:   blur(4px);
+
+  transition-property:        opacity, scale, filter;
+  transition-duration:        300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   animation: pcs-spin 0.75s linear infinite;
 }
 
 .pcs-btn-primary.pcs-is-loading .pcs-btn-primary__label {
-  opacity: 0; /* label hidden but in DOM for layout stability */
+  opacity: 0;
+  scale:   0.25;
+  filter:  blur(4px);
 }
 
 .pcs-btn-primary.pcs-is-loading .pcs-btn-primary__spinner {
-  display: block;
+  opacity: 1;
+  scale:   1;
+  filter:  blur(0px);
 }
 
 @keyframes pcs-spin {
@@ -545,4 +651,42 @@ body {
   line-height: var(--pcs-mob-type-caption-lh);
   color:       var(--pcs-color-text-muted);
   text-align:  center;
+  text-wrap:   pretty;
+}
+
+/* ── Hover (touch devices trigger :hover on tap — gate it out) ────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  .pcs-field__toggle:hover {
+    color: var(--pcs-color-text-default);
+  }
+
+  .pcs-btn-primary:hover:not(:disabled) {
+    background-color: var(--pcs-mob-btn-bg-active);
+  }
+
+  .pcs-link--brand:hover {
+    text-decoration:       underline;
+    text-underline-offset: 2px;
+  }
+
+  .pcs-link--subtle:hover {
+    color: var(--pcs-color-text-default);
+  }
+}
+
+/* ── Motion preferences ──────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .pcs-btn-primary__spinner { animation: none; }
+
+  .pcs-icon--eye,
+  .pcs-icon--eye-off,
+  .pcs-btn-primary__label,
+  .pcs-btn-primary__spinner,
+  .pcs-form-error,
+  .pcs-form-error.pcs-is-visible,
+  .pcs-field__error-icon {
+    transition-duration: 0.01ms;
+  }
 }

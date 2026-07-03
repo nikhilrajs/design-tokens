@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
     <title>Log in — Proteus</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -91,6 +92,7 @@
               autocapitalize="none"
               autocorrect="off"
               spellcheck="false"
+              required
               aria-describedby="email-error"
               aria-invalid="false"
             />
@@ -98,7 +100,6 @@
               class="pcs-field__error"
               id="email-error"
               role="alert"
-              aria-live="polite"
             >
               <svg
                 class="pcs-field__error-icon"
@@ -130,6 +131,7 @@
                 id="password"
                 name="password"
                 autocomplete="current-password"
+                required
                 aria-describedby="password-error"
                 aria-invalid="false"
               />
@@ -145,46 +147,47 @@
                 aria-label="Show password"
                 aria-pressed="false"
               >
-                <!-- Eye: click to show -->
-                <svg
-                  class="pcs-icon--eye"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-                <!-- Eye-off: click to hide -->
-                <svg
-                  class="pcs-icon--eye-off"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
-                  <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
-                  <line x1="1" y1="1" x2="23" y2="23" />
-                </svg>
+                <span class="pcs-field__toggle-icons">
+                  <!-- Eye: click to show -->
+                  <svg
+                    class="pcs-icon pcs-icon--eye"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <!-- Eye-off: click to hide -->
+                  <svg
+                    class="pcs-icon pcs-icon--eye-off"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                </span>
               </button>
             </div>
             <span
               class="pcs-field__error"
               id="password-error"
               role="alert"
-              aria-live="polite"
             >
               <svg
                 class="pcs-field__error-icon"
@@ -207,7 +210,7 @@
           </div>
 
           <!-- Forgot password -->
-          <a href="#" class="pcs-link pcs-link--brand">Forgot password?</a>
+          <button type="button" class="pcs-link pcs-link--brand">Forgot password?</button>
 
           <!-- Credentials error banner (wrong email/password after a submit attempt) -->
           <div
@@ -270,7 +273,7 @@
 
         <p class="pcs-help-text">
           Having trouble?
-          <a href="#" class="pcs-link pcs-link--subtle">Contact support</a>
+          <button type="button" class="pcs-link pcs-link--subtle">Contact support</button>
         </p>
       </footer>
 
