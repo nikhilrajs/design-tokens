@@ -1,0 +1,99 @@
+/* ====================================================================
+   mobile/reset.css — Generic CSS reset
+   ====================================================================
+
+   Zero dependency on our own tokens or classes — this file is meant to
+   be portable to any project as-is. Merged from Josh Comeau's reset
+   (https://www.joshwcomeau.com/css/custom-css-reset/) and Andy Bell's
+   (https://piccalil.li/blog/a-more-modern-css-reset/), adapted where
+   the two disagreed (padding is intentionally left alone — both
+   references only ever reset margin, never padding).
+
+   Imported first by screen.css, before tokens.css and component styles.
+   ==================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+/* Prevent iOS/Android font-size inflation on rotation */
+html {
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Smooth keyword-size transitions where supported (e.g. height: auto) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}

@@ -1,0 +1,905 @@
+/* ====================================================================
+   mobile/screen.css — Mobile Webview Shared Screen Shell
+   ====================================================================
+
+   Reset:
+   Imports ./reset.css first — a generic, token-free CSS reset (see that
+   file's header for sources). Loads before tokens.css so component
+   styles always win the cascade.
+
+   Token dependency:
+   Imports ../styles/tokens/tokens.css at runtime.
+   All --pcs-* references come from that file.
+   When @proteus2/shared-ui is published, swap the import path
+   for the npm package: @import '@proteus2/shared-ui/tokens.css'.
+
+   Font:
+   Atkinson Hyperlegible Next is loaded in HTML via Google Fonts.
+
+   Type scale:
+   Three tiers, mirroring tokens.css's primitive -> semantic -> shorthand
+   layering (see that file's "TYPOGRAPHY SHORTHAND TOKENS" section). Tier A
+   is a mobile-local raw font-size/weight/line-height scale (this spec uses
+   a different font and different sizes than tokens.css's web primitives,
+   so it isn't shared — see B11). Tier B is --pcs-mob-type-{role}-{tier}-
+   size/weight/line-height, one triple per row of the NMMCT mobile type
+   spec (Display, Heading, Label, Paragraph x Large-XSmall). Tier C is
+   --pcs-mob-type-{role}-{tier}-shorthand, applied via the CSS `font`
+   shorthand. Extend Tier A first if a new step is needed; never introduce
+   a raw off-scale value directly in a component rule.
+
+   Dark mode:
+   Driven by [data-app-color-scheme="dark"] on <html>, synced
+   from OS prefers-color-scheme by the inline script in HTML.
+
+   Layer map:
+   L1 — --pcs-primitive-*   (tokens.css)
+   L2 — --pcs-color-*       (tokens.css)
+   L3 — --pcs-mob-*         (this file — mobile-specific aliases)
+   Components reference --pcs-mob-* or --pcs-color-* only.
+
+   Class naming (BEM):
+   block, block__element, block--modifier — e.g. .pcs-link--brand.
+
+   JS-driven state uses block-agnostic .pcs-is-* hooks (pcs-is-error,
+   pcs-is-visible, pcs-is-loading) instead of a per-block modifier
+   (e.g. pcs-form-error--is-visible). This is intentional: state hooks
+   stay reusable across any block and decoupled from styling modifiers.
+
+   Spacing scale:
+   Two tiers, inspired by (not copied from) Wise's design-system spacing
+   docs. Tier 1 is --pcs-primitive-space-* from tokens.css (4px-based,
+   already shared/imported — never invent a parallel numeric scale here).
+   Tier 2 is our own --pcs-mob-*-gap/-padding/etc. semantic tokens, each
+   defined in terms of a Tier 1 primitive — those are what components use.
+   If a new spacing value is needed, use the nearest existing primitive
+   first; never introduce a raw off-scale value in a component rule.
+   Border-radius and component sizing (height) are separate scales, not
+   part of this one, even where a value numerically coincides.
+
+   Utility classes (.pcs-u-*):
+   Single-property, no BEM nesting, added on demand as real per-screen
+   needs come up — see the Utilities section at the bottom of this file.
+   ==================================================================== */
+
+@import url('./reset.css');
+@import url('../styles/tokens/tokens.css');
+
+/* ── Layer 3: mobile-scoped aliases ─────────────────────────────────── */
+
+:root {
+  color-scheme: light dark;
+
+  /* Font */
+  --pcs-mob-font:
+    'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Type scale (mobile spec) — Tier A: raw scale ───────────── */
+
+  --pcs-mob-font-size-12: 0.75rem;
+  --pcs-mob-font-size-14: 0.875rem;
+  --pcs-mob-font-size-16: 1rem;
+  --pcs-mob-font-size-18: 1.125rem;
+  --pcs-mob-font-size-20: 1.25rem;
+  --pcs-mob-font-size-24: 1.5rem;
+  --pcs-mob-font-size-28: 1.75rem;
+  --pcs-mob-font-size-32: 2rem;
+  --pcs-mob-font-size-36: 2.25rem;
+  --pcs-mob-font-size-40: 2.5rem;
+  --pcs-mob-font-size-44: 2.75rem;
+  --pcs-mob-font-size-52: 3.25rem;
+  --pcs-mob-font-size-96: 6rem;
+
+  --pcs-mob-font-weight-normal: 400;
+  --pcs-mob-font-weight-medium: 500;
+  --pcs-mob-font-weight-bold: 700;
+
+  --pcs-mob-line-height-16: 1rem;
+  --pcs-mob-line-height-20: 1.25rem;
+  --pcs-mob-line-height-24: 1.5rem;
+  --pcs-mob-line-height-28: 1.75rem;
+  --pcs-mob-line-height-32: 2rem;
+  --pcs-mob-line-height-36: 2.25rem;
+  --pcs-mob-line-height-40: 2.5rem;
+  --pcs-mob-line-height-44: 2.75rem;
+  --pcs-mob-line-height-52: 3.25rem;
+  --pcs-mob-line-height-64: 4rem;
+  --pcs-mob-line-height-112: 7rem;
+
+  /* ── Tier B: semantic role tokens — Display ───────────────────────── */
+
+  --pcs-mob-type-display-lg-size: var(--pcs-mob-font-size-96);
+  --pcs-mob-type-display-lg-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-display-lg-line-height: var(--pcs-mob-line-height-112);
+
+  --pcs-mob-type-display-md-size: var(--pcs-mob-font-size-52);
+  --pcs-mob-type-display-md-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-display-md-line-height: var(--pcs-mob-line-height-64);
+
+  --pcs-mob-type-display-sm-size: var(--pcs-mob-font-size-44);
+  --pcs-mob-type-display-sm-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-display-sm-line-height: var(--pcs-mob-line-height-52);
+
+  --pcs-mob-type-display-xs-size: var(--pcs-mob-font-size-36);
+  --pcs-mob-type-display-xs-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-display-xs-line-height: var(--pcs-mob-line-height-44);
+
+  /* ── Tier B: semantic role tokens — Heading ────────────────────────── */
+
+  --pcs-mob-type-heading-xxl-size: var(--pcs-mob-font-size-40);
+  --pcs-mob-type-heading-xxl-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-heading-xxl-line-height: var(--pcs-mob-line-height-52);
+
+  --pcs-mob-type-heading-xl-size: var(--pcs-mob-font-size-36);
+  --pcs-mob-type-heading-xl-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-heading-xl-line-height: var(--pcs-mob-line-height-44);
+
+  /* Heading Large — .pcs-screen__heading */
+  --pcs-mob-type-heading-lg-size: var(--pcs-mob-font-size-32);
+  --pcs-mob-type-heading-lg-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-heading-lg-line-height: var(--pcs-mob-line-height-40);
+
+  --pcs-mob-type-heading-md-size: var(--pcs-mob-font-size-28);
+  --pcs-mob-type-heading-md-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-heading-md-line-height: var(--pcs-mob-line-height-36);
+
+  --pcs-mob-type-heading-sm-size: var(--pcs-mob-font-size-24);
+  --pcs-mob-type-heading-sm-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-heading-sm-line-height: var(--pcs-mob-line-height-32);
+
+  /* Heading XSmall — only row in the spec with nonzero tracking */
+  --pcs-mob-type-heading-xs-size: var(--pcs-mob-font-size-20);
+  --pcs-mob-type-heading-xs-weight: var(--pcs-mob-font-weight-bold);
+  --pcs-mob-type-heading-xs-line-height: var(--pcs-mob-line-height-28);
+  --pcs-mob-type-heading-xs-tracking: 0.3px;
+
+  /* ── Tier B: semantic role tokens — Label ─────────────────────────── */
+
+  /* Label Large — .pcs-btn-primary (generic role, not CTA-specific) */
+  --pcs-mob-type-label-lg-size: var(--pcs-mob-font-size-18);
+  --pcs-mob-type-label-lg-weight: var(--pcs-mob-font-weight-medium);
+  --pcs-mob-type-label-lg-line-height: var(--pcs-mob-line-height-24);
+
+  /* Label Medium — .pcs-field__label */
+  --pcs-mob-type-label-md-size: var(--pcs-mob-font-size-16);
+  --pcs-mob-type-label-md-weight: var(--pcs-mob-font-weight-medium);
+  --pcs-mob-type-label-md-line-height: var(--pcs-mob-line-height-20);
+
+  --pcs-mob-type-label-sm-size: var(--pcs-mob-font-size-14);
+  --pcs-mob-type-label-sm-weight: var(--pcs-mob-font-weight-medium);
+  --pcs-mob-type-label-sm-line-height: var(--pcs-mob-line-height-16);
+
+  --pcs-mob-type-label-xs-size: var(--pcs-mob-font-size-12);
+  --pcs-mob-type-label-xs-weight: var(--pcs-mob-font-weight-medium);
+  --pcs-mob-type-label-xs-line-height: var(--pcs-mob-line-height-16);
+
+  /* ── Tier B: semantic role tokens — Paragraph ─────────────────────── */
+
+  --pcs-mob-type-paragraph-lg-size: var(--pcs-mob-font-size-18);
+  --pcs-mob-type-paragraph-lg-weight: var(--pcs-mob-font-weight-normal);
+  --pcs-mob-type-paragraph-lg-line-height: var(--pcs-mob-line-height-28);
+
+  /* Paragraph Medium — body, .pcs-screen__subheading, .pcs-field__input */
+  --pcs-mob-type-paragraph-md-size: var(--pcs-mob-font-size-16);
+  --pcs-mob-type-paragraph-md-weight: var(--pcs-mob-font-weight-normal);
+  --pcs-mob-type-paragraph-md-line-height: var(--pcs-mob-line-height-24);
+
+  /* Paragraph Small — .pcs-link */
+  --pcs-mob-type-paragraph-sm-size: var(--pcs-mob-font-size-14);
+  --pcs-mob-type-paragraph-sm-weight: var(--pcs-mob-font-weight-normal);
+  --pcs-mob-type-paragraph-sm-line-height: var(--pcs-mob-line-height-20);
+
+  /* Paragraph XSmall — .pcs-field__error, .pcs-form-error, .pcs-help-text */
+  --pcs-mob-type-paragraph-xs-size: var(--pcs-mob-font-size-12);
+  --pcs-mob-type-paragraph-xs-weight: var(--pcs-mob-font-weight-normal);
+  --pcs-mob-type-paragraph-xs-line-height: var(--pcs-mob-line-height-20);
+
+  /* ── Tier C: shorthand composites ──────────────────────────────────
+     Usage: font: var(--pcs-mob-type-label-lg-shorthand);
+     Individual Tier B tokens (--pcs-mob-type-*-size/weight/line-height)
+     remain available for rules needing partial application (e.g.
+     .pcs-field__input, which intentionally omits line-height). ────── */
+
+  --pcs-mob-type-display-lg-shorthand: var(--pcs-mob-type-display-lg-weight)
+    var(--pcs-mob-type-display-lg-size) /
+    var(--pcs-mob-type-display-lg-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-display-md-shorthand: var(--pcs-mob-type-display-md-weight)
+    var(--pcs-mob-type-display-md-size) /
+    var(--pcs-mob-type-display-md-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-display-sm-shorthand: var(--pcs-mob-type-display-sm-weight)
+    var(--pcs-mob-type-display-sm-size) /
+    var(--pcs-mob-type-display-sm-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-display-xs-shorthand: var(--pcs-mob-type-display-xs-weight)
+    var(--pcs-mob-type-display-xs-size) /
+    var(--pcs-mob-type-display-xs-line-height) var(--pcs-mob-font);
+
+  --pcs-mob-type-heading-xxl-shorthand: var(--pcs-mob-type-heading-xxl-weight)
+    var(--pcs-mob-type-heading-xxl-size) /
+    var(--pcs-mob-type-heading-xxl-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-heading-xl-shorthand: var(--pcs-mob-type-heading-xl-weight)
+    var(--pcs-mob-type-heading-xl-size) /
+    var(--pcs-mob-type-heading-xl-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-heading-lg-shorthand: var(--pcs-mob-type-heading-lg-weight)
+    var(--pcs-mob-type-heading-lg-size) /
+    var(--pcs-mob-type-heading-lg-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-heading-md-shorthand: var(--pcs-mob-type-heading-md-weight)
+    var(--pcs-mob-type-heading-md-size) /
+    var(--pcs-mob-type-heading-md-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-heading-sm-shorthand: var(--pcs-mob-type-heading-sm-weight)
+    var(--pcs-mob-type-heading-sm-size) /
+    var(--pcs-mob-type-heading-sm-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-heading-xs-shorthand: var(--pcs-mob-type-heading-xs-weight)
+    var(--pcs-mob-type-heading-xs-size) /
+    var(--pcs-mob-type-heading-xs-line-height) var(--pcs-mob-font);
+
+  --pcs-mob-type-label-lg-shorthand: var(--pcs-mob-type-label-lg-weight)
+    var(--pcs-mob-type-label-lg-size) / var(--pcs-mob-type-label-lg-line-height)
+    var(--pcs-mob-font);
+  --pcs-mob-type-label-md-shorthand: var(--pcs-mob-type-label-md-weight)
+    var(--pcs-mob-type-label-md-size) / var(--pcs-mob-type-label-md-line-height)
+    var(--pcs-mob-font);
+  --pcs-mob-type-label-sm-shorthand: var(--pcs-mob-type-label-sm-weight)
+    var(--pcs-mob-type-label-sm-size) / var(--pcs-mob-type-label-sm-line-height)
+    var(--pcs-mob-font);
+  --pcs-mob-type-label-xs-shorthand: var(--pcs-mob-type-label-xs-weight)
+    var(--pcs-mob-type-label-xs-size) / var(--pcs-mob-type-label-xs-line-height)
+    var(--pcs-mob-font);
+
+  --pcs-mob-type-paragraph-lg-shorthand: var(--pcs-mob-type-paragraph-lg-weight)
+    var(--pcs-mob-type-paragraph-lg-size) /
+    var(--pcs-mob-type-paragraph-lg-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-paragraph-md-shorthand: var(--pcs-mob-type-paragraph-md-weight)
+    var(--pcs-mob-type-paragraph-md-size) /
+    var(--pcs-mob-type-paragraph-md-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-paragraph-sm-shorthand: var(--pcs-mob-type-paragraph-sm-weight)
+    var(--pcs-mob-type-paragraph-sm-size) /
+    var(--pcs-mob-type-paragraph-sm-line-height) var(--pcs-mob-font);
+  --pcs-mob-type-paragraph-xs-shorthand: var(--pcs-mob-type-paragraph-xs-weight)
+    var(--pcs-mob-type-paragraph-xs-size) /
+    var(--pcs-mob-type-paragraph-xs-line-height) var(--pcs-mob-font);
+
+  /* ── Spacing (semantic — built on tokens.css's --pcs-primitive-space-*) */
+
+  --pcs-mob-page-x: var(
+    --pcs-primitive-space-6
+  ); /* 24px — horizontal page padding */
+  --pcs-mob-page-top: var(
+    --pcs-primitive-space-6
+  ); /* 24px — header top padding */
+  --pcs-mob-page-bottom: var(
+    --pcs-primitive-space-8
+  ); /* 32px — footer bottom padding */
+  --pcs-mob-header-gap: var(
+    --pcs-primitive-space-10
+  ); /* 40px — gap below wordmark */
+  --pcs-mob-subhead-gap: var(
+    --pcs-primitive-space-8
+  ); /* 32px — gap between subtitle→form */
+  --pcs-mob-field-gap: var(
+    --pcs-primitive-space-5
+  ); /* 20px — between form fields */
+  --pcs-mob-label-gap: var(
+    --pcs-primitive-space-2
+  ); /* 8px — between label and input */
+  --pcs-mob-cta-gap: var(
+    --pcs-primitive-space-8
+  ); /* 32px — min space above CTA footer */
+  --pcs-mob-footer-gap: var(
+    --pcs-primitive-space-8
+  ); /* 32px — between CTA button and help text */
+
+  /*
+   * 52px — sized to fit the 20px icon plus comfortable touch padding.
+   * No matching primitive: tokens.css's scale jumps from space-12 (48px)
+   * to space-14 (56px), so this stays a literal derived value rather
+   * than forcing a visual change to an unrelated step.
+   */
+  --pcs-mob-toggle-width: 3.25rem;
+
+  --pcs-mob-logo-gap: var(
+    --pcs-primitive-space-2
+  ); /* 8px — icon-to-wordmark gap (was 10px, rounded to scale) */
+  --pcs-mob-error-gap: var(
+    --pcs-primitive-space-2
+  ); /* 8px — icon-to-text gap in the credentials error banner */
+  --pcs-mob-error-padding: var(
+    --pcs-primitive-space-4
+  ); /* 16px — banner padding (was 14px/16px, now symmetric) */
+  --pcs-mob-field-error-gap: var(
+    --pcs-primitive-space-1
+  ); /* 4px — icon-to-text gap in inline field errors */
+  --pcs-mob-heading-tight-gap: var(
+    --pcs-primitive-space-1
+  ); /* 4px — heading→subheading tight pairing */
+
+  /* ── Layout ──────────────────────────────────────────────────────── */
+
+  --pcs-mob-screen-max-width: 30rem; /* 480px */
+
+  /* ── Input ───────────────────────────────────────────────────────── */
+
+  --pcs-mob-input-height: 3rem; /* 48px — default/medium size; small/large variants TBD */
+  --pcs-mob-input-radius: 0.5rem; /* 8px  */
+  --pcs-mob-input-px: var(--pcs-primitive-space-4); /* 16px */
+  --pcs-mob-input-bg: var(--pcs-color-surface-muted);
+  --pcs-mob-input-border-w: 2px;
+
+  /*
+   * Focus background: shifts to a lighter/whiter surface so the active
+   * input separates clearly from unfocused siblings.
+   * Light: neutral-100 (muted) → white
+   * Dark:  neutral-900 (muted) → neutral-800 (one step lighter)
+   */
+  --pcs-mob-input-bg-focus: var(--pcs-primitive-color-white);
+
+  /* ── Error colors (mobile override) ─────────────────────────────── */
+
+  --pcs-mob-color-error-text: var(--pcs-primitive-color-red-500);
+  --pcs-mob-color-error-border: var(--pcs-primitive-color-red-400);
+
+  /* ── Focus ring (neutral, not brand) ────────────────────────────── */
+
+  /*
+   * Light: neutral-950 (near-black) — strong on light surfaces.
+   */
+  --pcs-mob-focus-color: var(--pcs-primitive-color-neutral-950);
+
+  /* ── CTA Button ──────────────────────────────────────────────────── */
+
+  --pcs-mob-btn-height: 3rem; /* 48px — default/medium size; small/large variants TBD */
+  --pcs-mob-btn-radius: 0.5rem; /* 8px  */
+  --pcs-mob-btn-bg: var(--pcs-primitive-color-neutral-950);
+  --pcs-mob-btn-bg-active: var(--pcs-primitive-color-neutral-800);
+  --pcs-mob-btn-text: var(--pcs-primitive-color-white);
+
+  /* ── Logo ────────────────────────────────────────────────────────── */
+
+  --pcs-mob-logo-color: var(--pcs-color-text-default);
+}
+
+/*
+ * Dark mode overrides — only what differs from light.
+ */
+[data-app-color-scheme='dark'] {
+  --pcs-mob-input-bg-focus: var(--pcs-primitive-color-neutral-950);
+  --pcs-mob-color-error-text: var(--pcs-primitive-color-red-400);
+  --pcs-mob-color-error-border: var(--pcs-primitive-color-red-400);
+  --pcs-mob-focus-color: var(--pcs-primitive-color-neutral-200);
+  --pcs-mob-btn-bg: var(--pcs-primitive-color-neutral-50);
+  --pcs-mob-btn-bg-active: var(--pcs-primitive-color-neutral-200);
+  --pcs-mob-btn-text: var(--pcs-primitive-color-neutral-950);
+}
+
+/* ── Base ────────────────────────────────────────────────────────────── */
+
+body {
+  font: var(--pcs-mob-type-paragraph-md-shorthand);
+  color: var(--pcs-color-text-default);
+  background-color: var(--pcs-color-background);
+
+  /* Prevent pull-to-refresh interference in webview */
+  overscroll-behavior-y: none;
+}
+
+/* ── Screen layout ───────────────────────────────────────────────────── */
+
+.pcs-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  isolation: isolate;
+
+  max-width: var(--pcs-mob-screen-max-width);
+  margin-inline: auto;
+
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--pcs-mob-page-top));
+  padding-bottom: calc(
+    env(safe-area-inset-bottom, 0px) + var(--pcs-mob-page-bottom)
+  );
+  padding-left: calc(env(safe-area-inset-left, 0px) + var(--pcs-mob-page-x));
+  padding-right: calc(env(safe-area-inset-right, 0px) + var(--pcs-mob-page-x));
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+
+.pcs-screen__header {
+  padding-bottom: var(--pcs-mob-header-gap);
+}
+
+.pcs-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pcs-mob-logo-gap);
+  color: var(--pcs-mob-logo-color);
+  text-decoration: none;
+}
+
+.pcs-logo__mark {
+  flex-shrink: 0;
+  /* currentColor on the rect fill means dark mode works automatically */
+}
+
+.pcs-logo__name {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--pcs-color-text-default);
+}
+
+/* ── Main content ────────────────────────────────────────────────────── */
+
+.pcs-screen__main {
+  flex: 1; /* pushes footer to the bottom */
+}
+
+.pcs-screen__heading {
+  font: var(--pcs-mob-type-heading-lg-shorthand);
+  letter-spacing: -0.02em;
+  color: var(--pcs-color-text-default);
+  margin-bottom: var(
+    --pcs-mob-heading-tight-gap
+  ); /* tight pairing with subheading */
+  text-wrap: balance;
+}
+
+/* No subheading on this screen — fall back to the larger subhead-gap spacing */
+.pcs-screen__heading:has(+ .pcs-screen__form) {
+  margin-bottom: var(--pcs-mob-subhead-gap);
+}
+
+.pcs-screen__subheading {
+  font: var(--pcs-mob-type-paragraph-md-shorthand);
+  color: var(--pcs-color-text-muted);
+  margin-bottom: var(--pcs-mob-subhead-gap);
+  text-wrap: pretty;
+}
+
+/* ── Form ────────────────────────────────────────────────────────────── */
+
+.pcs-screen__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pcs-mob-field-gap);
+}
+
+/* ── Field group ─────────────────────────────────────────────────────── */
+
+.pcs-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pcs-mob-label-gap);
+}
+
+.pcs-field__label {
+  font: var(--pcs-mob-type-label-md-shorthand);
+  color: var(--pcs-color-text-default);
+}
+
+.pcs-field__input {
+  width: 100%;
+  height: var(--pcs-mob-input-height);
+  padding: 0 var(--pcs-mob-input-px);
+
+  font-size: var(--pcs-mob-type-paragraph-md-size);
+  font-weight: var(--pcs-mob-type-paragraph-md-weight);
+  color: var(--pcs-color-text-default);
+
+  background-color: var(--pcs-mob-input-bg);
+  border: var(--pcs-mob-input-border-w) solid transparent;
+  border-radius: var(--pcs-mob-input-radius);
+
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.pcs-field__input::placeholder {
+  color: var(--pcs-color-text-disabled);
+}
+
+/*
+ * Focus: background shifts to lighter surface (white in light, neutral-800
+ * in dark) and neutral border + ring appears — matching the Uber input pattern.
+ */
+.pcs-field__input:focus {
+  background-color: var(--pcs-mob-input-bg-focus);
+  border-color: var(--pcs-mob-focus-color);
+  box-shadow: 0 0 0 1px var(--pcs-mob-focus-color);
+}
+
+/* ── Password input row ──────────────────────────────────────────────── */
+
+.pcs-field__input-row {
+  position: relative;
+}
+
+/* Pad right so typed text never slides under the toggle button */
+.pcs-field__input-row .pcs-field__input {
+  padding-right: var(--pcs-mob-toggle-width);
+}
+
+.pcs-field__toggle {
+  position: absolute;
+  inset: 0 0 0 auto; /* pin to right edge, fill full height */
+  width: var(--pcs-mob-toggle-width);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--pcs-color-icon-default);
+  border-radius: 0 var(--pcs-mob-input-radius) var(--pcs-mob-input-radius) 0;
+
+  transition:
+    color 0.15s ease,
+    scale 0.15s ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pcs-field__toggle:active {
+  scale: 0.96;
+}
+
+.pcs-field__toggle-icons {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.pcs-field__toggle:focus-visible {
+  outline: 2px solid var(--pcs-mob-focus-color);
+  outline-offset: -2px;
+  border-radius: var(--pcs-mob-input-radius);
+}
+
+/*
+ * Icon convention: the icon shown = action clicking will perform.
+ * Password hidden (default) → eye icon     = "click to show"
+ * Password visible          → eye-off icon = "click to hide"
+ *
+ * Both icons stay in the DOM and cross-fade via opacity/scale/blur so the
+ * swap animates in both directions (no motion library on this page).
+ * pcs-icon--eye defines the layout box; pcs-icon--eye-off overlays it.
+ */
+.pcs-icon--eye,
+.pcs-icon--eye-off {
+  transition-property: opacity, scale, filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.pcs-icon--eye-off {
+  position: absolute;
+  inset: 0;
+}
+
+.pcs-field__toggle .pcs-icon--eye {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0px);
+}
+
+.pcs-field__toggle .pcs-icon--eye-off {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+
+.pcs-field__toggle[aria-pressed='true'] .pcs-icon--eye {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+
+.pcs-field__toggle[aria-pressed='true'] .pcs-icon--eye-off {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0px);
+}
+
+/* ── Inline field error ──────────────────────────────────────────────── */
+
+.pcs-field__error {
+  display: flex;
+  align-items: center; /* vertically centers 12px icon with 12px/20px-lh caption */
+  gap: var(--pcs-mob-field-error-gap); /* tight icon-to-text coupling */
+
+  font: var(--pcs-mob-type-paragraph-xs-shorthand);
+  color: var(--pcs-mob-color-error-text);
+  min-height: 0; /* collapses when .pcs-field__error-text is empty */
+}
+
+.pcs-field__error-icon {
+  flex-shrink: 0;
+  display: none;
+  opacity: 0;
+  scale: 0.9;
+  transition:
+    opacity 150ms ease-out,
+    scale 150ms ease-out,
+    display 150ms allow-discrete;
+}
+
+.pcs-field__error-text {
+  text-wrap: pretty;
+}
+
+.pcs-field.pcs-is-error .pcs-field__error-icon {
+  display: block;
+  opacity: 1;
+  scale: 1;
+
+  @starting-style {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
+
+/* Error state: clean surface (same bg as focus) + red border. No muted tint. */
+.pcs-field.pcs-is-error .pcs-field__input {
+  background-color: var(--pcs-mob-input-bg-focus);
+  border-color: var(--pcs-mob-color-error-border);
+  box-shadow: none;
+}
+
+/* Error field focused: bg still shifts, but ring is red not neutral */
+.pcs-field.pcs-is-error .pcs-field__input:focus {
+  background-color: var(--pcs-mob-input-bg-focus);
+  border-color: var(--pcs-mob-color-error-border);
+  box-shadow: 0 0 0 1px var(--pcs-mob-color-error-border);
+}
+
+/* ── Link variants ───────────────────────────────────────────────────── */
+
+.pcs-link {
+  position: relative;
+  align-self: flex-start; /* don't stretch full-width in a flex column — keeps text and the ::after hit-area left-aligned on the link itself */
+  font: var(--pcs-mob-type-paragraph-sm-shorthand);
+  font-weight: 500; /* bumped from paragraph-sm's base 400 — reads more clearly as interactive/tappable */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*
+ * Expands the tap target to the 40px minimum. The link's own box is
+ * already wider than 40px (it's text, not an icon), so this only needs
+ * to pad top/bottom to reach 40px total height — spanning the full
+ * width instead of a fixed centered box means the ends of the text
+ * (e.g. the start of "Forgot password?") get the same vertical
+ * padding as the middle, not just a narrow centered column.
+ */
+.pcs-link::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+}
+
+/* Reset for <button> elements used as links */
+button.pcs-link {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Brand link — amber/orange accent (primary emphasis color) */
+.pcs-link--brand {
+  color: var(--pcs-color-primary-emphasis);
+}
+
+.pcs-link--brand:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Subtle link — muted text, for secondary actions */
+.pcs-link--subtle {
+  color: var(--pcs-color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Credentials error banner ────────────────────────────────────────── */
+
+/*
+ * JS only toggles .pcs-is-visible. transition-behavior: allow-discrete +
+ * @starting-style animate display:none <-> flex natively — enter and exit
+ * are both plain (interruptible) transitions, no keyframes or JS timing.
+ */
+.pcs-form-error {
+  display: none;
+  align-items: flex-start;
+  gap: var(--pcs-mob-error-gap);
+  padding: var(--pcs-mob-error-padding);
+
+  background-color: var(--pcs-primitive-color-neutral-900);
+  /* border: 1px solid var(--pcs-mob-color-error-border); */
+  border-radius: var(--pcs-mob-input-radius);
+
+  font: var(--pcs-mob-type-paragraph-xs-shorthand);
+  color: var(--pcs-mob-color-error-text);
+
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 150ms ease-out,
+    transform 150ms ease-out,
+    display 150ms allow-discrete;
+}
+
+/* Enter is slightly slower than exit (200ms vs 150ms) */
+.pcs-form-error.pcs-is-visible {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 200ms;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.pcs-form-error svg {
+  flex-shrink: 0;
+  margin-top: 0.1em; /* optical alignment with first text line */
+}
+
+.pcs-form-error span {
+  text-wrap: pretty;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+
+.pcs-screen__footer {
+  padding-top: var(--pcs-mob-cta-gap);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--pcs-mob-footer-gap);
+}
+
+/* ── CTA button ──────────────────────────────────────────────────────── */
+
+.pcs-btn-primary {
+  position: relative;
+  width: 100%;
+  height: var(--pcs-mob-btn-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font: var(--pcs-mob-type-label-lg-shorthand);
+  color: var(--pcs-mob-btn-text);
+
+  background-color: var(--pcs-mob-btn-bg);
+  border: none;
+  border-radius: var(--pcs-mob-btn-radius);
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    scale 0.1s ease-out;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pcs-btn-primary:active:not(:disabled) {
+  scale: 0.96;
+}
+
+.pcs-btn-primary:focus-visible {
+  outline: 3px solid var(--pcs-mob-focus-color);
+  outline-offset: 2px;
+}
+
+.pcs-btn-primary:disabled {
+  background-color: var(--pcs-color-surface-disabled);
+  color: var(--pcs-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Loading state ───────────────────────────────────────────────────── */
+
+.pcs-btn-primary__label {
+  transition-property: opacity, scale, filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.pcs-btn-primary__spinner {
+  position: absolute; /* overlays the label in-place, doesn't affect layout */
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+
+  transition-property: opacity, scale, filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  animation: pcs-spin 0.75s linear infinite;
+}
+
+.pcs-btn-primary.pcs-is-loading .pcs-btn-primary__label {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+
+.pcs-btn-primary.pcs-is-loading .pcs-btn-primary__spinner {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0px);
+}
+
+@keyframes pcs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Help text ───────────────────────────────────────────────────────── */
+
+.pcs-help-text {
+  font: var(--pcs-mob-type-paragraph-xs-shorthand);
+  color: var(--pcs-color-text-muted);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* ── Utilities (.pcs-u-*) ───────────────────────────────────────────────
+   Single-property, no BEM nesting. Add classes here only when a real
+   per-screen need comes up — don't pre-build a utility set speculatively.
+   Example shape: .pcs-u-sr-only, .pcs-u-text-center, .pcs-u-hidden.
+   ==================================================================== */
+
+/* ── Hover (touch devices trigger :hover on tap — gate it out) ────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  .pcs-field__toggle:hover {
+    color: var(--pcs-color-text-default);
+  }
+
+  .pcs-btn-primary:hover:not(:disabled) {
+    background-color: var(--pcs-mob-btn-bg-active);
+  }
+
+  .pcs-link--brand:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pcs-link--subtle:hover {
+    color: var(--pcs-color-text-default);
+  }
+}
+
+/* ── Motion preferences ──────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * The spinner's rotation stays even here — it's the only signal that
+   * the app is doing something (essential status feedback), not
+   * decorative motion. Only the enter/exit crossfades below are reduced.
+   */
+
+  .pcs-icon--eye,
+  .pcs-icon--eye-off,
+  .pcs-btn-primary__label,
+  .pcs-btn-primary__spinner,
+  .pcs-form-error,
+  .pcs-form-error.pcs-is-visible,
+  .pcs-field__error-icon {
+    transition-duration: 0.01ms;
+  }
+}
