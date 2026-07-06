@@ -2,13 +2,6 @@
    mobile/reset.css — Generic CSS reset
    ====================================================================
 
-   Zero dependency on our own tokens or classes — this file is meant to
-   be portable to any project as-is. Merged from Josh Comeau's reset
-   (https://www.joshwcomeau.com/css/custom-css-reset/) and Andy Bell's
-   (https://piccalil.li/blog/a-more-modern-css-reset/), adapted where
-   the two disagreed (padding is intentionally left alone — both
-   references only ever reset margin, never padding).
-
    Imported first by screen.css, before tokens.css and component styles.
    ==================================================================== */
 

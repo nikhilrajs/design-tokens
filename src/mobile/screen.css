@@ -288,12 +288,6 @@
     --pcs-primitive-space-8
   ); /* 32px — between CTA button and help text */
 
-  /*
-   * 52px — sized to fit the 20px icon plus comfortable touch padding.
-   * No matching primitive: tokens.css's scale jumps from space-12 (48px)
-   * to space-14 (56px), so this stays a literal derived value rather
-   * than forcing a visual change to an unrelated step.
-   */
   --pcs-mob-toggle-width: 3.25rem;
 
   --pcs-mob-logo-gap: var(
@@ -355,6 +349,11 @@
   /* ── Logo ────────────────────────────────────────────────────────── */
 
   --pcs-mob-logo-color: var(--pcs-color-text-default);
+
+  /* ── Banner ────────────────────────────────────────────────────────── */
+
+  --pcs-mob-alert-background-error: var(--pcs-color-error-background);
+  --pcs-mob-alert-foreground-error: var(--pcs-primitive-color-red-600);
 }
 
 /*
@@ -368,6 +367,8 @@
   --pcs-mob-btn-bg: var(--pcs-primitive-color-neutral-50);
   --pcs-mob-btn-bg-active: var(--pcs-primitive-color-neutral-200);
   --pcs-mob-btn-text: var(--pcs-primitive-color-neutral-950);
+  --pcs-mob-alert-background-error: var(--pcs-color-error-background);
+  --pcs-mob-alert-foreground-error: var(--pcs-primitive-color-red-300);
 }
 
 /* ── Base ────────────────────────────────────────────────────────────── */
@@ -722,12 +723,12 @@ button.pcs-link {
   gap: var(--pcs-mob-error-gap);
   padding: var(--pcs-mob-error-padding);
 
-  background-color: var(--pcs-primitive-color-neutral-900);
+  background-color: var(--pcs-mob-alert-background-error);
   /* border: 1px solid var(--pcs-mob-color-error-border); */
   border-radius: var(--pcs-mob-input-radius);
 
   font: var(--pcs-mob-type-paragraph-xs-shorthand);
-  color: var(--pcs-mob-color-error-text);
+  color: var(--pcs-mob-alert-foreground-error);
 
   opacity: 0;
   transform: translateY(-4px);
