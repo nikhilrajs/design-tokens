@@ -3,6 +3,7 @@ import {
   type Column,
   type ColumnDef,
   type ColumnFiltersState,
+  type OnChangeFn,
   type SortingState,
   type VisibilityState,
   flexRender,
@@ -11,8 +12,15 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table"
-import { ChevronUpIcon, ChevronDownIcon, ChevronsUpDownIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
+} from '@tanstack/react-table';
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  ChevronsUpDownIcon,
+  Columns3,
+  Plus,
+  RotateCcw,
+} from 'lucide-react';
 
 import { cn } from "../../lib/utils"
 import { Button } from "./button"
@@ -25,56 +33,136 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./table"
+} from "./table";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from './empty';
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-  pageSize?: number
-  getRowVariant?: (row: TData) => string | undefined
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+  pageSize?: number;
+  getRowVariant?: (row: TData) => string | undefined;
+  handleClick?: (row: TData) => void;
+  // Controlled server-side state — enables manualSorting/manualFiltering when provided
+  sorting?: SortingState;
+  onSortingChange?: OnChangeFn<SortingState>;
+  columnFilters?: ColumnFiltersState;
+  onColumnFiltersChange?: OnChangeFn<ColumnFiltersState>;
+  // Infinite scroll — scroll detection is internal; call this when the bottom sentinel is reached
+  onLoadMore?: () => void;
+  hasMore?: boolean;
+  isLoadingMore?: boolean;
+  // Initial / search / sort loading — replaces all rows with skeleton
+  isLoading?: boolean;
+  hasMultiSelection?: boolean;
+  onReset?: () => void;
+  emptyActionLabel?: string;
+  onEmptyAction?: () => void;
+  maxHeight?: boolean;
 }
 
+const SkeletonRows = ({ columnCount }: { columnCount: number }) =>
+  Array.from({ length: 6 }).map((_, i) => (
+    <TableRow key={`skeleton-${i}`}>
+      {Array.from({ length: columnCount }).map((_, j) => (
+        <TableCell key={j}>
+          <div
+            className="h-4 rounded bg-muted animate-pulse"
+            style={{ width: `${55 + ((i * 3 + j * 7) % 40)}%` }}
+          />
+        </TableCell>
+      ))}
+    </TableRow>
+  ));
+
 const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
-  const value = (column.getFilterValue() ?? "") as string
+  const value = (column.getFilterValue() ?? '') as string;
   return (
     <Input
       size="sm"
-      placeholder="Search…"
+      placeholder="Search"
       value={value}
-      onChange={e => column.setFilterValue(e.target.value || undefined)}
-      onClick={e => e.stopPropagation()}
+      onChange={(e) => column.setFilterValue(e.target.value || undefined)}
+      onClick={(e) => e.stopPropagation()}
       className="normal-case font-normal tracking-normal"
     />
-  )
-}
+  );
+};
 
-const SortIcon = ({ direction }: { direction: "asc" | "desc" | false }) => {
-  const activeClass = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color-active)]"
-  const idleClass   = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color)]"
+const SortIcon = ({ direction }: { direction: 'asc' | 'desc' | false }) => {
+  const activeClass =
+    'shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color-active)]';
+  const idleClass =
+    'shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color)]';
 
-  if (direction === "asc")  return <ChevronUpIcon   className={activeClass} />
-  if (direction === "desc") return <ChevronDownIcon  className={activeClass} />
-  return                           <ChevronsUpDownIcon className={idleClass} />
-}
+  if (direction === 'asc') return <ChevronUpIcon className={activeClass} />;
+  if (direction === 'desc') return <ChevronDownIcon className={activeClass} />;
+  return <ChevronsUpDownIcon className={idleClass} />;
+};
 
-export const DataTable = <TData, TValue>({
-  columns: userColumns,
-  data,
-  pageSize = 5,
-  getRowVariant,
-}: DataTableProps<TData, TValue>) => {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
+const DataTableInner = <TData, TValue>(
+  {
+    columns: userColumns,
+    data,
+    pageSize = 5,
+    getRowVariant,
+    handleClick,
+    sorting: controlledSorting,
+    onSortingChange,
+    columnFilters: controlledColumnFilters,
+    onColumnFiltersChange,
+    onLoadMore,
+    hasMore,
+    isLoadingMore,
+    isLoading,
+    hasMultiSelection = true,
+    onReset,
+    emptyActionLabel,
+    onEmptyAction,
+    maxHeight, // Restricts the table height so long tables scroll internally, instead of increasing the page height.
+  }: DataTableProps<TData, TValue>,
+  forwardedRef: React.ForwardedRef<HTMLDivElement>
+) => {
+  // Presence of controlledSorting signals server-side mode; enables manualSorting + manualFiltering
+  const isServerSide = controlledSorting !== undefined;
+
+  // Fallback state used when the parent does not control sorting/filtering
+  const [internalSorting, setInternalSorting] = React.useState<SortingState>(
+    []
+  );
+  const [internalColumnFilters, setInternalColumnFilters] =
+    React.useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
+  const hasInternalScroll = Boolean(onLoadMore) || Boolean(maxHeight);
+
+  // 50 px threshold fires onLoadMore just before the user hits the very bottom
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    if (!onLoadMore || !hasMore || isLoadingMore) return;
+    const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+    if (scrollTop + clientHeight >= scrollHeight - 50) {
+      onLoadMore();
+    }
+  };
 
   const selectionColumn: ColumnDef<TData, TValue> = {
-    id: "select",
+    id: 'select',
     header: ({ table }) => (
       <Checkbox
         checked={table.getIsAllPageRowsSelected()}
-        indeterminate={!table.getIsAllPageRowsSelected() && table.getIsSomePageRowsSelected()}
-        onCheckedChange={(checked) => table.toggleAllPageRowsSelected(!!checked)}
+        indeterminate={
+          !table.getIsAllPageRowsSelected() && table.getIsSomePageRowsSelected()
+        }
+        onCheckedChange={(checked) =>
+          table.toggleAllPageRowsSelected(!!checked)
+        }
         aria-label="Select all"
       />
     ),
@@ -88,50 +176,77 @@ export const DataTable = <TData, TValue>({
     enableSorting: false,
     enableHiding: false,
     enableColumnFilter: false,
-  }
+  };
 
-  const columns = [selectionColumn, ...userColumns]
+  const columns = hasMultiSelection
+    ? [selectionColumn, ...userColumns]
+    : [...userColumns];
 
   const table = useReactTable({
     data,
     columns,
-    initialState: { pagination: { pageSize } },
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
+    manualSorting: isServerSide,
+    manualFiltering: isServerSide,
+    // Pagination model is only registered for non-infinite-scroll mode;
+    // including it with infinite scroll would page-slice the already-fetched rows
+    ...(hasInternalScroll
+      ? {}
+      : {
+          getPaginationRowModel: getPaginationRowModel(),
+          initialState: { pagination: { pageSize } },
+        }),
+    // Controlled when parent owns state; falls back to internal state otherwise
+    onSortingChange: onSortingChange ?? setInternalSorting,
+    onColumnFiltersChange: onColumnFiltersChange ?? setInternalColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    state: { sorting, columnFilters, columnVisibility, rowSelection },
-  })
+    state: {
+      sorting: controlledSorting ?? internalSorting,
+      columnFilters: controlledColumnFilters ?? internalColumnFilters,
+      columnVisibility,
+      rowSelection,
+    },
+  });
 
-  const selectedCount = table.getFilteredSelectedRowModel().rows.length
-  const totalCount = table.getFilteredRowModel().rows.length
+  const selectedCount = table.getFilteredSelectedRowModel().rows.length;
+  const totalCount = table.getFilteredRowModel().rows.length;
 
   return (
-    <div className="space-y-3">
-      {/* Table */}
+    <div className={cn('space-y-3', onLoadMore && 'h-full flex flex-col')}>
+      {/* Scroll container — ref and overflow only applied in infinite-scroll mode */}
       <div
-        className="overflow-hidden border rounded-[var(--pcs-table-border-radius)] border-[color:var(--pcs-table-border-color)] border-[length:var(--pcs-table-border-width)]"
+        ref={onLoadMore ? forwardedRef : undefined}
+        onScroll={handleScroll}
+        className={cn(
+          'border rounded-[var(--pcs-table-border-radius)] border-[color:var(--pcs-table-border-color)] border-[length:var(--pcs-table-border-width)]',
+          hasInternalScroll && 'overflow-auto',
+          onLoadMore && 'flex-1 min-h-0',
+          maxHeight && 'max-h-96'
+        )}
       >
         <Table>
-          <TableHeader>
+          {/* Header sticks to top only inside the scroll container */}
+          <TableHeader className="sticky top-0 bg-background z-10">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
-                  const canSort   = header.column.getCanSort()
-                  const canFilter = header.column.getCanFilter()
-                  const sorted    = header.column.getIsSorted()
-                  const isSelect  = header.id === "select"
+                  const canSort = header.column.getCanSort();
+                  const canFilter = header.column.getCanFilter();
+                  const sorted = header.column.getIsSorted();
+                  const isSelect = header.id === 'select';
                   return (
                     <TableHead
                       key={header.id}
-                      className={cn(isSelect && "w-12")}
+                      className={cn(isSelect && 'w-12')}
                     >
                       {header.isPlaceholder ? null : isSelect ? (
-                        flexRender(header.column.columnDef.header, header.getContext())
+                        flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )
                       ) : (
                         <div className="flex flex-col gap-1.5">
                           {canSort ? (
@@ -140,84 +255,124 @@ export const DataTable = <TData, TValue>({
                               className="flex items-center gap-[var(--pcs-table-head-sort-gap)] cursor-pointer select-none w-full hover:text-[color:var(--pcs-table-head-color-hover)]"
                               aria-label={`Sort by ${header.column.id}`}
                             >
-                              {flexRender(header.column.columnDef.header, header.getContext())}
+                              {flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
                               <SortIcon direction={sorted} />
                             </button>
                           ) : (
-                            flexRender(header.column.columnDef.header, header.getContext())
+                            flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )
                           )}
                           {canFilter && (
-                            <ColumnFilter column={header.column as Column<unknown, unknown>} />
+                            <ColumnFilter
+                              column={header.column as Column<unknown, unknown>}
+                            />
                           )}
                         </div>
                       )}
                     </TableHead>
-                  )
+                  );
                 })}
               </TableRow>
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() ? "selected" : undefined}
-                  data-variant={getRowVariant?.(row.original)}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
+            {/* Priority: loading skeleton → data rows → filter-active empty → no-data empty */}
+            {isLoading ? (
+              <SkeletonRows columnCount={columns.length} />
+            ) : table.getRowModel().rows.length ? (
+              <>
+                {table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() ? 'selected' : undefined}
+                    data-variant={getRowVariant?.(row.original)}
+                    onDoubleClick={
+                      handleClick ? () => handleClick(row.original) : undefined
+                    }
+                    className={handleClick ? 'cursor-pointer' : ''}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+                {/* Append skeleton rows at the bottom while fetching the next page */}
+                {isLoadingMore && <SkeletonRows columnCount={columns.length} />}
+              </>
+            ) : table.getState().columnFilters.length > 0 ? (
+              // Filters are active but returned no rows — guide user to adjust or reset
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="text-center px-[var(--pcs-table-empty-padding)] py-[var(--pcs-table-empty-padding)] text-[color:var(--pcs-table-empty-color)] text-[length:var(--pcs-table-empty-font-size)]"
-                >
-                  No results.
+                <TableCell colSpan={columns.length} className="py-12">
+                  <Empty className="flex flex-col items-center justify-center border-none">
+                    <EmptyHeader>
+                      <EmptyMedia>
+                        <Columns3 className="size-10 text-[color:var(--pcs-color-icon-muted)]" />
+                      </EmptyMedia>
+                      <EmptyTitle>No matching records found</EmptyTitle>
+                      <EmptyDescription>
+                        Try adjusting your filters or reset the table to view
+                        all records.
+                      </EmptyDescription>
+                    </EmptyHeader>
+                    {onReset && (
+                      <EmptyContent>
+                        <Button size="sm" variant="outline" onClick={onReset}>
+                          <RotateCcw size={14} className="mr-1" />
+                          Reset filters
+                        </Button>
+                      </EmptyContent>
+                    )}
+                  </Empty>
+                </TableCell>
+              </TableRow>
+            ) : (
+              // No filters active and no data — optionally offer an action to create the first record
+              <TableRow>
+                <TableCell colSpan={columns.length} className="py-12">
+                  <Empty className="flex flex-col items-center justify-center border-none">
+                    <EmptyHeader>
+                      <EmptyMedia>
+                        <Columns3 className="size-10 text-[color:var(--pcs-color-icon-muted)]" />
+                      </EmptyMedia>
+                      <EmptyTitle>No records found</EmptyTitle>
+                      <EmptyDescription>
+                        There are no records available yet.
+                      </EmptyDescription>
+                    </EmptyHeader>
+                    {emptyActionLabel && onEmptyAction && (
+                      <EmptyContent>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={onEmptyAction}
+                        >
+                          <Plus size={14} className="mr-1" />
+                          {emptyActionLabel}
+                        </Button>
+                      </EmptyContent>
+                    )}
+                  </Empty>
                 </TableCell>
               </TableRow>
             )}
           </TableBody>
         </Table>
       </div>
-
-      {/* Pagination footer */}
-      <div className="flex items-center justify-between">
-        <p className="type-body-sm text-[color:var(--pcs-table-footer-color)]">
-          {selectedCount > 0
-            ? `${selectedCount} of ${totalCount} row(s) selected`
-            : `${totalCount} row(s) total`}
-        </p>
-        <div className="flex items-center gap-2">
-          <p className="type-body-sm text-[color:var(--pcs-table-footer-color)]">
-            Page {table.getState().pagination.pageIndex + 1} of{" "}
-            {table.getPageCount()}
-          </p>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-            aria-label="Previous page"
-          >
-            <ChevronLeftIcon />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-            aria-label="Next page"
-          >
-            <ChevronRightIcon />
-          </Button>
-        </div>
-      </div>
     </div>
-  )
-}
+  );
+};
+
+// forwardRef with generic type preservation via cast
+export const DataTable = React.forwardRef(DataTableInner) as <TData, TValue>(
+  props: DataTableProps<TData, TValue> & { ref?: React.Ref<HTMLDivElement> }
+) => React.ReactElement | null;
