@@ -34,7 +34,7 @@ const TableBody = ({ className, ...props }: React.ComponentProps<"tbody">) => {
   return (
     <tbody
       data-slot="table-body"
-      className={cn("[&_tr:last-child]:border-0", className)}
+      className={cn("[&_tr:last-child>td]:border-b-0", className)}
       {...props}
     />
   )
@@ -61,7 +61,14 @@ const TableRow = ({ className, ...props }: React.ComponentProps<"tr">) => {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-[color:var(--pcs-table-row-border-bottom-color)] transition-colors",
+        // Border lives on the cells (below), not the row: a border set directly on
+        // <tr> only renders under border-collapse:collapse. AdvancedDataTable uses
+        // border-separate (needed for sticky pinned-column borders), which would
+        // silently drop a tr-level border — td/th borders render in both modes.
+        // group: lets a pinned cell mirror row hover via group-hover — its own
+        // background is set from JS state (selected/highlighted/default) to stay
+        // opaque while sticky, which a plain CSS :hover on this row can't reach.
+        "group transition-colors",
         "hover:bg-[var(--pcs-table-row-bg-hover)]",
         "data-[state=selected]:bg-[var(--pcs-table-row-bg-selected)]",
         "data-[variant=highlighted]:bg-[var(--pcs-table-row-bg-highlighted)]",
@@ -90,7 +97,7 @@ const TableHead = React.forwardRef<
         "px-[var(--pcs-table-head-padding-x-default)] py-[var(--pcs-table-head-padding-y-default)]",
         "text-[length:var(--pcs-table-head-font-size)] text-[color:var(--pcs-table-head-color)]",
         "font-[var(--pcs-table-head-font-weight)] leading-[var(--pcs-table-head-line-height)]",
-        "uppercase tracking-[var(--pcs-table-head-letter-spacing)]",
+        "[text-transform:var(--pcs-table-head-text-transform)] tracking-[var(--pcs-table-head-letter-spacing)]",
         "[&:has([role=checkbox])]:pr-0",
         className
       )}
@@ -109,6 +116,7 @@ const TableCell = React.forwardRef<
       data-slot="table-cell"
       className={cn(
         "align-middle whitespace-nowrap",
+        "border-b border-[color:var(--pcs-table-row-border-bottom-color)]",
         "px-[var(--pcs-table-cell-padding-x-default)] py-[var(--pcs-table-cell-padding-y-default)]",
         "text-[length:var(--pcs-table-cell-font-size)] text-[color:var(--pcs-table-cell-color)]",
         "font-[var(--pcs-table-cell-font-weight)] leading-[var(--pcs-table-cell-line-height)]",

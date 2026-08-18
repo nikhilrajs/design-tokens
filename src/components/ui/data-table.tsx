@@ -1,6 +1,5 @@
 import * as React from "react"
 import {
-  type Column,
   type ColumnDef,
   type ColumnFiltersState,
   type OnChangeFn,
@@ -14,9 +13,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import {
-  ChevronUpIcon,
-  ChevronDownIcon,
-  ChevronsUpDownIcon,
   Columns3,
   Plus,
   RotateCcw,
@@ -25,7 +21,7 @@ import {
 import { cn } from "../../lib/utils"
 import { Button } from "./button"
 import { Checkbox } from "./checkbox"
-import { Input } from "./input"
+import { ColumnHeaderSearch } from "./column-header-search"
 import {
   Table,
   TableBody,
@@ -80,31 +76,6 @@ const SkeletonRows = ({ columnCount }: { columnCount: number }) =>
       ))}
     </TableRow>
   ));
-
-const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
-  const value = (column.getFilterValue() ?? '') as string;
-  return (
-    <Input
-      size="sm"
-      placeholder="Search"
-      value={value}
-      onChange={(e) => column.setFilterValue(e.target.value || undefined)}
-      onClick={(e) => e.stopPropagation()}
-      className="normal-case font-normal tracking-normal"
-    />
-  );
-};
-
-const SortIcon = ({ direction }: { direction: 'asc' | 'desc' | false }) => {
-  const activeClass =
-    'shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color-active)]';
-  const idleClass =
-    'shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color)]';
-
-  if (direction === 'asc') return <ChevronUpIcon className={activeClass} />;
-  if (direction === 'desc') return <ChevronDownIcon className={activeClass} />;
-  return <ChevronsUpDownIcon className={idleClass} />;
-};
 
 const DataTableInner = <TData, TValue>(
   {
@@ -248,31 +219,21 @@ const DataTableInner = <TData, TValue>(
                           header.getContext()
                         )
                       ) : (
-                        <div className="flex flex-col gap-1.5">
-                          {canSort ? (
-                            <button
-                              onClick={header.column.getToggleSortingHandler()}
-                              className="flex items-center gap-[var(--pcs-table-head-sort-gap)] cursor-pointer select-none w-full hover:text-[color:var(--pcs-table-head-color-hover)]"
-                              aria-label={`Sort by ${header.column.id}`}
-                            >
-                              {flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
-                              <SortIcon direction={sorted} />
-                            </button>
-                          ) : (
-                            flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )
-                          )}
-                          {canFilter && (
-                            <ColumnFilter
-                              column={header.column as Column<unknown, unknown>}
-                            />
-                          )}
-                        </div>
+                        <ColumnHeaderSearch
+                          label={
+                            typeof header.column.columnDef.header === 'string'
+                              ? header.column.columnDef.header
+                              : header.column.id
+                          }
+                          canSort={canSort}
+                          sorted={sorted}
+                          onSortToggle={header.column.getToggleSortingHandler()}
+                          canFilter={canFilter}
+                          filterValue={(header.column.getFilterValue() ?? '') as string}
+                          onFilterChange={(value) =>
+                            header.column.setFilterValue(value || undefined)
+                          }
+                        />
                       )}
                     </TableHead>
                   );

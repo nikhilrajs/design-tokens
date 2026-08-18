@@ -1,7 +1,6 @@
 import * as React from "react"
 import {
   type Cell,
-  type Column,
   type ColumnDef,
   type ColumnFiltersState,
   type ColumnOrderState,
@@ -36,11 +35,8 @@ import {
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 import {
-  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  ChevronUpIcon,
-  ChevronsUpDownIcon,
   GripVerticalIcon,
   PinIcon,
   PinOffIcon,
@@ -50,7 +46,7 @@ import {
 import { cn } from "../../lib/utils"
 import { Button } from "./button"
 import { Checkbox } from "./checkbox"
-import { Input } from "./input"
+import { ColumnHeaderSearch } from "./column-header-search"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -74,33 +70,6 @@ const getColId = <TData, TValue>(col: ColumnDef<TData, TValue>): string => {
   if (col.id) return col.id
   const key = (col as { accessorKey?: unknown }).accessorKey
   return typeof key === "string" ? key : ""
-}
-
-// ─── SortIcon ─────────────────────────────────────────────────────────────────
-
-const SortIcon = ({ direction }: { direction: "asc" | "desc" | false }) => {
-  const active = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color-active)]"
-  const idle   = "shrink-0 size-[var(--pcs-table-head-sort-icon-size)] text-[color:var(--pcs-table-head-sort-icon-color)]"
-  if (direction === "asc")  return <ChevronUpIcon    className={active} />
-  if (direction === "desc") return <ChevronDownIcon   className={active} />
-  return                           <ChevronsUpDownIcon className={idle} />
-}
-
-// ─── ColumnFilter ─────────────────────────────────────────────────────────────
-
-const ColumnFilter = ({ column }: { column: Column<unknown, unknown> }) => {
-  const value = (column.getFilterValue() ?? "") as string
-  return (
-    <Input
-      size="sm"
-      placeholder="Search…"
-      value={value}
-      onChange={e => column.setFilterValue(e.target.value || undefined)}
-      onClick={e => e.stopPropagation()}
-      // Reset inherited th styles (uppercase, letter-spacing, font-weight)
-      className="normal-case font-normal tracking-normal"
-    />
-  )
 }
 
 // ─── DraggableTableHead ───────────────────────────────────────────────────────
@@ -154,74 +123,50 @@ const DraggableTableHead = <TData,>({
     <TableHead
       ref={setNodeRef}
       style={style}
-      className={cn(
-        isSelect && "w-12",
-      )}
+      className={cn(isSelect && "w-12")}
       {...attributes}
     >
       {header.isPlaceholder ? null : isSelect ? (
         // Selection column — checkbox only, no controls
         flexRender(column.columnDef.header, header.getContext())
       ) : (
-        <div className="flex flex-col gap-1.5">
-
-          {/* ── Label row: drag handle + sort label + pin button ── */}
-          <div className="flex items-center gap-1 min-w-0">
-
-            {/* Drag handle — hidden for pinned columns */}
-            {!isPinned && (
-              <button
-                {...(listeners ?? {})}
-                className="shrink-0 p-0.5 cursor-grab active:cursor-grabbing touch-none text-[color:var(--pcs-color-icon-muted)] hover:text-[color:var(--pcs-color-icon-default)]"
-                aria-label="Drag to reorder column"
-                tabIndex={-1}
-              >
-                <GripVerticalIcon className="size-4" />
-              </button>
-            )}
-
-            {/* Sort button or plain label */}
-            {column.getCanSort() ? (
-              <button
-                onClick={column.getToggleSortingHandler()}
-                className="flex flex-1 items-center gap-[var(--pcs-table-head-sort-gap)] cursor-pointer select-none hover:text-[color:var(--pcs-table-head-color-hover)] min-w-0"
-              >
-                <span className="truncate">
-                  {flexRender(column.columnDef.header, header.getContext())}
-                </span>
-                <SortIcon direction={column.getIsSorted()} />
-              </button>
-            ) : (
-              <span className="flex-1 truncate">
-                {flexRender(column.columnDef.header, header.getContext())}
-              </span>
-            )}
-
-            {/* Pin / unpin button */}
+        <ColumnHeaderSearch
+          label={typeof column.columnDef.header === "string" ? column.columnDef.header : column.id}
+          canSort={column.getCanSort()}
+          sorted={column.getIsSorted()}
+          onSortToggle={column.getToggleSortingHandler()}
+          canFilter={column.getCanFilter()}
+          filterValue={(column.getFilterValue() ?? "") as string}
+          onFilterChange={value => column.setFilterValue(value || undefined)}
+          leadingAction={!isPinned && (
+            <button
+              {...(listeners ?? {})}
+              className="w-0 min-w-0 shrink-0 overflow-visible -mr-1 cursor-grab active:cursor-grabbing touch-none opacity-0 group-hover:opacity-100 transition-opacity text-[color:var(--pcs-color-icon-muted)] hover:text-[color:var(--pcs-color-icon-default)]"
+              aria-label="Drag to reorder column"
+              tabIndex={-1}
+            >
+              <GripVerticalIcon className="size-3.5 -ml-3.5" />
+            </button>
+          )}
+          trailingAction={
             <button
               onClick={() => column.pin(isPinned ? false : "left")}
               className={cn(
-                "shrink-0 p-0.5 rounded cursor-pointer transition-colors",
+                "w-0 min-w-0 shrink-0 overflow-visible -ml-1 rounded cursor-pointer transition-all",
                 isPinned
                   ? "text-[color:var(--pcs-color-primary-emphasis)]"
-                  : "text-[color:var(--pcs-color-icon-muted)] hover:text-[color:var(--pcs-color-icon-default)]"
+                  : "opacity-0 group-hover:opacity-100 text-[color:var(--pcs-color-icon-muted)] hover:text-[color:var(--pcs-color-icon-default)]"
               )}
               title={isPinned ? "Unpin column" : "Pin column left"}
               aria-label={isPinned ? "Unpin column" : "Pin column left"}
             >
               {isPinned
-                ? <PinOffIcon className="size-4" />
-                : <PinIcon    className="size-4" />
+                ? <PinOffIcon className="size-3.5" />
+                : <PinIcon    className="size-3.5" />
               }
             </button>
-          </div>
-
-          {/* ── Filter row ── */}
-          {column.getCanFilter() && (
-            <ColumnFilter column={column as Column<unknown, unknown>} />
-          )}
-
-        </div>
+          }
+        />
       )}
     </TableHead>
   )
@@ -504,8 +449,12 @@ export const AdvancedDataTable = <TData, TValue>({
                                 style={{ width: cell.column.getSize(), ...pinStyle, ...borderStyle }}
                                 className={cn(
                                   // Pinned cells need an opaque background for sticky to cover scrolling content.
-                                  // Mirrors the row state so pinned cells aren't visually detached.
-                                  pinned && !row.getIsSelected() && rowVariant !== "highlighted" && "bg-[var(--pcs-table-bg)]",
+                                  // Mirrors the row state so pinned cells aren't visually detached. group-hover
+                                  // mirrors the row's own hover:bg too — a plain CSS :hover on the <tr> can't
+                                  // reach through this cell's opaque, JS-computed background otherwise. Only
+                                  // wired for the default state, matching TableRow's own precedence where
+                                  // selected/highlighted stay fixed regardless of hover.
+                                  pinned && !row.getIsSelected() && rowVariant !== "highlighted" && "bg-[var(--pcs-table-bg)] group-hover:bg-[var(--pcs-table-row-bg-hover)]",
                                   pinned && row.getIsSelected()  && "bg-[var(--pcs-table-row-bg-selected)]",
                                   pinned && rowVariant === "highlighted" && !row.getIsSelected() && "bg-[var(--pcs-table-row-bg-highlighted)]",
                                 )}

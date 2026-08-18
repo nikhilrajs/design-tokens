@@ -88,7 +88,7 @@
 	--pcs-table-head-line-height: var(--pcs-text-label-md-line-height);
 	--pcs-table-head-color: var(--pcs-color-icon-default);
 	/* neutral-600 in light (7.3:1 vs neutral-100 bg) — text-muted was 4.4:1, just under AA */
-	--pcs-table-head-text-transform: uppercase;
+	--pcs-table-head-text-transform: none;
 	--pcs-table-head-letter-spacing: 0.04em;
 
 	/* Pinned column separator — 2px border on the boundary edge of the last left-pinned
@@ -105,6 +105,11 @@
 	--pcs-table-head-sort-icon-color-active: var(--pcs-color-primary-emphasis);
 	--pcs-table-head-sort-gap: var(--pcs-space-component-gap-xs);
 	/* 4px — between label and icon */
+
+	--pcs-table-head-search-label-color-float: var(--pcs-table-head-sort-icon-color-active);
+	--pcs-table-head-search-underline-color: var(--pcs-color-border-strong);
+	--pcs-table-head-search-underline-color-focus: var(--pcs-color-primary-emphasis);
+	--pcs-table-head-search-input-color: var(--pcs-color-text-default);
 
 	/* Sortable header hover */
 	--pcs-table-head-bg-hover: var(--pcs-color-surface-neutral-hover);
